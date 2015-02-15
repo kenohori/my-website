@@ -1,15 +1,19 @@
-- path: index.html
+- file: index.html
+  path: 
   en: About
   es: Acerca de
 
-- path: papers.html
+- file: papers/index.html
+  path: papers/
   en: Papers
   es: Art&iacute;culos
 
-- path: code.html
+- file: code/index.html
+  path: code/
   en: Code
   es: C&oacute;digo
 
-- path: contact
+- file: contact/index.html
+  path: contact/
   en: Contact
   es: Contacto

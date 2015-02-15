@@ -1,0 +1,69 @@
+---
+layout: default
+title: Code
+file: code/index.html
+lang: en
+---
+
+<div class="container">
+	<div class="page-header">
+		<h1>Code</h1>
+	</div>
+	<div class="row">
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<a href="http://tudelft3d.github.com/pprepair/" class="thumbnail"><img src="{{ site.baseurl }}/media/figures/pprepair.png" class="img-responsive" alt="pprepair"></a>
+		</div>
+		<div class="col-lg-9 col-md-8 col-sm-6">
+			<h3><a href="http://tudelft3d.github.com/pprepair/">pprepair</a></h3>
+			<p>(planar partition repair) ensures that a set of polygons form a valid planar partition, made of valid polygons and having no gaps or overlaps.</p>
+			<p>Read more:</p>
+			{% imbiber pubs/publications.bib one:12pfg %}
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<a href="http://tudelft3d.github.com/prepair/" class="thumbnail"><img src="{{ site.baseurl }}/media/figures/prepair.png" class="img-responsive" alt="prepair"></a>
+		</div>
+		<div class="col-lg-9 col-md-8 col-sm-6">
+			<h3><a href="http://tudelft3d.github.com/prepair/">prepair</a></h3>
+			<p>(polygon repair) takes a possibly invalid polygon, gives it a consistent interpretation and returns a valid polygon according to the <abbr title="Open Geospatial Consortium">OGC</abbr> Simple Features and <abbr title="International Organization for Standardization">ISO</abbr> 19107 rules.</p>
+			<p>Read more:</p>
+			{% imbiber pubs/publications.bib one:14cg %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<a href="https://github.com/kenohori/lcc-tools" class="thumbnail"><img src="{{ site.baseurl }}/media/figures/lcc-tools.png" class="img-responsive" alt="lcc-tools"></a>
+		</div>
+		<div class="col-lg-9 col-md-8 col-sm-6">
+			<h3><a href="https://github.com/kenohori/lcc-tools">lcc-tools</a></h3>
+			<p>tools to construct and manipulate higher-dimensional linear cell complexes, such as incremental and non-incremental construction and extrusion</p>
+			<p>Read more:</p>
+			{% imbiber pubs/publications.bib one:15ijgis_extrusion %}
+			{% imbiber pubs/publications.bib one:14icaa %}
+		</div>
+	</div>
+	<h2>Snippets</h2>
+	<div class="row">
+		<div class="col-lg-12 col-sm-12">
+			<h3><a href="https://github.com/kenohori/bibhtmler">bibhtmler</a></h3>
+			<p>simple PHP class to convert BiBTeX to HTML (as used in this website and in that of the <a href="http://3dgeoinfo.bk.tudelft.nl">3D Geoinformation group</a>)</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12 col-sm-12">
+			<h3><a href="https://github.com/kenohori/cgal-etc">cgal-etc</a></h3>
+			<p>(enhanced triangulation classes) add functionality to <a href="http://www.cgal.org">CGAL</a> triangulations, such as labelling edges and removing constraints</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<a href="https://github.com/kenohori/TriVis" class="thumbnail"><img src="{{ site.baseurl }}/media/figures/TriVis.png" class="img-responsive" alt="TriVis"></a>
+		</div>
+		<div class="col-lg-9 col-md-8 col-sm-6">
+			<h3><a href="https://github.com/kenohori/TriVis">TriVis</a></h3>
+			<p>small Mac visualiser to debug triangle-based algorithms</p>
+		</div>
+	</div>
+</div>	
