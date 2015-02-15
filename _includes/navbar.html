@@ -1,0 +1,29 @@
+<div class="navbar navbar-default" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{{ site.baseurl }}/{{ page.lang }}">Ken Arroyo Ohori</a>
+		</div>
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav">
+				{% for p in site.data.pages %}
+				<li{% if page.file == p.path %} class="active"{% endif %}><a href="{{ site.baseurl }}/{{ page.lang }}/{{ p.path }}">{% if page.lang == 'en' %}{{ p.en }}{% else %}{{ p.es }}{% endif %}</a></li>
+				{% endfor %}
+			</ul>
+			<ul class="nav navbar-nav pull-right">
+				<li class="dropdown pull-right">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ page.lang }} <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="{{ site.baseurl }}/{% if page.lang == 'en' %}en{% else %}es{% endif %}/{{ page.file }}">{% if page.lang == 'en' %}en{% else %}es{% endif %}</a></li>
+						<li><a href="{{ site.baseurl }}/{% if page.lang == 'en' %}es{% else %}en{% endif %}/{{ page.file }}">{% if page.lang == 'en' %}es{% else %}en{% endif %}</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
