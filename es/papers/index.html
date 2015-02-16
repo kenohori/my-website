@@ -1,0 +1,18 @@
+---
+layout: default
+title: Art&iacute;culos
+file: papers/index.html
+lang: es
+---
+
+<div class="container">
+	<div class="page-header">
+		<h1>Art&iacute;culos</h1>
+	</div>
+	<h2>Art&iacute;culos revisados por pares</h2>
+	{% imbiber pubs/publications.bib lang:es %}
+	<h2>Otros</h2>
+	{% imbiber pubs/others.bib lang:es %}
+	<h2>Tesis supervisadas</h2>
+	{% imbiber pubs/supervised.bib lang:es %}
+</div>

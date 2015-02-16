@@ -1,0 +1,18 @@
+---
+layout: default
+title: Papers
+file: papers/index.html
+lang: en
+---
+
+<div class="container">
+	<div class="page-header">
+		<h1>Papers</h1>
+	</div>
+	<h2>Peer reviewed papers</h2>
+	{% imbiber pubs/publications.bib %}
+	<h2>Other</h2>
+	{% imbiber pubs/others.bib %}
+	<h2>Supervised theses</h2>
+	{% imbiber pubs/supervised.bib %}
+</div>

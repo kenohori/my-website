@@ -1,5 +1,25 @@
 #!/usr/bin/ruby
 
+# Copyright (c) 2015 Ken Arroyo Ohori
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
 require 'set'
 require 'pp'
 require 'parslet'
@@ -266,7 +286,14 @@ class Imbiber
 			:aftersubgrouptitle => "</h4>"
 		}
 		options.each do |key, value|
-			@options[key] = value
+			if !@options.has_key?(key) then
+				@options[key] = value
+			elsif @options[key].kind_of?(Symbol) then
+				@options[key] = value.to_sym
+			else
+				@options[key] = value
+			end
+					
 		end
 
 		@bibfields = ["address", "author", "booktitle", "chapter", "edition", "editor", "howpublished", "institution", "journal", "month", "note", "number", "organization", "pages", "publisher", "school", "series", "title", "type", "year"].to_set
@@ -506,8 +533,8 @@ class Imbiber
 		when "incollection"
 			outwhat = @entries[key][:title]
 			outwho = list_to_string(@entries[key][:author])
-			outwhere.push(@lt.localise(:In) + ' ')
 			if @entries[key].has_key?(:editor) then
+				outwhere.push(@lt.localise(:In) + ' ')
 				outwhere[-1] << list_to_string(@entries[key][:editor]) + ' (' + @lt.localise(:eds) + ')'
 			end
 			outwhere.push("<em>" + @entries[key][:booktitle] + "</em>")
@@ -550,8 +577,8 @@ class Imbiber
 		when "conference","inproceedings"
 			outwhat = @entries[key][:title]
 			outwho = list_to_string(@entries[key][:author])
-			outwhere.push(@lt.localise(:In) + ' ')
 			if @entries[key].has_key?(:editor) then
+				outwhere.push(@lt.localise(:In) + ' ')
 				outwhere[-1] << list_to_string(@entries[key][:editor]) + ' (' + @lt.localise(:eds) + ')'
 			end
 			outwhere.push("<em>" + @entries[key][:booktitle] + "</em>")
@@ -844,6 +871,9 @@ class Imbiber
 		
 		# Sort groups
 		sorted_groups = groups.sort_by { |k, v| v[:sortingvalue] }
+		if order == :desc then
+			sorted_groups = sorted_groups.reverse
+		end
 
 		# Make HTML
 		html = ""
@@ -851,6 +881,9 @@ class Imbiber
 			# pp group[1][:entries]
 			html << @options[:beforegrouptitle] << group[0] << @options[:aftergrouptitle] << "\n"
 			sorted_group = group[1][:entries].sort_by { |v| v[:sortingvalue] }
+			if order == :desc then
+				sorted_group = sorted_group.reverse
+			end
 			sorted_group.each do |entry|
 				html << entry[:entry] << "\n"
 			end
