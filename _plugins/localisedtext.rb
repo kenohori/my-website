@@ -1,7 +1,5 @@
 #!/usr/bin/ruby
 
-# The MIT License (MIT)
-
 # Copyright (c) 2015 Ken Arroyo Ohori
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -163,7 +163,7 @@ class TextParser < Parslet::Parser
 	root(:text)
 
 	rule(:whitespace) { match['\s\n\r'].repeat(1) }
-	rule(:bracketedtext) { str('{') >> (pseudoletterpreservecase | bracketedtext | whitespace.as(:space)).repeat >> str('}') }
+	rule(:bracketedtext) { str('{') >> (pseudoletterpreservecase | bracketedtext | whitespace.as(:space)).repeat.as(:bracketedtext) >> str('}') }
 
 	rule(:text) { (whitespace | word).repeat.as(:text) }
 	rule(:word) { (pseudoletter | bracketedtext).repeat(1).as(:word) }
@@ -206,6 +206,7 @@ class TextTransformer < Parslet::Transform
 		end
 	}
 
+	rule(:bracketedtext => sequence(:s)) { s.join("") }
 	rule(:letterpreservecase => simple(:l)) { l.to_s }
 	rule(:specialletterpreservecase => simple(:l)) { @@sl.convert(l.to_s) }
 
@@ -328,11 +329,7 @@ class Imbiber
 		bib = '@' + entry[:class] + '{' + entry[:key] + ',' + "\n"
 		entry.each do |field|
 			if @bibfields.include?(field[0].to_s) then
-				if field[1].kind_of?(Array) then
-					bib << "\t" + field[0].to_s + ' = ' + field[1].join(' and ') + ",\n"
-				else
-					bib << "\t" + field[0].to_s + ' = ' + field[1] + ",\n"
-				end
+				bib << "\t" + field[0].to_s + ' = {' + entry[:bibtex][field[0].to_s] + "},\n"
 			end
 		end
 		bib = bib[0..-3] + "\n" + '}'
@@ -354,8 +351,10 @@ class Imbiber
 			@entries[key] = {}
 			@entries[key][:class] = entrybranch[:entry][:class]
 			@entries[key][:key] = key.to_s
+			@entries[key][:bibtex] = {}
 			entrybranch[:entry][:fields].each do |field|
 				# puts field[:field][0][:name].to_s.downcase
+				@entries[key][:bibtex][field[:field][0][:name].to_s.downcase] = field[:field][1][:value].to_s
 				case field[:field][0][:name].to_s.downcase
 				when "author"
 					# puts field[:field][1][:value].to_s
@@ -897,7 +896,9 @@ end
 # i.read("/Users/ken/Versioned/websites/work/publications.bib")
 # i.read("/Users/ken/Versioned/websites/work/others.bib")
 # pp i.entries
-# pp i.html_of_all()
+# pp i.html_of(:"11phdproposal")
+
+# pp TextTransformer.new(:sentence).apply(TextParser.new.parse("Realising the Foundations of a Higher Dimensional {GIS}: A Study of Higher Dimensional Spatial Data Models, Data Structures and Operations"))
 
 # text = File.read("/Users/ken/Versioned/websites/work/publications.bib")
 # entries = DocumentParser.new.parse_with_debug(text)
