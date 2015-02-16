@@ -87,7 +87,7 @@ class NameParser < Parslet::Parser
 	root(:name)
 
 	rule(:whitespace) { match['\s\n\r'].repeat(1) }
-	rule(:bracketedtext) { str('{') >> (pseudoletter | bracketedtext | whitespace.as(:space)).repeat >> str('}') }
+	rule(:bracketedtext) { str('{') >> (pseudoletter | bracketedtext | whitespace.as(:space)).repeat.as(:bracketedtext) >> str('}') }
 
 	rule(:name) { (word | whitespace | str(',').as(:comma)).repeat.as(:name) }
 	rule(:word) { (pseudoletter | bracketedtext).repeat(1).as(:word) | str('.') }
@@ -110,6 +110,7 @@ class NameTransformer < Parslet::Transform
 	rule(:specialletter => simple(:l)) { @@sl.convert(l.to_s) }
 	rule(:space => simple(:s)) { " " }
 	rule(:comma => simple(:c)) { "," }
+	rule(:bracketedtext => sequence(:s)) { s.join("") }
 	rule(:word => sequence(:w)) {
 		word = w.join("")
 		if word.length == 1 and word[0].upcase == word[0] then
@@ -899,6 +900,8 @@ end
 # pp i.html_of(:"11phdproposal")
 
 # pp TextTransformer.new(:sentence).apply(TextParser.new.parse("Realising the Foundations of a Higher Dimensional {GIS}: A Study of Higher Dimensional Spatial Data Models, Data Structures and Operations"))
+# puts "Fr{\\'e}d{\\'e}ric Hubert"
+# puts NameTransformer.new.apply(NameParser.new.parse_with_debug("Fr{\\'e}d{\\'e}ric Hubert"))
 
 # text = File.read("/Users/ken/Versioned/websites/work/publications.bib")
 # entries = DocumentParser.new.parse_with_debug(text)
