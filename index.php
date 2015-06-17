@@ -1,6 +1,6 @@
 <?php
 
-$baseurl = 'http://3dgeoinfo.bk.tudelft.nl/ken';
+$baseurl = 'https://3d.bk.tudelft.nl/ken';
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 if ($lang != 'es' and $lang != 'en') $lang = 'en';
 $url = $baseurl.'/'.$lang.'/'
