@@ -2,3 +2,9 @@ _site
 files
 img
 .DS_Store
+fonts/MetricWeb-Thin.eot
+fonts/MetricWeb-ThinItalic.woff
+fonts/MetricWeb-ThinItalic.eot
+fonts/MetricWeb-Regular.woff
+fonts/MetricWeb-Thin.woff
+fonts/MetricWeb-Regular.eot

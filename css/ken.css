@@ -5,17 +5,29 @@ html, body {
   min-height: 100%;
 }
 @font-face {
-    font-family: 'Source Sans Pro Light';
-    src: url('../fonts/SourceSansPro-Light.eot');
-    src: url('../fonts/SourceSansPro-Light.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/SourceSansPro-Light.woff') format('woff'),
-         url('../fonts/SourceSansPro-Light.ttf') format('truetype'),
-         url('../fonts/SourceSansPro-Light.svg#sourcesanspro-light') format('svg');
+    font-family: 'Metric Thin';
+    src: url('../fonts/MetricWeb-Thin.eot');
+    src: url('../fonts/MetricWeb-Thin.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/MetricWeb-Thin.woff') format('woff'),
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Metric Thin';
+    src: url('../fonts/MetricWeb-ThinItalic.eot');
+    src: url('../fonts/MetricWeb-ThinItalic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/MetricWeb-ThinItalic.woff') format('woff'),
+    font-style: italic, oblique;
+}
+@font-face {
+    font-family: 'Metric Thin';
+    src: url('../fonts/MetricWeb-Regular.eot');
+    src: url('../fonts/MetricWeb-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/MetricWeb-Regular.woff') format('woff'),
+    font-weight: bold;
+}
 body {
-  font-family: "Source Sans Pro Light", Helvetica, Arial, sans-serif;
+  font-family: "Metric Thin", Helvetica, Arial, sans-serif;
   font-size: 18px;
   color: #000000;
 }
@@ -33,7 +45,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Source Sans Pro Light", Helvetica, Arial, sans-serif;
+  font-family: "Metric Thin", Helvetica, Arial, sans-serif;
 }
 @font-face {
     font-family: 'Inconsolata';
