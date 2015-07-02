@@ -73,6 +73,7 @@ a.thumbnail:focus {
 .navbar-brand {
   font-size: 20px;
   color: #000000 !important;
+  font-weight: bold;
 }
 small {
   font-size: 70%;
