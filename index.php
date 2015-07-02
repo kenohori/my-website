@@ -1,6 +1,6 @@
 <?php
 
-$baseurl = 'https://3d.bk.tudelft.nl/ken';
+$baseurl = 'http://localhost/~ken/work';
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 if ($lang != 'es' and $lang != 'en') $lang = 'en';
 $url = $baseurl.'/'.$lang.'/'

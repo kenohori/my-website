@@ -3,16 +3,55 @@ layout: default
 title: Papers
 file: papers/index.html
 lang: en
+scrollspy: sidebar
 ---
 
 <div class="container">
 	<div class="page-header">
 		<h1>Papers</h1>
 	</div>
-	<h2>Peer reviewed papers</h2>
-	{% imbiber pubs/publications.bib %}
-	<h2>Other</h2>
-	{% imbiber pubs/others.bib %}
-	<h2>Supervised theses</h2>
-	{% imbiber pubs/supervised.bib %}
+	<div class="row">
+		<div class="col-md-9">
+			<section id="pr">
+				<h2>Peer reviewed papers</h2>
+				{% imbiber pubs/publications.bib idswithprefix:pr %}
+			</section>
+			<section id="other">
+				<h2>Other</h2>
+				{% imbiber pubs/others.bib idswithprefix:other %}
+			</section>
+			<section id="st">
+				<h2>Supervised theses</h2>
+				{% imbiber pubs/supervised.bib %}
+			</section>
+		</div>
+		<div class="col-md-3">
+			<div id="sidebar" class="papers-sidebar" role="complementary" data-spy="affix">
+				<h2>Go to</h2>
+				<ul class="nav nav-stacked">
+					<li>
+						<a href="#pr">Peer reviewed</a>
+						<ul class="nav nav-stacked">
+							<li><a href="#pr2015">2015</a></li>
+							<li><a href="#pr2014">2014</a></li>
+							<li><a href="#pr2013">2013</a></li>
+							<li><a href="#pr2012">2012</a></li>
+							<li><a href="#pr2011">2011</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#other">Other</a>
+						<ul class="nav nav-stacked">
+							<li><a href="#other2015">2015</a></li>
+							<li><a href="#other2014">2014</a></li>
+							<li><a href="#other2013">2013</a></li>
+							<li><a href="#other2012">2012</a></li>
+							<li><a href="#other2011">2011</a></li>
+						</ul>
+					</li>
+					<li><a href="#st">Supervised theses</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>

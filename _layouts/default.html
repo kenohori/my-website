@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang }}">
   {% include head.html %}
+  {% if page.scrollspy %}
+  <body data-spy="scroll" data-target="#{{ page.scrollspy }}">
+  {% else %}
   <body>
+  {% endif %}
     {% include navbar.html %}
     <div id="wrap">
 		<div id="main" class="container clear-top">

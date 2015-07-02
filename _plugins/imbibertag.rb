@@ -59,7 +59,12 @@ class ImbiberTag < Liquid::Tag
 			else
 				@order = :desc
 			end
-			@imbiber.html_of_all(@groupby, @sortby, @order)
+			if @arguments.has_key?(:idswithprefix) then
+				@idswithprefix = @arguments[:idswithprefix]
+			else
+				@idswithprefix = false
+			end
+			@imbiber.html_of_all(@groupby, @sortby, @order, @idswithprefix)
 		end
 	end
 end
