@@ -78,7 +78,7 @@ a.thumbnail:focus {
 small {
   font-size: 70%;
 }
-.dropdown-menu > li > a:hover,
+/*.dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
@@ -89,7 +89,7 @@ small {
   background-image: -moz-linear-gradient(top, #009933 0%, #007722 100%);
   background-image: linear-gradient(to bottom, #009933 0%, #007722 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff009933', endColorstr='#ff007722', GradientType=0);
-}
+}*/
 .papers-sidebar {
   padding-left: 20px;
   margin-top: 20px;
