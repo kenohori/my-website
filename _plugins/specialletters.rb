@@ -25,6 +25,12 @@ class SpecialLetters
 	@@letters = {
 		"---" => "—",
 		"--" => "–",
+		"``" => "“",
+		"`" => "`",
+		"\'\'" => "”",
+		"\'" => "’",
+
+		"\\&" => "&",
 
 		"\\\"a" => "ä",
 		"\\\"e" => "ë",
@@ -42,11 +48,24 @@ class SpecialLetters
 		"\\\'i" => "í",
 		"\\\'o" => "ó",
 		"\\\'u" => "ú",
+		"\\\'z" => "ź",
 		"\\\'A" => "Á",
 		"\\\'E" => "É",
 		"\\\'I" => "Í",
 		"\\\'O" => "Ó",
 		"\\\'U" => "Ú",
+		"\\\'Z" => "Ź",
+
+		"\\\`a" => "à",
+		"\\\`e" => "è",
+		"\\\`i" => "ì",
+		"\\\`o" => "ò",
+		"\\\`u" => "ù",
+		"\\\`A" => "À",
+		"\\\`E" => "È",
+		"\\\`I" => "Ì",
+		"\\\`O" => "Ò",
+		"\\\`U" => "Ù",
 
 		"\\\^a" => "â",
 		"\\\^e" => "ê",
@@ -57,14 +76,36 @@ class SpecialLetters
 		"\\\^E" => "Ê",
 		"\\\^I" => "Î",
 		"\\\^O" => "Ô",
-		"\\\^U" => "Û"
+		"\\\^U" => "Û",
+
+		"\\~n" => "ñ",
+		"\\~N" => "Ñ",
+
+		"\\cc" => "ç",
+		"\\cC" => "Ç",
+
+		"\\vc" => "č",
+		"\\ve" => "ě",
+		"\\vn" => "ň",
+		"\\vr" => "ř",
+		"\\vs" => "š",
+		"\\vz" => "ž",
+		"\\vC" => "Č",
+		"\\vD" => "Ď",
+		"\\vE" => "Ě",
+		"\\vN" => "Ň",
+		"\\vR" => "Ř",
+		"\\vS" => "Š",
+		"\\vT" => "Ť",
+		"\\vZ" => "Ž",
 	}
 
 	def convert(letter)
-		if @@letters.has_key?(letter) then
-			@@letters[letter]
-		elsif letter.length == 2 and letter[0] == "\\" then
-			letter[1]
+		processed_letter = letter.tr("\{\}", "")
+		if @@letters.has_key?(processed_letter) then
+			@@letters[processed_letter]
+		elsif processed_letter.length == 2 and processed_letter[0] == "\\" then
+			processed_letter[1]
 		else
 			puts "Warning: not supported letter " + letter
 			letter

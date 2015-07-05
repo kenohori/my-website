@@ -29,6 +29,7 @@ require 'htmlentities'
 require_relative 'specialletters'
 require_relative 'monthutils'
 require_relative 'localisedtext'
+require_relative 'groups'
 
 class DocumentParser < Parslet::Parser
 
@@ -91,10 +92,15 @@ class NameParser < Parslet::Parser
 
 	rule(:name) { (word | whitespace | str(',').as(:comma)).repeat.as(:name) }
 	rule(:word) { (pseudoletter | bracketedtext).repeat(1).as(:word) | str('.') }
-	rule(:pseudoletter) { specialletter.as(:specialletter) | letter.as(:letter) }
-	rule(:letter) { match['a-zA-Z'] }
-	rule(:specialletter) { str('---') | str('--') | (str('\\') >> str('&')) | (str('\\') >> modifier >> letter) }
-	rule(:modifier) { str("\'") | str("\"") | str("\^") }
+	rule(:pseudoletter) { specialletter.as(:specialletter) | letter.as(:letter) | badletter.as(:badletter) }
+	rule(:letter) { match['a-zA-Z\-'] }
+	rule(:bracketedletter) { str("{") >> letter >> str("}") }
+	rule(:badletter) { match['&;'] }
+	rule(:specialletter) { speciallyencodedletter | escapedletter | letterwithmodifier }
+	rule(:speciallyencodedletter) { str('---') | str('--') | str('``') | str('`') | str('\'\'') | str('\'') }
+	rule(:escapedletter) { str('\\') >> str('&') }
+	rule(:letterwithmodifier) { str('\\') >> modifier >> (bracketedletter | letter) }
+	rule(:modifier) { str("\'") | str("\"") | str("\^") | str("\`") | str("c") | str("v") | str("~") }
 
 end
 
@@ -117,6 +123,11 @@ class NameTransformer < Parslet::Transform
 			word << "."
 		end
 		word
+	}
+
+	rule(:badletter => simple(:bl)) {
+		puts "Bad letter inside name: " + bl.to_s
+		bl.to_s
 	}
 	
 	rule(:name => subtree(:s)) {
@@ -155,6 +166,9 @@ class NameTransformer < Parslet::Transform
 			when :lastfirst
 				last.join(" ") + ", " + first.join(" ")
 			end
+		else
+			puts "Bad name (too many commas): " + s.join(" ")
+			s.join(" ")
 		end
 	}
 end
@@ -170,9 +184,13 @@ class TextParser < Parslet::Parser
 	rule(:word) { (pseudoletter | bracketedtext).repeat(1).as(:word) }
 	rule(:pseudoletter) { specialletter.as(:specialletter) | letter.as(:letter) }
 	rule(:pseudoletterpreservecase) { specialletter.as(:specialletterpreservecase) | letter.as(:letterpreservecase) }
-	rule(:letter) { match['^{}\\\\ '] }
-	rule(:specialletter) { str('---') | str('--') | (str('\\') >> str('&')) | (str('\\') >> modifier >> letter) }
-	rule(:modifier) { str("\'") | str("\"") | str("\^") }
+	rule(:letter) { match['a-zA-Z0-9\-_:;+=/.*,?~&()%#'] }
+	rule(:bracketedletter) { str("{") >> letter >> str("}") }
+	rule(:specialletter) { speciallyencodedletter | escapedletter | letterwithmodifier }
+	rule(:speciallyencodedletter) { str('---') | str('--') | str('``') | str('`') | str('\'\'') | str('\'') }
+	rule(:escapedletter) { str('\\') >> str('&') }
+	rule(:letterwithmodifier) { str('\\') >> modifier >> (bracketedletter | letter) }
+	rule(:modifier) { str("\'") | str("\"") | str("\^") | str("\`") | str("c") | str("v") | str("~") }
 
 end
 
@@ -205,6 +223,10 @@ class TextTransformer < Parslet::Transform
 		when :unchanged
 			@@sl.convert(l.to_s)
 		end
+	}
+
+	rule(:space => simple(:s)) {
+		" "
 	}
 
 	rule(:bracketedtext => sequence(:s)) { s.join("") }
@@ -248,7 +270,7 @@ class MonthParser < Parslet::Parser
 
 	root(:number)
 
-	rule(:number) { digit.repeat(1).as(:number) | monthname }
+	rule(:number) { digit.repeat(1).as(:number) | monthname | any.repeat(1).as(:text) }
 	rule(:digit) { match['0-9'] }
 	rule(:monthname) { abbreviatedmonthname.as(:abbreviatedmonthname) | fullmonthname.as(:fullmonthname) }
 	rule(:abbreviatedmonthname) { stri('jan') | stri('feb') | stri('mar') | stri('apr') | stri('may') | stri('jun') | stri('jul') | stri('aug') | stri('sep') | stri('oct') | stri('nov') | stri('dec') }
@@ -269,8 +291,10 @@ end
 class MonthTransformer < Parslet::Transform
 	mu = MonthUtils.new
 
+	rule(:fullmonthname => simple(:fmn)) { mu.full_month_to_abbreviated_month(fmn) }
 	rule(:abbreviatedmonthname => simple(:amn)) { amn.to_s }
 	rule(:number => simple(:n)) { mu.number_to_abbreviated_month(n) }
+	rule(:text => simple(:t)) { t.to_s }
 end
 
 class Imbiber
@@ -303,6 +327,7 @@ class Imbiber
 		@lt = LocalisedText.new(@options[:lang])
 		@he = HTMLEntities.new
 		@mu = MonthUtils.new
+		@g = Groups.new
 	end
 
 	def to_s
@@ -342,6 +367,7 @@ class Imbiber
 		entriestree = DocumentParser.new.parse(text)
 		entriestree.each do |entrybranch|
 			key = entrybranch[:entry][:key].to_sym
+			# puts key
 
 			# Repeated key, skip
 			if @entries.has_key?(key) then
@@ -354,7 +380,7 @@ class Imbiber
 			@entries[key][:key] = key.to_s
 			@entries[key][:bibtex] = {}
 			entrybranch[:entry][:fields].each do |field|
-				# puts field[:field][0][:name].to_s.downcase
+				# puts "\t" + field[:field][0][:name].to_s.downcase
 				@entries[key][:bibtex][field[:field][0][:name].to_s.downcase] = field[:field][1][:value].to_s
 				case field[:field][0][:name].to_s.downcase
 				when "author"
@@ -362,7 +388,7 @@ class Imbiber
 					authorstree = AuthorsParser.new.parse(field[:field][1][:value].to_s)
 					@entries[key][:author] = []
 					authorstree.each do |author|
-						nametree = NameTransformer.new(@options[:nameformat]).apply(NameParser.new.parse(author[:author].to_s))
+						nametree = NameTransformer.new(@options[:nameformat]).apply(NameParser.new.parse_with_debug(author[:author].to_s))
 						@entries[key][:author].push(nametree)
 					end
 				when "editor"
@@ -373,13 +399,13 @@ class Imbiber
 						@entries[key][:editor].push(nametree)
 					end
 				when "title"
-					titletree = TextTransformer.new(@options[:titlecase]).apply(TextParser.new.parse(field[:field][1][:value].to_s))
+					titletree = TextTransformer.new(@options[:titlecase]).apply(TextParser.new.parse_with_debug(field[:field][1][:value].to_s))
 					@entries[key][:title] = titletree.to_s
 				when "month"
-					monthtree = MonthTransformer.new.apply(MonthParser.new.parse_with_debug(field[:field][1][:value].to_s))
+					monthtree = MonthTransformer.new.apply(MonthParser.new.parse(field[:field][1][:value].to_s))
 					@entries[key][:month] = monthtree.to_s
 				else
-					texttree = TextTransformer.new(:unchanged).apply(TextParser.new.parse(field[:field][1][:value].to_s))
+					texttree = TextTransformer.new(:unchanged).apply(TextParser.new.parse_with_debug(field[:field][1][:value].to_s))
 					@entries[key][field[:field][0][:name].to_s.downcase.to_sym] = texttree.to_s
 				end
 			end
@@ -864,12 +890,17 @@ class Imbiber
 					end
 					groups[@lt.localise(:Unknown)][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0])})
 				end
+			when :class
+				# puts entry[1][:class].to_s
+				if !groups.has_key?(entry[1][:class].to_s) then
+					groups[entry[1][:class].to_s] = {:sortingvalue => @g.groupof(entry[1][:class].to_s), :entries => [], :nicename => @lt.classname(entry[1][:class].to_s)}
+				end
+				groups[entry[1][:class].to_s][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0])})
 			end
-
-			
 		end
 		
 		# Sort groups
+		# pp groups
 		sorted_groups = groups.sort_by { |k, v| v[:sortingvalue] }
 		if order == :desc then
 			sorted_groups = sorted_groups.reverse
@@ -882,7 +913,13 @@ class Imbiber
 			if idswithprefix != false then
 				html << "<section id=\"" << idswithprefix << group[0] << "\">\n"
 			end
-			html << @options[:beforegrouptitle] << group[0] << @options[:aftergrouptitle] << "\n"
+			html << @options[:beforegrouptitle]
+			if group[1].has_key?(:nicename) then
+				html << group[1][:nicename]
+			else
+			 	html << group[0]
+			end
+			html << @options[:aftergrouptitle] << "\n"
 			sorted_group = group[1][:entries].sort_by { |v| v[:sortingvalue] }
 			if order == :desc then
 				sorted_group = sorted_group.reverse
@@ -895,17 +932,22 @@ class Imbiber
 			end
 		end
 
+		# sorted_groups
 		html
 	end
 end
 
 # i = Imbiber.new
-# i.read("/Users/ken/Versioned/websites/work/publications.bib")
-# i.read("/Users/ken/Versioned/websites/work/others.bib")
-# pp i.entries
-# pp i.html_of(:"11phdproposal")
+# i.read("/Users/ken/Versioned/my-website/pubs/publications.bib")
+# i.read("/Users/ken/Versioned/website/pubs/all.bib")
 
-# pp TextTransformer.new(:sentence).apply(TextParser.new.parse("Realising the Foundations of a Higher Dimensional {GIS}: A Study of Higher Dimensional Spatial Data Models, Data Structures and Operations"))
+# pp i.entries
+# pp i.html_of_all(:class)
+# pp i.entries
+# pp i.html_of(:"Jantien-Stoter14")
+
+# t = TextTransformer.new(:unchanged).apply(TextParser.new.parse_with_debug("Presentation at the {3D BGT} dag (June 19th in Amersfoort, the Netherlands)"))
+# pp t
 # puts "Fr{\\'e}d{\\'e}ric Hubert"
 # puts NameTransformer.new.apply(NameParser.new.parse_with_debug("Fr{\\'e}d{\\'e}ric Hubert"))
 
