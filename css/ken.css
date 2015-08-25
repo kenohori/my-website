@@ -123,9 +123,3 @@ small {
   background-color: transparent;
   border-left-color: #00aa44;
 }
-/* nested active links */
-.bs-docs-sidebar .nav .nav>.active>a, 
-.bs-docs-sidebar .nav .nav>.active:hover>a,
-.bs-docs-sidebar .nav .nav>.active:focus>a {
-  color: #000;
-}
