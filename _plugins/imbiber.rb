@@ -100,7 +100,7 @@ class NameParser < Parslet::Parser
 	rule(:speciallyencodedletter) { str('---') | str('--') | str('``') | str('`') | str('\'\'') | str('\'') }
 	rule(:escapedletter) { str('\\') >> str('&') }
 	rule(:letterwithmodifier) { str('\\') >> modifier >> (bracketedletter | letter) }
-	rule(:modifier) { str("\'") | str("\"") | str("\^") | str("\`") | str("c") | str("v") | str("~") }
+	rule(:modifier) { str("\'") | str("\"") | str("\^") | str("\`") | str("c") | str("v") | str("~") | str("=") | str(".") }
 
 end
 
@@ -190,7 +190,7 @@ class TextParser < Parslet::Parser
 	rule(:speciallyencodedletter) { str('---') | str('--') | str('``') | str('`') | str('\'\'') | str('\'') }
 	rule(:escapedletter) { str('\\') >> str('&') }
 	rule(:letterwithmodifier) { str('\\') >> modifier >> (bracketedletter | letter) }
-	rule(:modifier) { str("\'") | str("\"") | str("\^") | str("\`") | str("c") | str("v") | str("~") }
+	rule(:modifier) { str("\'") | str("\"") | str("\^") | str("\`") | str("c") | str("v") | str("~") | str("=") | str(".") }
 
 end
 
@@ -363,6 +363,14 @@ class Imbiber
 	end
 
 	def read(path)
+		puts "Reading " + path + "..."
+
+		if !File.exist?(path) then
+			puts "File does not exist"
+			@entries = {}
+			return
+		end
+
 		text = File.read(path)
 		entriestree = DocumentParser.new.parse(text)
 		entriestree.each do |entrybranch|
@@ -804,7 +812,10 @@ class Imbiber
 
 		else
 			outwho = '<span class="label label-important">Unrecognised entry type: ' + @entries[key][:class] + '</span>'
+		end
 
+		if outwho.nil? then
+			outwho = ""
 		end
 
 		if outwhat.length > 0 then
@@ -835,10 +846,13 @@ class Imbiber
 			out << ' <a href="' + @entries[key][:paper] + '"><i class="fa fa-file-pdf-o"></i> ' + @lt.localise(:Paper) + '</a>'
 		end
 		if @entries[key].has_key?(:poster) then
-			out << ' <a href="' + @entries[key][:poster] + '"><i class="fa fa-file-image-o"></i> ' + @lt.localise(:Poster) + '</a>'
+			out << ' <a href="' + @entries[key][:poster] + '"><i class="fa fa-file-pdf-o"></i> ' + @lt.localise(:Poster) + '</a>'
 		end
 		if @entries[key].has_key?(:presentation) then
-			out << ' <a href="' + @entries[key][:presentation] + '"><i class="fa fa-file-image-o"></i> ' + @lt.localise(:Slides) + '</a>'
+			out << ' <a href="' + @entries[key][:presentation] + '"><i class="fa fa-file-pdf-o"></i> ' + @lt.localise(:Slides) + '</a>'
+		end
+		if @entries[key].has_key?(:propositions) then
+			out << ' <a href="' + @entries[key][:propositions] + '"><i class="fa fa-file-pdf-o"></i> ' + @lt.localise(:Propositions) + '</a>'
 		end
 		if @entries[key].has_key?(:doi) then
 			if !@entries[key][:doi].start_with?("http://", "https://", "ftp://", "//") then
@@ -939,7 +953,7 @@ end
 
 # i = Imbiber.new
 # i.read("/Users/ken/Versioned/my-website/pubs/publications.bib")
-# i.read("/Users/ken/Versioned/website/pubs/all.bib")
+# i.read("/Users/ken/Versioned/website/jstoter/jantien.bib")
 
 # pp i.entries
 # pp i.html_of_all(:class)

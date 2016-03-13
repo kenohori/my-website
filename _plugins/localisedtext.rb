@@ -33,6 +33,7 @@ class LocalisedText
 			:techreport => 'Technical report',
 			:Paper => 'Paper',
 			:Poster => 'Poster',
+			:Propositions => 'Propositions',
 			:Slides => 'Slides',
 			:www => 'External link',
 			:Unknown => 'Unknown'
@@ -48,6 +49,7 @@ class LocalisedText
 			:techreport => 'Reporte técnico',
 			:Paper => 'Artículo',
 			:Poster => 'Póster',
+			:Propositions => 'Proposiciones',
 			:Slides => 'Presentación',
 			:www => 'Enlace externo',
 			:Unknown => 'Desconocido'
