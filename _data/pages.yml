@@ -3,6 +3,11 @@
   en: About
   es: Acerca de
 
+- file: blog/index.html
+  path: blog/
+  en: Blog
+  es: Blog
+
 - file: papers/index.html
   path: papers/
   en: Papers

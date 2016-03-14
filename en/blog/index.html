@@ -1,0 +1,16 @@
+---
+layout: default
+title: Blog
+file: blog/index.html
+lang: en
+---
+
+<div class="container">
+	<div class="page-header">
+		<h1>Blog posts</h1>
+	</div>
+	{% for post in site.posts %}
+	  <h3><span class="post-date">{{ post.date | date_to_string }}</span>
+	  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+	{% endfor %}
+</div>

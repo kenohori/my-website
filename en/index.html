@@ -34,4 +34,16 @@ lang: en
 			</p>
 		</div>
 	</div>
+	<br />
+	<hr />
+	<div class="row">
+		<div class="col-sm-3"><h1>Latest blog post</h1></div>
+			<div class="col-sm-6">
+		    <h1><a href="{{ site.posts[0].url | prepend: site.baseurl }}">{{ site.posts[0].title }}</a></h1>
+		    <h3>{{ site.posts[0].date | date: "%b %-d, %Y" }}</h3>
+			  {{ site.posts[0].content }}
+		  </div>
+		  <div class="col-sm-3"></div>
+		 </div>
+	</div>
 </div>
