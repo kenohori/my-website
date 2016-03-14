@@ -863,6 +863,9 @@ class Imbiber
 		if @entries[key].has_key?(:url) then
 			out << ' <a href="' + @entries[key][:url] + '"><i class="fa fa-external-link"></i> ' + @lt.localise(:www) + '</a>'
 		end
+		if @entries[key].has_key?(:buy) then
+			out << ' <a href="' + @entries[key][:buy] + '"><i class="fa fa-book"></i> ' + @lt.localise(:Buy) + '</a>'
+		end
 		out << ' <a href="#bib' + key.to_s + '" data-toggle="collapse"><i class="fa fa-caret-square-o-down"></i> BibTeX</a>'
 		out << '<div id="bib' + key.to_s + '" class="collapse"  tabindex="-1"><pre>' + bibtex_of(@entries[key]) + '</pre></div>'
 		
