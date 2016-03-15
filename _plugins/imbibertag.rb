@@ -32,6 +32,8 @@ class ImbiberTag < Liquid::Tag
 			if part.include?(':') then
 				keyval = part.split(":")
 				@arguments[keyval[0].to_sym] = keyval[1]
+			elsif part == "noimg" then
+				@arguments[part.to_sym] = true
 			else
 				@file = part
 			end
@@ -50,8 +52,13 @@ class ImbiberTag < Liquid::Tag
 		@imbiber.read(@file)
 
 		# Call imbiber
+		if @arguments.has_key?(:noimg) then
+			@img = false
+		else
+			@img = true
+		end
 		if @arguments.has_key?(:one) then
-			@imbiber.html_of(@arguments[:one].to_sym)
+			@imbiber.html_of(@arguments[:one].to_sym, @img)
 		else
 			if @arguments.has_key?(:groupby) then
 				@groupby = @arguments[:groupby].to_sym
@@ -73,7 +80,7 @@ class ImbiberTag < Liquid::Tag
 			else
 				@idswithprefix = false
 			end
-			@imbiber.html_of_all(@groupby, @sortby, @order, @idswithprefix)
+			@imbiber.html_of_all(@groupby, @sortby, @order, @idswithprefix, @img)
 		end
 	end
 end

@@ -442,7 +442,7 @@ class Imbiber
 		File.open(serialised_path, 'wb') { |file| file.write(Marshal.dump(@entries)) }
 	end
 
-	def html_of(key)
+	def html_of(key, img = true)
 		if !@entries.has_key?(key) then
 			return ""
 		end
@@ -889,12 +889,16 @@ class Imbiber
 			out << ' <a href="' + @entries[key][:buy] + '"><i class="fa fa-book"></i> ' + @lt.localise(:Buy) + '</a>'
 		end
 		out << ' <a href="#bib' + key.to_s + '" data-toggle="collapse"><i class="fa fa-caret-square-o-down"></i> BibTeX</a>'
-		out << '<div id="bib' + key.to_s + '" class="collapse"  tabindex="-1"><pre>' + bibtex_of(@entries[key]) + '</pre></div>'
+		out << '<div id="bib' + key.to_s + '" class="collapse" tabindex="-1"><pre>' + bibtex_of(@entries[key]) + '</pre></div>'
 		
+		if @entries[key].has_key?(:img) && img == true then
+			out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:pdf] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+		end
+
 		@options[:beforeentry] + out + @options[:afterentry]
 	end
 
-	def html_of_all(groupby = :year, sortby = :date, order = :desc, idswithprefix = false)
+	def html_of_all(groupby = :year, sortby = :date, order = :desc, idswithprefix = false, img = true)
 
 		# Make groups
 		groups = {}
@@ -922,19 +926,19 @@ class Imbiber
 					if !groups.has_key?(entry[1][:year]) then
 						groups[entry[1][:year]] = {:sortingvalue => entry[1][:year], :entries => []}
 					end
-					groups[entry[1][:year]][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0])})
+					groups[entry[1][:year]][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0], img)})
 				else
 					if !groups.has_key?(@lt.localise(:Unknown)) then
 						groups[@lt.localise(:Unknown)] = {:sortingvalue => "0000", :entries => []}
 					end
-					groups[@lt.localise(:Unknown)][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0])})
+					groups[@lt.localise(:Unknown)][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0], img)})
 				end
 			when :class
 				# puts entry[1][:class].to_s
 				if !groups.has_key?(entry[1][:class].to_s) then
 					groups[entry[1][:class].to_s] = {:sortingvalue => @g.groupof(entry[1][:class].to_s), :entries => [], :nicename => @lt.classname(entry[1][:class].to_s)}
 				end
-				groups[entry[1][:class].to_s][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0])})
+				groups[entry[1][:class].to_s][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0], img)})
 			end
 		end
 		

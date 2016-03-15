@@ -1,3 +1,9 @@
 title: Ken Arroyo Ohori
-baseurl: "https://3d.bk.tudelft.nl/ken"
-# baseurl: "http://localhost/~ken/work"
+
+# Home
+# url: http://localhost
+# baseurl: "/~ken/work"
+
+# Server
+url: https://3d.bk.tudelft.nl
+baseurl: "/ken"
