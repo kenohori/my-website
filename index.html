@@ -1,17 +1,23 @@
+---
+layout: null
+title: Ken Arroyo Ohori
+file: index.html
+---
+
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<script type="text/javascript">
 	        var userLang = navigator.language || navigator.userLanguage;
 	        if (userLang.substring(0, 2) == "es") {
-	            window.location.href = "https://3d.bk.tudelft.nl/ken/es/"
+	            window.location.href = "{{ site.baseurl }}/es/"
 	        } else {
-	            window.location.href = "https://3d.bk.tudelft.nl/ken/en/"
+	            window.location.href = "{{ site.baseurl }}/en/"
 	        }
         </script>
 		<title>Ken Arroyo Ohori</title>
 	</head>
 	<body>
-        <a href='https://3d.bk.tudelft.nl/ken/en/'>English</a> | <a href='https://3d.bk.tudelft.nl/ken/es/'>Espa&ntilde;ol</a>
+        <a href='{{ site.baseurl }}/en/'>English</a> | <a href='{{ site.baseurl }}/es/'>Espa&ntilde;ol</a>
     </body>
 </html>
