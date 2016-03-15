@@ -6,24 +6,27 @@ html, body {
 }
 @font-face {
     font-family: 'Metric';
-    src: url('../fonts/MetricWeb-Thin.eot');
-    src: url('../fonts/MetricWeb-Thin.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/MetricWeb-Thin.woff') format('woff');
+    src: url('../fonts/MetricWeb-Light.eot');
+    src: url('../fonts/MetricWeb-Light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/MetricWeb-Light.woff2') format('woff2'),
+         url('../fonts/MetricWeb-Light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Metric';
-    src: url('../fonts/MetricWeb-ThinItalic.eot');
-    src: url('../fonts/MetricWeb-ThinItalic.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/MetricWeb-ThinItalic.woff') format('woff');
+    src: url('../fonts/MetricWeb-LightItalic.eot');
+    src: url('../fonts/MetricWeb-LightItalic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/MetricWeb-LightItalic.woff2') format('woff2'),
+         url('../fonts/MetricWeb-LightItalic.woff') format('woff');
     font-style: italic;
 }
 @font-face {
     font-family: 'Metric';
-    src: url('../fonts/MetricWeb-Regular.eot');
-    src: url('../fonts/MetricWeb-Regular.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/MetricWeb-Regular.woff') format('woff');
+    src: url('../fonts/MetricWeb-Medium.eot');
+    src: url('../fonts/MetricWeb-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/MetricWeb-Medium.woff2') format('woff2'),
+         url('../fonts/MetricWeb-Medium.woff') format('woff');
     font-weight: bold;
 }
 body {
