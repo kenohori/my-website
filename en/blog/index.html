@@ -10,7 +10,10 @@ lang: en
 		<h1>Blog posts</h1>
 	</div>
 	{% for post in site.posts %}
-	  <h3><span class="post-date">{{ post.date | date_to_string }}</span>
-	  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+	  <span class="post-date">{{ post.date | date_to_string }}</span>
+	  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
 	{% endfor %}
+	<br />
+	<br />
+	<span class="grey"><a href="{{ site.baseurl }}/{{ page.lang }}/feed.xml"><i class="fa fa-rss"></i> RSS</a>
 </div>

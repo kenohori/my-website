@@ -1,17 +1,17 @@
 ---
 layout: post
 title: "Hello world"
-date: 2016-03-14
+date: 2016-03-14 23:45
 categories: en
 lang: en
 ---
 
-<img src="http://localhost/~ken/work/img/me/34.jpg" class="img-responsive" alt="Ken Arroyo Ohori">
+<img src="{{ site.baseurl }}/img/me/34.jpg" class="img-responsive" alt="Ken Arroyo Ohori">
 
 Hello there!
 
 I'm Ken Arroyo Ohori, a soon-to-be-finished PhD candidate[^1] at the [3D geoinformation](https://3d.bk.tudelft.nl/) group of the Delft University of Technology in the Netherlands.
-On April 6, 2016, I'll be defending my thesis on the [Higher-dimensional modelling of geographic information](https://3d.bk.tudelft.nl/ken/files/16_thesis.pdf) (<i class="fa fa-exclamation-triangle" style="font-size:0.7em;"></i> 200 MB PDF), which I finally finished yesterday. Yay!
+On April 6, 2016, I'll be defending my thesis on the [Higher-dimensional modelling of geographic information]({{ site.baseurl }}/files/16_thesis.pdf) (<i class="fa fa-exclamation-triangle" style="font-size:0.7em;"></i> 200 MB PDF), which I finally finished yesterday. Yay!
 
 I read blogs pretty much every day.
 Well, not so much *read* them as *stumble across* them.
