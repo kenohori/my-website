@@ -873,6 +873,9 @@ class Imbiber
 		if @entries[key].has_key?(:presentation) then
 			out << ' <a href="' + @entries[key][:presentation] + '"><i class="fa fa-file-pdf-o"></i> ' + @lt.localise(:Slides) + '</a>'
 		end
+		if @entries[key].has_key?(:slides) then
+			out << ' <a href="' + @entries[key][:slides] + '"><i class="fa fa-file-pdf-o"></i> ' + @lt.localise(:Slides) + '</a>'
+		end
 		if @entries[key].has_key?(:propositions) then
 			out << ' <a href="' + @entries[key][:propositions] + '"><i class="fa fa-file-pdf-o"></i> ' + @lt.localise(:Propositions) + '</a>'
 		end
@@ -892,7 +895,19 @@ class Imbiber
 		out << '<div id="bib' + key.to_s + '" class="collapse" tabindex="-1"><pre>' + bibtex_of(@entries[key]) + '</pre></div>'
 		
 		if @entries[key].has_key?(:img) && img == true then
-			out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:pdf] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+			if @entries[key].has_key?(:pdf) then
+				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:pdf] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+			elsif @entries[key].has_key?(:paper) then
+				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:paper] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+			elsif @entries[key].has_key?(:poster) then
+				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:poster] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+			elsif @entries[key].has_key?(:presentation) then
+				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:presentation] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+			elsif @entries[key].has_key?(:slides) then
+				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:slides] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+			else
+				out = '<div class="row"><div class="col-sm-3 hidden-xs"><img src="' + @entries[key][:img] + '" class="img-responsive" /></div><div class="col-sm-9">' + out + '</div></div>'
+			end
 		end
 
 		@options[:beforeentry] + out + @options[:afterentry]
