@@ -23,10 +23,9 @@ html, body {
 }
 @font-face {
     font-family: 'Metric';
-    src: url('../fonts/MetricWeb-Medium.eot');
-    src: url('../fonts/MetricWeb-Medium.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/MetricWeb-Medium.woff2') format('woff2'),
-         url('../fonts/MetricWeb-Medium.woff') format('woff');
+    src: url('../fonts/MetricWeb-Regular.eot');
+    src: url('../fonts/MetricWeb-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/MetricWeb-Regular.woff') format('woff');
     font-weight: bold;
 }
 body {

@@ -26,6 +26,6 @@ I'll also propagandise and vent about the programming I do (C/C++, Ruby, Python)
 
 So, on this pi day, I bid you welcome to my blog!
 
-
+-----
 
 [^1]: Known in most other countries as a PhD student. Many of us are fortunate enough in the Netherlands to be considered not students, but employees with a salary, holidays and benefits. The times they are a-changin' though.
