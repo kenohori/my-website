@@ -12,8 +12,8 @@ lang: en
 	{% for post in site.posts %}
 	  <span class="post-date">{{ post.date | date_to_string }}</span>
 	  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+	  <br />
 	{% endfor %}
-	<br />
 	<br />
 	<span class="grey"><a href="{{ site.baseurl }}/{{ page.lang }}/feed.xml"><i class="fa fa-rss"></i> RSS</a>
 </div>
