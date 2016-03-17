@@ -892,7 +892,7 @@ class Imbiber
 			out << ' <a href="' + @entries[key][:buy] + '"><i class="fa fa-book"></i> ' + @lt.localise(:Buy) + '</a>'
 		end
 		out << ' <a href="#bib' + key.to_s + '" data-toggle="collapse"><i class="fa fa-caret-square-o-down"></i> BibTeX</a>'
-		out << '<div id="bib' + key.to_s + '" class="collapse" tabindex="-1"><pre>' + bibtex_of(@entries[key]) + '</pre></div>'
+		out << '<div id="bib' + key.to_s + '" class="collapse" tabindex="-1"><pre class="bibtex">' + bibtex_of(@entries[key]) + '</pre></div>'
 		
 		if @entries[key].has_key?(:img) && img == true then
 			if @entries[key].has_key?(:pdf) then

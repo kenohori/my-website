@@ -64,7 +64,9 @@ h6 {
 code,
 pre {
   font-family: "Inconsolata", Monaco, Menlo, Consolas, "Courier New", monospace;
-  font-size: 12px;
+}
+.bibtex {
+	font-size: 10px;
 }
 a.thumbnail:hover,
 a.thumbnail:focus {
