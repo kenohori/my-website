@@ -7,13 +7,17 @@ lang: es
 
 <div class="container">
 	<div class="page-header">
-		<h1>Blog posts</h1>
+		<h1>Blog</h1>
 	</div>
 	{% for post in site.posts %}
+		{% if post.lang == 'es' %}
 	  <span class="post-date">{{ post.date | date_to_string }}</span>
 	  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
 	  <br />
+	  {% endif %}
 	{% endfor %}
+	Por el momento no he hecho ningún post en español, pero puedes <a href="{{ site.baseurl }}/en/blog/">ver los posts en ingl&eacute;s</a>.
+	<br />
 	<br />
 	<span class="grey"><a href="{{ site.baseurl }}/{{ page.lang }}/feed.xml"><i class="fa fa-rss"></i> RSS</a>
 </div>

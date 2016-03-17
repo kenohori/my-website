@@ -7,8 +7,8 @@ lang: en
 ---
 
 <div class="row">
-	<div class="col-sm-9"><img src="{{ site.baseurl }}/img/blog/cgal-logo.png" class="img-responsive center-block" alt="Setting the build settings in Xcode"></div>
-	<div class="col-sm-3"><img src="{{ site.baseurl }}/img/blog/xcode-logo.jpg" class="img-responsive center-block" alt="Setting the build settings in Xcode"></div>
+	<div class="col-sm-9 col-xs-9"><img src="{{ site.baseurl }}/img/blog/cgal-logo.png" class="img-responsive center-block" alt="Setting the build settings in Xcode"></div>
+	<div class="col-sm-3 col-xs-3"><img src="{{ site.baseurl }}/img/blog/xcode-logo.jpg" class="img-responsive center-block" alt="Setting the build settings in Xcode"></div>
 </div>
 
 For my research, I regularly need to write code to make various geometric computations on GIS datasets. Most of the time, I first use a simple library to read GIS formats (e.g. [GDAL](http://gdal.org)), and then I put everything into structures from [CGAL](http://www.cgal.org), the Computational Geometry Algorithms Library. That allows me to do the more complex stuff.
