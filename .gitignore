@@ -18,3 +18,5 @@ fonts/MetricWeb-Light.woff2
 fonts/MetricWeb-Light.woff
 fonts/MetricWeb-Light.eot
 *.cachedbib
+fonts/MetricWeb-Regular.woff2
+fabfile.pyc

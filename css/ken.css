@@ -25,6 +25,7 @@ html, body {
     font-family: 'Metric';
     src: url('../fonts/MetricWeb-Regular.eot');
     src: url('../fonts/MetricWeb-Regular.eot?#iefix') format('embedded-opentype'),
+    		 url('../fonts/MetricWeb-Regular.woff2') format('woff2'),
          url('../fonts/MetricWeb-Regular.woff') format('woff');
     font-weight: bold;
 }
