@@ -11,7 +11,7 @@ lang: en
 Hello there!
 
 I'm Ken Arroyo Ohori, a soon-to-be-finished PhD candidate[^1] at the [3D geoinformation](https://3d.bk.tudelft.nl/) group of the Delft University of Technology in the Netherlands.
-On April 6, 2016, I'll be defending my thesis on the [Higher-dimensional modelling of geographic information]({{ site.baseurl }}/files/16_thesis.pdf) (<i class="fa fa-exclamation-triangle" style="font-size:0.7em;"></i> 200 MB PDF), which I finally finished yesterday. Yay!
+On April 6, 2016, I'll be defending my thesis on the Higher-dimensional modelling of geographic information ([High-quality 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Low-quality 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf)), which I finally finished yesterday. Yay!
 
 I read blogs pretty much every day.
 Well, not so much *read* them as *stumble across* them.
