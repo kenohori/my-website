@@ -14,36 +14,38 @@
 </footer>
 <script src="{{ site.baseurl }}/js/jquery.min.js"></script>
 <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
-<script>
-$(document).ready(function() {
-   $("#toTop").hide();
+{% if page.papers == true %}
+  <script>
+  $(document).ready(function() {
+     $("#toTop").hide();
 
-	// fade in & out
-	$(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
-      $('#toTop').fadeIn();
-    } else {
-      $('#toTop').fadeOut();
-    }
-	});     
-  $('a[href^=#pr],a[href^=#th],a[href^=#other],a[href^=#st]').each(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-    && location.hostname == this.hostname
-    && this.hash.replace(/#/,'') ) {
-      var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
-      var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
-       if ($target) {
-         var targetOffset = $target.offset().top;
-         $(this).click(function() {
-           $('html, body').animate({scrollTop: targetOffset}, 300);
-           return false;
-         });
+  	// fade in & out
+  	$(window).scroll(function () {
+      if ($(this).scrollTop() > 300) {
+        $('#toTop').fadeIn();
+      } else {
+        $('#toTop').fadeOut();
       }
-    }
+  	});     
+    $('a[href^=#pr],a[href^=#th],a[href^=#other],a[href^=#st]').each(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      && location.hostname == this.hostname
+      && this.hash.replace(/#/,'') ) {
+        var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
+        var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+         if ($target) {
+           var targetOffset = $target.offset().top;
+           $(this).click(function() {
+             $('html, body').animate({scrollTop: targetOffset}, 300);
+             return false;
+           });
+        }
+      }
+    });
   });
-});
-$('body').scrollspy({
-    target: '.papers-sidebar',
-    offset: 40
-});
-</script>
+  $('body').scrollspy({
+      target: '.papers-sidebar',
+      offset: 40
+  });
+  </script>
+{% endif %}
