@@ -28,6 +28,12 @@ There are plenty of reasons. If you need a lot of help typesetting your book (e.
 
 Also, it's worth noting that self-publishing companies don't offer the same kind of flexibility that traditional thesis publishers do. For instance, traditional thesis publishers allow you to greatly lower your printing costs by bundling all your colour pages together. With self-publishing, it's usually all B/W or all colour. As another example, my university requires a list of propositions[^5] to be printed on a separate sheet of paper. Since this service was not offered by the self-publishing company I chose, I had to print these separately[^6].
 
+<div class="row">
+	<div class="col-sm-3 col-xs-3"></div>
+	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/propositions.png" class="img-responsive img-thumbnail" alt="My propositions, with trim lines in A4" /></div>
+	<div class="col-sm-3 col-xs-3"></div>
+</div>
+
 ### Which self-publisher?
 
 There are several self-publishing and online distribution companies, the availability of which depends on where you live. Based on the reviews I found online and some minor prodding by [Hugo](https://3d.bk.tudelft.nl/hledoux/), my PhD supervisor, I decided to go for [Lulu.com](http://www.lulu.com). The quality is great, the prices are reasonable and it is available in the Netherlands (among many other countries). The fact that both the HoTT book and JOSIS use it also played a big role in my decision.
