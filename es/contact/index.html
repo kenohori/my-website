@@ -35,6 +35,77 @@ lang: es
 			<h3>Otros sitios</h3>
 			<a href="https://github.com/kenohori"><i class="fa-fw fa fa-github"></i> github.com/kenohori</a><br>
 		</div>
-		<iframe height="600" class="col-lg-8 col-sm-6 hidden-xs" frameBorder="0" src="https://a.tiles.mapbox.com/v4/kenohori.map-m3h3g5fg/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1Ijoia2Vub2hvcmkiLCJhIjoiTlQyblc2ayJ9.cxdc2HKXV1ZsDL5A-GSHFA"></iframe>
+		<div id="map" class="col-lg-8 col-sm-6 hidden-xs" style="height: 600px;"></div>
+		<script>
+			mapboxgl.accessToken = 'pk.eyJ1Ijoia2Vub2hvcmkiLCJhIjoiTlQyblc2ayJ9.cxdc2HKXV1ZsDL5A-GSHFA';
+			var markers = {
+				"type": "FeatureCollection",                                                                   
+				"features": [{
+					"type": "Feature", 
+					"properties": { 
+						"description": "<h3>3D Geoinformation</h3><p>Room BG.West.010</p>"
+					}, 
+					"geometry": { 
+						"type": "Point", 
+						"coordinates": [ 4.37036640026392, 52.004713684518933, 0.0 ] 
+					}
+				}]
+			}
+			var map = new mapboxgl.Map({
+		    container: 'map',
+		    style: 'mapbox://styles/kenohori/cim0i33ql00jmbjlw9l1pro1i',
+		    center: [4.37036640026392, 52.004713684518933],
+		    zoom: 15
+			});
+			map.on('style.load', function() {
+				// Add marker data as a new GeoJSON source.
+		    map.addSource("markers", {
+	        "type": "geojson",
+	        "data": markers
+		    });
+		    // Add a layer showing the markers.
+		    map.addLayer({
+	        "id": "markers",
+	        "interactive": true,
+	        "type": "symbol",
+	        "source": "markers",
+	        "layout": {
+	            "icon-image": "{marker-symbol}-15",
+	            "icon-allow-overlap": true
+	        }
+		    });
+			});
+			var popup = new mapboxgl.Popup();
+			// When a click event occurs near a marker icon, open a popup at the location of
+			// the feature, with description HTML from its properties.
+			map.on('click', function (e) {
+		    map.featuresAt(e.point, {
+	        radius: 7.5, // Half the marker size (15px).
+	        includeGeometry: true,
+	        layer: 'markers'
+		    }, function (err, features) {
+	        if (err || !features.length) {
+            popup.remove();
+            return;
+	        }
+					var feature = features[0];
+	        // Populate the popup and set its coordinates
+	        // based on the feature found.
+	        popup.setLngLat(feature.geometry.coordinates)
+            .setHTML(feature.properties.description)
+            .addTo(map);
+		    });
+			});
+			// Use the same approach as above to indicate that the symbols are clickable
+			// by changing the cursor style to 'pointer'.
+			map.on('mousemove', function (e) {
+		    map.featuresAt(e.point, {
+	        radius: 7.5, // Half the marker size (15px).
+	        layer: 'markers'
+		    }, function (err, features) {
+	        map.getCanvas().style.cursor = (!err && features.length) ? 'pointer' : '';
+		    });
+			});
+		</script>
 	</div>
 </div>
