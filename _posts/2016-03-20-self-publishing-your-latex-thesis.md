@@ -117,13 +117,13 @@ Mac OS X includes the command-line `pdf2ps`. However, I found that it generates 
 `pdftops` is however not included in Mac OS X. But, if you have [Homebrew](http://brew.sh), you can easily install it by typing:
 
 {% highlight shell %}
-$ brew install poppler
+	$ brew install poppler
 {% endhighlight %}
 
 Then, just generate a Postscript file of your thesis using:
 
 {% highlight shell %}
-$ pdftops -r 600 thesis.pdf thesis.ps
+	$ pdftops -r 600 thesis.pdf thesis.ps
 {% endhighlight %}
 
 Here, I opted for a 600 DPI rasterisation where needed. This is what I believe Lulu.com is currently able to support. However, for future-proofing, I actually generated my PDF at 1000 DPI.
@@ -131,7 +131,7 @@ Here, I opted for a 600 DPI rasterisation where needed. This is what I believe L
 Finally, you can convert your generated Postscript file back to PDF 1.3 using:
 
 {% highlight shell %}
-$ ps2pdf13 thesis.ps thesis-v13.pdf
+	$ ps2pdf13 thesis.ps thesis-v13.pdf
 {% endhighlight %}
 
 I wouldn't use this PDF for online distribution, but it should be good to print. I personally recommend doing the same for your cover (if in PDF), so that it gets the same treatment.
