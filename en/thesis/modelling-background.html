@@ -1,0 +1,538 @@
+---
+layout: default
+title: Modelling of 2D/3D space, time, scale and attributes | Thesis
+file: thesis/modelling-background.html
+lang: en
+mathjax: true
+---
+
+<div class="container">
+	<div class="page-header">
+		<h1>3 Modelling of 2D/3D space, time, scale and attributes</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<p>
+				 This chapter describes how space is usually modelled in 2D/3D GIS and related disciplines, as well as the non-spatial characteristics that are typically used together with it, such as time and scale. <a href="#se:spatial-modelling">&sect;3.1</a> explains what spatial modelling is and the abstraction process through which it is accomplished, discussing the main approaches that can be followed at three levels in this abstraction process, which take the form of data models, data structures and dual combinatorial/embedding structures. <a href="#se:modelling-space">&sect;3.2</a> describes how 2D and 3D space is currently modelled in a range of representative concrete cases, from the very minimal representations used in exchange file formats, in which simple structures and low storage requirements are preferred, up to those used internally in CAD-like software, in which the complex operations that are required necessitate the explicit storage of precise topological relationships. 
+			</p>
+			<p>
+				 Afterwards, this chapter contains sections on how specific non-spatial characteristics&mdash;that nevertheless have a strong link to space&mdash;are modelled: time in <a href="#se:modelling-time">&sect;3.3</a> and geographic scale or the level of detail of a model in <a href="#se:modelling-scale">&sect;3.4</a>. Finally, <a href="#se:modelling-conclusions">&sect;3.5</a> concludes the chapter by pointing out some of the shortcomings of the aforementioned approaches to model 2D/3D space, time, scale and attributes. As will be seen in <a href="nd-modelling.html">Chapter 4</a>, many of these shortcomings can be resolved by using a higher-dimensional modelling approach. 
+			</p>
+			<p>
+				 <h2 id="se:spatial-modelling">3.1 Spatial data models and data structures</h2> 
+			</p>
+			<p>
+				 Spatial modelling aims at the creation of digital representations of real-world objects. However, real-world objects are complex and vaguely defined, while computers can only operate on their heavily abstracted and precisely defined digital counterparts. The spatial modelling process therefore uses a series of progressive abstractions, which start by interpreting reality as a set of high-level concrete entities that still resemble real-world objects and processes, and ultimately aims at creating abstract low-level representations that are close to what is actually stored in a computer, possibly using intermediate levels in the process. 
+			</p>
+			<p>
+				 This implies the existence of different levels of abstraction, and at each of these levels different approaches can be followed. While not all of these approaches are compatible with each other, the feasible combinations nevertheless result in a very large number of different computer representations. 
+			</p>
+			<p>
+				 As <a href="#ss:taxonomies">&sect;3.1.1</a> explains, there are many classification schemes that attempt to group these approaches in a meaningful way according to various criteria, finding similarities and identifying schemes used by more than one representation. However, there is no agreement on the optimum number of levels of abstraction to be used, at which level some of these representational choices fit, nor a comprehensive clear-cut classification of them with no overlapping methods. In fact, as many of these choices only partially solve the difficulties of representing a digital object, a single computer system generally must resort to multiple methods. For instance, implicit (high-level) models are often used as a way to provide easy user interaction in software. However, these generally have to be &lsquo;evaluated&rsquo; into another, more explicit (low-level) model in order for them to be visualised [<a href="bibliography.html#Mantyla88">M&auml;ntyl&auml;, 1988</a>] or to perform the type of computations expected in GIS, such as many spatial analysis and geometric operations. 
+			</p>
+			<p>
+				 Nevertheless, recognising this layered approach as the basis of the spatial modelling process, this section introduces the process by describing the main approaches that can be followed at three different levels: high-level <em>data models</em> using different paradigms to structure and discretise space in <a href="#ss:data-models">&sect;3.1.2</a>, how <em>data structures</em> implement these data models to model 2D/3D space in a form that is easy to implement in a computer in <a href="#ss:data-structures">&sect;3.1.3</a>, and how <em>combinatorial and embedding structures</em> respectively model the topological and geometric information of some of these data structures in <a href="#ss:combinatorial-embedding">&sect;3.1.4</a>. 
+			</p>
+			<p>
+				 <h3 id="ss:taxonomies">3.1.1 Classifications of spatial models</h3> 
+			</p>
+			<p>
+				 Considering that there is an incredible variety of methods that are used to create digital models of the world, but many of these share important parts of their respective approaches, there are various classifications that attempt to group them in a meaningful way. 
+			</p>
+			<p>
+				 Some of these are primarily based on human cognition of space. <a href="bibliography.html#Couclelis92">Couclelis [1992]</a> distinguishes views based on empty space populated by discrete <em>objects</em> from those based on continuous space-filling <em>fields</em>, and <a href="bibliography.html#Goodchild92">Goodchild [1992]</a> links objects and fields to specific computer models that are suitable for them. <a href="bibliography.html#Freundschuh97">Freundschuh and Egenhofer [1997]</a> makes distinctions based on the <em>scale</em> of such models compared to how people experience space, separating models of objects that are intuitively manipulatable by humans from those that are not. 
+			</p>
+			<p>
+				 Others are based on suitability for a particular application or use case. For example, <a href="bibliography.html#Afyouni11">Afyouni et al. [2012]</a> does so for indoor navigation, <a href="bibliography.html#Gold05">Gold [2005]</a> for multidimensional GIS, <a href="bibliography.html#Dominguez11">Dom&iacute;nguez et al. [2011]</a> for building interiors and <a href="bibliography.html#Pelekis04">Pelekis et al. [2004]</a> for spatio-temporal models. 
+			</p>
+			<p>
+				 However, for the purposes of this thesis, it is more interesting to consider the classifications that reflect a different discretisation of space or mathematical basis, as these will produce significantly different computer representations. 
+			</p>
+			<p>
+				 Regarding general classifications in the GIS domain, researchers and practitioners alike generally agree on the existence of two high-level <em>data models</em>&mdash;formalised structures describing the world as abstract primitives&mdash;, which are the <em>vector</em> and <em>raster</em> models.  These are subdivided into a variety of low-level <em>data structures</em>, particular implementations of these data models, of which there are many [<a href="bibliography.html#vanKreveld97a">van Kreveld, 1997a</a>]. This classification is not ideal as GIS data structures are usually specified in an ad hoc manner, sometimes accompanied with added indexing structures that do not neatly fit into the vector or raster approach (e.g.  R-trees [<a href="bibliography.html#Guttman84">Guttman, 1984</a>] and \(k\)-d trees [<a href="bibliography.html#Bentley75">Bentley, 1975</a>]). 
+			</p>
+			<p>
+				 Apart from data models and data structures, some authors consider additional levels. <a href="bibliography.html#Frank92">Frank [1992]</a> considers <em>spatial concepts</em> as well, the human notions used to understand space. <a href="bibliography.html#Peuquet84">Peuquet [1984]</a> considers <em>reality</em> itself as a topmost level, including all aspects that may or may not be perceived by individuals, and a lowermost level with the <em>file structure</em>, describing how the information is actually represented in hardware. These are certainly interesting and worthy of study, but they are out of the scope of this thesis. 
+			</p>
+			<p>
+				 In the domain of geometric modelling and computer graphics, the schemes used are more varied, and thus the classifications used differ significantly. For 3D objects, there is usually a high-level classification with several <em>solid representation schemes</em> [<a href="bibliography.html#Requicha80">Requicha, 1980</a>; <a href="bibliography.html#Hoffmann92">Hoffmann, 1992</a>; <a href="bibliography.html#Foley95">Foley et al., 1995</a>], general paradigms to model the world using a different approach to discretise and decompose objects. As these normally do not reach the level where it is possible to unambiguously devise a single computer implementation, these are more akin to the data models used in GIS.  <a href="bibliography.html#Mantyla88">M&auml;ntyl&auml; [1988]</a> follows a similar classification, but groups these schemes into three paradigms: <em>decomposition models</em>, <em>constructive models</em> and <em>boundary models</em>, while recognising the existence of hybrid approaches combining multiple paradigms. 
+			</p>
+			<p>
+				 While some of these schemes use 3D primitives stored as simple parametric structures, many of them rely on the specification of 2D primitives using a separate mechanism, which can also be used directly for the description of 2D objects. These are usually described at a low level, generally consisting of 2D cell or simplicial complexes respectively in the form of <em>polygon</em> or <em>triangle meshes</em>, which use one of a few <em>data structures</em> [<a href="bibliography.html#Joy03">Joy et al., 2003</a>; <a href="bibliography.html#Alumbaugh05">Alumbaugh and Jiao, 2005</a>; <a href="bibliography.html#Blandford05">Blandford et al., 2005</a>; <a href="bibliography.html#deFloriani05">de Floriani and Hui, 2005</a>]. 
+			</p>
+			<p>
+				 Some authors follow a more pragmatic approach, directly classifying data structures based on the class of objects that they are capable of representing. <a href="bibliography.html#Comic12">&#268;omi&#263; and de Floriani [2012]</a> does so for cell complexes, <a href="bibliography.html#deFloriani05">de Floriani and Hui [2005]</a> for simplicial complexes, <a href="bibliography.html#Lienhardt91">Lienhardt [1991]</a> for spaces in different dimensions, <a href="bibliography.html#deFloriani05a">de Floriani et al. [2005]</a> for models supporting multiple levels of detail, and <a href="bibliography.html#Lienhardt09">Lienhardt et al. [2009]</a> for models for simplicial, simploidal<a href="#fn18" id="fnref18"><sup>18</sup></a> and cell structures.
+			</p>
+			<p>
+				 Finally, at the lowest level, some authors distinguish between a <em>topological</em> or <em>combinatorial model</em> [<a href="bibliography.html#Lienhardt91">Lienhardt, 1991</a>], which describes the connectivity between a set of predefined elements, and a <em>geometric</em> or <em>embedding model</em>, which specifies the exact shape and position of individual elements [<a href="bibliography.html#Mantyla88">M&auml;ntyl&auml;, 1988</a>]. 
+			</p>
+			<p>
+				 <h3 id="ss:data-models">3.1.2 Data models or representation schemes</h3>
+			</p>
+			<p>
+				 Data models are considered as different representation schemes operating at a high-level, differing mostly in their overall approach to decompose and discretise space into a set of elements with certain characteristics. Just as the concepts of geometry and topology seen in <a href="math.html">Chapter 2</a>, these models are essentially <em>dimension-independent</em>&mdash;even if in practice they are generally implemented as dimension-specific data structures. 
+			</p>
+			<p>
+				 As argued by <a href="bibliography.html#McKenzie01">McKenzie et al. [2001]</a>, the ideal data model to be used depends on the application. An ideal data model is expected to be both simple and powerful, but unfortunately these properties tend to conflict. Powerful structures are built upon small and simple primitives of a fixed form with a fixed (or at least bounded) number of links to other related primitives, such as boxes or simplices, enabling them to have a simple but powerful algebra to manipulate them and to navigate between their primitives efficiently, e.g.  the quad-edge in 2D [<a href="bibliography.html#Guibas85">Guibas and Stolfi, 1985</a>] or the facet-edge in 3D [<a href="bibliography.html#Dobkin87">Dobkin and Laszlo, 1987</a>]. However, partitioning complex objects into these simple primitives can be difficult and result in a large number of primitives, requiring significant preprocessing, making them space-intensive and limiting the types of objects that might be stored. In this sense, different data models make different choices and necessarily involve a trade-off. 
+			</p>
+			<p>
+				 The main data models that are used in 2D and 3D are briefly described in the following sections, roughly in order of increasing explicitness. A short statement on how well they extend to higher dimensions is also included in each section. The most promising of these models are further analysed in a higher-dimensional context in <a href="nd-modelling.html#se:data-structures">&sect;4.3</a>. 
+			</p>
+			<p>
+				 <h4>Primitive instancing</h4>
+			</p>
+			<p>
+				 In <em>primitive instancing</em>, the system defines a library of primitives suitable for a particular application. Each of the primitives in the library represents a template for an object that can be parametrised in terms of high-level parameters, such as the number of teeth and the size of a gear or the diameter and thickness of a pipe [<a href="bibliography.html#Foley95">Foley et al., 1995</a>]. In 3D city modelling, a common application involves the modelling of roofs using a library of basic roof shapes (e.g. flat, hipped and gabled) [<a href="bibliography.html#Kada07">Kada, 2007</a>]. 
+			</p>
+			<p>
+				 The fact that only a few parameters need to be defined makes it easy to create objects, that is, as long as the desired object resembles one of the templates in the library. Moreover, given these parameters and a primitive&rsquo;s position and orientation, a program can create the geometry of an object that matches those parameters as output using a more explicit representation. Such an object can then be used either directly or as a base for further operations. 
+			</p>
+			<p>
+				 Usually, the primitives used in primitive instancing are 3D volumetric objects, but they can actually be objects of any dimension. However, this approach is not very practical for higher-dimensional models of geographic information, as the objects modelled generally do not conform to a set of easily parametrisable primitives<a href="#fn19" id="fnref19"><sup>19</sup></a>. 
+			</p>
+			<p>
+				 <h4>Sweep representations</h4>
+			</p>
+			<p>
+				 Many objects can be modelled as the space occupied by another object while it is being translated and rotated along a path. Usually a 2D cross-section is used for this purpose, which is either translated or rotated, generating a volume in 3D space. Generalisations where the cross-section is deformed as well are sometimes considered [<a href="bibliography.html#Blackmore94">Blackmore et al., 1994</a>]. When the path is linear and the cross-section is not rotated, it is called a <em>translational sweep</em>, or an <em>extrusion</em> as it resembles a physical extrusion process as used in manufacturing. When the cross-section does not move and it is merely rotated, it is called a <em>rotational sweep</em> or a <em>solid of revolution</em>. Among other applications, this representation is particularly convenient for applications that require volume computations as it matches well with calculus techniques to compute integrals, which can be easily solved numerically in a computer [<a href="bibliography.html#Lee82">Lee and Requicha, 1982</a>]. 
+			</p>
+			<p>
+				 Since the description of a 2D cross-section is easier than that of a full 3D volume, this significantly eases the process of modelling certain types of objects [<a href="bibliography.html#Weld90">Weld and Leu, 1990</a>]. In a higher-dimensional context, this property is later used to generate \(n\)-dimensional extruded models in <a href="extrusion.html">Chapter 6</a>. Generating more general higher-dimensional sweeps and revolutions is also possible using similar methods. 
+			</p>
+			<p>
+				 <h4>Constructive solid geometry</h4>
+			</p>
+			<p>
+				 <em>Constructive solid geometry</em> (CSG) [<a href="bibliography.html#Requicha77">Requicha and Voelcker, 1977</a>, &sect;12.3] represents objects as a tree of regularised Boolean set operations on a set of simple parametrisable primitives. In most instances, these are volumetric primitives such as balls, cylinders, parallelepipeds, cones and tori. <a href="#fig:csg" id="fig:csgref">Figure 3.1</a> shows an example of such an object.       One of the strengths of CSG is that it allows many operations to be distributed among the primitives in a tree. 
+			</p>
+			<p>
+				 The regularisation step ensures that the resulting objects of any Boolean set operation are both volumetric and water-tight [<a href="bibliography.html#Requicha78">Requicha and Tilove, 1978</a>], making many computations easy and robust. It also makes it relatively easy to transform a CSG tree to a more explicit representation. CSG is therefore used in most CAD software and in many game engines. 
+			</p>
+			<p>
+				 While CSG extends naturally to higher dimensions, evaluating general CSG trees into more explicit representations is non-trivial in dimensions higher than three. A possible approach to do so would involve higher-dimensional Nef polyhedra, which are described afterwards. 
+			</p>
+			<p>
+				 \subsubsection{Boolean set operations on half-spaces} 
+			</p>
+			<p>
+				 There are various representations that store objects using an expression made of Boolean set operations on a set of (open or closed) half-spaces. Any convex object of any dimension can be represented as the intersection of a finite set of half-spaces, a common problem in both linear programming and computational geometry [<a href="bibliography.html#Shamos76">Shamos and Hoey, 1976</a>; <a href="bibliography.html#Preparata79">Preparata and Muller, 1979</a>]. As <a href="#fig:halfspace" id="fig:halfspaceref">Figure 3.2</a> shows, if a polyhedron is first decomposed into convex parts [<a href="bibliography.html#Chazelle79">Chazelle and Dobkin, 1979</a>; <a href="bibliography.html#Bajaj90">Bajaj and Dey, 1990</a>], it is then possible to represent an object as a union of these convex parts, which are then represented as intersections of half-spaces. \begin{figure}[tb] \centering \subfloat[]{ \includegraphics[scale=0.16]{figs/halfspace} \label{subfig:halfspace}} \subfloat[]{ \includegraphics[scale=0.16]{figs/halfspace-1} \label{subfig:halfspace-intersection}} \subfloat[]{ \includegraphics[scale=0.16]{figs/halfspace-2} \label{subfig:halfspace-union}} \caption[A polygon represented as the union of two convex polygons]{(a) A polygon can be represented as the union of its decomposition into the convex polygons (b) and (c). Each of these can then be represented as the intersection of four half-planes.} \label{fig:halfspace} \end{figure} 
+			</p>
+			<p>
+				 Each of these half-spaces can then be stored easily, e.g.  as a tuple containing the coefficients of a hyperplane<a href="#fn20" id="fnref20"><sup>20</sup></a> equation plus an up/down direction [<a href="bibliography.html#Naylor90">Naylor, 1990</a>; <a href="bibliography.html#Thompson07">Thompson, 2007</a>]. The half-spaces for an object can be stored either all together or separate per convex part. Together, for instance, as a collection of plane equations that represent all the faces of all the convex parts, and each convex part is represented as a set of tuples of Boolean values, where each value states whether the part is on the up or down side of a specific plane [<a href="bibliography.html#Tammik07">Tammik, 2007</a>]. 
+			</p>
+			<p>
+				 \subsubsection{Nef polyhedra} 
+			</p>
+			<p>
+				 Nef polyhedra [<a href="bibliography.html#Nef78">Nef, 1978</a>; <a href="bibliography.html#Bieri88">Bieri and Nef, 1988</a>] follow a similar approach to half-space models, but extend it with the concept of a local <em></em>-dimensional pyramid<a href="#fn21" id="fnref21"><sup>21</sup></a>, which stores the neighbourhood information around every vertex. As <a href="#fig:nef" id="fig:nefref">Figure 3.3</a> shows, the local pyramid of a vertex thus contains the symbolic intersection of an infinitesimally small sphere (in 3D) or circle (in 2D) with the volumes, faces and edges incident to this vertex.   \subfloat[]{} \\ \subfloat[]{\includegraphics[width=0.7\marginparwidth]{figs/nef-2}} \caption[A Nef polygon represented by a set of local pyramids]{(a) A Nef polygon is represented by (b) a set of local pyramids (circles). At every local pyramid, the polygon (red) becomes an angular interval. Incident edges become points at the endpoints of these intervals.} \label{fig:nef}  An incident volume thus becomes a face, an incident face becomes an edge, and an incident edge becomes a vertex on the surface of the local pyramid sphere/circle, essentially lowering the dimension of every object by one. An 2D/3D object can be represented as a set of local pyramids, which can individually be stored using simpler 1D/2D data structures. 
+			</p>
+			<p>
+				 Nef polyhedra have two properties that make them one of the most promising representations for higher-dimensional models of geographic information: (i) the possibility to reduce the dimensionality of a representation by one, which can be applied recursively in order to model objects of any dimension, and (ii) the possibility to perform operations on the local pyramid level. The former is discussed in more detail in \refse{ss:implicit-models} and the latter in \refse{ss:operations-nef}. 
+			</p>
+			<p>
+				 \subsubsection{Function representation} 
+			</p>
+			<p>
+				 Function representation, commonly abbreviated as F-rep, involves representing objects as point sets using an arbitrary continuous function [<a href="bibliography.html#Pasko95">Pasko et al., 1995</a>], which is represented as an algebraic expression. When a given function \(f(x_0, x_1, \ldots, x_n)\) is evaluated at a point with coordinates \((x_0, x_1, \ldots, x_n)\), it is possible to know if the point lies in the interior, boundary or exterior of an object. If it is positive the point is in the interior of the object, when it is zero it is on the boundary of the object&mdash;in 2D known as an isoline and in 3D as an isosurface&mdash;, and when it is negative it is outside the object. 
+			</p>
+			<p>
+				 By varying the number of input parameters, which in most cases represent a point along an axis, function representations are applicable to any dimension. Moreover, unlike a half-space inequality, such functions do not need to be linear. As with half-space based representations, the spaces described by these functions can be combined using Boolean set operations, which is done on the basis of Rvachev functions (R-functions) [<a href="bibliography.html#Rvachev63">Rvachev, 1963</a>]. However, evaluating these functions in higher dimensions can be complex, and obtaining a continuous function that adequately models a higher-dimensional object is also non-trivial. 
+			</p>
+			<p>
+				 \subsubsection{Exhaustive enumeration} 
+			</p>
+			<p>
+				 Starting from the description of a domain that covers the objects that need to be described, a simple deterministic rule is used in order to partition the domain directly into cells, which are of the same dimension as the domain (i.e.  they are space-filling). In this manner, the decomposition rule is encoded into the model rather than in the data being represented, and so the cells do not need to store any geometric information of their own. Normally, the domain has a simple shape (e.g.  a rectangle, hexagon or box) \citep[\S{}6.8]{ISO19123:2007} and the rule partitions it into simple cells of the same size and shape (e.g.  rectangles or boxes themselves), in which case it is called a <em>monohedral</em> tessellation [<a href="bibliography.html#Boots99">Boots, 1999</a>]. If the cells are regular polygons or polyhedra, it is known as as <em>regular</em> tessellation. 
+			</p>
+			<p>
+				 In most cases, squares or rectangles (in 2D) and cubes or parallelepipeds (in 3D) are used for simplicity, respectively resulting in pixel and voxel structures. When other shapes are used, it is normally desirable to have cells that resemble equally-sized disks or balls as much as possible, something that is related to the sphere packing or kissing number problems in geometry [<a href="bibliography.html#Conway92">Conway and Sloane, 1992</a>]. <em>Semi-regular</em> tessellations, which consist of more than one type of polygon/polyhedron are also possible but are not widely used, even in 2D. In 2D, the most commonly used other shapes are triangles and hexagons. In 3D, parallelepipeds or cubes are almost always used, but the face-centred cubic or hexagonal close-packed lattices are possibilities that resemble balls more closely. For instance, the new model cycle from the European Centre for Medium-Range Weather Forecasts<a href="#fn22" id="fnref22"><sup>22</sup></a> uses a cube-octahedron honeycomb that wraps around the Earth. 
+			</p>
+			<p>
+				 These cells are then used to record whether the cell belongs to the interior of the object or not, or in the case of multiple objects, which objects are present inside the cell. After such a tessellation is defined, a programatic order or path that traverses all cells (i.e.  a space filling curve) is defined [<a href="bibliography.html#Sagan94">Sagan, 1994</a>], and the order of the cells along this curve is used to store them by <em>enumerating</em> for each cell whether a cell belongs to the interior of an object. 
+			</p>
+			<p>
+				 Exhaustive enumeration schemes are straightforward to extend to higher dimensions, as is further discussed in \refse{ss:regular-partitions}, with the caveat that their space complexity can increase exponentially on the dimension. 
+			</p>
+			<p>
+				 \subsubsection{Hierarchical subdivisions using trees} 
+			</p>
+			<p>
+				 A more general possibility to partition a domain involves using a hierarchical scheme where a space is recursively subdivided according to a particular criterion, resulting in a tree structure where a given node is a partition primitive that divides the space defined by its parent. The leaves of the tree are then used to record whether a cell belongs to the interior of an object or not. Such structures are generally known as space partitioning trees. In this manner, it is possible to efficiently partition spaces of any dimension, including areas and volumes where the objects&rsquo; sizes are significantly different. However, the shape of a cell in the subdivision is only known after traversing a path of the tree all the way from its root to the leaf that corresponds to the cell. 
+			</p>
+			<p>
+				 In the simplest case, the space can be split evenly into halves along all axes at every partition node, resulting in a <em>quadtree</em> in 2D [<a href="bibliography.html#Finkel74">Finkel and Bentley, 1974</a>] or an <em>octree</em> in 3D [<a href="bibliography.html#Meagher80">Meagher, 1980</a>]. Bintrees [<a href="bibliography.html#Samet85">Samet and Tamminen, 1985</a>] partition space alternating among dimensions rather than all at once, while <em></em>-d trees [<a href="bibliography.html#Bentley75">Bentley, 1975</a>] do so at an arbitrary point rather than at the midpoint of a space. Many other types of trees however exist. See [<a href="bibliography.html#Manolopoulos06">Manolopoulos et al., 2006</a>]. 
+			</p>
+			<p>
+				 As in exhaustive enumeration, this type of representation extends very naturally to higher dimensions (\refse{ss:hierarchical-subdivisions}). However, the space used by hierarchical subdivisions can also increase exponentially on the dimension. 
+			</p>
+			<p>
+				 \subsubsection{More general cell decompositions} 
+			</p>
+			<p>
+				 Another possibility to represent the geometry of an object involves its decomposition into cells that are more complex than those in the exhaustive enumeration approach, such that they are still of the same dimension as the domain being partitioned but might have different sizes and/or shapes. Nevertheless, they should still be describable as single computer primitives. This requires geometric information to be stored within each cell (e.g.  the coordinates of one or more points). 
+			</p>
+			<p>
+				 While an arbitrary number of cell decomposition schemes are possible, the most interesting ones in a dimension-independent context are <em></em>-dimensional constrained triangulations and Voronoi diagrams, as these have a simple dimension-independent formulation. 2D constrained triangulations [<a href="bibliography.html#Chew89">Chew, 1989</a>; <a href="bibliography.html#Shewchuk96">Shewchuk, 1996{\natexlab{a}}</a>] and 3D constrained tetrahedralisations [<a href="bibliography.html#Si05">Si and G\"artner, 2005</a>] are very commonly used in GIS in order to subdivide objects respectively into triangles and tetrahedra, resulting in models that can be represented as simplicial complexes where every simplex can be respectively described by three and four linearly independent points at their vertices. Another common possibility uses Voronoi subdivision described by a single point per cell [<a href="bibliography.html#Voronoi08">Voronoi, 1908</a>], something that is particularly suitable to field-like GIS data [<a href="bibliography.html#Ledoux06">Ledoux, 2006</a>]. 
+			</p>
+			<p>
+				 More information on how simplicial complexes are stored in 2D and 3D GIS is given in \refse{ss:data-structures}. \refse{ss:simplicial-complexes} later describes how this extends readily to higher dimensions. 
+			</p>
+			<p>
+				 \subsubsection{Incomplete (implicit) models} 
+			</p>
+			<p>
+				 Incomplete models attempt to describe a space partition based on implicit rules applied to lower-dimensional primitives only, usually for simplicity purposes. As such, the actual cells forming the partition are created on the fly. Under some circumstances, such as when modelling non-manifolds or when the dimension of the primitives is significantly lower than that of the highest-dimensional cells, they cannot be unambiguously described. 
+			</p>
+			<p>
+				 The most typical problematic examples are wireframe models in 3D, which represent volumes using only vertices and edges. While in many cases it is possible to correctly interpret a volume from a wireframe model [<a href="bibliography.html#Brewer86">{Brewer III} and Courter, 1986</a>; <a href="bibliography.html#Hanrahan82">Hanrahan, 1982</a>], as shown in <a href="#fig:wireframe" id="fig:wireframeref">Figure 3.4</a> there are cases wireframe representations are ambiguous. \begin{figure}[tbp] \centering \subfloat[]{ \includegraphics[width=0.35\linewidth]{figs/wireframe} \label{subfig:wireframe}} \quad \subfloat[]{ \includegraphics[width=0.35\linewidth]{figs/wireframe-1} \label{subfig:wireframe-1}} \\ \subfloat[]{ \includegraphics[width=0.35\linewidth]{figs/wireframe-2} \label{subfig:wireframe-2}} \quad \subfloat[]{ \includegraphics[width=0.35\linewidth]{figs/wireframe-3} \label{subfig:wireframe-3}} \caption[A wireframe model can have different interpretations]{The wireframe model (a) can be interpreted as the three different volumes (b), (c) and (d).} \label{fig:wireframe} \end{figure} They are therefore considered an incomplete representation and are generally not used in current systems. 
+			</p>
+			<p>
+				 Despite their drawbacks, incomplete implicit models are however frequently used in 3D GIS and when modelling time, resulting in ill-defined volumes or unclear equivalences of objects across time. Many of these disadvantages are alluded later on in order to justify using more explicit representations in higher dimensions. 
+			</p>
+			<p>
+				 \subsubsection{Boundary representation} 
+			</p>
+			<p>
+				 Considering the Jordan curve theorem [<a href="bibliography.html#Jordan87">Jordan, 1887</a>], which states that a closed curve separates the plane (i.e.  \(\mathbb{R}^2\)) into two parts: an <em>interior</em> shape and an <em>exterior</em> shape, it is possible to use this curve in order to <em>implicitly but unambiguously</em> represent the interior (or exterior) shape. This theorem was generalised to higher dimensions as the Jordan-Brouwer theorem by <a href="bibliography.html#Lebesgue11">Lebesgue [1911]</a> and <a href="bibliography.html#Brouwer11">Brouwer [1911]</a><a href="#fn23" id="fnref23"><sup>23</sup></a>.}, implying that a volume in \(\mathbb{R}^3\) can be represented by the 2D boundary surface that separates its interior from its exterior. This method, known as <em>boundary representation</em>, <em>B-rep</em> or <em>surface modelling</em>, reduces the complexity of the problem by making it possible to use 2D data models/structures to store 3D objects, which are significantly simpler. Moreover, by decomposing the 2D surface into simple cells, e.g.  triangles or polygons, it becomes possible to represent the surface using one of the many data structures capable of representing 2D cell complexes, and if these cells support curved domains (e.g.  NURBS), these can be used to represent complex surfaces as well. 
+			</p>
+			<p>
+				 While certain problems become more difficult by the use of boundary representation, such as the fact that it is easy to create invalid objects, some others can be performed directly on the 2D cells. For instance, visibility queries or determining if a point is in the interior of an object can be performed by shooting rays. 
+			</p>
+			<p>
+				 As will be discussed in \refse{ss:data-structures} in 2D/3D and \refse{ss:cell-complexes} in <em></em>D, cell complexes are effectively represented using boundary representation schemes. \refse{ss:ordered-topological-models} instead shows how an <em></em>-dimensional cell complex can be represented using a data structure based on a simplicial complex. The latter approach arguably combines the benefits of both simplicial complexes and cell complexes, and was thus used for most of the methods developed in the latter chapters of this thesis. 
+			</p>
+			<p>
+				 \subsection{Data structures} \label{ss:data-structures} 
+			</p>
+			<p>
+				 The terms &lsquo;data model&rsquo; and &lsquo;data structure&rsquo; are often used interchangeably, but within this thesis it is useful to make a distinction between a data model, i.e.  a particular <em>dimension-independent</em> discretisation of space into abstract primitives of a certain form, from the data structure(s) used to implement it, i.e.  their representation in a computer-compatible form [<a href="bibliography.html#Frank92">Frank, 1992</a>], which is often <em>dimension-specific</em>. A data model broadly defines the shape of the primitives and relationships that exist between them. In contrast, a data structure defines a <em>concrete representation</em> of these primitives, deciding to <em>explicitly</em> store some of these relations and omit others. Within this thesis, we refer to the omitted relations as being described <em>implicitly</em>. Note that even implicit relations can usually be computed from a model, but with an added computational cost. 
+			</p>
+			<p>
+				 This distinction is blurred because many data models have very straightforward, natural representations<a href="#fn24" id="fnref24"><sup>24</sup></a>. As shown in \refse{se:geometry}, many geometric primitives can be stored on the basis of a set of points or the coefficients of an equation&mdash;all of which can be stored as tuples of numbers. This is also true for the subdivision primitives in cell decomposition schemes and in most cases for the definition of the domain in exhaustive enumeration as well. Meanwhile, primitive instancing schemes and constructive solid geometry models can be stored as tuples of parameters. For instance, one of these parameters is the shape that is used and the other parameters store its parametrisable characteristics. 
+			</p>
+			<p>
+				 However, some other data models work with primitives that are more abstract or complex to represent in a computer. For instance, the schemes used by sweep representations, Nef polyhedra and boundary representations all reduce the dimensionality of the objects to be modelled, but ultimately need either to be applied recursively or to be combined with a different specific method. 
+			</p>
+			<p>
+				 This section lists the data structures for subdivisions of 2D and 3D space that have a possible natural extension to higher dimensions, grouped based on the class of objects that they are capable of representing efficiently, i.e.  without requiring brute-force searches or external data structures to navigate between the elements. 
+			</p>
+			<p>
+				 \subsubsection{2D and 3D simplicial complexes} 
+			</p>
+			<p>
+				 Simplicial complexes can always be respectively stored using the data structures for cell complexes, which are presented in the following sections. In some cases this is necessary, such as when a simplicial complex is first being created by triangulating a cell complex. However, the simplices in a simplicial complex have a fixed shape, which allows for the usage of more efficient data structures. 
+			</p>
+			<p>
+				 An <em></em>-dimensional simplex has a fixed number of faces of every dimension up to <em></em>, which are given by Pascal&rsquo;s triangle as shown in <a href="#fig:pascal-triangle" id="fig:pascal-triangleref">Figure 3.5</a>.       This means that in a 2D simplicial complex, i.e.  a triangulation<a href="#fn25" id="fnref25"><sup>25</sup></a>, every triangle has three vertices and three edges, and it is adjacent to at most three other triangles. Similarly, in a 3D simplicial complex, i.e.  a tetrahedralisation, every tetrahedron has four vertices, six edges and four faces, and it is adjacent to at most four other tetrahedra. 
+			</p>
+			<p>
+				 Because of this, 2D simplicial complexes are usually stored using triangle-based data structures and 3D simplicial complexes using tetrahedron-based data structures. These respectively use triangles/tetrahedra as primitives, which can store attributes for themselves (e.g.  whether it is part of a given object) and for (some of) their faces, and are linked to their adjacent triangles/tetrahedra. As shown in <a href="#fig:2-simplex" id="fig:2-simplexref">Figure 3.6</a>, a minimal representation of this type would only consist of triangles/tetrahedra linked to their vertices, either as tuples of coordinates or as pointers to a member of a list of separate point primitives. \begin{figure}[b] \centering \subfloat[Adjacent triangles]{ \includegraphics[width=0.27\linewidth]{figs/2-simplex-adjacency} \label{subfig:2-simplex-adjacency}} \quad \subfloat[Vertices of a triangle]{ \includegraphics[width=0.27\linewidth]{figs/2-simplex-vertices} \label{subfig:2-simplex-vertices}} \quad \subfloat[Coordinates of a vertex]{ \includegraphics[width=0.27\linewidth]{figs/0-simplex} \label{subfig:0-simplex}} \caption[A triangle-based data structure]{A simple triangle-based data structure consists of a set of triangles, each of which points to its three adjacent triangles and its three incident vertices. This is accompanied by an indexed list of vertices and their coordinates.} \label{fig:2-simplex} \end{figure} 
+			</p>
+			<p>
+				 Another possibility, also enabled by the fixed form of the simplices in a simplicial complex, is to use compression schemes in order to store them more efficiently. For example, <a href="bibliography.html#Blandford05">Blandford et al. [2005]</a> show how several of these schemes can be used: storing only some of the vertices in each simplex, difference coding to minimise the size of the IDs that are stored, and using collections of adjacent simplices (e.g.  the star of a vertex) as primitives. It is also possible to use progressive representations that approximate the simplicial complex incrementally~[<a href="bibliography.html#Popovic97">Popovi, or to compress it as a sequence of operations from which the original structure can be incrementally deduced [<a href="bibliography.html#Rossignac99">Rossignac and Szymczak, 1999</a>].c and Hoppe, 1997</a>], or to compress it as a sequence of operations from which the original structure can be incrementally deduced [<a href="bibliography.html#Rossignac99">Rossignac and Szymczak, 1999</a>]. 
+			</p>
+			<p>
+				 \subsubsection{2D cell complexes} 
+			</p>
+			<p>
+				 Considering the Jordan curve theorem [<a href="bibliography.html#Jordan87">Jordan, 1887</a>] and the principles of boundary representation, as presented in \refse{ss:data-models}, <em></em>D cells can be represented based on their (<em>-1</em>)D boundary. 2D cells can be thus be represented based on their 1D boundary. Since linear 1D objects, such as the polygonal curve (polyline) in <a href="#fig:polyline" id="fig:polylineref">Figure 3.7</a>, are notably easy to represent, this is the approach that is favoured by most data structures for 2D cell complexes.    \caption[A polygonal curve or polyline]{A <em>polygonal curve</em>, also known as a <em>polyline</em>, is a curve made from contiguous line segments. It is commonly represented as a sequence of points connected by implicit line segments, in this case \((p_1,p_2,p_3,p_4)\).} \label{fig:polyline}  
+			</p>
+			<p>
+				 The simplest data structures for 2D cell complexes store every 2-cell independently as a list of vertices, as is shown in <a href="#fig:polygon-model" id="fig:polygon-modelref">Figure 3.8</a>.       This might be done by storing its coordinates directly in the list, sometimes known as the polygon model, or by keeping an external list of points and referring to point IDs in it, sometimes known as the point dictionary representation [<a href="bibliography.html#Peucker75">Peucker and Chrisman, 1975</a>]. 
+			</p>
+			<p>
+				 Another simple approach consists of identifying the polygonal curves that form the common boundary that lies between two polygons (or one polygon and the exterior), splitting them at the vertices that are incident to three or more polygons (or two polygons and the exterior) and storing them <em>only once</em>, as is shown in <a href="#fig:spaghetti" id="fig:spaghettiref">Figure 3.9</a>.       This means that most points are only stored once as well (except for those at the beginning or end of these polygonal curves). In GIS, this is sometimes known as the <em>spaghetti model</em> and the polygonal curves are known as <em>chains</em>\footnote{Note however that the spaghetti model sometimes refers to other types of related models. The only fact that all references to a spaghetti model have in common is the fact that chains are stored individually.}. Unlike 3D wireframe models, these polygonal curves are sufficient to identify the polygons in a 2D cell complex<a href="#fn26" id="fnref26"><sup>26</sup></a>&mdash;a problem known as polygonisation in GIS, which is related to the computation of all intersections in arrangements of lines in computational geometry \citep[Ch.~8]{deBerg08}. However, additional processing is required to do so as the polygons are not stored directly. 
+			</p>
+			<p>
+				 Most other data structures take into account the fact that every edge or chain in a 2D cell complex lies between two cells, and so it is very convenient to use these edges to store information about the two cells that are incident to them. For instance, the Node-arc-area (NAA) or POLYVRT (Polygon Converter) data structure [<a href="bibliography.html#Peucker75">Peucker and Chrisman, 1975</a>] also uses chains, but stores for each chain the polygons on the left and right side according to the order in which its vertices are stored. 
+			</p>
+			<p>
+				 There are several data structures based on half-edges, oriented edges or vertex-edge pairs. All of these are functionality equivalent and are able to store a 2D cell complex or its dual. However, since cells in a cell complex are supposed to be manifold, special care is usually necessary to represent cells with a non-manifold domain. An example of this shown in <a href="#fig:nonmanifold-012" id="fig:nonmanifold-012ref">Figure 3.10</a>. \begin{figure}[tbp] \centering \subfloat[]{ \includegraphics[width=0.29\linewidth]{figs/nonmanifold-0} \label{subfig:nonmanifold-0}} \quad \subfloat[]{ \includegraphics[width=0.29\linewidth]{figs/nonmanifold-1} \label{subfig:nonmanifold-1}} \quad \subfloat[]{ \includegraphics[width=0.29\linewidth]{figs/nonmanifold-2} \label{subfig:nonmanifold-2}} \caption[Storing non-manifold polygons in a half-edge data structure]{(a) A polygon is non-2-manifold as the space around the vertex (highlighted in a red circle) is not homeomorphic to the plane (i.e.  \(\mathbb{R}^2\)). Its linear boundary is non-1-manifold as the space around the vertex is not homeomorphic to the line (i.e.  \(\mathbb{R}\)). (b) \& (c) However, the polygon can still be represented using a loop of oriented half-edges by having a duplicate vertex at that location (shown as two half balls), but there are two ways in which this can be done. Note that these are not equally desirable as (c) results in a disconnected graph.} \label{fig:nonmanifold-012} \end{figure} 
+			</p>
+			<p>
+				 Among the half-edge based data structures, the winged-edge data structure [<a href="bibliography.html#Baumgart75">Baumgart, 1975</a>] considers edges as the main primitive, gives them an orientation, and maintains two records for the left and right polygons, as well as four records for the previous and next oriented edges along the boundaries of both of these polygons. As shown in <a href="#fig:halfedge" id="fig:halfedgeref">Figure 3.11</a>, the doubly-connected edge list (DCEL) [<a href="bibliography.html#Muller78">Muller and Preparata, 1978</a>] and 2D combinatorial maps [<a href="bibliography.html#Edmonds60">Edmonds, 1960</a>], achieve a similar result but have a more elegant and usually more efficient approach, dividing edges into half-edges\footnote{In the case of the DCEL this is conceptually done lengthwise, graphically resulting in side-by-side edges with opposite orientations on either side of the edge. In the case of 2D combinatorial maps it is instead done at the half-way point, graphically resulting in end-to-end edges. However, these are functionally equivalent.}, which makes it easier to follow the cycles representing polygons. \begin{figure}[tbp] \centering \subfloat[]{ \includegraphics[width=0.29\linewidth]{figs/halfedge-1} \label{subfig:halfedge-1}} \quad \subfloat[]{ \includegraphics[width=0.29\linewidth]{figs/halfedge-2} \label{subfig:halfedge-2}} \quad \subfloat[]{ \includegraphics[width=0.29\linewidth]{figs/halfedge-3} \label{subfig:halfedge-3}} \caption[A 2D cell complex as a DCEL and a 2D combinatorial map]{(a) A 2D cell complex of three polygons is represented using (b) the DCEL and (c) a 2D combinatorial map. In the DCEL, a half-edge <em></em> is meaningfully related to two vertices (the origin and the destination) and one face, and is linked to its next half-edge (on the same face) and its twin half-edge (on the adjacent face). In a 2D combinatorial map, a half-edge <em></em> is meaningfully related to one vertex and two faces (on either side), and is linked to the half-edge on the opposite side of the same edge \(\alpha(e)\) and the half-edge on the same vertex but on the next edge (as given by a rotation direction).} \label{fig:halfedge} \end{figure} 
+			</p>
+			<p>
+				 The quad-edge data structure [<a href="bibliography.html#Guibas85">Guibas and Stolfi, 1985</a>] attempts to unify most of the half-edge-like structures by rigorously naming all the possible relationships between an oriented edge and other nearby oriented edges or vertices in its <em>quad-edge algebra</em>, which moreover includes the dual vertices and edges of the 2D cell complex. However, only a few of these relations need to be stored. For instance, <a href="bibliography.html#Guibas85">Guibas and Stolfi [1985]</a> proposes a structure of <em>quads</em>, which store for a given edge only the previous and next oriented edges for the polygons on both of its sides.       As shown in <a href="#fig:quad" id="fig:quadref">Figure 3.12</a>, these quads store all the necessary relationships to traverse the edges of a polygon in both clockwise and anticlockwise order, as well as to navigate between adjacent polygons that are incident to a given edge or vertex. 
+			</p>
+			<p>
+				 \subsubsection{3D cell complexes} 
+			</p>
+			<p>
+				 While data structures for 2D cell complexes can rely on the fact that an edge is incident to at most two faces, this is not the case in a 3D cell complex. The data structures for 3D cell complexes are therefore significantly more complex, requiring additional information in order to efficiently traverse the many faces incident to an edge and between different volumes. 
+			</p>
+			<p>
+				 The facet-edge data structure [<a href="bibliography.html#Dobkin87">Dobkin and Laszlo, 1987</a>], shown in <a href="#fig:facet-edge" id="fig:facet-edgeref">Figure 3.13</a>, considers an incident face-edge pair as a single primitive, which is known as a <em>facet-edge</em>. \begin{figure}[b] \centering \subfloat[]{ \includegraphics[width=0.3\linewidth]{figs/facet-edge} \label{subfig:facet-edge}} \quad \subfloat[]{ \includegraphics[width=0.6\linewidth]{figs/facet-edge-ops} \label{subfig:facet-edge-ops}} \caption[The facet-edge data structure]{(a) The facet-edge data structure considers an incident face \(f_0\) and edge \(e_0\) as a single facet-edge primitive <em></em>, each with a predefined orientation. The orientation of the face of <em></em> defines the order along its incident edges \(e_0,e_1,e_2,e_3\). The orientation of the edge of <em></em> defines the order along its incident faces \(f_0,f_1,f_2\). (b) A set of operations on the facet-edge <em></em> is used to traverse the structure.} \label{fig:facet-edge} \end{figure} Groups of eight of these primitives are then stored as a single group, consisting of the four different orientation combinations of a facet-edge and the ones of its dual (consisting of the dual face and dual edge of the facet-edge). 
+			</p>
+			<p>
+				 The V-map data structure [<a href="bibliography.html#Lienhardt88">Lienhardt, 1988</a>], related to the notion of 2D combinatorial maps [<a href="bibliography.html#Edmonds60">Edmonds, 1960</a>; <a href="bibliography.html#Cori75">Cori, 1975</a>], splits edges into half-edges per edge, per face and per volume. These half-edges, called <em>threads</em>, result in faces that are modelled as cycles of half-edges, as is shown in <a href="#fig:vmap" id="fig:vmapref">Figure 3.14</a>. \begin{figure}[tbp] \centering \subfloat[Tetrahedral 3-cell]{ \includegraphics[width=0.3\linewidth]{figs/vmap-1} \label{subfig:vmap-1}} \quad \subfloat[V-map]{ \includegraphics[width=0.3\linewidth]{figs/vmap-2} \label{subfig:vmap-2}} \caption[A V-map]{A tetrahedral 3-cell is represented as a V-map. Since a V-map considers half-edges to be distinct per face and per volume, every edge is here represented by four threads. Within a face, it is possible to switch between the threads of an edge (in French <em>ar\^ete</em>) with the operator \(\alpha\) and between the threads of a vertex (in French <em>sommet</em>) with the operator \(\sigma\). In addition, it is possible to navigate between the threads on different faces or volumes with the operator \(\gamma\).} \label{fig:vmap} \end{figure} 
+			</p>
+			<p>
+				 The radial edge data structure [<a href="bibliography.html#Weiler88">Weiler, 1988</a>] follows a similar approach, dividing faces into <em>face uses</em> per volume and representing these faces uses as cycles of <em>edge uses</em> where every edge use is linked to a <em>vertex use</em>. Based on this structure, it is possible to keeps a hierarchy of 3D objects, recursively composed of volumes, shells, faces, loops, edges and vertices. 
+			</p>
+			<p>
+				 <em>Selective Nef complexes</em> [<a href="bibliography.html#Hachenberger06">Hachenberger, 2006</a>], shown in <a href="#fig:snc" id="fig:sncref">Figure 3.15</a>, implement 3D Nef polyhedra using a combination of two half-edge data structures, a common one that represents faces as cycles of <em>edge-uses</em>, and one that represents the local pyramids around every vertex as subdivisions on the surfaces of (infinitesimally small) spheres. This combination of data structures significantly reduces the complexity of computing certain operations on Nef polyhedra, including convex decompositions, Minkowski sums and Boolean set operations. \begin{figure}[tbp] \includegraphics[width=\linewidth]{figs/snc} \caption[A selective Nef complex]{A selective Nef complex. The half-edge structure on \(\mathbb{R}^3\) uses standard (oriented) faces, edges and vertices. The half-edge structure on the surfaces of the spheres uses <em>sfaces</em> (not shown here), <em>sedges</em> and <em>svertices</em>. Note how sedges are the intersections of a face with the spheres of its incident vertices, and svertices are the intersections of an edge with the spheres of its incident (origin and destination) vertices. From <a href="bibliography.html#Hachenberger06">Hachenberger [2006]</a>.} \label{fig:snc} \end{figure} 
+			</p>
+			<p>
+				 \subsection{Combinatorial and embedding structures} \label{ss:combinatorial-embedding} 
+			</p>
+			<p>
+				 In many of the data structures presented in \refse{ss:data-structures}, an additional distinction can be made between a <em>topological</em> or <em>combinatorial model</em> [<a href="bibliography.html#Lienhardt91">Lienhardt, 1991</a>], which was the focus of the previous section and describes the connectivity between a set of predefined elements, and a <em>geometric</em> or <em>embedding model</em>, which specifies the exact shape and position of individual elements [<a href="bibliography.html#Mantyla88">M&auml;ntyl&auml;, 1988</a>]. This embedding model can be as simple as a point in \(\mathbb{R}^2\) or \(\mathbb{R}^3\) that is assigned to every vertex, resulting in linear geometries when the points for a face are collinear/coplanar. 
+			</p>
+			<p>
+				 However, it is often useful to have more powerful embedding information&mdash;allowing for more complex shapes (e.g.  curved surfaces) or the storage of attributes. Normally, this embedding information is put into <em>embedding structures</em> that correspond to simplices or cells and can be used to store geometric and attribute information for themselves and their faces. When a simplex/cell has an explicit representation as a <em>single</em> data structure primitive, these structures are not necessary and the information for the simplex/cell can be put into the corresponding primitive. Otherwise, the embedding structures are separate data structures that are linked to related primitives, e.g.  the two half-edges of an edge being linked to an embedding structure containing information about the edge, or a half-edge being linked to the structures for its incident faces. 
+			</p>
+			<p>
+				 Embedding structures are also used in order to keep semantic information. While the complex structures that are required for complex semantics are outside the scope of this thesis<a href="#fn27" id="fnref27"><sup>27</sup></a>}]</a> for a good description of these.}, embedding structures can store a cell&rsquo;s attributes as a tuple of fields for a cell. When more complex information is required, external data structures can be kept and linked to/from the embedding structure [<a href="bibliography.html#Kuhn05">Kuhn, 2005</a>]. 
+			</p>
+			<p>
+				 The geometric information that is necessary to store more complex shapes (e.g.  curves and curved surfaces) can be similarly kept as a tuple of parameters. For instance, composite B\&rsquo;ezier curves and surfaces [<a href="bibliography.html#Bezier77">B can be stored using a cell complex where the vertices store <em>control points</em>.ezier, 1977</a>] can be stored using a cell complex where the vertices store <em>control points</em>. These are accompanied with some external knowledge such as the order of the curve/surface. Non-uniform rational basis splines (NURBS) curves and surfaces [<a href="bibliography.html#Versprille75">Versprille, 1975</a>] can also be stored as a cell complex of control points with knot vectors stored as lists in the embedding structures used for the edges. 
+			</p>
+			<p>
+				 <h2>Modelling of 2D and 3D space in practice</h2> 
+			</p>
+			<p>
+				 Based on the concepts of the different data models, data structures and combinatorial/embedding structures presented above, this section discusses how these are applied and combined in practice in various international standards, file formats and software. These are ordered from the simple geometric models that allow only for visualisation and simple calculations, up to the complex, more topological models that enable simulations and other complex computations. 
+			</p>
+			<p>
+				 \subsection{Models used in visualisation, computer graphics and gaming} \label{ss:graphics} 
+			</p>
+			<p>
+				 The simplest geometric models are those that are used solely for visualisation. Low-level application programming interfaces (APIs) for 3D graphics, e.g.  OpenGL<a href="#fn28" id="fnref28"><sup>28</sup></a>, Direct3D<a href="#fn29" id="fnref29"><sup>29</sup></a>, Mantle<a href="#fn30" id="fnref30"><sup>30</sup></a>, WebGL<a href="#fn31" id="fnref31"><sup>31</sup></a> and Vulkan<a href="#fn32" id="fnref32"><sup>32</sup></a> work with large numbers of simple geometric primitives with 3D coordinates, such as points, line segments and triangles, all of which can be used alone or as structured sequences (such as triangle strips, as shown in <a href="#fig:trianglestrip" id="fig:trianglestripref">Figure 3.16</a>).       These can be passed directly, loaded into video RAM, and be processed and rendered in parallel by graphics hardware. Subproblems in this process are therefore offloaded onto techniques that can be easily parallelised and done in hardware. For example, the visibility computations involved when rendering a set of polygons in 3D can be handled using Z-buffers [<a href="bibliography.html#Strasser74">Stra{\ss}er, 1974</a>]. 
+			</p>
+			<p>
+				 \subsection{Exchange file formats and standards in GIS and BIM} \label{ss:formats} 
+			</p>
+			<p>
+				 The file formats that are meant for the exchange of spatial objects in GIS&mdash;sometimes codified in (international) standards&mdash;generally opt for a minimal representation of the geometries involved. Polylines and polygons are thus stored as sequences of points connected by implicit line segments, as this is a more compact and intuitive representation than a set of (unordered) line segments. By contrast, volumes are represented as (unordered) sets of their bounding polygonal faces. As no topological relationships are recorded between these polygons, these types of representations are known as <em>non-topological models</em> in GIS.  
+			</p>
+			<p>
+				 \begin{figure*}[tbp] 	\begin{center} 		\includegraphics[width=\linewidth]{figs/sfs} 	\end{center} 	\caption[Geometry in the Simple Features Specification]{The geometry class hierarchy defined in the Simple Features Specification [<a href="bibliography.html#SimpleFeatures1">{OGC}, 2011</a>].} \label{fig:sfs} \end{figure*} 
+			</p>
+			<p>
+				 The Simple Features Specification [<a href="bibliography.html#SimpleFeatures1">{OGC}, 2011</a>] is an international standard from both the Open Geospatial Consortium and the International Organization for Standardization (as ISO 19125 [<a href="bibliography.html#ISO19125-1:2006">ISO, 2006</a>]). It is widely used as the basic geometric model in simple GIS formats and defines a variety of geometry classes, each of which is linked to a reference system. These are shown in <a href="#fig:sfs" id="fig:sfsref">Figure 3.17</a>. A \texttt{LineString} (or \texttt{LinearRing}) is represented as a sequence of two or more \texttt{Points}. Apart from this relation and ignoring the generalisation relationships, the classes form a tree structure, with higher-dimensional classes being simple aggregations of lower-dimensional ones. A \texttt{Polygon} is made of at least one \texttt{LinearRing} (one outer and possibly multiple inner ones defining holes), and a \texttt{PolyhedralSurface} is made of a set of patches of \texttt{Polygons}. No relationships connect a class with itself or others of the same dimension. 
+			</p>
+			<p>
+				 \begin{figure}[t]   \begin{center}     \includegraphics[width=\linewidth]{figs/gml}   \end{center}   \caption[Geometry in GML]{The geometric classes from the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">{ISO}, 2005{\natexlab{a}}</a>] that are implemented in the GML standard [<a href="bibliography.html#GML3.2.1">{OGC}, 2007</a>].} \label{fig:gml} \end{figure} 
+			</p>
+			<p>
+				 GML [<a href="bibliography.html#GML3.3">{OGC}, 2012</a>], is the most widely used international standard to represent 2D and 3D geographic information. It has been further formalised as ISO 19136 [<a href="bibliography.html#ISO19136:2007">{ISO}, 2007{\natexlab{b}}</a>] and is the basis of other standards, such as CityGML [<a href="bibliography.html#CityGML2">Gr\"oger et al., 2012</a>], which is used for the exchange of 3D city models. In terms of geometry, it implements a subset of the types in the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">{ISO}, 2005{\natexlab{a}}</a>], which are shown in <a href="#fig:gml" id="fig:gmlref">Figure 3.18</a>. It similarly considers \texttt{LineStrings} represented as sequences of at least two points, \texttt{LinearRings} as sequences of at least four points<a href="#fn33" id="fnref33"><sup>33</sup></a>. \texttt{Polygons} consist of one exterior and zero or more interior \texttt{Rings}, and various surface types are composed of different kinds of \texttt{SurfacePatches}. 
+			</p>
+			<p>
+				 The Industry Foundation Classes (IFC)<a href="#fn34" id="fnref34"><sup>34</sup></a> standard is an open data model used in the Building-information modelling (BIM) domain for the exchange of construction models, often including 3D models of buildings. It has also been adapted as the ISO 16739 international standard [<a href="bibliography.html#ISO16739:2013">ISO, 2013</a>]. Its geometric aspects are however mostly defined or derived from a different standard&mdash;ISO 10303 [<a href="bibliography.html#ISO10303:2014">ISO, 2014</a>]. Unlike the data models originating in GIS (e.g.  Simple Features and CityGML), there is an important emphasis on the definition of a local coordinate system per object (as opposed to the national or regional coordinate systems used in GIS). This reflects the fact that in BIM every object is generally modelled independently before later being fitted together. Hierarchical descriptions of objects thus result in hierarchically applied coordinate system transformations. Boundary representation and tessellation geometries are supported as in other models, but IFC supports a much greater variety of geometry classes, which include implicit geometries based on half-space intersections, Constructive Solid Geometry (as a tree of Boolean set operations) and sweeps (based on a cross-section), such as the one shown in <a href="#fig:ifc" id="fig:ifcref">Figure 3.19</a>. 
+			</p>
+			<p>
+				 \subsection{Models used in 2D and 3D GIS} 
+			</p>
+			<p>
+				 When the first GIS were developed in 1960s and 1970s, such as SYMAP [<a href="bibliography.html#Chrisman88">Chrisman, 1988</a>] and the Canada GIS [<a href="bibliography.html#Tomlinson88">Tomlinson, 1988</a>], they used boundary representation, depicting 2D areas as polygons defined by a sequence of vertices. By the 1980s, a <em>topological approach</em> based on planar partitions was instead used in systems like GRASS<a href="#fn35" id="fnref35"><sup>35</sup></a> and the coverages of ArcInfo [<a href="bibliography.html#ESRITopology">{ESRI}, 2005</a>]. This was done using an intermediate representation where all input objects are partitioned into homogeneous regions [<a href="bibliography.html#Rossignac89">Rossignac and O'Connor, 1989</a>], such that each region is linked to a set of input objects that are all present in the entire region. This intermediate representation is obtained by performing geometric intersection operations on all of the input objects and allows these partitions to be represented using the types of data structures for 2D cell complexes presented in \refse{ss:data-structures}. 
+			</p>
+			<p>
+				   \subfloat[]{ \includegraphics[width=\marginparwidth]{figs/ifc-1}  \\ \subfloat[]{ \includegraphics[width=\marginparwidth]{figs/ifc-2} \label{subfig:ifc-2}} \caption[Sweeps in IFC]{The IFC standard supports objects defined through sweeps, which are defined by (a) an \texttt{IfcPCurve} (black spiral) and a \texttt{SweptArea} (blue disk), in this case resulting in (b) a screw shape.} \label{fig:ifc}  
+			</p>
+			<p>
+				 However, current 2D GIS software has reverted to the use of simple data structures with very little or no topology, which are then supplemented by external spatial indices for speed. This type of representation has some drawbacks: it encourages inefficient representations where primitives are represented multiple times (e.g.  when a face is part of the boundary of two polyhedra) \citep[Ch.~3]{Cromley92}, which might not match exactly [<a href="bibliography.html#delaLosa99">{de la Losa} and Cervelle, 1999</a>], it makes it difficult to check that a set of bounding elements conforms to certain properties (e.g.  properly enclosing a space or being manifold), and the topological relationships between many elements need to be recomputed. 
+			</p>
+			<p>
+				 However, in the context of current 2D GIS software, in which different data sources are dynamically loaded and used together, it is often more efficient to opt for a representation with little topology, instead computing topological relationships only if and when they are needed, such as is done in ArcGIS [<a href="bibliography.html#ESRITopology">{ESRI}, 2005</a>] and in some QGIS plug-ins. Many current use cases can actually do without the computation of these topological relationships: as explained in \refse{ss:graphics}, visualisation does not require explicit topology, today&rsquo;s fast computers can process many datasets using simpler brute force approaches, and algorithms can take advantage of strong properties that are intrinsic to the 2D case, such as that it is possible to define a natural (sequential) order for the points around a closed polygonal curve, or that there can be at most two polygons incident to any edge in a planar partition. 
+			</p>
+			<p>
+				 Moreover, it is more robust&mdash;and often more convenient&mdash;to consider the geometric and topological information that is stored in a file as suspect, programming defensively to avoid errors in software by using repair techniques such as those that will be discussed in \refch{ch:cleaning}, as errors can frequently appear due to a variety of causes, e.g.  numerical errors [<a href="bibliography.html#Goldberg91">Goldberg, 1991</a>; <a href="bibliography.html#Schirra97">Schirra, 1997</a>] or differing interpretations of invalid objects [<a href="bibliography.html#Ledoux14">Ledoux et al., 2014</a>]. 
+			</p>
+			<p>
+				 The situation regarding 3D GIS is more complex, consisting of many custom made ad hoc systems that are very frequently described in the literature (e.g.  the impressive one developed by <a href="bibliography.html#Zhang11">Zhang et al. [2011]</a>) following both topological and non-topological approaches, but in practice, there are very few general-purpose publicly available 3D GIS.  In addition to this, there is limited 3D functionality in existing GIS software, such as 2.5D data containing elevation as an attribute [<a href="bibliography.html#Raper89">Raper, 1989</a>], or capabilities for simple storage, visualisation and editing (e.g.  moving vertices) of 3D models. This leaves more complex geometric operations, such as the use of Boolean set operations or complex deformations of 3D models within the realm of CAD or 3D modelling software. Partly as a consequence, 3D GIS datasets commonly contain large numbers of invalid geometries [<a href="bibliography.html#Zhao14">Zhao et al., 2014</a>]. 
+			</p>
+			<p>
+				 \subsection{Models used in 3D modelling software and libraries} 
+			</p>
+			<p>
+				 Compared to GIS software, 3D modelling, CAD and other similar software have a greater emphasis on (interactive) editing and other operations that alter the geometry of a 3D object. However, many (or most) 3D modelling software<a href="#fn36" id="fnref36"><sup>36</sup></a> represent 3D objects only as closed surfaces, using triangular or polygonal meshes that can be stored using the data structures for 2D simplicial/cell complexes presented in \refse{ss:data-structures}. This is not a limitation for simple 3D editing functionality, such as moving vertices, splitting edges and faces, and adding new vertices/edges/faces. However, more complex geometric operations with and between 3D objects generally require more powerful data structures with an explicit knowledge of volumes. 
+			</p>
+			<p>
+				 Nevertheless, some software that is used for this purpose follows a minimal approach similar to the one used for exchange file formats in GIS.  The standard <em>topological data structure</em> in CAD\footnote{It is important to note the term &lsquo;topological data structure&rsquo; has completely opposite meanings in GIS and CAD.  The non-topological (Simple Features) approach in GIS is equivalent to the standard CAD topological data structure; the standard GIS topological data structure is equivalent to a CAD mesh, which is widely considered as the <em>less</em> topological approach. Objectively, they both embrace topology in different ways. The GIS topological data structure stores the (algebraic) topological relationships between polygonal areas; the CAD topological data structure stores the (point-set) topological relationships between a polygon/polyhedron and its different rings/shells.} considers <em>vertices</em>, curved <em>edges</em> connecting vertices, <em>wires</em> consisting of a closed loop of edges, <em>faces</em> made from one outer wire and possibly multiple inner wires, closed <em>shells</em> made from a set of faces, and <em>solids</em> consisting of one outer shell and possibly multiple inner shells. For example, this is the approach that is used in K-3D [<a href="bibliography.html#Shead10">Shead, 2010</a>] and openCASCADE library<a href="#fn37" id="fnref37"><sup>37</sup></a>, the engine used for geometric computations in CAD software like FreeCAD<a href="#fn38" id="fnref38"><sup>38</sup></a> and the SALOME numerical simulator<a href="#fn39" id="fnref39"><sup>39</sup></a>. 
+			</p>
+			<p>
+				 This approach often fails when attempting some operations that are notoriously difficult to perform robustly, e.g.  Boolean set operations between polyhedra&mdash;something that is recognised in the documentation of multiple software packages. Other software thus uses more powerful data structures based on 3D cell complexes, generally achieving better results in the process. Blender 3D<a href="#fn40" id="fnref40"><sup>40</sup></a> uses something akin to the radial edge structure [<a href="bibliography.html#Weiler88">Weiler, 1988</a>] and Moka<a href="#fn41" id="fnref41"><sup>41</sup></a> uses 3D generalised maps [<a href="bibliography.html#Lienhardt94">Lienhardt, 1994</a>]. 
+			</p>
+			<p>
+				 A different approach is followed by software like BRL-CAD<a href="#fn42" id="fnref42"><sup>42</sup></a>, which uses a Constructive Solid Geometry engine and therefore stores objects as trees of Boolean set operations. Finally, the Nef polyhedra implementation in CGAL [<a href="bibliography.html#Hachenberger06">Hachenberger, 2006</a>] is able to compute Boolean set operations [<a href="bibliography.html#Granados03">Granados et al., 2003</a>], convex decompositions [<a href="bibliography.html#Chazelle84">Chazelle, 1984</a>] and Minkowski sums robustly. It is used in software like OpenSCAD<a href="#fn43" id="fnref43"><sup>43</sup></a>. 
+			</p>
+			<p>
+				 <h2>Spatiotemporal modelling</h2> 
+			</p>
+			<p>
+				 Among the possible non-spatial characteristics that can be integrated with space, time in particular has long been considered to be interlinked with space [<a href="bibliography.html#Akhundov86">Akhundov, 1986</a>]. Like space, it is considered to have geometry and topology [<a href="bibliography.html#Earman77">Earman, 1977</a>], which are often modelled in accordance to the ISO 19108 standard [<a href="bibliography.html#ISO19108:2002">{ISO}, 2005{\natexlab{b}}</a>]. 
+			</p>
+			<p>
+				 Spatiotemporal modelling attempts to create joint models that combine spatial and temporal information. It draws inspiration from the independent modelling of both space and time. The main models used in spatiotemporal modelling are presented below. For a more thorough review of spatiotemporal models see <a href="bibliography.html#Al-Taha94">Al-Taha et al. [1994]</a> and <a href="bibliography.html#Pelekis04">Pelekis et al. [2004]</a>. 
+			</p>
+			<p>
+				 The simplest and most widespread spatiotemporal model involves the use of timestamps. Known as the <em>snapshot</em> model, it was probably first used in the US Historical Boundary File [<a href="bibliography.html#Basoglu78">Basoglu and Morrison, 1978</a>]. In this model, shown in <a href="#fig:st_snapshot" id="fig:st_snapshotref">Figure 3.20</a>, every entity represents the state of an object during a specific timeframe.       These entities might be objects of any dimension, e.g.  polylines as in the US Historical Boundary File or polygons in a cadastral database [<a href="bibliography.html#Hunter90">Hunter and Williamson, 1990</a>]. An entity is therefore attached with a pair of timestamps, which demarcate the <em>start</em> and <em>end</em> of the period during which the entity existed as is represented. These models thus keep multiple representations of 2D [<a href="bibliography.html#Armstrong88">Armstrong, 1988</a>] or 3D [<a href="bibliography.html#Hamre97">Hamre et al., 1997</a>] structures. This approach is simple but not very powerful, containing no direct relations between the objects that were present at the same location but during different periods of time. 
+			</p>
+			<p>
+				 There are a few variations of this model. For instance, it is possible to store differential changes only [<a href="bibliography.html#Langran88">Langran and Chrisman, 1988</a>], specifying the areas that are added to or removed from an object at a given time. Another related possibility is keeping the current state of the map explicitly as well, which greatly improves the response time of this very common query. 
+			</p>
+			<p>
+				 In the <em>space-time composite</em> model, objects are first split into homogeneous regions that share the same history, similar to how overlapping objects are handled in topological GIS models [<a href="bibliography.html#Rossignac89">Rossignac and O'Connor, 1989</a>]. This was first described in <a href="bibliography.html#Chrisman83">Chrisman [1983]</a> based on <a href="bibliography.html#Peucker75">Peucker and Chrisman [1975]</a>. This is more flexible than the snapshot model, but objects can become very fragmented, slowing down many operations. For instance, updating the attributes of an object might involve updating all the regions that the object is split into. 
+			</p>
+			<p>
+				 Other models put a greater emphasis on events, such as by keeping a list of changes per object [<a href="bibliography.html#Worboys92">Worboys, 1992{\natexlab{a}}</a>; <a href="bibliography.html#Peuquet94">Peuquet, 1994</a>]. Event-based models [<a href="bibliography.html#Peuquet95">Peuquet and Duan, 1995</a>] take this a step further, maintaining a main structure consisting of a list of events and a base map. \begin{figure}[tbp] \centering \includegraphics[width=\linewidth]{figs/st_events} \caption[An event-based model]{An event-based model maintains a list of events and a base map, with each event being linked to all changes that occurred since the last event. Based on <a href="bibliography.html#Peuquet95">Peuquet and Duan [1995]</a>.} \label{fig:st_events} \end{figure} Unlike other models, this makes it possible to identify and attach attributes to individual changes and events. In the <em>history graph</em> model [<a href="bibliography.html#Renolen96">Renolen, 1996</a>], different types of events are supported, which makes it possible to model continuously changing events as well. Similar models are used in computer animations, where a graph of keyframes can identify topological changes in a 2D vector drawing [<a href="bibliography.html#Dalstein15">Dalstein et al., 2015</a>]. 
+			</p>
+			<p>
+				 A different option is to keep track of space and time independently, linking objects appropriately. So called <em>three-domain</em> models are based on this concept (the third domain being semantics). Examples include <a href="bibliography.html#Yuan94">Yuan [1994]</a> and <a href="bibliography.html#Claramunt95">Claramunt and Th.eriault [1995]</a>. In another example, <a href="bibliography.html#vanOosterom97">{van Oosterom} [1997]</a> uses an identifier consisting of both a region identifier and a timestamp to index spatiotemporal objects. 
+			</p>
+			<p>
+				 Finally, there are some generic spatiotemporal models described at a more conceptual level [<a href="bibliography.html#Story95">Story and Worboys, 1995</a>], which can be adapted to suit a specific application. For instance, <a href="bibliography.html#Tryfona99">Tryfona and Jensen [1999]</a> describe the space-time entity-relationship model, which is based on the entity-relationship [<a href="bibliography.html#Chen76">Chen, 1976</a>] common in the database world. It provides rudimentary support for multi-scale objects by allowing for multiple geometries to be stored in each feature. <a href="bibliography.html#Claramunt99">Claramunt et al. [1999]</a> discusses an object-relational model that is specifically tailored to model change. Additionally, there are a few object-oriented spatiotemporal models [<a href="bibliography.html#Worboys90">Worboys et al., 1990</a>]. 
+			</p>
+			<p>
+				 <h2>Modelling geographic scale</h2> 
+			</p>
+			<p>
+				 Traditional paper maps and physical models have a well-defined <em>scale</em>, whose value is a ratio between a linear measure in the model/map with the corresponding linear measure in the real world<a href="#fn44" id="fnref44"><sup>44</sup></a>. Scale is therefore a concept that is fixed and has a clear, measurable value in a model or map. 
+			</p>
+			<p>
+				 However, apart from this direct meaning, scale also has an indirect relation to the <em>level of detail</em> (LOD) that is present in a map/model. Considering limits in resolution in printing and manufacturing technologies, the detail that can be put into a map or model is limited by its scale. Moreover, since humans are only able to reliably distinguish features of a certain size&mdash;a commonly accepted measure for maps being 0.5 mm [<a href="bibliography.html#Goodchild01">Goodchild, 2001</a>]&mdash;, an adequate representation at a given scale presupposes objects being of a certain minimum size and a minimum distance apart. 
+			</p>
+			<p>
+				 The above mentioned factors limit the detail that <em>can</em> be present in a model/map at a given scale, but there are additional limits on the detail that <em>should</em> be present. Considering that maps are first and foremost communication tools, good maps need to have content that has an appropriate level of precision and detail for the good conveyance of their intended message [<a href="bibliography.html#Hardy12">Hardy and Field, 2012</a>]. 
+			</p>
+			<p>
+				 In the digital realm, where models and maps both become data and the direct meaning of geographic scale as a ratio between a model/map and reality disappears, scale preserves only its indirect meaning as the level of detail that is present in a model or map, and accordingly the term &lsquo;level of detail&rsquo; is more appropriate [<a href="bibliography.html#Biljecki14">Biljecki et al., 2014{\natexlab{b}}</a>]. An increase in the detail of a model enables more applications, but means that its representations occupy larger sizes and their processing involves higher computational costs\footnote{However, the consequences of more detailed maps/models should not been seen as a merely technical issue. High memory usage and processing time directly affect the usability of a model or map, and too much detail can often detract from its intended message.}. When the term &lsquo;scale&rsquo; is used instead, the level of detail that is expected is often presented in relation to its physical predecessor, such as in the map fragments shown in <a href="#fig:generalisation" id="fig:generalisationref">Figure 3.21</a>. In digital models and maps, having an adequate level of detail also becomes important as a higher level of detail entails a correspondingly higher memory and computational requirements [<a href="bibliography.html#Luebke03">Luebke et al., 2003</a>]. \begin{figure}[tbp] \centering \subfloat[1:50 000]{ \includegraphics[width=0.46\linewidth]{figs/generalisation2} \label{ss:generalisation2}} \quad \subfloat[1:250 000]{ \includegraphics[width=0.46\linewidth]{figs/generalisation3} \label{ss:generalisation3}} \caption[Topographic maps at different scales around Delft]{Fragments of two Dutch topographic maps at different scales around Delft. Note that the region depicted in both maps is the same and maps are (here) presented at the same size, and thus the scale of both in a literal sense is the same. However, the level of detail in each map differs. \copyright Kadaster\protect\footnotemark.} \label{fig:generalisation} \end{figure} \footnotetext{<a href="http://www.kadaster.nl">http://www.kadaster.nl</a>} 
+			</p>
+			<p>
+				 Geographic information at different scales is generally managed as fully independent datasets at each scale [<a href="bibliography.html#Meijers11">Meijers, 2011</a>], such as in the topographic maps shown in <a href="#fig:generalisation" id="fig:generalisationref">Figure 3.21</a>. In 3D, the CityGML standard [<a href="bibliography.html#CityGML2">Gr\"oger et al., 2012</a>] defines the five LODs shown in <a href="#fig:citygml-filip" id="fig:citygml-filipref">Figure 3.22</a>, which can be stored jointly but are effectively separate datasets except when their geometries are linked (\cf <a href="bibliography.html#Biljecki15">Biljecki et al. [2015]</a>). This is similar to the snapshot model for spatiotemporal information [<a href="bibliography.html#Basoglu78">Basoglu and Morrison, 1978</a>; <a href="bibliography.html#Langran88">Langran and Chrisman, 1988</a>] as presented in \refse{se:modelling-time}, since these datasets are labelled with the scale (or range of scales) that they are associated with. This representation is simple and matches nicely with paper map series&mdash;in which a region is depicted at multiple scales in different maps. However, many objects are represented several times (once at each scale in which they are present) [<a href="bibliography.html#Friis-Christensen03">Friis-Christensen and Jensen, 2003</a>], and it is difficult to maintain consistency between these representations [<a href="bibliography.html#Buttenfield89">Buttenfield and DeLotto, 1989</a>], as the different representations of an object are unlinked or linked only by common identifiers<a href="#fn45" id="fnref45"><sup>45</sup></a>. 
+			</p>
+			<p>
+				 \begin{figure}[tbp] \centering \includegraphics[width=\linewidth]{figs/citygml-filip} \caption[The LODs in CityGML]{The CityGML standard [<a href="bibliography.html#CityGML2">Gr\"oger et al., 2012</a>] defines five LODs for 3D city models, which range from building footprints to detailed architectural models of their interior and exterior. From <a href="bibliography.html#Biljecki14a">Biljecki et al. [2014{\natexlab{a}}]</a>.} \label{fig:citygml-filip} \end{figure} 
+			</p>
+			<p>
+				 In order to achieve consistency and complete coverage of a region at a given scale, it becomes important to be able to create a map of that scale using a more detailed map of the same region as input, resulting in maps at different scales covering the same region. This is achieved by the process of cartographic (or map) generalisation. In it, the amount of information in a map is reduced [<a href="bibliography.html#Tofper66">T\"ofper and Pillerwizer, 1966</a>], abstracting objects for a given scale using a set of well-defined cartographic rules [<a href="bibliography.html#SGK75">SGK, 1975</a>]. Many of these rules can be automated in the form of algorithms (e.g.  line simplification [<a href="bibliography.html#Douglas73">Douglas and Peucker, 1973</a>]), resulting in several automatic <em>map generalisation algorithms</em> [<a href="bibliography.html#Weibel97">Weibel, 1997</a>], and their (much more recent) resulting software implementations [<a href="bibliography.html#Jones05">Jones and Ware, 2005</a>; <a href="bibliography.html#Stoter09">Stoter et al., 2009</a>]. In fact, it is now possible to generalise maps fully automatically in certain cases and with good results [<a href="bibliography.html#Stoter14">Stoter et al., 2014</a>]. 
+			</p>
+			<p>
+				 In 3D modelling, similar algorithms are widely used to create simplified versions of complex 3D models [<a href="bibliography.html#Meng07">Meng and Forberg, 2007</a>; <a href="bibliography.html#Kada07">Kada, 2007</a>; <a href="bibliography.html#Zhu09">Zhu et al., 2009</a>; <a href="bibliography.html#Zhao12">Zhao et al., 2012</a>]&mdash;using visual or geometric criteria rather than cartographic&mdash;based on techniques such as mesh simplification [<a href="bibliography.html#Garland97">Garland and Heckbert, 1997</a>; <a href="bibliography.html#Lindstrom98">Lindstrom and Turk, 1998</a>]. Considering that these techniques can be applied to the very detailed 3D models that are generated using surface reconstruction [<a href="bibliography.html#Amenta98">Amenta and Bern, 1998</a>; <a href="bibliography.html#Kazhdan06">Kazhdan et al., 2006</a>] from laser-scanned point clouds, or those resulting from the reuse of detailed architectural models [<a href="bibliography.html#Geiger15">Geiger et al., 2015</a>], they allow the generation of entire series of progressively simpler models up to an arbitrary level of detail in a process that is largely automatic&mdash;at least in theory\footnote{In practice, it is a very challenging process with many engineering stumbling blocks. For one, fully automated surface reconstruction requires a certain density of sampling points (see \citet[Ch.~13]{Cheng12}), which is hard to guarantee. The generalisation of real-world 3D objects is also very challenging in practice due to a variety of reasons, such as the errors caused by the acquisition of data at different times, from different angles, from different sources, or using different methods.}. 
+			</p>
+			<p>
+				 Using automatic map generalisation, it becomes possible to create digital objects of any given scale, and thus to create and populate structures where an object at many scales is represented as a single entity, usually as a tree where detail is added progressively. For polygonal curves, this is accomplished by structures such as: strip trees [<a href="bibliography.html#Ballard81">Ballard, 1981</a>], the multi-scale line tree [<a href="bibliography.html#Jones86">Jones and Abraham, 1986</a>], the arc tree [<a href="bibliography.html#Gunther88">G\"unther, 1988</a>] and the binary line generalisation tree [<a href="bibliography.html#vanOosterom90">{van Oosterom}, 1990</a>]. For planar partitions, it can be done structures such as: hierarchical planar subdivisions [<a href="bibliography.html#Filho95">Filho et al., 1995</a>], multi-scale partitions [<a href="bibliography.html#Rigaux95">Rigaux and Scholl, 1995</a>], nested maps [<a href="bibliography.html#Plumer97">Pl\"umer and Gr\"oger, 1997</a>] and topological generalised area partitioning trees [<a href="bibliography.html#vanOosterom05">{van Oosterom}, 2005</a>]. 
+			</p>
+			<p>
+				 <h2>Key characteristics and shortcomings of current approaches</h2> 
+			</p>
+			<p>
+				 As shown in this chapter, there is great variety among the techniques used to model different aspects of 2D and 3D space, time and geographic scale. Considering all the possible ways in which these techniques can be combined together into a complete modelling approach, many different feasible approaches can be devised, which can be further fine-tuned for a particular application or use case. These vary in fundamental aspects, such as their explicitness, their use of geometry and topology, and the class of objects that they are able to handle efficiently. 
+			</p>
+			<p>
+				 However, despite these very real and substantial differences, the representation approaches in <em>2D GIS</em> have become largely interchangeable in practice. There is a myriad of well-known topological data structures that can be used, such as the DCEL [<a href="bibliography.html#Muller78">Muller and Preparata, 1978</a>] and the quad-edge [<a href="bibliography.html#Guibas85">Guibas and Stolfi, 1985</a>], and even when certain objects are not directly supported in them (e.g.  those with a non-manifold shape or with holes), they can usually be nevertheless stored using various simple &lsquo;tricks&rsquo;, such as repeated combinatorial primitives (as shown previously in <a href="#fig:nonmanifold-012" id="fig:nonmanifold-012ref">Figure 3.10</a>), special kinds of attributes or external data structures such as indices. 
+			</p>
+			<p>
+				 Moreover, many 2D GIS applications do not even require the explicit topology of a topological data structure. Visualisation and simple computations can just as easily do without it, and consequently use data structures with very little or no topology, opting for a Simple Features-like representation [<a href="bibliography.html#SimpleFeatures1">{OGC}, 2011</a>]. Also, considering that the computation of topological relationships between 2D objects is relatively simple, it can be done on-the-fly only when it is needed [<a href="bibliography.html#ESRITopology">{ESRI}, 2005</a>]&mdash;something that is especially true for the relatively small size of most 2D datasets, which often pale in comparison to the computing power that is now readily available. All of these reasons point towards a similar conclusion: objects of up to two dimensions (i.e.  points, line segments and polygons) can be represented using either topological or non-topological approaches with little difference in practice. 
+			</p>
+			<p>
+				 In 3D, the situation is more complex and topology brings more significant advantages, even as storing topological relationships comes at a significantly increased cost in terms of memory. Compared to the circumstances in 2D, there are more topological relationships between 3D objects, and these are more difficult and expensive to compute, so their storage becomes highly desirable in many instances. At the same time, datasets are usually much larger, which makes topological relationships more valuable in order to traverse them efficiently. More complex applications such as simulations greatly benefit from 3D topological representations as well&mdash;or at least from data that is known to be valid, for which 3D topological data structures are used [<a href="bibliography.html#Ledoux13">Ledoux, 2013</a>]. 
+			</p>
+			<p>
+				 Moreover, many of the strong properties that allow for simple but powerful data structures and quick computations in 2D do not work in 3D. For instance, there is a natural order for the vertices or line segments around a polygon&mdash;used e.g.  to efficiently store a polygon as a sequence of vertices&mdash;but there is no similar natural order for the faces around a polyhedron. Similarly, storing a complete planar partition as a set of edge primitives where every edge records the polygons that lie on each of its two sides [<a href="bibliography.html#Peucker75">Peucker and Chrisman, 1975</a>] is straightforward and efficient, but a 3D space partition stored as a set of faces where every face only knows the volumes that lie on both of its sides is very cumbersome to navigate&mdash;even a simple operation such as extracting the volumes in the partition is difficult without the adjacency relationships between the faces. 
+			</p>
+			<p>
+				 Partly because of this, as well as the general increase in complexity that comes with an increase in the number of dimensions, the topological data structures that are capable of storing topological relationships between sets of 3D objects are less used in practice. The third spatial dimension, time, and scale are mainly implemented using ad hoc adaptations to 2D data structures, effectively limiting the capabilities of GIS software. 3D GIS often mimic the third dimension by using a so-called 2.5D structure [<a href="bibliography.html#Raper89">Raper, 1989</a>], essentially treating the third dimension as an attribute and restricting the geometries that can be represented; or represent 3D objects individually and only implicitly through their 2D boundary, using a 2D data structure with no 3D topological relationships<a href="#fn46" id="fnref46"><sup>46</sup></a>. This implies that many operations are only possible using expensive searches involving many more objects than otherwise needed. 
+			</p>
+			<p>
+				 Time and scale are considered to be inseparable in the representational process by theorists, since events have an intrinsic place in space and time, as well as specific spatial and temporal resolutions [<a href="bibliography.html#Raper00">Raper, 2000</a>]. However, spatiotemporal GIS keep multiple representations of 2D [<a href="bibliography.html#Armstrong88">Armstrong, 1988</a>] or 3D [<a href="bibliography.html#Hamre97">Hamre et al., 1997</a>] structures, or a list of changes per object [<a href="bibliography.html#Worboys92">Worboys, 1992{\natexlab{a}}</a>; <a href="bibliography.html#Peuquet94">Peuquet, 1994</a>], limiting combined spatio-temporal analysis of such objects. Multi-scale datasets generally consist of independent datasets for each scale, which are either unconnected or connected only at the object level (e.g.  through the use of IDs). This means that complex relationships between objects, such as collapses, aggregations and others that are not one-to-one are difficult to store, which causes, among others, update and maintenance problems as well as inconsistencies. It also complicates the storage of semantic information about these relationships. 
+			</p>
+		</div>
+		<div class="col-md-3">
+			<p id="fn18" class="small">
+				18. Cartesian products of simplices<a href="#fnref18">&#8617;</a>
+			</p>
+			<p id="fn19" class="small">
+				19. There are certainly exceptions, such as 3D+scale models as 4D models where a volume collapses to a point. However, the large number of primitives that would need to be defined for a system of this kind would make it impractical.<a href="#fnref19">&#8617;</a>
+			</p>
+			<p class="small">Figure 3.1: An object represented as a tree of Boolean set operations on a sphere, a cube and three cylinders. From Wikimedia Commons.<a href="#fig:csgref">&#8617;</a></p>
+			<p id="fn20" class="small">
+				20. i.e.  a line in 2D and a plane in 3D.<a href="#fnref20">&#8617;</a>
+			</p>
+			<p id="fn21" class="small">
+				21. This is equivalent to a triangle in 2D and a polyhedral pyramid in 3D.<a href="#fnref21">&#8617;</a>
+			</p>
+			<p id="fn22" class="small">
+				22. <a href="http://www.ecmwf.int/en/about/media-centre/news/2016/new-forecast-model-cycle-brings-highest-ever-resolution">http://www.ecmwf.int/en/about/media-centre/news/2016/new-forecast-model-cycle-brings-highest-ever-resolution</a><a href="#fnref22">&#8617;</a>
+			</p>
+			<p id="fn23" class="small">
+				23. This is somewhat contentious. See \citet[Ch.~5]{van-Dalen13<a href="#fnref23">&#8617;</a>
+			</p>
+			<p id="fn24" class="small">
+				24. A clear exception are the ad hoc data structures often used in GIS, which usually define a set of fields that is different per dimension, resulting in awkward definitions at the data model level.<a href="#fnref24">&#8617;</a>
+			</p>
+			<p class="small">Figure 3.5: The \((i-2)\)-th row of Pascal&rsquo;s triangle, which is obtained by adding the numbers in the row above, gives the number of faces of every dimension in an <em></em>-simplex. For instance, a tetrahedron (3-simplex) has 4 vertices, 6 edges, 4 faces and 1 volume.<a href="#fig:pascal-triangleref">&#8617;</a></p>
+			<p id="fn25" class="small">
+				25. even if it is embedded in a dimension higher than two, e.g.  the triangulated surfaces embedded in 3D (TINs) that are common in GIS<a href="#fnref25">&#8617;</a>
+			</p>
+			<p class="small">Figure 3.8: In the polygon model, every polygon is represented separately as a list of vertices. Note that every vertex is thus represented once for each polygon where it is used.<a href="#fig:polygon-modelref">&#8617;</a></p>
+			<p class="small">Figure 3.9: In the spaghetti model, common boundaries are identified and represented only once. However, the polygons are only implicitly described.<a href="#fig:spaghettiref">&#8617;</a></p>
+			<p id="fn26" class="small">
+				26. As long as it strictly conforms to the definition of a cell complex, e.g.  by having no overlapping polygons and ensuring that polygons are perfectly closed with no overshoots or undershoots.<a href="#fnref26">&#8617;</a>
+			</p>
+			<p class="small">Figure : In the quad-edge data structure, an edge stores a <em>quad</em>, four records pointing to other quads corresponding to the previous and next oriented edges for the polygons on both of its sides.<a href="#fig:quadref">&#8617;</a></p>
+			<p id="fn27" class="small">
+				27. See <a href="bibliography.html#Biljecki14">Biljecki et al. [2014{\natexlab{b<a href="#fnref27">&#8617;</a>
+			</p>
+			<p id="fn28" class="small">
+				28. <a href="https://www.opengl.org">https://www.opengl.org</a><a href="#fnref28">&#8617;</a>
+			</p>
+			<p id="fn29" class="small">
+				29. a subset of DirectX: <a href="http://msdn.microsoft.com/directx">http://msdn.microsoft.com/directx</a><a href="#fnref29">&#8617;</a>
+			</p>
+			<p id="fn30" class="small">
+				30. <a href="http://www.amd.com/mantle">http://www.amd.com/mantle</a><a href="#fnref30">&#8617;</a>
+			</p>
+			<p id="fn31" class="small">
+				31. <a href="https://www.khronos.org/webgl/">https://www.khronos.org/webgl/</a><a href="#fnref31">&#8617;</a>
+			</p>
+			<p id="fn32" class="small">
+				32. <a href="https://www.khronos.org/vulkan/">https://www.khronos.org/vulkan/</a><a href="#fnref32">&#8617;</a>
+			</p>
+			<p class="small">Figure 3.16: A triangle strip is easily defined as a list of vertices \((a,b,c,d,e,f,g,h)\). Every triangle is formed by three consecutive vertices in the list.<a href="#fig:trianglestripref">&#8617;</a></p>
+			<p id="fn33" class="small">
+				33. There is no implicit connection between the first and last points in a CityGML polygon, so the first point needs to be repeated at the end.<a href="#fnref33">&#8617;</a>
+			</p>
+			<p id="fn34" class="small">
+				34. <a href="http://www.buildingsmart-tech.org/specifications/ifc-releases">http://www.buildingsmart-tech.org/specifications/ifc-releases</a><a href="#fnref34">&#8617;</a>
+			</p>
+			<p id="fn35" class="small">
+				35. <a href="http://grass.osgeo.org">http://grass.osgeo.org</a><a href="#fnref35">&#8617;</a>
+			</p>
+			<p id="fn36" class="small">
+				36. Unfortunately, it is difficult to know which data structures are used internally in most commercial software, so this analysis is necessarily limited.<a href="#fnref36">&#8617;</a>
+			</p>
+			<p id="fn37" class="small">
+				37. <a href="http://www.opencascade.org">http://www.opencascade.org</a><a href="#fnref37">&#8617;</a>
+			</p>
+			<p id="fn38" class="small">
+				38. <a href="http://www.freecadweb.org">http://www.freecadweb.org</a><a href="#fnref38">&#8617;</a>
+			</p>
+			<p id="fn39" class="small">
+				39. <a href="http://www.salome-platform.org">http://www.salome-platform.org</a><a href="#fnref39">&#8617;</a>
+			</p>
+			<p id="fn40" class="small">
+				40. <a href="http://www.blender.org">http://www.blender.org</a><a href="#fnref40">&#8617;</a>
+			</p>
+			<p id="fn41" class="small">
+				41. <a href="http://moka-modeller.sourceforge.net">http://moka-modeller.sourceforge.net</a><a href="#fnref41">&#8617;</a>
+			</p>
+			<p id="fn42" class="small">
+				42. <a href="http://brlcad.org">http://brlcad.org</a><a href="#fnref42">&#8617;</a>
+			</p>
+			<p id="fn43" class="small">
+				43. <a href="http://www.openscad.org">http://www.openscad.org</a><a href="#fnref43">&#8617;</a>
+			</p>
+			<p class="small">Figure 3.20: The snapshot model stores the state of a map at various moments in time. Based on <a href="bibliography.html#Langran88">Langran and Chrisman [1988]</a>.<a href="#fig:st_snapshotref">&#8617;</a></p>
+			<p id="fn44" class="small">
+				44. Non-linear measures (e.g.  area and volume) in a model/map and reality are related non-linearly to this ratio.<a href="#fnref44">&#8617;</a>
+			</p>
+			<p id="fn45" class="small">
+				45. Which can be messy in practice as many times there is not a one-to-one mapping between the different representations.<a href="#fnref45">&#8617;</a>
+			</p>
+			<p id="fn46" class="small">
+				46. i.e.  topological relationships involving 3D primitives, such as the adjacencies between two volumes or the incidences between a volume and a vertex/edge/face<a href="#fnref46">&#8617;</a>
+			</p>
+		</div>
+	</div></div>
