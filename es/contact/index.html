@@ -81,7 +81,7 @@ map: true
 			// the feature, with description HTML from its properties.
 			map.on('click', function (e) {
 		    map.featuresAt(e.point, {
-	        radius: 7.5, // Half the marker size (15px).
+	        radius: 50, // Half the marker size.
 	        includeGeometry: true,
 	        layer: 'markers'
 		    }, function (err, features) {
@@ -101,7 +101,7 @@ map: true
 			// by changing the cursor style to 'pointer'.
 			map.on('mousemove', function (e) {
 		    map.featuresAt(e.point, {
-	        radius: 7.5, // Half the marker size (15px).
+	        radius: 50, // Half the marker size.
 	        layer: 'markers'
 		    }, function (err, features) {
 	        map.getCanvas().style.cursor = (!err && features.length) ? 'pointer' : '';
