@@ -1,0 +1,18 @@
+---
+layout: default
+title: Transporte en la Ciudad de M&eacute;xico
+file: transport/index.html
+lang: es
+map: true
+---
+
+<div id="map" style="height: 600px;"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1Ijoia2Vub2hvcmkiLCJhIjoiTlQyblc2ayJ9.cxdc2HKXV1ZsDL5A-GSHFA';
+	var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/kenohori/cim26ubbi00rfcglvpywl2k9w',
+    center: [-99.14, 19.47],
+    zoom: 10.0
+	});
+</script>
