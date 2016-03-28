@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 373 374" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
+    <path d="M130.016,130.158L16.63,130.158L130.016,356.929L243.402,356.929L356.787,130.158L243.402,16.772L130.016,130.158Z" style="fill:none;stroke-width:1px;stroke:black;"/>
+    <path d="M253.424,6.75C258.959,12.285 258.959,21.259 253.424,26.794C247.889,32.329 238.915,32.329 233.38,26.794C227.845,21.259 227.845,12.285 233.38,6.75C238.915,1.215 247.889,1.215 253.424,6.75" style="fill:white;fill-rule:nonzero;stroke-width:2px;stroke:black;"/>
+    <path d="M366.809,120.136C372.344,125.671 372.344,134.645 366.809,140.18C361.274,145.715 352.3,145.715 346.765,140.18C341.23,134.645 341.23,125.671 346.765,120.136C352.3,114.601 361.274,114.601 366.809,120.136" style="fill:white;fill-rule:nonzero;stroke-width:2px;stroke:black;"/>
+    <path d="M253.424,346.907C258.959,352.442 258.959,361.416 253.424,366.951C247.889,372.486 238.915,372.486 233.38,366.951C227.845,361.416 227.845,352.442 233.38,346.907C238.915,341.372 247.889,341.372 253.424,346.907" style="fill:white;fill-rule:nonzero;stroke-width:2px;stroke:black;"/>
+    <path d="M140.038,346.907C145.573,352.442 145.573,361.416 140.038,366.951C134.503,372.486 125.529,372.486 119.994,366.951C114.459,361.416 114.459,352.442 119.994,346.907C125.529,341.372 134.503,341.372 140.038,346.907" style="fill:white;fill-rule:nonzero;stroke-width:2px;stroke:black;"/>
+    <path d="M26.652,120.136C32.187,125.671 32.187,134.645 26.652,140.18C21.117,145.715 12.143,145.715 6.608,140.18C1.073,134.645 1.073,125.671 6.608,120.136C12.143,114.601 21.117,114.601 26.652,120.136" style="fill:white;fill-rule:nonzero;stroke-width:2px;stroke:black;"/>
+    <path d="M140.038,120.136C145.573,125.671 145.573,134.645 140.038,140.18C134.503,145.715 125.529,145.715 119.994,140.18C114.459,134.645 114.459,125.671 119.994,120.136C125.529,114.601 134.503,114.601 140.038,120.136" style="fill:white;fill-rule:nonzero;stroke-width:2px;stroke:black;"/>
+    <path d="M130.016,130.158L16.63,130.158L130.016,356.929L243.402,356.929L356.787,130.158L243.402,16.772L130.016,130.158Z" style="fill:rgb(255,38,0);fill-opacity:0.501961;fill-rule:nonzero;stroke-width:2px;stroke:black;"/>
+</svg>
