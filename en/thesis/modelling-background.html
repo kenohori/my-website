@@ -103,7 +103,7 @@ mathjax: true
 				 <h4>Constructive solid geometry</h4>
 			</p>
 			<p>
-				 <em>Constructive solid geometry</em> (CSG) [<a href="bibliography.html#Requicha77">Requicha and Voelcker, 1977</a>, &sect;12.3] represents objects as a tree of regularised Boolean set operations on a set of simple parametrisable primitives. In most instances, these are volumetric primitives such as balls, cylinders, parallelepipeds, cones and tori. <a href="#fig:csg" id="fig:csgref">Figure 3.1</a> shows an example of such an object.       One of the strengths of CSG is that it allows many operations to be distributed among the primitives in a tree. 
+				 <em>Constructive solid geometry</em> (CSG) [<a href="bibliography.html#Requicha77">Requicha and Voelcker, 1977</a>, &sect;12.3] represents objects as a tree of regularised Boolean set operations on a set of simple parametrisable primitives. In most instances, these are volumetric primitives such as balls, cylinders, parallelepipeds, cones and tori. <a href="#fig:csg" id="fig:csgref">Figure 3.1</a> shows an example of such an object. One of the strengths of CSG is that it allows many operations to be distributed among the primitives in a tree. 
 			</p>
 			<p>
 				 The regularisation step ensures that the resulting objects of any Boolean set operation are both volumetric and water-tight [<a href="bibliography.html#Requicha78">Requicha and Tilove, 1978</a>], making many computations easy and robust. It also makes it relatively easy to transform a CSG tree to a more explicit representation. CSG is therefore used in most CAD software and in many game engines. 
@@ -112,16 +112,24 @@ mathjax: true
 				 While CSG extends naturally to higher dimensions, evaluating general CSG trees into more explicit representations is non-trivial in dimensions higher than three. A possible approach to do so would involve higher-dimensional Nef polyhedra, which are described afterwards. 
 			</p>
 			<p>
-				 \subsubsection{Boolean set operations on half-spaces} 
+				 <h4>Boolean set operations on half-spaces</h4>
 			</p>
 			<p>
-				 There are various representations that store objects using an expression made of Boolean set operations on a set of (open or closed) half-spaces. Any convex object of any dimension can be represented as the intersection of a finite set of half-spaces, a common problem in both linear programming and computational geometry [<a href="bibliography.html#Shamos76">Shamos and Hoey, 1976</a>; <a href="bibliography.html#Preparata79">Preparata and Muller, 1979</a>]. As <a href="#fig:halfspace" id="fig:halfspaceref">Figure 3.2</a> shows, if a polyhedron is first decomposed into convex parts [<a href="bibliography.html#Chazelle79">Chazelle and Dobkin, 1979</a>; <a href="bibliography.html#Bajaj90">Bajaj and Dey, 1990</a>], it is then possible to represent an object as a union of these convex parts, which are then represented as intersections of half-spaces. \begin{figure}[tb] \centering \subfloat[]{ \includegraphics[scale=0.16]{figs/halfspace} \label{subfig:halfspace}} \subfloat[]{ \includegraphics[scale=0.16]{figs/halfspace-1} \label{subfig:halfspace-intersection}} \subfloat[]{ \includegraphics[scale=0.16]{figs/halfspace-2} \label{subfig:halfspace-union}} \caption[A polygon represented as the union of two convex polygons]{(a) A polygon can be represented as the union of its decomposition into the convex polygons (b) and (c). Each of these can then be represented as the intersection of four half-planes.} \label{fig:halfspace} \end{figure} 
+				 There are various representations that store objects using an expression made of Boolean set operations on a set of (open or closed) half-spaces. Any convex object of any dimension can be represented as the intersection of a finite set of half-spaces, a common problem in both linear programming and computational geometry [<a href="bibliography.html#Shamos76">Shamos and Hoey, 1976</a>; <a href="bibliography.html#Preparata79">Preparata and Muller, 1979</a>]. As <a href="#fig:halfspace" id="fig:halfspaceref">Figure 3.2</a> shows, if a polyhedron is first decomposed into convex parts [<a href="bibliography.html#Chazelle79">Chazelle and Dobkin, 1979</a>; <a href="bibliography.html#Bajaj90">Bajaj and Dey, 1990</a>], it is then possible to represent an object as a union of these convex parts, which are then represented as intersections of half-spaces.
 			</p>
+			<div class="row" id="fig:halfspace">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-2"><img src="figs/halfspace.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
+				<div class="col-sm-4"><img src="figs/halfspace-1.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col-sm-4"><img src="figs/halfspace-2.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-12"><p class="small text-center">Figure 3.2: (a) A polygon can be represented as the union of its decomposition into the convex polygons (b) and (c). Each of these can then be represented as the intersection of four half-planes.<a href="#fig:halfspaceref">&#8617;</a></p></div>
+			</div>
 			<p>
 				 Each of these half-spaces can then be stored easily, e.g.  as a tuple containing the coefficients of a hyperplane<a href="#fn20" id="fnref20"><sup>20</sup></a> equation plus an up/down direction [<a href="bibliography.html#Naylor90">Naylor, 1990</a>; <a href="bibliography.html#Thompson07">Thompson, 2007</a>]. The half-spaces for an object can be stored either all together or separate per convex part. Together, for instance, as a collection of plane equations that represent all the faces of all the convex parts, and each convex part is represented as a set of tuples of Boolean values, where each value states whether the part is on the up or down side of a specific plane [<a href="bibliography.html#Tammik07">Tammik, 2007</a>]. 
 			</p>
 			<p>
-				 \subsubsection{Nef polyhedra} 
+				 <h4>Nef polyhedra</h4>
 			</p>
 			<p>
 				 Nef polyhedra [<a href="bibliography.html#Nef78">Nef, 1978</a>; <a href="bibliography.html#Bieri88">Bieri and Nef, 1988</a>] follow a similar approach to half-space models, but extend it with the concept of a local <em></em>-dimensional pyramid<a href="#fn21" id="fnref21"><sup>21</sup></a>, which stores the neighbourhood information around every vertex. As <a href="#fig:nef" id="fig:nefref">Figure 3.3</a> shows, the local pyramid of a vertex thus contains the symbolic intersection of an infinitesimally small sphere (in 3D) or circle (in 2D) with the volumes, faces and edges incident to this vertex.   \subfloat[]{} \\ \subfloat[]{\includegraphics[width=0.7\marginparwidth]{figs/nef-2}} \caption[A Nef polygon represented by a set of local pyramids]{(a) A Nef polygon is represented by (b) a set of local pyramids (circles). At every local pyramid, the polygon (red) becomes an angular interval. Incident edges become points at the endpoints of these intervals.} \label{fig:nef}  An incident volume thus becomes a face, an incident face becomes an edge, and an incident edge becomes a vertex on the surface of the local pyramid sphere/circle, essentially lowering the dimension of every object by one. An 2D/3D object can be represented as a set of local pyramids, which can individually be stored using simpler 1D/2D data structures. 
@@ -446,6 +454,7 @@ mathjax: true
 			<p id="fn19" class="small">
 				19. There are certainly exceptions, such as 3D+scale models as 4D models where a volume collapses to a point. However, the large number of primitives that would need to be defined for a system of this kind would make it impractical.<a href="#fnref19">&#8617;</a>
 			</p>
+			<p id=fig:csgref><img src="figs/csg.png" class="img-responsive"></p>
 			<p class="small">Figure 3.1: An object represented as a tree of Boolean set operations on a sphere, a cube and three cylinders. From Wikimedia Commons.<a href="#fig:csgref">&#8617;</a></p>
 			<p id="fn20" class="small">
 				20. i.e.  a line in 2D and a plane in 3D.<a href="#fnref20">&#8617;</a>
