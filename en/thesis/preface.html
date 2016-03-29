@@ -1,5 +1,6 @@
 ---
 layout: default
+feijoa: true
 title: Preface | Thesis
 file: thesis/preface.html
 lang: en
@@ -11,62 +12,68 @@ lang: en
 	</div>
 	<div class="row">
 		<div class="col-sm-9">
-			<p>
+			<p class="text-justify">
 				 We usually associate the three usual dimensions with length, width and height (in any order), and the fourth dimension with time.  However, mathematically, dimensions are essentially a artificial construct and do not have a fixed meaning linked to any specific aspect of reality. By associating each dimension with a variable, they can be used to represent pretty much anything that we can put a parameter to. Within this thesis, representations of any dimension are thus used to model various aspects of geographic information, such as the typical geographic coordinates, but also time and scale. 
 			</p>
-			<p>
+			<p class="text-justify">
 				 At the end of the 19th century, a couple of non-scientific books were notable for popularising thinking about dimensions, the satyrical <em>Flatland: A Romance of Many Dimensions</em> [<a href="bibliography.html#Abbott84">Abbott, 1884</a>] (<a href="#fig:flatland" id="fig:flatlandref">Figure 0.1</a>), and the more serious <em>A New Era of Thought</em> [<a href="bibliography.html#Hinton88">Hinton, 1888</a>]. These books used playful analogies between familiar 0D&ndash;3D situations and those in higher dimensions, attempting to give readers an intuitive feeling of what these abstract higher dimensions are like. Plenty of others continue to follow in their footsteps (<a href="#fig:futurama" id="fig:futuramaref">Figure 0.2</a>). 
 			</p>
-			<p>
+			<p class="text-justify">
 				 In order to ensure that all descriptions are formally correct, this thesis necessarily uses some formal descriptions for its data structures and algorithms. However, it also tries to provide intuitive explanations and analogies across different dimensions, offering explanations of higher-dimensional problems based on our intuitive knowledge of similar 2D and 3D cases. I hope that the result is approachable and serves to broach the subject in a practical way, and that potential readers (if any) are not put off by overly technical explanations or by the overly simplistic examples that I am able to draw. 
 			</p>
-			<p>
+			<p class="text-justify">
 				<h2>About this thesis</h2>
 			</p>
-			<p>
+			<p class="text-justify">
 				 During the past 4+ years I have found many things to love about the scientific process, but many things to hate about how its results are released and published. More than a century after Leo Tolstoy&rsquo;s <em>Letter to the Free Age Press</em><a href="#fn1" id="fnref1"><sup>1</sup></a> and 20 years after Stevan Harnad&rsquo;s <em>subversive proposal</em><a href="#fn2" id="fnref2"><sup>2</sup></a>, it is rather sad to see that so much science is still kept behind paywalls or stymied by legal restrictions even when it is taxpayer-funded. This is not only damaging to scientific discourse, but it keeps important knowledge from the public at large, including educators and legislators. 
 			</p>
-			<p>
+			<p class="text-justify">
 				 At the same time, there is a concerted effort to restrict knowledge creation and creative expression through draconian intellectual property laws, including providing IP holders with special (extra)legal privileges and misappropriating author and user rights while extending already excessive copyright terms. Plenty of laws have been enacted on the matter with a complete lack of transparency, despite obvious harm to users and evidence to a lack of economic benefits [<a href="bibliography.html#Hargreaves11">Hargreaves, 2011</a>; <a href="bibliography.html#Reda14">Reda, 2014</a>; <a href="bibliography.html#EFI15">EFI, 2015</a>]. 
 			</p>
-			<p>
+			<p class="text-justify">
 				 By releasing this thesis&rsquo; contents into the public domain and making its source publicly available, I wish to make a small statement about how I believe science should be distributed in the future&mdash;openly and without restrictions. Open access journals are a step in the right direction<a href="#fn3" id="fnref3"><sup>3</sup></a>, but I hope it is not too long before we are able to get rid of profit-driven journals and publishers altogether. 
 			</p>
-			<p>
+			<p class="text-justify">
 				 Following in the same spirit, the source code of the main prototype implementations that were developed during this PhD project have also been made publicly available under permissive licences, which are linked to in the corresponding parts of this thesis. As others have pointed out before me<a href="#fn4" id="fnref4"><sup>4</sup></a>, there is a great disparity between the alleged importance of scientific evidence and widespread acceptance of not disclosing software implementations. 
 			</p>
-			<p>
+			<p class="text-justify">
 				<h2>Acknowledgements</h2>
 			</p>
-			<p>
+			<p class="text-justify">
 				 My utmost thanks go to my supervisors, <strong>Hugo</strong> and <strong>Jantien</strong>. They not only provided me with <em>years</em> of employment and the wonderful opportunity to work on this PhD, but were always there with good ideas, and all the guidance and support anyone could ever wish. I am also very grateful to <strong>Guillaume</strong> for hosting me in Lyon and helping me to understand the details of his CGAL packages, which were used in large parts of this thesis. 
 			</p>
-			<p>
+			<p class="text-justify">
 				 Special thanks go to everyone else in the <strong>3D geoinformation</strong> group during my time there (<strong>Filip</strong>, <strong>Liu</strong>, <strong>Ravi</strong>, <strong>Sisi</strong> and <strong>Zhiyong</strong>). It is truly a fantastic place to work and I feel privileged to have been able to contribute to it with my grain of sand. 
 			</p>
-			<p>
+			<p class="text-justify">
 				 I am also thankful to everyone at <strong>GIS technology</strong> (<strong>Edward</strong>, <strong>Elfriede</strong>, <strong>Marian</strong>, <strong>Martijn</strong>, <strong>Radan</strong>, <strong>Theo</strong>, <strong>Tjeu</strong>, <strong>Peter</strong> and <strong>Wilko</strong>). Many of them gave me insightful comments and support, especially so for Peter at the start of this PhD. 
 			</p>
-			<p>
+			<p class="text-justify">
 				 Last but not least, I especially thank my mother, <strong>Kimiyo</strong>, who has always been there supporting me, and my <strong>close friends</strong> in Mexico, the Netherlands and elsewhere, who made sure I always had things to enjoy outside work. I could not mention you all by name without making a dubious classification, which I do not want to do, and so I hope you will forgive me for just refusing to do so. <em>Thank you all</em>. 
 			</p>
 		</div>
 		<div class="col-sm-3">
 			<p id=fig:flatland><img src="figs/flatland.png" class="img-responsive"></p>
-			<p class="small">Figure 0.1: As Sphere tries to explain the nature of 3D space to Square by passing through its plane of view: &lsquo;<em>You cannot indeed see more than one of my sections, or Circles, at a time; for you have no power to raise your eye out of the plane of Flatland; but you can at least see that, as I rise in Space, so my sections become smaller</em>&rsquo; [<a href="bibliography.html#Abbott84">Abbott, 1884</a>].<a href="#fig:flatlandref">&#8617;</a></p>
+			<p class="small text-justify">Figure 0.1: As Sphere tries to explain the nature of 3D space to Square by passing through its plane of view: &lsquo;<em>You cannot indeed see more than one of my sections, or Circles, at a time; for you have no power to raise your eye out of the plane of Flatland; but you can at least see that, as I rise in Space, so my sections become smaller</em>&rsquo; [<a href="bibliography.html#Abbott84">Abbott, 1884</a>].<a href="#fig:flatlandref">&#8617;</a></p>
 			<p id=fig:futurama><img src="figs/futurama.jpg" class="img-responsive"></p>
-			<p class="small">Figure 0.2: As Professor Farnsworth explains why a two-ended digestive system cannot exist in a 2D world: &lsquo;<em>As you can see, or rather can&rsquo;t see, but take my word for it, such a digestive system would divide a 2D being into separate pieces.</em>&rsquo;. From Futurama season 7 episode 14.<a href="#fig:futuramaref">&#8617;</a></p>
-			<p id="fn1" class="small">
+			<p class="small text-justify">Figure 0.2: As Professor Farnsworth explains why a two-ended digestive system cannot exist in a 2D world: &lsquo;<em>As you can see, or rather can&rsquo;t see, but take my word for it, such a digestive system would divide a 2D being into separate pieces.</em>&rsquo;. From Futurama season 7 episode 14.<a href="#fig:futuramaref">&#8617;</a></p>
+			<p id="fn1" class="small text-justify" style="word-break: break-word;">
 				1. <a href="https://en.wikisource.org/wiki/Letter_to_the_Free_Age_Press">https://en.wikisource.org/wiki/Letter_to_the_Free_Age_Press</a><a href="#fnref1">&#8617;</a>
 			</p>
-			<p id="fn2" class="small">
+			<p id="fn2" class="small text-justify" style="word-break: break-word;">
 				2. <a href="https://en.wikipedia.org/wiki/Subversive_Proposal">https://en.wikipedia.org/wiki/Subversive_Proposal</a><a href="#fnref2">&#8617;</a>
 			</p>
-			<p id="fn3" class="small">
+			<p id="fn3" class="small text-justify">
 				3. Even as many of them have abusive fees that bear no relation with the marginal cost of internet distribution.<a href="#fnref3">&#8617;</a>
 			</p>
-			<p id="fn4" class="small">
+			<p id="fn4" class="small text-justify">
 				4. See for instance <a href="bibliography.html#Morin12">Morin et al. [2012]</a>, <a href="bibliography.html#Joppa13">Joppa et al. [2013]</a> and <a href="bibliography.html#Ince12">Ince et al. [2012]</a><a href="#fnref4">&#8617;</a>
 			</p>
 		</div>
-	</div></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3"><p class="text-left"><i class="fa fa-angle-double-left"></i> First chapter</p></div>
+		<div class="col-sm-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col-sm-3"><p class="text-right"><a href="introduction.html">1 Introduction <i class="fa fa-angle-double-right"></i></a></p></div>
+	</div>
+</div>
