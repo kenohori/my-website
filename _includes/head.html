@@ -8,6 +8,9 @@
   <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
   <link href="{{ site.baseurl }}/css/font-awesome.min.css" rel="stylesheet">
   <link href="{{ site.baseurl }}/css/ken.css" rel="stylesheet">
+  {% if page.feijoa == true %}
+    <link href="{{ site.baseurl }}/css/feijoa.css" rel="stylesheet">
+  {% endif %}
   <link href="{{ site.baseurl }}/css/syntax.css" rel="stylesheet">
   {% if page.mapbox == true %}
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.js'></script>
