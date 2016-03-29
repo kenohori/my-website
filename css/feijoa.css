@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Feijoa-Display';
+    src: url('../fonts/FeijoaWeb-Display.eot');
+    src: url('../fonts/FeijoaWeb-Display.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FeijoaWeb-Display.woff2') format('woff2'),
+         url('../fonts/FeijoaWeb-Display.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Feijoa';
+    src: url('../fonts/FeijoaWeb-Medium.eot');
+    src: url('../fonts/FeijoaWeb-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FeijoaWeb-Medium.woff2') format('woff2'),
+         url('../fonts/FeijoaWeb-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Feijoa';
+    src: url('../fonts/FeijoaWeb-MediumItalic.eot');
+    src: url('../fonts/FeijoaWeb-MediumItalic.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FeijoaWeb-MediumItalic.woff2') format('woff2'),
+         url('../fonts/FeijoaWeb-MediumItalic.woff') format('woff');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Feijoa';
+    src: url('../fonts/FeijoaWeb-Bold.eot');
+    src: url('../fonts/FeijoaWeb-Bold.eot?#iefix') format('embedded-opentype'),
+    		 url('../fonts/FeijoaWeb-Bold.woff2') format('woff2'),
+         url('../fonts/FeijoaWeb-Bold.woff') format('woff');
+    font-weight: bold;
+}
+body {
+  font-family: "Feijoa", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: #000000;
+}
+h1 {
+  font-family: "Feijoa-Display", Helvetica, Arial, sans-serif;
+  font-variant: discretionary-ligatures;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Feijoa-Display", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
