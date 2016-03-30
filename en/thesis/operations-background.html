@@ -1,0 +1,423 @@
+---
+layout: default
+feijoa: true
+title: 5 Basic dimension-independent operations | Thesis
+file: thesis/operations-background.html
+lang: en
+mathjax: true
+---
+
+<div class="container">
+	<div class="page-header">
+		<h1>5 Basic dimension-independent operations</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<p class="text-justify">
+				 <a href="nd-modelling.html">Chapter 4</a> identified the most promising data structures in the context of a higher-dimensional GIS and explained how certain fundamental operations are intimately related to the data structures for which they are defined. This chapter therefore covers a number of basic dimension-independent operations, some of which need to be defined in the context of a specific data structure. These operations are by themselves useful, as they correspond to common simple queries and modification. In addition, some of them are used as building blocks for the more complex operations described in latter chapters of this thesis. 
+			</p>
+			<p class="text-justify">
+				 <a href="#se:operations">&sect;5.1</a> introduces basic properties and operations on generalised/combinatorial maps and on Nef polyhedra, which are later respectively used for more complex higher-dimensional operations (Chapters <a href="extrusion.html">6</a>, <a href="incremental-construction.html">7</a> &amp; <a href="linking-lods.html">8</a>) and for cleaning 2D and 3D data (<a href="cleaning.html">Chapter 10</a>). <a href="#se:ndmath">&sect;5.2</a> describes how to apply basic transformations to an \(n\)D simplicial/cell complex, which can be used to manipulate \(n\)D objects and to move around an \(n\)D scene (<a href="slicing.html">Chapter 9</a>).
+			</p>
+			<p class="text-justify">
+				 <a href="#se:spatial-indexing">&sect;5.3</a> describes some spatial indexing methods which can be applied to higher-dimensional objects, allowing a system to solve two common problems: keeping track of disconnected objects and efficiently obtaining the objects in a particular region. <a href="#se:duality">&sect;5.4</a> discusses how the concept of duality works in higher dimensions, which can be used to characterise the relationships between objects of any dimension. <a href="#se:ndqueries">&sect;5.5</a> puts the concepts of this chapter into practice by providing a few concrete examples of simple dimension-independent operations, including a technique to quickly compare objects in any dimension, which is itself used as the basis of the incremental construction operation in <a href="incremental-construction.html">Chapter 7</a>. These examples showcase how operations on an ordered topological model are remarkably efficient compared to the same operations on a Simple Features-like representation. 
+			</p>
+			<p class="text-justify">
+				 Most of <a href="#se:duality">&sect;5.4</a> is based on the paper:
+				 <ul>
+				 	<li class="text-justify"><strong><a href="http://dx.doi.org/10.1007/978-3-642-36379-5_2">Representing the dual of objects in a four-dimensional GIS</a></strong>. Ken Arroyo Ohori, Pawel Boguslawski and Hugo Ledoux. In A. Abdul Rahman, P. Boguslawski, C. Gold and M. N. Said (eds.), <em>Developments in Multidimensional Spatial Data Models</em>, Lecture Notes in Geoinformation and Cartography, Springer Berlin Heidelberg, Johor Bahru, Malaysia, May 2013, pp. 17&ndash;31.</li>
+				 </ul>
+			</p>
+			<p class="text-justify">
+				 <h2 id="se:operations">5.1 Basic operations on certain data structures</h2> 
+			</p>
+			<p class="text-justify">
+				 <h3 id="ss:operations-maps">5.1.1 Generalised and combinatorial maps</h3> 
+			</p>
+			<p class="text-justify">
+				 As described in <a href="nd-modelling.html#ss:ordered-topological-models">&sect;4.3.6</a>, an object in an ordered topological model is described as a set of combinatorial simplices, which are connected by a set of predefined relations. These relations and the operations that use them are described in more detail below, partly based on the definitions used in <a href="bibliography.html#Damiand14">Damiand and Lienhardt [2014]</a>. Note however that some of the definitions presented here are somewhat simplified, as they are meant only to handle the types of representations and further operations used in this thesis. 
+			</p>
+			<p class="text-justify">
+				 In the case of a generalised map, which is shown in <a href="#fig:2dcc" id="fig:2dccref">Figure 5.1</a>, all the relations between darts take the form of <em>involutions</em>&mdash;bijective functions that are their own inverse. That is, they are functions \(f\) such that \(f\big(f(x)\big) = x\), or equivalently \(f = f^{-1}\). In addition, certain darts are \(i\)-free, which means that for a given dart \(d\), \(\alpha_i(d) = d\). These darts represent the boundary of the map. 
+			</p>
+			<div class="row" id="fig:2dcc">
+				<div class="col-sm-4 col-xs-4"><img src="figs/2dcc.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
+				<div class="col-sm-4 col-xs-4"><img src="figs/2dcc-gmap.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col-sm-4 col-xs-4"><img src="figs/2dcc-alphas.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12"><p class="small text-justify">Figure 5.1: (a) A 2D cell complex represented as (b) a 2D generalised map  in a simplicial complex-based depiction as used in <a href="nd-modelling.html#ss:ordered-topological-models">&sect;4.3.6</a>, and (c) in a simpler depiction using half-edges and showing explicitly the relations between the darts. As involutions are pairwise relations between darts, they are their own inverse, i.e. applying them twice always means returning to the original dart.<a href="#fig:2dccref">&#8617;</a></p></div>
+			</div>
+			<p class="text-justify">
+				 More formally, a \(n\)-dimensional generalised map is defined as a \((n+2)\)-tuple \(G = (D,\alpha_{0},\ldots,\alpha_{n})\), where: 
+				 <ul>
+				 	<li>\(D\) is a finite set of darts;</li>
+				 	<li>\(\forall 0 \leq i \leq n\), \(\alpha_{i}\) is an involution on \(D\);</li>
+				 	<li>\(\forall 0 \leq i \leq n-2, \forall i+2 \leq j \leq n\), \(\alpha_{i}\circ \alpha_{j}\) is an involution on \(D\).</li>
+				 </ul>
+			</p>
+			<p class="text-justify">
+				 In a combinatorial map, the relations between the darts are somewhat different. As shown in <a href="#fig:cmap-free" id="fig:cmap-freeref">Figure 5.2</a>, polygonal curves in a combinatorial map result in some darts that have an undefined \(\beta_1\) relation.       For a given dart \(d\) with an undefined relation \(\beta_1\), this is encoded as \(\beta_1(d) = \emptyset\) and the dart is said to be \(1\)-free. Because of this, the \(\beta_1\) relations in a combinatorial map do not form involutions, but instead form only <em>partial permutations</em>. In addition, as shown in <a href="#fig:2dcc-betas" id="fig:2dcc-betasref">Figure 5.3</a>, in a combinatorial map of any dimension, the darts that lie on the boundary of the map have certain undefined \(\beta\) relations, which are set to the special value \(\emptyset\).       If a given \(\beta_i(d) = \emptyset\), the dart \(d\) is said to be \(i\)-free. Because of the existence of these relations, the \(\beta\) relations of a combinatorial map other than \(\beta_1\) form <em>partial involutions</em>. 
+			</p>
+			<p class="text-justify">
+				 More formally, an \(n\)-dimensional combinatorial map is defined as an \((n+1)\)-tuple \(C = (D, \beta_{1}, \ldots, \beta_{n})\) where: 
+				 <ul>
+				 	<li>\(D\) is a finite set of darts; </li>
+				 	<li>\(\beta_{1}\) is a partial permutation on \(D\); </li>
+				 	<li>\(\forall 2 \leq i \leq n\), \(\beta_{i}\) is a partial involution on \(D\); </li>
+				 	<li>\(\forall 0 \leq i \leq n-2, \forall 3 \leq j \leq n\), \(i+2 \leq j\), \(\beta_{i}\circ \beta_{j}\) is a partial involution on \(D\).</li>
+				 </ul>
+			</p>
+			<p class="text-justify">
+				 The properties of generalised and combinatorial maps are crucial, as when they are enforced, they ensure that darts form a valid combinatorial structure. They also allow the definition of various operations that operate on the combinatorial structures induced by the darts and their relations. Many of these operations are based on the concept of an <em>orbit</em>, a subset of the darts of a generalised/combinatorial map that are connected by certain relations. Starting from a given dart \(d\) and a set of relations \(A\), the orbit \(\langle A \rangle(d)\) obtains all the darts that can be reached by recursively following all relations in \(A\). 
+			</p>
+			<p class="text-justify">
+				<ul style="list-style-type: none;">
+				 	<li class="text-justify"><strong>Darts of a cell</strong> Considering that every cell in a generalised or combinatorial map is represented by a <em>set of darts</em>, an important basic operation is obtaining all the darts that represent a given cell (of any dimension). In a generalised map, from a given dart \(d\) known to be part of an \(i\)-cell, the darts of the \(i\)-cells are those that can be reached by recursively following all relations <em>except</em> for \(\alpha_i\). As shown in <a href="#fig:darts-of-cell" id="fig:darts-of-cellref">Figure 5.4</a>, this is given by the orbit \(\langle\alpha_0, \ldots, \alpha_{i-1}, \alpha_{i+1}, \ldots, \alpha_n\rangle(d)\). In a combinatorial map, due to the oriented nature of the \(\beta_1\) relations, in order to obtain the darts of a \(0\)-cell it is instead necessary to follow a composition of relations given by \(\langle \{\beta_j\circ \beta_k \mid \forall 1 \leq k \leq n, \forall 1 \leq j \leq k\} \rangle(d)\). The cells of dimension two and higher are obtained in a similar manner as in a generalised map, by following all relations <em>except</em> for \(\beta_i\), i.e.  \(\langle\beta_1, \ldots, \beta_{i-1}, \beta_{i+1}, \ldots, \beta_n\rangle(d)\).</li>
+				 </ul>
+			</p>
+			<div class="row" id="fig:darts-of-cell">
+				<div class="col-sm-6 col-xs-6"><img src="figs/darts-of-cell-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
+				<div class="col-sm-6 col-xs-6"><img src="figs/darts-of-cell-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col-sm-12"><p class="small text-justify">Figure 5.4: Starting from (a) a 2D generalised map representation of a cube, all the darts representing an \(i\)-cell of the map can be obtained by starting from any dart known to be part of the \(i\)-cell, then using the orbit that contains all relations but \(\alpha_i\). (b) Here, the orbits of a specific 0-cell, 1-cell and 2-cell.<a href="#fig:darts-of-cellref">&#8617;</a></p></div>
+			</div>
+			<p class="text-justify">
+				<ul style="list-style-type: none;">
+				 	<li class="text-justify"><strong>Isomorphism</strong> It is possible to check if two maps are <em>isomorphic</em> by finding whether there is a one-to-one mapping between the darts in the maps that also preserves the relations between them. That is, given two generalised maps \((D,\alpha_{0},\ldots,\alpha_{n})\) and \((D^\prime,\alpha_{0}^\prime,\ldots,\alpha_{n}^\prime)\), an isomorphism is a function \(f: D \rightarrow D^\prime\) such that \(\forall d \in D, \forall 0 \leq i \leq n, f\big(\alpha_i\left(d\right)\big) = \alpha_i^\prime\left(f\left(d\right)\right)\). Similarly, given two combinatorial maps \((D, \beta_{1}, \ldots, \beta_{n})\) and \((D^\prime, \beta_{1}^\prime, \ldots, \beta_{n}^\prime)\), an isomorphism is a function \(f: D \cup \left\{\emptyset\right\} \rightarrow D^\prime \cup \left\{\emptyset\right\}\) such that \(f(\emptyset) = \emptyset\), and else \(\forall d \in D, \forall 1 \leq i \leq n, f\left(\beta_i\left(d\right)\right) = \beta_i^\prime\left(f\left(d\right)\right)\).</li>
+				 	<li class="text-justify"><strong>Sewable darts</strong> Starting from isolated darts, these can be assembled together via the sewing operation, described below. However, it is important to first determine if they can be sewed together along a given dimension. Given a generalised map \((D,\alpha_{0},\ldots,\alpha_{n})\) and two darts from the map \(d,d^\prime \in D\), \(d\) and \(d^\prime\) are \(i\)-sewable if and only if \(d \neq d^\prime\), \(d\) and \(d^\prime\) are \(i\)-free, and there is an isomorphism between \(\langle\alpha_0, \ldots, \alpha_{i-2}, \alpha_{i+2}, \ldots, \alpha_n\rangle(d)\) and \(\langle\alpha_0, \ldots, \alpha_{i-2}, \alpha_{i+2}, \ldots, \alpha_n\rangle(d^\prime)\) such that \(f(d) = d^\prime\)<a href="#fn76" id="fnref76"><sup>76</sup></a>. Similarly, given a combinatorial map \((D, \beta_{1}, \ldots, \beta_{n})\) and two darts from the map \(d,d^\prime \in D\), \(d\) and \(d^\prime\) are \(i\)-sewable if and only if \(d \neq d^\prime\), \(d\) and the inverse of \(d^\prime\) are \(i\)-free, and there is an isomorphism between \(\langle\beta_1, \ldots, \beta_{i-2}, \beta_{i+2}, \ldots, \beta_n\rangle(d)\) and \(\langle\beta_1, \ldots, \beta_{i-2}, \beta_{i+2}, \ldots, \beta_n\rangle(d^\prime)\) such that \(f(d) = d^\prime\)<a href="#fn77" id="fnref77"><sup>77</sup></a>.</li>
+				 	<li class="text-justify"><strong>Sewing</strong> The sewing operation is the basic construction method used to link isolated darts in a map in order to form cell complexes. Intuitively, it is possible to link two \(i\)-cells along a common \((i-1)\)-cell by sewing corresponding darts on the common bounding \((i-1)\)-cell around each \(i\)-cell. As shown in <a href="#fig:3-sew" id="fig:3-sewref">Figure 5.5</a>, this operation is thus equivalent to a parallel traversal of two maps that links its corresponding darts along an \((i-1)\)-cell. Given a generalised map \((D,\alpha_{0},\ldots,\alpha_{n})\) and two darts \(d,d^\prime \in D\) that are \(i\)-sewable using the isomorphism \(f\), \(i\)-sewing \(d\) and \(d^\prime\) means that \(\forall e \in \langle\alpha_0, \ldots, \alpha_n\rangle(d)\), \(\alpha_i(e)\) should be set to \(f(e)\) and \(\alpha_i\big(f(e)\big)\) should be set to \(e\). Given a combinatorial map \((D, \beta_{1}, \ldots, \beta_{n})\) and two darts \(d,d^\prime \in D\) that are \(1\)-sewable using the isomorphism \(f\), \(1\)-sewing \(d\) and \(d^\prime\) means that \(\forall e \in \langle \{\beta_i\circ \beta_j \mid \forall 3 \leq k \leq n, \forall 3 \leq j \leq k\} \rangle(d)\), \(\beta_1(e)\) should be set to \(f(e)\) and \(\forall e^\prime \in \langle \{\beta_i\circ \beta_j \mid \forall 3 \leq k \leq n, \forall 3 \leq j \leq k\} \rangle(d^\prime)\), \(\beta_1(f(e^\prime))\) should be set to \(e^\prime\). For the cells of dimension two and higher, if \(d\) and \(d^\prime\) are \(i\)-sewable (\(i \geq 2\)), \(i\)-sewing them means that \(\forall e \in \langle\beta_{1}, \ldots, \beta_{n}\rangle(d)\), \(\beta_i(e)\) should be set to \(f(e)\) and \(\beta_i\big(f(e)\big)\) should be set to \(e\).</li>
+				 </ul>
+			</p>
+			<div class="row" id="fig:3-sew">
+				<div class="col-sm-12"><img src="figs/3-sew.svg" class="img-responsive" /></div>
+				<div class="col-sm-12"><p class="small text-justify">Figure 5.5: Two cubes in a 3D generalised map can be linked together by 3-sewing corresponding darts on the common face (highlighted) on each cube. This operation uses the orbits of each face on each cube in order to link all corresponding darts on both orbits.<a href="#fig:3-sewref">&#8617;</a></p></div>
+			</div>
+			<p class="text-justify">
+				 <h3 id="ss:operations-nef">5.1.2 Nef polyhedra</h3> 
+			</p>
+			<p class="text-justify">
+				 As discussed in <a href="nd-modelling.html#ss:implicit-models">&sect;4.3.3</a>, Nef polyhedra [<a href="bibliography.html#Nef78">Nef, 1978</a>; <a href="bibliography.html#Bieri88">Bieri and Nef, 1988</a>] are able to represent polytopes of any dimension based on a set of local pyramids, which contain the neighbourhood information around each vertex. Despite the fact that&mdash;to the best of my knowledge&mdash;there is no available implementation of Nef polyhedra in more than three dimensions, their dimension-independent formulation and the relative ease of implementing <em>robust</em> operations on Nef polyhedra nevertheless make them valuable in a higher-dimensional setting. 
+			</p>
+			<p class="text-justify">
+				 In particular, Boolean set operations on 2D Nef polygons and 3D Nef polyhedra are very useful to obtain valid 2D and 3D datasets&mdash;something that will be shown in <a href="cleaning.html#se:3drepair">&sect;10.3</a>. These <em>clean</em> datasets can then be used as a base for higher-dimensional ones, either by extruding them (<a href="extrusion.html">Chapter 6</a>), by using them to define parts of a higher-dimensional object&rsquo;s boundary (<a href="incremental-construction.html">Chapter 7</a>), or by linking corresponding datasets that represent other points in scale or time (<a href="linking-lods.html">Chapter 8</a>), among other possibilities. 
+			</p>
+			<p class="text-justify">
+				 The key advantage of operations on Nef polyhedra is the fact that many of them can be largely implemented at the local pyramid level. As shown by <a href="bibliography.html#Seel01">Seel [2001]</a> in 2D and <a href="bibliography.html#Hachenberger06">Hachenberger [2006]</a> in 3D, Boolean set operations are one such case. Based on the approach advocated by <a href="bibliography.html#Rossignac89">Rossignac and O'Connor [1989]</a>, it is possible to compute these type of binary (or \(n\)-ary) operations in three steps: subdivision, selection and simplification. The <em>subdivision</em> is the most complex of these. It consists of computing an overlay of the input polyhedra, creating the overall structure where the result will be put (e.g.  the vertices, edges, faces and volumes of a cell complex). This can be computed with the methods used for arrangements of line segments in 2D [<a href="bibliography.html#deBerg08">de Berg et al., 1998, &sect;8.3</a>], or by computing line-segment-to-line-segment and line-segment-to-polygon intersections in 3D [<a href="bibliography.html#Hachenberger06">Hachenberger, 2006</a>], which give the locations of the new vertices and thus the new local pyramids. 
+			</p>
+			<p class="text-justify">
+				 After this, the <em>selection</em> step computes whether the individual cells are to be considered as part of the output or not (i.e.  whether they are in the interior or exterior of the Nef polygons/polyhedra). The <em>simplification</em> removes unnecessary structures in way that does not alter the point set that is represented, akin to the dissolving operations common in GIS.  
+			</p>
+			<p class="text-justify">
+				 <a href="#fig:nef-boolean" id="fig:nef-booleanref">Figure 5.6</a> shows an example of how this works in practice in 2D. A 2D Boolean set operation kernel starts from two Nef polygons \(A\) and \(B\)&mdash;each of which is stored as a set of local pyramids at its corresponding vertices. As shown previously in <a href="modelling-background#fig:nef">Figure 3.3</a>, each of these 2D local pyramids can be stored as a list of 1D intervals<a href="#fn78" id="fnref78"><sup>78</sup></a>. The kernel first computes the intersections between the line segments (as an overlay problem). The vertices of each polygon and the intersection points between the line segments yield the local pyramids to be considered. The local pyramid intervals for both polygons at all of these locations are computed. A Boolean set operation is then computed by applying it to the local pyramids (i.e.  to the intervals). Finally, unnecessary local pyramids can be removed from the output (e.g.  in <a href="#fig:nef-boolean" id="fig:nef-booleanref">Figure 5.5</a>: \(f\) in \(A \cup B\); \(a\), \(b\), \(c\), \(g\), \(i\), \(j\) and \(k\) in \(A \cap B\); and \(a\), \(c\), \(j\) and \(k\) in \(A - B\)).
+			</p>
+			<div class="row" id="fig:nef-boolean">
+				<div class="col-sm-4 col-xs-4"><img src="figs/nef-boolean-1.svg" class="img-responsive" /></div>
+				<div class="col-sm-8 col-xs-8"><img src="figs/nef-boolean-2.svg" class="img-responsive" /></div>
+			</div>
+			<div class="row" id="fig:nef-boolean">
+				<div class="col-sm-4 col-xs-4"><p class="small text-center">(a)</p></div>
+				<div class="col-sm-8 col-xs-8"><p class="small text-center">(b)</p></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12"><p class="small text-justify">Figure 5.6: Various Boolean set operations on (a) the Nef polygons \(A\) (red) and \(B\) (blue) that can be performed on (b) their local pyramids: complement (\(\neg\)), union (\(\cup\)), intersection (\(\cap\)) and difference (\(-\)).<a href="#fig:nef-booleanref">&#8617;</a></p></div>
+			</div>
+			<p class="text-justify">
+				 <h2 id="se:ndmath">5.2 Basic transformations of an \(n\)D scene</h2> 
+			</p>
+			<p class="text-justify">
+				 Starting from an \(n\)-dimensional simplicial complex or cell complex with linear geometry, where every vertex is embedded in a location in \(\mathbb{R}^n\), it is possible to define a set of basic transformations to manipulate \(n\)D objects simply by applying them to the coordinates of every vertex. This section thus describes dimension-independent versions of the three most important transformations to an \(\mathbb{R}^n\) point set: <em>translation</em>, <em>rotation</em> and <em>scaling</em>. In addition, it explains how to compute the <em>cross-product</em> in higher dimensions, which is later used to compute a vector that is orthogonal to all of a set of other vectors. 
+			</p>
+			<p class="text-justify">
+				 <strong>Translating</strong> of a set of points in \(\mathbb{R}^n\) can be easy expressed as a sum with a vector \(t = \left[t_0, \ldots, t_n\right]\), or alternatively as a multiplication with a matrix using homogeneous coordinates, which is defined as: 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} T = \begin{bmatrix} 1 & 0 & \cdots & 0 & t_0 \\ 0 & 1 & \cdots & 0 & t_1 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & \cdots & 1 & t_n \\ 0 & 0 & \cdots & 0 & 1 \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 In particular, it is often useful to apply a multiplication with a <em>centering matrix</em> [<a href="bibliography.html#Marden96">Marden, 1996, &sect;3.2</a>], which  moves a dataset to a position around the origin. Such a matrix would be defined as \(\mathbb{I}_n - \frac{1}{n}\mathbb{1}\), where \(\mathbb{I}\) is the identity matrix and \(\mathbb{1}\) is a matrix where all entries are set to 1. 
+			</p>
+			<p class="text-justify">
+				 <strong>Scaling</strong> is similarly simple. Given a vector \(s = \left[ s_0, s_1, \ldots, s_n \right]\) that defines a scale factor per axis (which in the simplest case can be the same for all axes), it is possible to define a matrix to scale an object as: 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} S = \begin{bmatrix} s_0 & 0 & \cdots & 0 \\ 0 & s_1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & s_n \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 <strong>Rotation</strong> is somewhat more complex. Rotations in 3D are often conceptualised intuitively as rotations <em>around an axis</em>. As there are three degrees of rotational freedom in 3D, combining three such elemental rotations can be used to describe any rotation in 3D space. Most conveniently, these three rotations can be performed respectively around the \(x\), \(y\) and \(z\) axes, such that a point&rsquo;s coordinate on the axis being rotated remains unchanged. This is a very elegant formulation, but this view of the matter is only valid in 3D. 
+			</p>
+			<p class="text-justify">
+				 A more correct way to conceptualise rotations is to consider them as rotations <em>parallel to a given plane</em> [<a href="bibliography.html#Hollasch91">Hollasch, 1991</a>], such that a point that is continuously rotated (without changing rotation direction) will form a circle that is parallel to that plane. This view is valid in 2D (where there is only one such plane), in 3D (where a plane is orthogonal to the usually defined axis of rotation) and in any higher dimension. Incidentally, this shows that the degree of rotational freedom in \(n\)D is given by the number of possible combinations of two axes (which define a plane) on that dimension [<a href="bibliography.html#Hanson94">Hanson, 1994</a>], i.e.  \(\binom{n}{2}\). A general rotation in any dimension can also be seen as a sequence of elementary rotations, although the total number of these rotations that need to be performed increases significantly. 
+			</p>
+			<p class="text-justify">
+				 Consider the 2D rotation matrix \(R_{xy}\) that rotates points in \(\mathbb{R}^2\) parallel to the \(xy\) plane: 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{xy} = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 Based on it, it is possible to obtain the three 3D rotation matrices to rotate points in \(\mathbb{R}^3\) around the \(x\), \(y\) and \(z\) axes, which correspond to the rotations parallel to the \(yz\), \(zx\) and \(xy\) planes<a href="#fn79" id="fnref79"><sup>79</sup></a>. These would consist of an identity row and column that preserves the coordinate of a particular axis and rotates the coordinates of the other two, resulting in the following three 3D rotation matrices: 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{yz} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos \theta & -\sin \theta \\ 0 & \sin \theta & \cos \theta \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{zx} = \begin{bmatrix} \cos \theta & 0 & \sin \theta \\ 0 & 1 & 0 \\ -\sin \theta & 0 & \cos \theta \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{xy} = \begin{bmatrix} \cos \theta & -\sin \theta & 0 \\ \sin \theta & \cos \theta & 0 \\ 0 & 0 & 1 \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 Similarly, in a 4D coordinate system defined by the axes \(x\), \(y\), \(z\) and \(w\), it is possible to define six 4D rotation matrices, which correspond to the six rotational degrees of freedom in 4D [<a href="bibliography.html#Hanson94">Hanson, 1994</a>]. These respectively rotate points in \(\mathbb{R}^4\) parallel to the \(xy\), \(xz\), \(xw\), \(yz\), \(yw\) and \(zw\) planes: 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{xy} = \begin{bmatrix} \cos \theta & -\sin \theta & 0 & 0 \\ \sin \theta & \cos \theta & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{xz} = \begin{bmatrix} \cos \theta & 0 & -\sin \theta & 0 \\ 0 & 1 & 0 & 0 \\ \sin \theta & 0 & \cos \theta & 0 \\ 0 & 0 & 0 & 1 \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{xw} = \begin{bmatrix} \cos \theta & 0 & 0 & -\sin \theta \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ \sin \theta & 0 & 0 & \cos \theta \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{yz} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & \cos \theta & -\sin \theta & 0 \\ 0 & \sin \theta & \cos \theta & 0 \\ 0 & 0 & 0 & 1 \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{yw} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & \cos \theta & 0 & -\sin \theta \\ 0 & 0 & 1 & 0 \\ 0 & \sin \theta & 0 & \cos \theta \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 \begin{equation*} R_{zw} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & \cos \theta & -\sin \theta \\ 0 & 0 & \sin \theta & \cos \theta \\ \end{bmatrix} \end{equation*} 
+			</p>
+			<p class="text-justify">
+				 This scheme of a set of elementary rotations can be easily extended to any dimension, always considering a rotation matrix as a transformation that rotates two coordinates of every point and maintains all other coordinates. An alternative to this could be to apply more than one rotation at a time [<a href="bibliography.html#vanElfrinkhof97">van Elfrinkhof, 1897</a>]. However, for an application expecting user interaction, it might be more intuitive to rely on an arbitrarily defined rotation plane that does not correspond to specific axes, e.g.  by defining such a plane through a triplet of points [<a href="bibliography.html#Hanson94">Hanson, 1994</a>]. 
+			</p>
+			<p class="text-justify">
+				 Finally, the <strong>cross-product</strong> is also easier to understand by first considering the lower-dimensional cases. In 2D, it is possible to obtain a normal vector to a 1D line as defined by two (different) points \(p^0\) and \(p^1\), or equivalently a normal vector to a vector from \(p^0\) to \(p^1\). In 3D, it is possible to obtain a normal vector to a 2D plane as defined by three (non-collinear) points \(p^0\), \(p^1\) and \(p^2\), or equivalently a normal vector to a pair of vectors from \(p^0\) to \(p^1\) and from \(p^0\) to \(p^2\). Similarly, in \(n\)D it is possible to obtain a normal vector to a \((n-1)\)D subspace<a href="#fn80" id="fnref80"><sup>80</sup></a> as defined by \(n\) linearly independent points \(p^0, p^1, \ldots, p^{n-1}\), or equivalently a normal vector to a set of \(n-1\) vectors from \(p^0\) to every other point (i.e.  \(p^1, p^2, \ldots, p^{n-1}\)) [<a href="bibliography.html#Massey83">Massey, 1983</a>; <a href="bibliography.html#Elduque04">Elduque, 2004</a>]. 
+			</p>
+			<p class="text-justify">
+				 <a href="bibliography.html#Hanson94">Hanson [1994]</a> follows the latter explanation using a set of \(n-1\) vectors all starting from the first point to give an intuitive definition of the \(n\)-dimensional cross-product. Assuming that a point \(p^i\) in \(\mathbb{R}^n\) is defined by a tuple of coordinates denoted as \((p^i_0, p^i_1, \ldots, p^i_{n-1})\) and a unit vector along the \(i\)-th dimension is denoted as \(\hat{x}_i\), the \(n\)-dimensional cross-product \(\vec{N}\) of a set of points \(p^0, p^1, \ldots, p^{n-1}\) can be expressed compactly as <em>the cofactors of the last column</em> in the following determinant: 
+			</p>
+			<p class="text-justify">
+				 \begin{align*} \vec{N} &= \begin{vmatrix} (p^1_0 - p^0_0) & (p^2_0 - p^0_0) & \cdots & (p^{n-1}_0) & \hat{x}_0 \\ (p^1_1 - p^0_1) & (p^2_1 - p^0_1) & \cdots & (p^{n-1}_1) & \hat{x}_1 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ (p^1_{n-1} - p^0_{n-1}) & (p^2_{n-1} - p^0_{n-1}) & \cdots & (p^{n-1}_{n-1}) & \hat{x}_{n-1} \\ \end{vmatrix} \end{align*} 
+			</p>
+			<p class="text-justify">
+				 The components of the normal vector \(\vec{N}\) are thus given by the minors of the unit vectors \(\hat{x}_0, \hat{x}_1, \ldots, \hat{x}_{n-1}\). This vector \(\vec{N}\)&mdash;like all other vectors&mdash;can be normalised into a unit vector by dividing it by its norm \(\begin{Vmatrix} \vec{N} \end{Vmatrix}\). 
+			</p>
+			<p class="text-justify">
+				 <h2 id="se:spatial-indexing">5.3 Spatial indexing</h2> 
+			</p>
+			<p class="text-justify">
+				 As discussed in <a href="nd-modelling.html#se:nd-modelling-conclusions">&sect;4.4</a>, a topological vector approach seems most promising for a higher-dimensional GIS, as it enables the compact storage of precise object shapes of any dimension together with their attributes. However, vector data structures by themselves lack a fast access method to access the objects at a certain location or in a certain region (e.g. a bounding box). In addition, in many instances datasets are composed of multiple combinatorially unconnected components, between which it is not possible to navigate using topological relationships. As many algorithms are defined as recursive traversals from a given combinatorial primitive, this lack of connectivity often causes wrong results. 
+			</p>
+			<p class="text-justify">
+				 Both of these issues are typically solved in GIS by keeping a <em>spatial index</em>&mdash;an ancillary data structure that contains links to every object can be efficiently queried [<a href="bibliography.html#vanOosterom99">van Oosterom, 1999</a>]. These links can point to embedding structures or to combinatorial primitives. 
+			</p>
+			<p class="text-justify">
+				 Some of these spatial indices use the same exhaustive enumeration (i.e. raster) and hierarchical subdivision representations described respectively in <a href="nd-modelling.html#ss:regular-partitions">&sect;4.3.1</a> and <a href="nd-modelling.html#ss:hierarchical-subdivisions">&sect;4.3.2</a>. Rather than describing objects as a region of a space partition, they store links to the objects that are partially or fully contained in the region. Commonly used structures of this type include: grids, quad/oc/k-trees [<a href="bibliography.html#Finkel74">Finkel and Bentley, 1974</a>; <a href="bibliography.html#Meagher80">Meagher, 1980</a>; <a href="bibliography.html#Yau83">Yau and Srihari, 1983</a>; <a href="bibliography.html#Jackins83">Jackins and Tanimoto, 1983</a>] and \(k\)-d trees [<a href="bibliography.html#Bentley75">Bentley, 1975</a>]. 
+			</p>
+			<p class="text-justify">
+				 Other data structures are also based on hierarchical subdivisions, but they do not contemplate a space partition. Instead, the regions represented by the children of a node can overlap. Data structures of this type include: R-trees [<a href="bibliography.html#Guttman84">Guttman, 1984</a>], R<sup>+</sup>-trees [<a href="bibliography.html#Sellis87">Sellis et al., 1987</a>] and R*-trees [<a href="bibliography.html#Beckmann90">Beckmann et al., 1990</a>]. 
+			</p>
+			<p class="text-justify">
+				 With simple adaptations, these data structures can also be used to index objects in higher dimensions. However, it is important to note that space-partitioning indexing approaches are not faster than brute force searches on a list of objects on <em>high</em>-dimensional spaces [<a href="bibliography.html#Weber98">Weber et al., 1998</a>], and so the dimension of the data needs to be taken into account. Objects of heterogeneous dimension are also a frequent source of problems, as lower-dimensional objects often result in undesirable edge cases in the heuristics used to keep well-shaped hierarchical subdivisions. For instance, an axis-aligned lower-dimensional object can result in its bounding box having a Lebesgue measure<a href="#fn81" id="fnref81"><sup>81</sup></a> of zero, resulting in long thin boxes that overlap many possible queries. 
+			</p>
+			<p class="text-justify">
+				 Hashing techniques are an interesting alternative, as they allow constant time (or at least low complexity)  access to objects. While most forms of hashing are not suitable for spatial objects, there are two relevant exceptions. Geometric hashing [<a href="bibliography.html#Wolfson97">Wolfson and Rigoutsos, 1997</a>] defines a hashing function that is invariant to the (geometric) properties that are required for a particular application, ensuring that objects with a similar shape have similar hash codes. Locality-sensitive hashing [<a href="bibliography.html#Andoni08">Andoni and Indyk, 2008</a>] instead ensures that objects that are close together also have hash codes that are close together. 
+			</p>
+			<p class="text-justify">
+				 A simple indexing approach, which is often used for the work presented in this thesis is to maintain an index on objects based on their <em>lexicographically smallest vertex</em><a href="#fn82" id="fnref82"><sup>82</sup></a>. While this approach is not very useful when trying to obtaining the objects in a region, it is easy to implement and very efficient for many simple operations, such as when objects need to be compared. In fact, by linking directly an index entry to one of a cell&rsquo;s darts which is embedded at the lexicographically smallest vertex (as opposed to an arbitrary dart of the cell), it is possible to significantly limit certain types of search comparisons to a small set of possible starting darts<a href="#fn83" id="fnref83"><sup>83</sup></a>. An extensive example of the use of such an index for comparisons is shown later in <a href="#se:ndqueries">&sect;5.5</a>. 
+			</p>
+			<p class="text-justify">
+				 <h2 id="se:duality">5.4 Duality in higher dimensions</h2> 
+			</p>
+			<p class="text-justify">
+				 The concept of Poincar&eacute; duality (<a href="math.html#ss:algebraic-topology">&sect;2.3.2</a>) is used in conjunction with spatial information to understand and represent how things are connected. In two dimensions, one application is qualifying the spatial relationships between adjacent objects: as shown in <a href="#fig:dual_polygonal_map" id="fig:dual_polygonal_mapref">Figure 5.7</a>, <a href="bibliography.html#Gold91">Gold [1991]</a> uses the quad-edge data structure [<a href="bibliography.html#Guibas85">Guibas and Stolfi, 1985</a>] to store simultaneously a map (where each polygon in the map can have certain attributes) and its dual (the boundaries between two adjacent map objects, which can also have certain attributes, e.g.  the boundary type or the flow direction).
+			</p>
+			<div class="row" id="fig:dual_polygonal_map">
+				<div class="col-sm-4 col-xs-4"><img src="figs/dpm1.svg" class="img-responsive" /></div>
+				<div class="col-sm-4 col-xs-4"><img src="figs/dpm2.svg" class="img-responsive" /></div>
+				<div class="col-sm-4 col-xs-4"><img src="figs/dpm3.svg" class="img-responsive" /></div>
+			</div>
+			<div class="row" id="fig:dual_polygonal_map">
+				<div class="col-sm-4 col-xs-4"><p class="small text-center">(a)</p></div>
+				<div class="col-sm-4 col-xs-4"><p class="small text-center">(b)</p></div>
+				<div class="col-sm-4 col-xs-4"><p class="small text-center">(c)</p></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12"><p class="small text-justify">Figure 5.7: (a) Six map objects and their boundaries. (b) The same map stored as a graph and its dual (dotted lines). (c) The dual graph is used to describe the relationships between adjacent polygons. From <a href="bibliography.html#Ledoux06">Ledoux [2006, Ch. 6</a>], itself based on <a href="bibliography.html#Gold91">Gold [1991]</a>.<a href="#fig:dual_polygonal_mapref">&#8617;</a></p></div>
+			</div>
+			<p class="text-justify">
+				 In three dimensions, duality characterises how volumes are related (e.g.  stating that two neighbouring rooms in a building are connected or adjacent). A typical example involves the Delaunay triangulation and the Voronoi diagram, which are dual to each other. <a href="bibliography.html#Dakowicz03">Dakowicz and Gold [2003]</a> use them for terrain modelling, <a href="bibliography.html#Lee02">Lee and Gahegan [2002]</a> for interactive analysis, and <a href="bibliography.html#Ledoux08">Ledoux and Gold [2008]</a> for three-dimensional fields in the geosciences. In GIS, it is most commonly used to model paths inside 3D buildings, which can be used for navigation computations. <a href="bibliography.html#Lee08">Lee and Zlatanova [2008]</a> and <a href="bibliography.html#Lee08a">Lee and Kwan [2005]</a> extract from a 3D building a graph that can be used in case of emergency, and <a href="bibliography.html#Boguslawski11a">Boguslawski et al. [2011]</a> and <a href="bibliography.html#Boguslawski11">Boguslawski and Gold [2011]</a> perform the same using the <em>dual half-edge</em> data structure, which simultaneously represents the buildings (the rooms and their boundaries) and the navigation graph. <a href="bibliography.html#Liu13">Liu and Zlatanova [2013]</a> is especially interesting, as it attempts to obtain such a graph from models stored in the 3D standards most widely used in GIS, CityGML and IFC.  
+			</p>
+			<p class="text-justify">
+				 In higher-dimensional context of this thesis, duality similarly characterises relationships between objects, albeit its exact meaning depends on the characteristics being modelled as dimensions. For instance, in a 3D space+time setting where a 4-cell represents a volume existing through time, the adjacency relationships between 4-cells represent volumes that were adjacent or connected <em>during one or more time intervals</em>. These relationships can thus be used to answer connectivity questions in space-time without the need to add additional semantics in the model. For instance, it would make it possible to create a 3D indoor and outdoor way-finding application, where a user can select any given start and end points and a point in time, and be given the shortest 3D route at that time, taking into account all possible topological changes (e.g.  construction work that closes down parts of the building, the dynamic reconfiguration of spaces using plasterboard, or connecting corridors that are only open during office hours). It is worth noting that such a 4D representation effectively stores <em>the entire history of connectivity in a building</em> without any added effort. 
+			</p>
+			<p class="text-justify">
+				 In a dimension-independent setting, generalised and combinatorial maps are notable because they simultaneously encode a cell complex and its dual. As shown in <a href="#fig:dual_gmap" id="fig:dual_gmapref">Figure 5.8</a>, if an \(n\)-dimensional cell complex is stored as an \(n\)-dimensional generalised map, swapping \(\alpha_n\) and \(\alpha_{n-i}\) for every \(i\) for every dart, the dual of the map is obtained<a href="#fn84" id="fnref84"><sup>84</sup></a>. Note however that as shown in <a href="#fig:dual_gmap" id="fig:dual_gmapref">Figure 5.8b</a>, in order to obtain a dual cell complex properly embedded in \(\mathbb{R}^n\), it is in practice necessary to compute a new point embedding that lies in the interior of every \(n\)-cell.
+			</p>
+			<div class="row" id="fig:dual_gmap">
+				<div class="col-sm-3 col-xs-6"><img src="figs/dual_gmap1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
+				<div class="col-sm-3 col-xs-6"><img src="figs/dual_gmap2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col-sm-3 col-xs-6"><img src="figs/dual_gmap4.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
+				<div class="col-sm-3 col-xs-6"><img src="figs/dual_gmap3.svg" class="img-responsive" /><p class="small text-center">(d)</p></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12"><p class="small text-justify">Figure 5.8: The dual of (a) a 2D generalised map can be obtained by (b) computing a point location for the dual 2-cells (e.g.  their centroid) and swapping \(\alpha_0\) and \(\alpha_2\), and (c) considering the 2-cells as 0-cells with their new point embeddings. By extending every the exterior of (a) as an additional unbounded face, it is possible to arrive at the alternative dual map in (d).<a href="#fig:dual_gmapref">&#8617;</a></p></div>
+			</div>
+			<p class="text-justify">
+				 <h2 id="se:ndqueries">5.5 Comparing two objects with and without signatures</h2> 
+			</p>
+			<p class="text-justify">
+				 In order to showcase the difference between the topological and non-topological approaches in representing higher-dimensional spatial information, this section compares how efficient the two approaches are in terms of size, and how efficiently three fundamental operations can be performed in either case. The configurations for these tests are shown in <a href="#fig:tesseract-tests" id="fig:tesseract-testsref">Figure 5.9</a> and respectively involve verifying that two tesseracts are: equal (i.e. that they represent the same 4-cell), adjacent (i.e. that they share a common 3-cell facet), and sharing a common 2-cell ridge. As an example of the topological approach, objects will be represented as a combinatorial map with indices on the lexicographically smallest vertex of every cell. Meanwhile, the non-topological approach will be exemplified with the Simple Features-like [<a href="bibliography.html#SimpleFeatures1">OGC, 2011</a>] representation shown in <a href="nd-modelling.html#ss:nd-topology">&sect;4.2.3</a> and <a href="nd-modelling.html#fig:sfsnd">Figure 4.7</a>. Indices make little sense in the latter, as there are no combinatorial primitives to navigate and every lower-dimensional cell is represented multiple times. Note that the objects are assumed to have identical coordinates and structure at this point. If this is not the case, cleaning methods such as those mentioned in <a href="cleaning.html">Chapter 10</a> or those described by <a href="bibliography.html#Diakite14">Diakit&eacute; et al. [2014]</a> need to be applied first.
+			</p>
+			<div class="row" id="fig:tesseract-tests">
+				<div class="col-sm-4 col-xs-4"><img src="figs/tesseract-tests-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
+				<div class="col-sm-4 col-xs-4"><img src="figs/tesseract-tests-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col-sm-4 col-xs-4"><img src="figs/tesseract-tests-3.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
+				<div class="col-sm-12"><p class="small text-justify">Figure 5.9: A stereographic projection of three pairs of tesseracts representing: (a) equality (common 4-cell), (b) adjacency (a common 3-cell), and (c) common 2-cell. Only the edges of each tesseract are shown.<a href="#fig:tesseract-testsref">&#8617;</a></p></div>
+			</div>
+			<p class="text-justify">
+				 The tests involving comparisons of combinatorial maps use the method of <a href="bibliography.html#Gosselin11">Gosselin et al. [2011]</a>, which can be used to compare two orbits of a map using <em>signatures</em>. This method will also be used extensively in <a href="incremental-construction.html">Chapter 7</a>. Based on the ordering properties of a map, it is possible to traverse a given orbit from a given dart in a manner that is always consistent, yielding a canonical representation. By following parallel traversals of this type, an algorithm can verify that two cells or maps are isomorphic in \(O(n^2)\) time on the number of darts in a cell or cell complex. 
+			</p>
+			<p class="text-justify">
+				 Intuitively, the quadratic complexity reflects the fact that two cells or cell complexes are tested for isomorphism by starting one traversal always at the same dart in one of the cells or cell complexes, possibly including a comparison of up to \(n\) darts, while trying all \(n\) possible starting darts in the other cell or cell complex. However, it is worth noting that most of the comparisons will stop as soon as one test fails<a href="#fn85" id="fnref85"><sup>85</sup></a>, yielding a much better complexity in all but the most pathological cases. Interestingly, <a href="bibliography.html#Gosselin11">Gosselin et al. [2011]</a> also provides a method to verify an isomorphism in \(O(n)\) time on a specially generated external signature that uses \(O(n^2)\) space, but this method is deemed too space-intensive for the purposes of this thesis. 
+			</p>
+			<p class="text-justify">
+				 All tests are described in detail below. 
+			</p>
+			<p class="text-justify">
+				 <h3>Size comparison</h3>
+			</p>
+			<p class="text-justify">
+				 Comparing the size of each structure is rather difficult as it can vary greatly depending on the specific implementation. The specific implementations described below should nevertheless be roughly comparable, as they are relatively tailored to the kind of object being represented but do not hard-code any of its specific properties (e.g.  the number of its bounding 3- or 2-cells). 
+			</p>
+			<p class="text-justify">
+				<ul style="list-style-type: none;">
+				 	<li class="text-justify"><strong>Combinatorial map</strong> A combinatorial maps representation of a tesseract (<a href="incremental-construction.html#fig:tesseract-darts">Figure 7.5</a>) is represented as 192 darts and 16 point embeddings. Stored in a 3D combinatorial map<a href="#fn86" id="fnref86"><sup>86</sup></a>, every dart contains links to 4 other darts (\(\beta_1\) to \(\beta_3\) plus \(\beta_1^{-1}\)) and to its point embedding. As every point is embedded in 4D, every point embedding must store 4 coordinates. Assuming that dart and point embedding links are stored as indices (e.g.  of an array) using 1 byte and point coordinates are stored using 4 bytes, a tesseract is stored in exactly <strong>1 Kb</strong> of memory. </li>
+				 	<li class="text-justify"><strong>Simple Features</strong> A Simple Features-like binary<a href="#fn87" id="fnref87"><sup>87</sup></a> representation of a tesseract (<a href="nd-modelling.html#fig:sfs">Figure 4.7c</a>) contains 8 lists representing its bounding cubes, each of which contains 6 lists representing the bounding squares of a cube, each of which contains 5 lists representing a cycle of points on its boundary, each of which contains the 4 coordinates of a point. Assuming that the first three levels of the lists (i.e. 4D, 3D and 2D) are implemented as arrays that use one more item than their contents<a href="#fn88" id="fnref88"><sup>88</sup></a> and the last level (i.e. the point coordinates) as arrays of four elements and point coordinates are stored using 4 bytes, a tesseract is stored in <strong>5.9 Kb</strong> of memory. </li>
+				 </ul>
+			</p>
+			<p class="text-justify">
+				 <h3>Equality test</h3>
+			</p>
+			<p class="text-justify">
+				 <ul style="list-style-type: none;">
+				 	<li class="text-justify"><strong>Combinatorial map</strong> In two equal tesseracts, the lexicographically smallest vertex is the same for both of them. Using the index, it is possible to get a dart at the lexicographically smallest vertex in each. As 4 cubes in each contain this vertex, and 3 faces of each of these cubes contain it, there are 12 darts that are embedded there. Using the isomorphism test using signatures, this would mean 12 possible starting darts in one tesseract&rsquo;s traversal (the other is fixed), each of which can be performed in 2 orientations. As these traversals can be of up to 192 darts, and each dart comparison involves 4 \(\beta\)-links and a point embedding with 4 coordinates, the process might include up to <strong>36 864</strong> comparisons. </li>
+					<li class="text-justify"><strong>Simple Features</strong> It is possible to test for equality by traversing one tesseract in order, point by point, while searching for an equivalent point in the other tesseract. As the first two levels of their lists can be in any order (i.e.  4D and 3D) and the third level list (i.e.  2D) can have any starting point, there are 240 possible starting points from which a parallel traversal in the other tesseract can be started, which can be done in 2 possible orientations (forward and backward in every face cycle). These traversals can include up to 240 points, each including up to 4 coordinate comparisons, yielding a total of up to <strong>460 800</strong> comparisons.</li>
+				</ul>
+			</p>
+			<p class="text-justify">
+				 <h3>Adjacency test</h3>
+			</p>
+			<p class="text-justify">
+				 <ul style="list-style-type: none;">
+				 	<li class="text-justify"><strong>Combinatorial map</strong> A tesseract has 8 cubical 3-cells, any of which can be equivalent to a 3-cell in the other tesseract. A worst case test thus involves 32 cube-to-cube comparisons<a href="#fn89" id="fnref89"><sup>89</sup></a>. Comparing two cubes involves a similar process as the one described above for a tesseract. Using indices, it is possible to arrive at the 3 darts at the lexicographically smallest vertex of each cube, from which comparisons can be started in 2 orientations, which involve traversals of up to 24 darts. Each dart comparison involves 3 \(\beta\)-links (\(\beta_3\) does not need to be tested) and a point embedding with 4 coordinates, yielding 1 008 comparisons per cube-to-cube test and <strong>32 256</strong> total. </li>
+					<li class="text-justify"><strong>Simple Features</strong> There are also 32 possible cube-to-cube comparisons to be made, each of which is also analogous to the tesseract comparison used above. In a cube (<a href="nd-modelling.html#fig:sfs3d">Figure 4.7b</a>), there are 30 possible starting points for a parallel traversal in 2 possible orientations, each involving up to 30 points with 4 coordinates. Each cube-to-cube comparison thus involves 7 200 comparisons, for a total of <strong>230 400</strong>. </li>
+				</ul>
+			</p>
+			<p class="text-justify">
+				 <h3>Common 2-cell test</h3>
+			</p>
+			<p class="text-justify">
+				 <ul style="list-style-type: none;">
+				 	<li class="text-justify"><strong>Combinatorial map</strong> Each tesseract has 24 square 2-cells, so there are 288 possible square-to-square comparisons<a href="#fn90" id="fnref90"><sup>90</sup></a>. There is only 1 dart at the lexicographically smallest vertex of each square, from which a comparison can be started in 2 orientations, involving up to 4 darts with 2 \(\beta\)-links and a point with 4 coordinates. There are thus 48 comparisons per square-square combination and <strong>13 824</strong> total. </li>
+					<li class="text-justify"><strong>Simple Features</strong> There are also 288 possible square-to-square comparisons. In a square (<a href="nd-modelling.html#fig:sfs">Figure 4.7a</a>), there are 5 possible starting points for a traversal in 2 orientations, each involving 5 other points with 4 coordinates. A square-to-square comparison thus involves 200 comparisons, for a total of <strong>57 600</strong>. </li>
+				</ul>
+			</p>
+			<p class="text-justify">
+				 <h3>Conclusions and insights into tests in higher dimensions</h3>
+			</p>
+			<p class="text-justify">
+				 <a href="#table:comparison-tests" id="table:comparison-testsref">Table 5.1</a> summarises the results of the previous tests. As the table shows, a topological approach using combinatorial maps is significantly more efficient than a non-topological Simple Features-like approach. This is true both in terms of size and the number of comparisons involved in basic operations. The difference ranges from a factor of 4.17 for detecting a common 2-cell ridge to a factor of 12.5 for detecting equality (i.e. a common 4-cell). 
+			</p>
+			<table class="table table-hover" id="table:comparison-tests">
+				<p class="small text-justify">
+				Table 5.1: The relative sizes and maximum number of comparisons in tests with two tesseracts (<a href="#fig:tesseract-tests" id="fig:tesseract-testsref">Figure 5.9</a>) using combinatorial maps (c-maps) and a Simple Features Specification (SFS) representation.<a href="#table:comparison-testsref">&#8617;</a>
+			</p>
+				<tr>
+					<td><strong>Test</strong></td><td><strong>c-maps</strong></td><td><strong>SFS</strong></td><td><strong>factor</strong></td>
+				</tr>
+				<tr>
+					<td>size (Kb)</td><td>1.0</td><td>5.9</td><td>5.9</td>
+				</tr>
+				<tr>
+					<td>equality (comparisons)</td><td>36 864</td><td>460 800</td><td>12.5</td>
+				</tr>
+				<tr>
+					<td>adjacency (comparisons)</td><td>32 256</td><td>230 400</td><td>7.14</td>
+				</tr>
+				<tr>
+					<td>common 2-cell (comparisons)</td><td>13 824</td><td>57 600</td><td>4.17</td>
+				</tr>
+			</table>
+			<p class="text-justify">
+				 This difference only becomes more pronounced with more complex objects and those of higher dimensions, as the advantage of having an index pointing to a well-defined starting point for a traversal is inversely proportional to the number of possible starting points. 
+			</p>
+			<p class="text-justify">
+				 However, it is worth noting that the differences between the two could be heavily reduced by using a modicum of topology in the Simple Features-like representation<a href="#fn91" id="fnref91"><sup>91</sup></a>. If the lowest-level lists representing the coordinates of a point were exchanged for unique pointers to an external array with the coordinates of all points, many of these searches and the overall storage of the Simple Features approach could be significantly optimised. 
+			</p>
+		</div>
+		<div class="col-md-3">
+			<div class="row" id=fig:cmap-free>
+				<div class="col-sm-2"></div>
+				<div class="col-sm-8"><img src="figs/cmap-free.svg" class="img-responsive"></div>
+				<div class="col-sm-2"></div>
+			</div>
+			<p class="small">Figure 5.2: The \(\beta_1\) relations in a 1D combinatorial map are partial permutations. Whereas \(\beta_1(d_1) = d_2\), \(\beta_1(d_2) = d_3\) and \(\beta_1(d_3) = \emptyset\).<a href="#fig:cmap-freeref">&#8617;</a></p>
+			<p id=fig:2dcc-betas><img src="figs/2dcc-betas.svg" class="img-responsive"></p>
+			<p class="small">Figure 5.3: The \(\beta_1\) relations in a 2D combinatorial map are partial permutations, the \(\beta_2\) relations are partial involutions.<a href="#fig:2dcc-betasref">&#8617;</a></p>
+			<p id="fn76" class="small">
+				76. This last condition enforces the last criterion in the definition of a generalised map given above.<a href="#fnref76">&#8617;</a>
+			</p>
+			<p id="fn77" class="small">
+				77. Similarly, this last condition enforces the last criterion in the definition of a combinatorial map given above.<a href="#fnref77">&#8617;</a>
+			</p>
+			<p id="fn78" class="small">
+				78. Note how this essentially reduces the dimensionality of the problem by one.<a href="#fnref78">&#8617;</a>
+			</p>
+			<p id="fn79" class="small">
+				79. Note the order of the three rotation planes given here, which results from <em>omitting</em> the axes \(x\), \(y\) and \(z\) (in that order). Note also the order of the two axes in \(zx\), which follows the right hand rule and defines the signs of the sines in the rotation matrices.<a href="#fnref79">&#8617;</a>
+			</p>
+			<p id="fn80" class="small">
+				80. probably easier to picture as an \((n-1)\)-simplex<a href="#fnref80">&#8617;</a>
+			</p>
+			<p id="fn81" class="small">
+				81. The generalisation of 1D length, 2D area, 3D volume, etc.<a href="#fnref81">&#8617;</a>
+			</p>
+			<p id="fn82" class="small">
+				82. An idea suggested by <a href="http://liris.cnrs.fr/guillaume.damiand/">Guillaume Damiand</a><a href="#fnref82">&#8617;</a>
+			</p>
+			<p id="fn83" class="small">
+				83. Stricter and more efficient (for a given problem) ordering criteria to choose between all the darts embedded at this vertex could be followed here, but they likely lead to significantly more complex implementations.<a href="#fnref83">&#8617;</a>
+			</p>
+			<p id="fn84" class="small">
+				84. However, does not need to actually swap \(\alpha_n\) and \(\alpha_{n-i}\), but merely to <em>consider</em> \(\alpha_n\) as if it were \(\alpha_{n-i}\).<a href="#fnref84">&#8617;</a>
+			</p>
+			<p id="fn85" class="small">
+				85. e.g. by differing in a specific cell<a href="#fnref85">&#8617;</a>
+			</p>
+			<p id="fn86" class="small">
+				86. There is no need for a 4D combinatorial map, as there is only one 4D object.<a href="#fnref86">&#8617;</a>
+			</p>
+			<p id="fn87" class="small">
+				87. An ASCII equivalent (e.g.  using well-known text) could easily be an order of magnitude larger.<a href="#fnref87">&#8617;</a>
+			</p>
+			<p id="fn88" class="small">
+				88. In an implementation of these lists within lists, it is necessary to use this extra item to know their structure. For instance, this item can be used to terminate a list with a special character (e.g. the <code>'\0'</code> null terminator used in C strings) or to put a list&rsquo;s size as its first element. Other implementations (e.g. a linked list) would be much less efficient.<a href="#fnref88">&#8617;</a>
+			</p>
+			<p id="fn89" class="small">
+				89. However, most of these cubes would not have the same lexicographically smallest vertex, but as the number of cubes with the same vertex heavily depends on the configuration, here we use the very conservative absolute worst case of 32.<a href="#fnref89">&#8617;</a>
+			</p>
+			<p id="fn90" class="small">
+				90. As in the adjacency test, most of these squares would not have the same lexicographically smallest vertex, but since the number of squares with the same vertex depends on the configuration, here we use the very conservative worst case of 290.<a href="#fnref88">&#8617;</a>
+			</p>
+			<p id="fn91" class="small">
+				91. Even if this is a moot point in practice, as topology seems to be anathema to Simple Features.<a href="#fnref91">&#8617;</a>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3"><p class="text-left"><a href="nd-modelling.html"><i class="fa fa-angle-double-left"></i> 4 The higher-dimensional spatial modelling approach</a></p></div>
+		<div class="col-sm-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col-sm-3"><p class="text-right"><a href="extrusion.html">6 Extrusion <i class="fa fa-angle-double-right"></i></a></p></div>
+	</div>
+</div>
