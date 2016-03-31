@@ -1,0 +1,1121 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bibe",
+				"bibentries"
+			],
+			[
+				"merge",
+				"merged_bib_file_text"
+			],
+			[
+				"bib",
+				"bib_file"
+			],
+			[
+				"files",
+				"filesize"
+			],
+			[
+				"pu",
+				"pubs_page"
+			],
+			[
+				"pubs",
+				"pubs_text"
+			],
+			[
+				"jekyll",
+				"jekyll_output"
+			],
+			[
+				"autho",
+				"authorsString"
+			],
+			[
+				"sear",
+				"searchWhere"
+			],
+			[
+				"ite",
+				"itemize"
+			],
+			[
+				"th",
+				"th	Tag"
+			],
+			[
+				"linkin",
+				"linkingrules"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "preface.html",
+			"settings":
+			{
+				"buffer_size": 9197,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "introduction.html",
+			"settings":
+			{
+				"buffer_size": 20048,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "math.html",
+			"settings":
+			{
+				"buffer_size": 41907,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "modelling-background.html",
+			"settings":
+			{
+				"buffer_size": 111510,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "nd-modelling.html",
+			"settings":
+			{
+				"buffer_size": 113369,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "operations-background.html",
+			"settings":
+			{
+				"buffer_size": 61063,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "extrusion.html",
+			"settings":
+			{
+				"buffer_size": 75868,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "incremental-construction.html",
+			"settings":
+			{
+				"buffer_size": 46531,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/ken/Versioned/thesis/incremental-construction.tex",
+			"settings":
+			{
+				"buffer_size": 40842,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Ruby/Ruby.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Ruby (homebrew).sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Ruby/Ruby.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Synesthesia/Synesthesia.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "package control",
+		"selected_items":
+		[
+			[
+				"package control",
+				"Package Control: List Packages"
+			],
+			[
+				"package contro",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"delete",
+				"LaTexTools: Delete temporary files"
+			],
+			[
+				"figure",
+				"Snippet: figure"
+			],
+			[
+				"itemi",
+				"Snippet: Itemize"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"snippet",
+				"Snippet: figure"
+			],
+			[
+				"up",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"upgra",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"compile",
+				"Synesthesia: Compile Highlighting Scheme"
+			],
+			[
+				"new hi",
+				"Synesthesia: New Highlighting Scheme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"visi",
+				"BracketHighlighter: Toggle High Visibility Mode"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"list packa",
+				"Package Control: List Packages"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"package control ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package control upgr",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"package control ",
+				"Package Control: Remove Package"
+			],
+			[
+				"sublimelinter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"package contr",
+				"Package Control: Remove Package"
+			],
+			[
+				"toggle lin",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"sublimelin",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"count",
+				"SublimeLinter: No Column Only Marks Gutter"
+			],
+			[
+				"prefs",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"sublimelinter ne",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"instll",
+				"Package Control: Install Package"
+			],
+			[
+				"latex",
+				"LaTeXTools: Jump to PDF"
+			],
+			[
+				"upgrade",
+				"Package Control: Upgrade Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 357.0,
+		"history":
+		[
+			"which linter",
+			"echo $PATH",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/ken/Versioned/thesis/extrusion.tex",
+		"/Users/ken/Versioned/code/thesis2html.rb",
+		"/Users/ken/Versioned/thesis/operations-background.tex",
+		"/Users/ken/Versioned/thesis/nd-modelling.tex",
+		"/Users/ken/Versioned/thesis/figs/sfs2d",
+		"/Users/ken/Versioned/my-website/en/thesis/modelling-background.html",
+		"/Users/ken/Versioned/thesis/modelling-background.tex",
+		"/Users/ken/Versioned/my-website/en/thesis/nd-modelling.html",
+		"/Users/ken/Versioned/my-website/en/thesis/preface.html",
+		"/Users/ken/Versioned/my-website/en/thesis/introduction.html",
+		"/Users/ken/Versioned/my-website/en/thesis/math.html",
+		"/Users/ken/Versioned/my-website/en/thesis/bibliography.html",
+		"/Users/ken/Versioned/my-website/css/feijoa.css",
+		"/Users/ken/Versioned/my-website/_includes/head.html",
+		"/Users/ken/Versioned/my-website/css/thesis.css",
+		"/Users/ken/Versioned/my-website/_layouts/thesis.html",
+		"/Users/ken/Versioned/thesis/math.tex",
+		"/Users/ken/Versioned/thesis/thesis.lof",
+		"/Users/ken/Versioned/thesis/LICENSE",
+		"/Users/ken/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/ken/Versioned/website/_data/conferences.yml",
+		"/Users/ken/Desktop/tesseract_s3.obj",
+		"/Users/ken/Versioned/my-website/en/contact/index.html",
+		"/Users/ken/Versioned/geospatial-voxels/README.md",
+		"/Users/ken/Versioned/papers/thesis/thesis.toc",
+		"/Users/ken/Versioned/my-website/_site/en/index.html",
+		"/Users/ken/Versioned/papers/thesis/thesis.bbl",
+		"/Users/ken/Versioned/papers/thesis/thesis.sublime-project",
+		"/Users/ken/Versioned/papers/thesis/thesis.lof",
+		"/Users/ken/Library/Application Support/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
+		"/Users/ken/Dropbox/netatmo/test.rb",
+		"/Users/ken/Versioned/papers/thesis/data-structures.tex",
+		"/Users/ken/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/ken/Versioned/papers/thesis/implementation.tex",
+		"/Users/ken/Desktop/review_form_11.txt",
+		"/Users/ken/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/ken/Versioned/website/update/index.php",
+		"/Users/ken/Versioned/papers/thesis/nd-modelling.tex",
+		"/Users/ken/Versioned/papers/thesis/introduction.tex",
+		"/Users/ken/Versioned/papers/thesis/modelling-background.tex",
+		"/Users/ken/Versioned/papers/thesis/pre.tex",
+		"/Users/ken/Versioned/papers/thesis/5-ndstructures.tex",
+		"/Users/ken/Versioned/papers/thesis/2-modelling.tex",
+		"/Users/ken/Versioned/papers/thesis/4-structures.tex",
+		"/Users/ken/Versioned/website/_site/update/index.php",
+		"/Users/ken/Versioned/website/pubs/index.html",
+		"/Users/ken/Versioned/website/pubs/all.bib",
+		"/Users/ken/Versioned/website/index.html",
+		"/Users/ken/Versioned/website/_config.yml",
+		"/Users/ken/Versioned/website/pubs/ken.bib",
+		"/Users/ken/Versioned/website/pubs/hugo.bib",
+		"/Users/ken/Versioned/websites/work/research.php",
+		"/Users/ken/Versioned/website/pubs/bibhtmler.php",
+		"/Users/ken/Versioned/website/pubs/index.php",
+		"/Users/ken/Versioned/website/_site/update.php",
+		"/Users/ken/Versioned/website/update.php",
+		"/Users/ken/Versioned/website/_posts/2014-11-08-welcome-to-jekyll.md",
+		"/Users/ken/Versioned/website/_data/staff.yml",
+		"/Users/ken/Versioned/website/about/index.md",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Tom Broersen and Ivo de Liefde/a-star_deLiefde_Broersen.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Floris Heuff and Kirstin Alphenaar/Project - Alphenaar & Heuff/navigation.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Swadhin Nanda and Erik Oudejans/VF_FINAL.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Florian Fitcher and Stella Psomadaki/Project_4409957_4412052/tomtom.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Anna-Maria Ntarladima, Dimitris Kyritsis and Pieter Soffers/TomTom.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Florian Fitcher and Stella Psomadaki/Project_4409957_4412052/neighbors.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Florian Fitcher and Stella Psomadaki/Project_4409957_4412052/dictionaries.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Lessie Ortega-Córdova/final/GISPROJECT33.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Erik Heeres, Olivier Rodenberg and Tom Hemmes/last_road_10112014.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Mathilde Piau and Rosann Aarsen/Aimplement.py",
+		"/Users/ken/Dropbox/GEO1002-2014/inbox/project/Mathilde Piau and Rosann Aarsen/create_polylines_with_start_and_end_nodes.py",
+		"/Users/ken/Versioned/papers/thesis/thesis.tex",
+		"/Users/ken/Versioned/pprepair/PlanarPartition.h",
+		"/Users/ken/Versioned/papers/thesis/0/pre.tex",
+		"/Users/ken/Versioned/papers/thesis/1/introduction.tex",
+		"/Users/ken/Downloads/dissertation/dissertation.cls",
+		"/Users/ken/Downloads/dissertation/dissertation.tex",
+		"/Users/ken/Downloads/dissertation/title/title.tex",
+		"/Users/ken/Versioned/papers/CEUS/discussion.tex",
+		"/Users/ken/Downloads/dissertation/preface/preface.tex",
+		"/Users/ken/Versioned/websites/work/cv.php",
+		"/Users/ken/Versioned/websites/work/header.php",
+		"/Users/ken/Versioned/websites/work/contact.php",
+		"/Users/ken/Versioned/websites/work/supervised.bib",
+		"/Users/ken/Versioned/websites/work/others.bib",
+		"/Users/ken/Versioned/websites/work/publications.bib",
+		"/Users/ken/.ssh/config",
+		"/Users/ken/Versioned/papers/IJGIS nD structures/paper-new.tex",
+		"/Users/ken/Desktop/clean.obj",
+		"/Users/ken/Desktop/ioh.obj",
+		"/Users/ken/Maestría/Thesis/thesis/thesis.tex",
+		"/Users/ken/Versioned/papers/IJGIS extrusion/paper-new.tex",
+		"/Users/ken/Versioned/papers/IJGIS extrusion/paper-diff.tex",
+		"/Users/ken/Versioned/papers/IJGIS extrusion/algos.tex",
+		"/Users/ken/Versioned/papers/IJGIS extrusion/tGIS2e.cls",
+		"/Users/ken/Dropbox/GEO1002-2014/exams/final/geo1002_exam.tex",
+		"/Users/ken/Versioned/papers/PFG/article-av.tex",
+		"/Users/ken/Versioned/code/PhDVis/PhDVis/GeometryProcessor.cpp",
+		"/Users/ken/Versioned/code/PhDVis/PhDVis/IO/PhDVisIOHelper.cpp",
+		"/Users/ken/Versioned/code/PhDVis/PhDVis/IO/PhDVisIOHelper.h",
+		"/Users/ken/Versioned/code/PhDVis/PhDVis/GeometryProcessor.h",
+		"/Users/ken/testsite/publications.bib",
+		"/Users/ken/Desktop/create_nodes.py",
+		"/Users/ken/Dropbox/GEO1002-2014/assignments/03/help/demo-pyshp.py",
+		"/Users/ken/Dropbox/GEO1002-2014/exams/final/geo1002_resit.tex",
+		"/Users/ken/Dropbox/GEO1002-2014/assignments/project/HW4_tests/tests.py",
+		"/Users/ken/Downloads/create_polygons.py",
+		"/Users/ken/Dropbox/GEO1002-2014/assignments/03/test polygons/create_polygons.py",
+		"/Users/ken/Versioned/papers/IJGIS nD structures/paper-diff.tex",
+		"/Users/ken/Dropbox/GEO1002-2014/assignments/03/test polygons/ispp.py",
+		"/Users/ken/Dropbox/geo1002-2014/assignments/03/test polygons/create_polygons.py",
+		"/Users/ken/Dropbox/geo1002-2014/assignments/03/test polygons/ispp.py",
+		"/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Users/ken/Dropbox/GEO1002-2014/lectures/12/slides/geo1002_lec62.tex",
+		"/Users/ken/Dropbox/GEO1002-2014/lectures/11/slides/geo1002_lec61.tex",
+		"/Users/ken/Doctorado/data/IfcOpenHouse.mtl",
+		"/Users/ken/Desktop/ioh.mtl",
+		"/Users/ken/Doctorado/data/IfcOpenHouse.obj",
+		"/Users/ken/Versioned/authors-draft-paper-template/authorversion.tex",
+		"/Users/ken/Downloads/fonttest.tex",
+		"/Users/ken/Doctorado/data/extruded_tud/campus extruded.obj",
+		"/Users/ken/Desktop/IfcOpenHouse.obj",
+		"/Users/ken/Versioned/papers/ICAA 2014/paper-av.tex",
+		"/Users/ken/Dropbox/GEO1002-2014/exams/quiz/quiz.tex",
+		"/Users/ken/Versioned/papers/ICAA 2014/paper.tex",
+		"/Users/ken/Dropbox/GEO1002-2014/assignments/03/geo1002_hw3.tex",
+		"/Users/ken/Downloads/scheduling modellen/INPRO example KP1 demonstration_RevitArch2009.ifc",
+		"/Users/ken/Dropbox/scheduling modellen/INPRO example KP1 demonstration_RevitArch2009.ifc",
+		"/Users/ken/Dropbox/scheduling modellen/FullScheduleWithTaskUserFields.ifc"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<open files>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"105",
+			"boolean",
+			"6",
+			"105",
+			"104",
+			"103",
+			"104",
+			"103",
+			"boolean",
+			"102",
+			"101",
+			"102",
+			"101",
+			"6",
+			"100",
+			"boolean",
+			"6",
+			"100",
+			"}",
+			"\\refse{",
+			"table:comparison-tests",
+			"99",
+			"98",
+			"97",
+			"98",
+			"97",
+			"}",
+			"\\ref{",
+			"min",
+			"\\refalgo{algo:gmaplayertop}",
+			"\\refalgo{algo:gmaplayerbase}",
+			"\\refalgo{algo:gmapextrusion}",
+			"96",
+			"triangle",
+			"95",
+			"boolean",
+			"blockscomplex",
+			"94",
+			"\\refalgo{algo:embeddingsextrusion}",
+			"\\\\textsc{([a-zA-Z]+)}",
+			"div",
+			"\\refalgo{algo:propagateintervals}",
+			"Frauenkirche",
+			"trianglecomplex",
+			"jpg",
+			"intervals",
+			"extrusion-intervals",
+			"boolean",
+			"10",
+			"<p id=\"fn([0-9]+)\" class=\"small\">",
+			"<p class=\"small\">",
+			"<p>",
+			"93",
+			"\\\"u",
+			"boolean",
+			"92",
+			"~",
+			"\\\"o",
+			"92",
+			"10",
+			"konigsberg",
+			"10",
+			"\\refse{",
+			"87",
+			"88",
+			"89",
+			"</td>",
+			"<td>",
+			"89",
+			"88",
+			"87",
+			"86",
+			"85",
+			"86",
+			"85",
+			"84",
+			"6",
+			"boolean",
+			"5.5",
+			"83",
+			"boolean",
+			"6",
+			"fn83",
+			"82",
+			"81",
+			"80",
+			"fn80",
+			"79",
+			"fn79",
+			"81",
+			"80",
+			"79",
+			"fn79",
+			"\\refse{",
+			"&=",
+			"10",
+			"boolean",
+			"konigsberg",
+			"boolean",
+			"\\Alpha",
+			"6",
+			"boolean",
+			"<p>",
+			"~",
+			"70",
+			"69",
+			"67",
+			"66",
+			"65",
+			"64",
+			"70",
+			"69",
+			"68",
+			"67",
+			"66",
+			"65",
+			"64",
+			"boolean",
+			"6",
+			"63",
+			"fn63",
+			"63",
+			"simplices",
+			"boolean",
+			"6",
+			"schoenhardt",
+			"10",
+			"boolean"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"<a href=\"#algo:gmaplayertop\">Algorithm 5</a>",
+			"<a href=\"#algo:gmaplayerbase\">Algorithm 4</a>",
+			"<a href=\"#algo:gmapextrusion\">Algorithm 3</a>",
+			"<a href=\"#algo:embeddingsextrusion\">Algorithm 2</a>",
+			"<span style=\"font-variant: small-caps;\">\\1</span>",
+			"<a href=\"#algo:propagateintervals\">Algorithm 1</a>",
+			"<p id=\"fn\\1\" class=\"small text-justify\">",
+			"<p class=\"small text-justify\">",
+			"<p class=\"text-justify\">",
+			"&uuml;",
+			" ",
+			"&ouml;",
+			"A",
+			"<p class=\"text-justify\">",
+			" ",
+			"<p class=\"text-justify\">",
+			"<a href=\"modelling-background.html#ss:data-models\">&sect;3.1.2</a>",
+			"&uuml;",
+			"&auml;",
+			"OGC",
+			"<a href=\"#se:nd-modelling-foundations\">&sect;4.1</a>",
+			"&ouml;",
+			"&auml;",
+			" ",
+			"</p>\n			<p>",
+			"<a href=\"#se:nd-modelling-conclusions\">&sect;4.4</a>",
+			"<a href=\"#se:data-structures\">&sect;4.3</a>",
+			"ESRI",
+			"<code>\\1</code>",
+			"ISO",
+			"OGC",
+			"\\((n-1)\\)",
+			"justify",
+			"\\(n-1\\)",
+			"\\(n\\)",
+			"<p class=\"text-justify\">",
+			"<p class=\"small text-justify\">",
+			"<p id=\"fn\\1\" class=\"small text-justify\">",
+			"<p class=\"text-justify\">",
+			"de Floriani",
+			"&auml;",
+			"&ndash;",
+			"&mdash;",
+			"&aacute;",
+			"",
+			"&uuml;",
+			"&egrave;",
+			"&auml;",
+			"&ouml;",
+			"&agrave;",
+			"&eacute;",
+			" ",
+			"",
+			"\\newgeometry{top=2.170cm,\n            bottom=3.510cm,\n            inner=2.1835cm,\n            outer=2.1835cm,\n            ignoremp}",
+			"makebox",
+			"\\newgeometry{layoutwidth=18.90cm,\n            layoutheight=24.58cm,\n            layouthoffset=0.32cm,\n            layoutvoffset=0.32cm,\n            top=2.170cm,\n            bottom=3.510cm,\n            inner=2.1835cm,\n            outer=2.1835cm,\n            ignoremp}",
+			"\\newgeometry{showframe,\n            layoutwidth=18.90cm,\n            layoutheight=24.58cm,\n            layouthoffset=0.32cm,\n            layoutvoffset=0.32cm,\n            top=2.170cm,\n            bottom=3.510cm,\n            inner=2.1835cm,\n            outer=2.1835cm,\n            ignoremp}",
+			"\\newgeometry{paperwidth=19.54cm,\n            paperheight=25.22cm,\n            showframe,\n            layoutwidth=18.90cm,\n            layoutheight=24.58cm,\n            layouthoffset=0.32cm,\n            layoutvoffset=0.32cm,\n            top=2.170cm,\n            bottom=3.510cm,\n            inner=2.1835cm,\n            outer=2.1835cm,\n            ignoremp}",
+			"\\newgeometry{paperwidth=19.54cm,\n            paperheight=25.22cm,\n            showframe,\n            layoutwidth=18.90cm,\n            layoutheight=24.58cm,\n            layouthoffset=0.32cm,\n            layoutvoffset=0.32cm,\n            top=2.170cm,\n            bottom=3.510cm,\n            inner=2.1835cm,\n            outer=2.1835cm}",
+			"\\newgeometry{paperwidth=19.54cm,\n            paperheight=25.22cm,\n            showframe,\n            layoutwidth=18.90cm,\n            layoutheight=24.58cm,\n            layouthoffset=0.32cm,\n            layoutvoffset=0.32cm,\n            top=2.170cm,\n            bottom=3.510cm,\n            inner=2.1835cm,\n            outer=2.1835cm,\n            ignoremp}",
+			"2em",
+			"\\framebox[1.8em]{\\thepage}",
+			"\\framebox[1.5em]{\\thepage}",
+			"0",
+			"IFC ",
+			"IFC",
+			"\\S{}",
+			"\\S",
+			"\\eg ",
+			"\\ie ",
+			"\\ie",
+			" ",
+			"http://3dgeoinfo.bk.tudelft.nl/ken/",
+			"an interval",
+			"writer.record(0)",
+			"writer.field('id', 'N', '5')",
+			"GIS",
+			"subfigure",
+			"",
+			"interval",
+			"\\rho",
+			"publicly",
+			"map of extrusion intervals",
+			"a map of extrusion intervals",
+			"generalised map",
+			" interval",
+			"interval",
+			"an interval",
+			"interval",
+			"-",
+			"&",
+			"",
+			"higher-dimensional",
+			"-1",
+			"\\max",
+			"\\min",
+			"\\eg\\ ",
+			"\\ie\\ ",
+			"\\ ",
+			"htb",
+			"higher-dimensional",
+			"frontpagecarousel"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "preface.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9197,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7830,
+								7799
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1343.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "introduction.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20048,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19056,
+								19056
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1691.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "math.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 41907,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "modelling-background.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 111510,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								107581,
+								107581
+							],
+							[
+								107771,
+								107771
+							],
+							[
+								107959,
+								107959
+							],
+							[
+								108157,
+								108157
+							],
+							[
+								108339,
+								108339
+							],
+							[
+								108549,
+								108549
+							],
+							[
+								108721,
+								108721
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 20985.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "nd-modelling.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 113369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								112363,
+								112363
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 21195.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "operations-background.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 61063,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								55157,
+								54180
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 10764.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "extrusion.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 75868,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								62098,
+								62098
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 11911.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "incremental-construction.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 46531,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								130,
+								130
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/ken/Versioned/thesis/incremental-construction.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 40842,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35619,
+								35619
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"spell_tag": 22,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 7370.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 182.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "thesis.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
