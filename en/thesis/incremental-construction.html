@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Incremental construction | Thesis
+feijoa: true
+title: 7 Incremental construction | Thesis
 file: thesis/incremental-construction.html
 lang: en
 mathjax: true
@@ -8,30 +9,32 @@ mathjax: true
 
 <div class="container">
 	<div class="page-header">
-		<h1>Incremental construction</h1>
+		<h1>7 Incremental construction</h1>
 	</div>
 	<div class="row">
 		<div class="col-md-9">
 			<p class="text-justify">
-				 \label{ch:incremental-construction} 
+				 One more method to the extrusion of <a href="extrusion.html">Chapter 6</a>, <em>incremental construction</em> exploits the property that an \(n\)-cell can be defined based on a set of \((n-1)\)-cells known to form its complete (closed) boundary. In practice, defining an \(n\)-cell in this manner is significantly more complex than doing so based on extrusion. However, unlike extrusion it permits the creation of cells of an <em>arbitrary shape</em>. It can also be applied cell by cell in increasing dimension, starting with the construction of isolated 0-cells (embedded in \(\mathbb{R}^n\)) first, and then constructing 2-cells, 3-cells and further based on their boundary, allowing for the <em>incremental construction</em> of objects of any dimension&mdash;hence the name given here. 
 			</p>
 			<p class="text-justify">
-				 One more method to the extrusion of \refch{ch:extrusion}, <em>incremental construction</em> exploits the property that an \(n\)-cell can be defined based on a set of \((n-1)\)-cells known to form its complete (closed) boundary. In practice, defining an \(n\)-cell in this manner is significantly more complex than doing so based on extrusion. However, unlike extrusion it permits the creation of cells of an <em>arbitrary shape</em>. It can also be applied cell by cell in increasing dimension, starting with the construction of isolated 0-cells (embedded in \(\mathbb{R}^n\)) first, and then constructing 2-cells, 3-cells and further based on their boundary, allowing for the <em>incremental construction</em> of objects of any dimension&mdash;hence the name given here. 
+				 This chapter describes an operation that permits the aforementioned process to be easily applied in practice using a topological data structure. Based on combinatorial maps (<a href="nd-modelling.html#ss:ordered-topological-models">&sect;4.3.6</a>) and their fundamental operations (<a href="operations-background.html#ss:operations-maps">&sect;5.1.1</a>), it connects the separate boundary \((n-1)\)-cells together by computing the appropriate adjacency relationships between them, encapsulating low-level details such as the creation of new individual combinatorial elements and setting the correct orientation for the existing ones. 
 			</p>
 			<p class="text-justify">
-				 This chapter describes an operation that permits the aforementioned process to be easily applied in practice using a topological data structure. Based on combinatorial maps (\refse{ss:ordered-topological-models}) and their fundamental operations (\refse{ss:operations-maps}), it connects the separate boundary \((n-1)\)-cells together by computing the appropriate adjacency relationships between them, encapsulating low-level details such as the creation of new individual combinatorial elements and setting the correct orientation for the existing ones. 
+				 The chapter begins with some background on the operations and a description of the overall approach in <a href="#se:incremental-approach">&sect;7.1</a>. It then explains the steps needed to create the cells of each dimension in <a href="#se:primitives">&sect;7.2</a>. <a href="#se:incremental-implementation">&sect;7.3</a> describes how the approach was implemented based on the Computational Geometry Algorithms Library (CGAL). <a href="#se:incremental-experiments">&sect;7.4</a> summarises some experiments based on this implementation, generating relatively large objects in up to 4D. Finally, <a href="#se:incremental-conclusions">&sect;7.5</a> concludes the chapter with the possibilities to use incremental construction to build higher-dimensional datasets. 
 			</p>
 			<p class="text-justify">
-				 The chapter begins with some background on the operations and a description of the overall approach in \refse{se:incremental-approach}. It then explains the steps needed to create the cells of each dimension in \refse{se:primitives}. \refse{se:incremental-implementation} describes how the approach was implemented based on the Computational Geometry Algorithms Library (CGAL). \refse{se:incremental-experiments} summarises some experiments based on this implementation, generating relatively large objects in up to 4D. Finally, \refse{se:incremental-conclusions} concludes the chapter with the possibilities to use incremental construction to build higher-dimensional datasets. 
+				 Most of this chapter is based on the paper:
+				 <ul>
+				 	<li class="text-justify">
+				 		<strong><a href="http://dx.doi.org/10.1007/978-3-319-04126-1_4">Constructing an \(n\)-dimensional cell complex from a soup of \((n-1)\)-dimensional faces</a></strong>. Ken Arroyo Ohori, Guillaume Damiand and Hugo Ledoux. In Prosenjit Gupta and Christos Zaroliagis (eds.), <em>Applied Algorithms. First International Conference, ICAA 2014, Kolkata, India, January 13&ndash;15, 2014. Proceedings</em>, Lecture Notes in Computer Science 8321, Springer International Publishing Switzerland, Kolkata, India, January 2014, pp. 37&ndash;48.
+				 	</li>
+				 </ul>
 			</p>
 			<p class="text-justify">
-				 Most of this chapter is based on the paper: \begin{itemize} \papericaaincrementalconstruction \end{itemize} 
+				 <h2 id="se:incremental-approach">7.1 Background and overall approach</h2> 
 			</p>
 			<p class="text-justify">
-				 <h2>Background and overall approach</h2> 
-			</p>
-			<p class="text-justify">
-				 Based on the Jordan-Brouwer separation theorem [<a href="bibliography.html#Lebesgue11">Lebesgue, 1911</a>; <a href="bibliography.html#Brouwer11">Brouwer, 1911</a>], it is known that a subset of space homeomorphic to an \((n-1)\)-dimensional sphere\footnote{A generalisation of the concept of a sphere in arbitrary dimensions. A 0-sphere is the pair of points, a 1-sphere is a circle, and a 2-sphere a sphere. As opposed to disks and balls, circles and spheres are hollow.} \(S^{n-1}\) in the \(n\)-dimensional Euclidean space \(\mathbb{R}^n\) divides the space into two connected components: the <em>interior</em>, which is the region bounded by the sphere, and the <em>exterior</em>, which is the unbounded region in which the sphere is a hole. This means that the principles of boundary representation as described in \refse{ss:data-models} extend to higher dimensions, and so an \(n\)-cell in a cell complex can be described (and therefore constructed) based a set of \((n-1)\)-cells that are known to form its complete (closed) boundary\footnote{This is true in practice. However, there are fractal-like pathological objects where this is not the case because their interior or exterior components are not homeomorphic to disks [<a href="bibliography.html#Alexander24">Alexander, 1924</a>]. While they do exist, this type of objects are certainly out of scope here.}. 
+				 Based on the Jordan-Brouwer separation theorem [<a href="bibliography.html#Lebesgue11">Lebesgue, 1911</a>; <a href="bibliography.html#Brouwer11">Brouwer, 1911</a>], it is known that a subset of space homeomorphic to an \((n-1)\)-dimensional sphere<a href="#fn109" id="fnref109"><sup>109</sup></a> \(S^{n-1}\) in the \(n\)-dimensional Euclidean space \(\mathbb{R}^n\) divides the space into two connected components: the <em>interior</em>, which is the region bounded by the sphere, and the <em>exterior</em>, which is the unbounded region in which the sphere is a hole. This means that the principles of boundary representation as described in \refse{ss:data-models} extend to higher dimensions, and so an \(n\)-cell in a cell complex can be described (and therefore constructed) based a set of \((n-1)\)-cells that are known to form its complete (closed) boundary<a href="#fn110" id="fnref110"><sup>110</sup></a>. 
 			</p>
 			<p class="text-justify">
 				 The <em>incremental construction</em> method proposed in this chapter exploits this property by applying this process cell by cell in increasing dimension. Isolated vertices are first constructed, which are embedded in \(\mathbb{R}^n\) and are uniquely defined based on their coordinates. These vertices can then be connected to form individual edges, or instead to directly form cycles of implicit edges representing faces, as in most of the typical GIS approaches described in \refse{ss:formats}. Sets of faces can be connected to form volumes, sets of volumes to form 4-cells and so on. 
@@ -248,6 +251,12 @@ mathjax: true
 			</p>
 		</div>
 		<div class="col-md-3">
+			<p id="fn109" class="small">
+				109. A generalisation of the concept of a sphere in arbitrary dimensions. A 0-sphere is the pair of points, a 1-sphere is a circle, and a 2-sphere a sphere. As opposed to disks and balls, circles and spheres are hollow.<a href="#fnref109">&#8617;</a>
+			</p>
+			<p id="fn110" class="small">
+				110. This is true in practice. However, there are fractal-like pathological objects where this is not the case because their interior or exterior components are not homeomorphic to disks [<a href="bibliography.html#Alexander24">Alexander, 1924</a>]. While they do exist, this type of objects are certainly out of scope here.<a href="#fnref110">&#8617;</a>
+			</p>
 			<p id=___FIGUREID___><img src="figs/2tetra.svg" class="img-responsive"></p>
 			<p id=___FIGUREID___><img src="figs/reconstruction-0.svg" class="img-responsive"></p>
 			<p id="fn109" class="small">
@@ -272,4 +281,10 @@ mathjax: true
 			</p>
 			<p id=___FIGUREID___><img src="figs/utm.jpg" class="img-responsive"></p>
 		</div>
-	</div></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3"><p class="text-left"><a href="extrusion.html"><i class="fa fa-angle-double-left"></i> 6 Extrusion</a></p></div>
+		<div class="col-sm-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col-sm-3"><p class="text-right"><a href="linking-lods.html">8 Linking corresponding 3D models <i class="fa fa-angle-double-right"></i></a></p></div>
+	</div>
+</div>
