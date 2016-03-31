@@ -329,7 +329,7 @@ mathjax: true
 			<p class="text-justify">
 				 <a href="#table:comparison-tests" id="table:comparison-testsref">Table 5.1</a> summarises the results of the previous tests. As the table shows, a topological approach using combinatorial maps is significantly more efficient than a non-topological Simple Features-like approach. This is true both in terms of size and the number of comparisons involved in basic operations. The difference ranges from a factor of 4.17 for detecting a common 2-cell ridge to a factor of 12.5 for detecting equality (i.e. a common 4-cell). 
 			</p>
-			<table class="table table-hover" id="table:comparison-tests">
+			<table class="table table-hover table-condensed" id="table:comparison-tests">
 				<p class="small text-justify">
 				Table 5.1: The relative sizes and maximum number of comparisons in tests with two tesseracts (<a href="#fig:tesseract-tests" id="fig:tesseract-testsref">Figure 5.9</a>) using combinatorial maps (c-maps) and a Simple Features Specification (SFS) representation.<a href="#table:comparison-testsref">&#8617;</a>
 			</p>
@@ -362,55 +362,55 @@ mathjax: true
 				<div class="col-sm-8"><img src="figs/cmap-free.svg" class="img-responsive"></div>
 				<div class="col-sm-2"></div>
 			</div>
-			<p class="small">Figure 5.2: The \(\beta_1\) relations in a 1D combinatorial map are partial permutations. Whereas \(\beta_1(d_1) = d_2\), \(\beta_1(d_2) = d_3\) and \(\beta_1(d_3) = \emptyset\).<a href="#fig:cmap-freeref">&#8617;</a></p>
+			<p class="small text-justify">Figure 5.2: The \(\beta_1\) relations in a 1D combinatorial map are partial permutations. Whereas \(\beta_1(d_1) = d_2\), \(\beta_1(d_2) = d_3\) and \(\beta_1(d_3) = \emptyset\).<a href="#fig:cmap-freeref">&#8617;</a></p>
 			<p id=fig:2dcc-betas><img src="figs/2dcc-betas.svg" class="img-responsive"></p>
-			<p class="small">Figure 5.3: The \(\beta_1\) relations in a 2D combinatorial map are partial permutations, the \(\beta_2\) relations are partial involutions.<a href="#fig:2dcc-betasref">&#8617;</a></p>
-			<p id="fn76" class="small">
+			<p class="small text-justify">Figure 5.3: The \(\beta_1\) relations in a 2D combinatorial map are partial permutations, the \(\beta_2\) relations are partial involutions.<a href="#fig:2dcc-betasref">&#8617;</a></p>
+			<p id="fn76" class="small text-justify">
 				76. This last condition enforces the last criterion in the definition of a generalised map given above.<a href="#fnref76">&#8617;</a>
 			</p>
-			<p id="fn77" class="small">
+			<p id="fn77" class="small text-justify">
 				77. Similarly, this last condition enforces the last criterion in the definition of a combinatorial map given above.<a href="#fnref77">&#8617;</a>
 			</p>
-			<p id="fn78" class="small">
+			<p id="fn78" class="small text-justify">
 				78. Note how this essentially reduces the dimensionality of the problem by one.<a href="#fnref78">&#8617;</a>
 			</p>
-			<p id="fn79" class="small">
+			<p id="fn79" class="small text-justify">
 				79. Note the order of the three rotation planes given here, which results from <em>omitting</em> the axes \(x\), \(y\) and \(z\) (in that order). Note also the order of the two axes in \(zx\), which follows the right hand rule and defines the signs of the sines in the rotation matrices.<a href="#fnref79">&#8617;</a>
 			</p>
-			<p id="fn80" class="small">
+			<p id="fn80" class="small text-justify">
 				80. probably easier to picture as an \((n-1)\)-simplex<a href="#fnref80">&#8617;</a>
 			</p>
-			<p id="fn81" class="small">
+			<p id="fn81" class="small text-justify">
 				81. The generalisation of 1D length, 2D area, 3D volume, etc.<a href="#fnref81">&#8617;</a>
 			</p>
-			<p id="fn82" class="small">
+			<p id="fn82" class="small text-justify">
 				82. An idea suggested by <a href="http://liris.cnrs.fr/guillaume.damiand/">Guillaume Damiand</a><a href="#fnref82">&#8617;</a>
 			</p>
-			<p id="fn83" class="small">
+			<p id="fn83" class="small text-justify">
 				83. Stricter and more efficient (for a given problem) ordering criteria to choose between all the darts embedded at this vertex could be followed here, but they likely lead to significantly more complex implementations.<a href="#fnref83">&#8617;</a>
 			</p>
-			<p id="fn84" class="small">
+			<p id="fn84" class="small text-justify">
 				84. However, does not need to actually swap \(\alpha_n\) and \(\alpha_{n-i}\), but merely to <em>consider</em> \(\alpha_n\) as if it were \(\alpha_{n-i}\).<a href="#fnref84">&#8617;</a>
 			</p>
-			<p id="fn85" class="small">
+			<p id="fn85" class="small text-justify">
 				85. e.g. by differing in a specific cell<a href="#fnref85">&#8617;</a>
 			</p>
-			<p id="fn86" class="small">
+			<p id="fn86" class="small text-justify">
 				86. There is no need for a 4D combinatorial map, as there is only one 4D object.<a href="#fnref86">&#8617;</a>
 			</p>
-			<p id="fn87" class="small">
+			<p id="fn87" class="small text-justify">
 				87. An ASCII equivalent (e.g.  using well-known text) could easily be an order of magnitude larger.<a href="#fnref87">&#8617;</a>
 			</p>
-			<p id="fn88" class="small">
+			<p id="fn88" class="small text-justify">
 				88. In an implementation of these lists within lists, it is necessary to use this extra item to know their structure. For instance, this item can be used to terminate a list with a special character (e.g. the <code>'\0'</code> null terminator used in C strings) or to put a list&rsquo;s size as its first element. Other implementations (e.g. a linked list) would be much less efficient.<a href="#fnref88">&#8617;</a>
 			</p>
-			<p id="fn89" class="small">
+			<p id="fn89" class="small text-justify">
 				89. However, most of these cubes would not have the same lexicographically smallest vertex, but as the number of cubes with the same vertex heavily depends on the configuration, here we use the very conservative absolute worst case of 32.<a href="#fnref89">&#8617;</a>
 			</p>
-			<p id="fn90" class="small">
+			<p id="fn90" class="small text-justify">
 				90. As in the adjacency test, most of these squares would not have the same lexicographically smallest vertex, but since the number of squares with the same vertex depends on the configuration, here we use the very conservative worst case of 290.<a href="#fnref88">&#8617;</a>
 			</p>
-			<p id="fn91" class="small">
+			<p id="fn91" class="small text-justify">
 				91. Even if this is a moot point in practice, as topology seems to be anathema to Simple Features.<a href="#fnref91">&#8617;</a>
 			</p>
 		</div>
