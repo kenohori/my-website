@@ -239,11 +239,11 @@ mathjax: true
 			<p class="text-justify">
 				 In this latter dataset, an additional test was made using its first 250 polyhedra, which lie on the top of <a href="#fig:atkis" id="fig:atkisref">Figure 7.7</a>, comparing the time used for the construction of vertices, faces and volumes with and without the use of indices. The results of both methods were equivalent using the approach shown in <a href="operations-background.html#se:ndqueries">&sect;5.5</a>. On average, using indices resulted in a faster vertex construction time by a factor of 2 200, faster face construction by a factor of 56 and faster volume construction by a factor of 38. However, as <a href="#fig:construction-times" id="fig:construction-timesref">Figure 7.8</a> shows, these speed gains are not uniform throughout the 250 polyhedra. The speed gained from using an index on the vertices increases roughly linearly on the number of constructed vertices, while that gained on from the faces index remains roughly constant between a factor of 50 and 60, and that gained from the volumes index tends to slowly increase as well. 
 			</p>
-			<div class="row" id="fig:boolean">
+			<div class="row" id="fig:construction-times">
 				<div class="col-sm-4 col-xs-4"><img src="figs/construction-vertices.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
 				<div class="col-sm-4 col-xs-4"><img src="figs/construction-faces.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
 				<div class="col-sm-4 col-xs-4"><img src="figs/construction-volumes.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 7.8: Construction time speed-up from the use of indices on the (a) vertices, (b) faces and (c) volumes.<a href="#fig:booleanref">&#8617;</a></p></div>
+				<div class="col-sm-12"><p class="small text-justify">Figure 7.8: Construction time speed-up from the use of indices on the (a) vertices, (b) faces and (c) volumes.<a href="#fig:construction-timesref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h2 id="se:incremental-conclusions">7.5 Conclusions</h2> 
