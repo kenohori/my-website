@@ -36,7 +36,7 @@ class LocalisedText
 			:Poster => 'Poster',
 			:Propositions => 'Propositions',
 			:Slides => 'Slides',
-			:www => 'HMTL',
+			:www => 'HTML',
 			:Unknown => 'Unknown'
 		},
 		:es => {
