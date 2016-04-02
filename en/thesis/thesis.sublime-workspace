@@ -59,7 +59,7 @@
 			"file": "preface.html",
 			"settings":
 			{
-				"buffer_size": 9197,
+				"buffer_size": 9355,
 				"line_ending": "Unix"
 			}
 		},
@@ -67,7 +67,7 @@
 			"file": "introduction.html",
 			"settings":
 			{
-				"buffer_size": 20048,
+				"buffer_size": 20217,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +75,7 @@
 			"file": "math.html",
 			"settings":
 			{
-				"buffer_size": 41907,
+				"buffer_size": 42093,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +83,7 @@
 			"file": "modelling-background.html",
 			"settings":
 			{
-				"buffer_size": 111510,
+				"buffer_size": 111695,
 				"line_ending": "Unix"
 			}
 		},
@@ -91,7 +91,7 @@
 			"file": "nd-modelling.html",
 			"settings":
 			{
-				"buffer_size": 113369,
+				"buffer_size": 113193,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,7 +99,7 @@
 			"file": "operations-background.html",
 			"settings":
 			{
-				"buffer_size": 61063,
+				"buffer_size": 60784,
 				"line_ending": "Unix"
 			}
 		},
@@ -107,7 +107,7 @@
 			"file": "extrusion.html",
 			"settings":
 			{
-				"buffer_size": 75868,
+				"buffer_size": 75708,
 				"line_ending": "Unix"
 			}
 		},
@@ -115,15 +115,95 @@
 			"file": "incremental-construction.html",
 			"settings":
 			{
-				"buffer_size": 46531,
+				"buffer_size": 49627,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/ken/Versioned/thesis/incremental-construction.tex",
+			"file": "linking-lods.html",
 			"settings":
 			{
-				"buffer_size": 40842,
+				"buffer_size": 50003,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "slicing.html",
+			"settings":
+			{
+				"buffer_size": 37784,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "cleaning.html",
+			"settings":
+			{
+				"buffer_size": 84114,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "conclusions.html",
+			"settings":
+			{
+				"buffer_size": 36410,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "implementation.html",
+			"settings":
+			{
+				"buffer_size": 24336,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "dictionary.html",
+			"settings":
+			{
+				"buffer_size": 13553,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bibliography.html",
+			"settings":
+			{
+				"buffer_size": 88831,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "summary.html",
+			"settings":
+			{
+				"buffer_size": 7991,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "samenvatting.html",
+			"settings":
+			{
+				"buffer_size": 9024,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resumen.html",
+			"settings":
+			{
+				"buffer_size": 9496,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "cv.html",
+			"settings":
+			{
+				"buffer_size": 2944,
 				"line_ending": "Unix"
 			}
 		}
@@ -331,6 +411,7 @@
 	},
 	"file_history":
 	[
+		"/Users/ken/Versioned/thesis/incremental-construction.tex",
 		"/Users/ken/Versioned/thesis/extrusion.tex",
 		"/Users/ken/Versioned/code/thesis2html.rb",
 		"/Users/ken/Versioned/thesis/operations-background.tex",
@@ -457,8 +538,7 @@
 		"/Users/ken/Versioned/papers/ICAA 2014/paper.tex",
 		"/Users/ken/Dropbox/GEO1002-2014/assignments/03/geo1002_hw3.tex",
 		"/Users/ken/Downloads/scheduling modellen/INPRO example KP1 demonstration_RevitArch2009.ifc",
-		"/Users/ken/Dropbox/scheduling modellen/INPRO example KP1 demonstration_RevitArch2009.ifc",
-		"/Users/ken/Dropbox/scheduling modellen/FullScheduleWithTaskUserFields.ifc"
+		"/Users/ken/Dropbox/scheduling modellen/INPRO example KP1 demonstration_RevitArch2009.ifc"
 	],
 	"find":
 	{
@@ -725,7 +805,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 18,
 			"sheets":
 			[
 				{
@@ -734,15 +814,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9197,
+						"buffer_size": 9355,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7830,
-								7799
+								8905,
+								8896
 							]
 						],
 						"settings":
@@ -753,10 +833,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1343.0,
+						"translation.y": 1358.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -765,15 +845,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 20048,
+						"buffer_size": 20217,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19056,
-								19056
+								19741,
+								19741
+							],
+							[
+								19880,
+								19880
+							],
+							[
+								20056,
+								20056
 							]
 						],
 						"settings":
@@ -784,10 +872,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1691.0,
+						"translation.y": 3248.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -796,15 +884,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 41907,
+						"buffer_size": 42093,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								42,
-								42
+								41582,
+								41582
+							],
+							[
+								41733,
+								41733
+							],
+							[
+								41909,
+								41909
 							]
 						],
 						"settings":
@@ -815,10 +911,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 7462.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -827,39 +923,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 111510,
+						"buffer_size": 111695,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								107581,
-								107581
+								111170,
+								111170
 							],
 							[
-								107771,
-								107771
+								111346,
+								111346
 							],
 							[
-								107959,
-								107959
-							],
-							[
-								108157,
-								108157
-							],
-							[
-								108339,
-								108339
-							],
-							[
-								108549,
-								108549
-							],
-							[
-								108721,
-								108721
+								111522,
+								111522
 							]
 						],
 						"settings":
@@ -869,10 +949,10 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 20985.0,
+						"translation.y": 21084.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -881,15 +961,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 113369,
+						"buffer_size": 113193,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								112363,
-								112363
+								112647,
+								112647
+							],
+							[
+								112846,
+								112846
+							],
+							[
+								113022,
+								113022
 							]
 						],
 						"settings":
@@ -899,10 +987,10 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 21195.0,
+						"translation.y": 20664.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -911,15 +999,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 61063,
+						"buffer_size": 60784,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								55157,
-								54180
+								60290,
+								60290
+							],
+							[
+								60478,
+								60478
+							],
+							[
+								60654,
+								60654
 							]
 						],
 						"settings":
@@ -930,10 +1026,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 10764.0,
+						"translation.y": 11788.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -942,15 +1038,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 75868,
+						"buffer_size": 75708,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								62098,
-								62098
+								75186,
+								75186
+							],
+							[
+								75372,
+								75372
+							],
+							[
+								75548,
+								75548
 							]
 						],
 						"settings":
@@ -961,10 +1065,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 11911.0,
+						"translation.y": 14238.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -973,15 +1077,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 46531,
+						"buffer_size": 49627,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								130,
-								130
+								49151,
+								49151
+							],
+							[
+								49296,
+								49296
+							],
+							[
+								49472,
+								49472
 							]
 						],
 						"settings":
@@ -992,41 +1104,439 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7.0,
+						"translation.y": 9492.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "/Users/ken/Versioned/thesis/incremental-construction.tex",
+					"file": "linking-lods.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 40842,
+						"buffer_size": 50003,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								35619,
-								35619
+								49480,
+								49480
+							],
+							[
+								49655,
+								49655
+							],
+							[
+								49831,
+								49831
 							]
 						],
 						"settings":
 						{
 							"enable_checkbounce_grammar": false,
 							"enable_checkbounce_spelling": true,
-							"spell_tag": 22,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7370.0,
+						"translation.y": 9912.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "slicing.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 37784,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37264,
+								37264
+							],
+							[
+								37434,
+								37434
+							],
+							[
+								37610,
+								37610
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7028.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "cleaning.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 84114,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								83600,
+								83600
+							],
+							[
+								83787,
+								83787
+							],
+							[
+								83963,
+								83963
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 16030.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "conclusions.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35852,
+								35852
+							],
+							[
+								36046,
+								36046
+							],
+							[
+								36222,
+								36222
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7168.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "implementation.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24336,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23825,
+								23825
+							],
+							[
+								23991,
+								23991
+							],
+							[
+								24167,
+								24167
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5026.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "dictionary.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13553,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13040,
+								13040
+							],
+							[
+								13243,
+								13243
+							],
+							[
+								13419,
+								13419
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "bibliography.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 88831,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88357,
+								88357
+							],
+							[
+								88540,
+								88540
+							],
+							[
+								88715,
+								88715
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 13692.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "summary.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7991,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7515,
+								7515
+							],
+							[
+								7664,
+								7664
+							],
+							[
+								7840,
+								7840
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1008.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "samenvatting.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9024,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8566,
+								8566
+							],
+							[
+								8705,
+								8705
+							],
+							[
+								8881,
+								8881
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1148.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "resumen.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9496,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9033,
+								9033
+							],
+							[
+								9198,
+								9198
+							],
+							[
+								9374,
+								9374
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1162.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "cv.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2944,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2520,
+								2520
+							],
+							[
+								2677,
+								2677
+							],
+							[
+								2853,
+								2853
+							]
+						],
+						"settings":
+						{
+							"enable_checkbounce_grammar": false,
+							"enable_checkbounce_spelling": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 112.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
