@@ -1,0 +1,63 @@
+---
+layout: default
+feijoa: true
+title: Samenvatting (Dutch summary) | Thesis
+file: thesis/samenvatting.html
+lang: nl
+mathjax: true
+---
+
+<div class="container">
+	<div class="page-header">
+		<h1>Samenvatting (Dutch summary)</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<p class="text-justify">
+				Onze wereld is driedimensionaal en complex, is continue in verandering en heeft verschillende verschijningsvormen op verschillende detailniveaus. Toch modelleren we de werkelijkheid in Geografische Informatie Systemen (GIS) meestal middels 2D representaties. Deze modellen bestaan uit punten, lijnen en polygonen die met elkaar zijn verbonden (<a href="#fig:brep-sum-nl" id="fig:brep-sum-nlref">Figuur 1</a>). De resulterende representaties zijn effici&euml;nt en relatief eenvoudig te gebruiken en veel methodes en applicaties zijn hierop gebaseerd. Maar 2D representaties kennen hun beperkingen. Problemen moeten worden versimpeld tot 2D; en het beheren van relaties tussen verschillende objecten is complex, vooral als deze relaties een tijdscomponent hebben of over verschillende detail-niveaus gaan. Desalniettemin gaat veel GIS onderzoek over het verbeteren van de 2D representaties alsook het ontwikkelen van nieuwe methoden die op 2D representaties zijn gebaseerd.
+			</p>
+			<p class="text-justify">
+				Deze dissertatie bestudeerd een fundamenteel andere modelleer-benadering waarbij zowel ruimtelijke als niet-ruimtelijke kenmerken worden gemodelleerd als extra geometrische dimensies. De kenmerken &ldquo;tijd&rdquo; en &ldquo;schaal&rdquo; worden daarbij specifiek bekeken (<a href="#fig:axes-sum-nl" id="fig:axes-sum-nlref">Figuur 2</a>). Eerdere onderzoeken naar het modelleren van tijd en schaal als extra dimensie zijn nooit verder gekomen dan een conceptuele beschrijving. Dit onderzoek daarentegen beoogt de fundamentele aspecten van een multidimensionaal GIS te realiseren door hoger dimensionale (\(n\)D) representaties te ontwikkelen inclusief bewerkingsmethodes om deze \(n\)D geografische informatie te cre&euml;ren, manipuleren en visualiseren. In deze thesis wordt aangetoond dat een \(n\)D benadering aan de ene kant veel computergeheugen vraagt om alle relaties over dimensies heen op te slaan. Aan de andere kant is de aanpak zeer krachtig gebleken omdat een \(n\)D benadering op een doeltreffende en consistente manier geometrie met haar attributen opslaat. Naast de objecten, kunnen ook alle topologische relaties tussen de objecten worden opgeslagen welke zich kunnen voordoen binnen en tussen iedere dimensie. De in dit onderzoek voorgestelde aanpak is generiek en kan eenvoudig worden uitgebreid om andere niet-ruimtelijke aspecten te modelleren. Hierdoor is data management waarbij de consistentie van geografische informatie wordt gegarandeerd over dimensies heen. Bovendien kunnen hiermee krachtigere bewerkingen worden uitgevoerd zoals controleren of twee objecten op enig moment in de tijd aangrenzend zijn.
+			</p>
+			<p class="text-justify">
+				Om een \(n\)D ruimte te modelleren kan het best gestart worden met een \(n\)D ruimtelijke partitie (zonder gaten en overlap) (<a href="#fig:space-filling-sum-nl" id="fig:space-filling-sum-nlref">Figuur 3</a>), Conceptueel kan dit worden weergegeven als een \(n\)D <em>simplicial complex</em> of een <em>cell complex</em>. Vervolgens kan dit worden ge&iuml;mplementeerd via een <em>simplex-based</em> datastructuur met een <em>incidence graph</em>, bijvoorbeeld als een set van <em>Nef polyhedra</em> of, zoals dat in dit onderzoek is gedaan, via geordende topologische modellen (<em>cell-tuple</em> en <em>generalised/combinatorial maps</em>).
+			</p>
+			<p class="text-justify">
+				Het construeren van computer representaties van \(n\)D objecten kan erg complex zijn. Bestaande 2D/3D constructie methodes manipuleren <em>combinatorial primitives</em> of maken gebruik van bewerkingen op primitieve-niveau (zoals Euler operatoren). Deze gaan uit van onze intu&iuml;tie over 2D en 3D geometrie&euml;n en werken daarmee niet goed in hogere dimensies. Hierdoor is het helaas heel makkelijk om invalide \(n\)D objecten te cre&euml;ren die vervolgens moeilijk te bewerken zijn. Dit probleem doet zich ook al voor in drie dimensies.
+			</p>
+			<p class="text-justify">
+				In deze dissertatie is een manier onderzocht en ontwikkeld om eenvoudig valide representaties van \(n\)D objecten te construeren. Daartoe zijn er drie methodes voorgesteld: <em>Extrusion</em> neemt een \((n-1)\)D cell complex en een set van intervallen per cell en projecteert deze parallel aan een nieuwe as ten einde een \(n\)D cell complex te construeren (<a href="#fig:extrusion-sum-nl" id="fig:extrusion-sum-nlref">Figuur 4</a>). <em>Incremental construction</em> construeert een \(n\)D object op basis van zijn \((n-1)\)-grens. Via het <em>linken</em> van verschillende representaties van hetzelfde 3D object op verschillende detailniveaus (LODs) met als resultaat een 4D model (<a href="#fig:link-sum-nl" id="fig:link-sum-nlref">Figuur 5</a>).
+			</p>
+			<p class="text-justify">
+				Om \(n\)D modellen te kunnen visualiseren en te kunnen bewerken in huidige software, is er een methode nodig om valide 2D/3D subsets af te leiden uit de \(n\)D data. Zo’n methode kent twee stappen: 1) het selecteren van een subset van de \(n\)D objecten uit het model en 2) de subset projecteren naar een lagere dimensie (2D of 3D). Als opstap heeft dit onderzoek laten zien hoe een zowel orthografische als een perspectieve projectie van \(n\)D naar \((n-1)\)D kan worden gedefinieerd.
+			</p>
+			<p class="text-justify">
+				Tenslotte heeft deze thesis alle hierboven genoemde concepten gevalideerd op \(n\)D data over de &ldquo;echte&rdquo; wereld. Omdat er veel fouten voorkomen in deze data, zijn er in dit onderzoek ook methodes ontwikkeld om valide polygonen en een plenaire partitie te cre&euml;ren op basis van <em>constrained</em> triangulatie. Daarnaast is er een methode ontwikkeld om polyhedra en ruimtelijke opdelingen te corrigeren door het &ldquo;snappen&rdquo; van primitieven op lagere dimensies en het verwijderen van overlap door middel van Boolean set bewerkingen op <em>Nef polyhedra</em>. Hierdoor zijn er testen gedaan met data tot 6D gebaseerd op &ldquo;echte&rdquo; GIS data, <em>wat een goede basis is voor \(n\)D GIS</em>.
+			</p>
+			<p class="text-justify">
+				In de toekomst kan dit onderzoek worden uitgebreid met wijzigingsbewerkingen voor \(n\)D objecten, &ldquo;echte&rdquo; 4D ruimtelijk-temporele datasets en correctie methodes die de kwaliteit van de \(n\)D data garanderen. Alle implementaties van deze dissertatie zijn publiekelijk beschikbaar via open source licenties.
+			</p>
+		</div>
+		<div class="col-md-3">
+			<p id="fig:brep-sum-nl"><img src="figs/brep.svg" class="img-responsive"></p>
+			<p class="small text-justify">Figuur 1: In GIS wordt een kubus niet gerepresenteerd als een 3D volume maar als 6 vierkante 2D vlakken die tesamen de ruimte van de kubus omvatten.<a href="#fig:brep-sum-nlref">&#8617;</a></p>
+			<p id="fig:axes-sum-nl"><img src="figs/axes-nl.svg" class="img-responsive"></p>
+			<p class="small text-justify">Figuur 2: 3D ruimte, tijd en schaal kunnen worden gemodelleerd als 5D ruimte.<a href="#fig:axes-sum-nlref">&#8617;</a></p>
+			<p id="fig:space-filling-sum-nl"><img src="figs/space-filling.jpg" class="img-responsive"></p>
+			<p class="small text-justify">Figuur 3: Een 3D ruimtelijke opdeling bestaat uit een set ruimte-vullende volumes zonder gaten en overlap.<a href="#fig:space-filling-sum-nlref">&#8617;</a></p>
+			<div class="row" id="fig:extrusion-sum-nl">
+				<div class="col-sm-12"><img src="figs/extrusion-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
+				<div class="col-sm-12"><img src="figs/extrusion-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col-sm-12"><p class="small text-justify">Figuur 4: (a) een set polygonen wordt geconverteerd naar (b) een set blokken door de polygonen van 2D naar 3D op te trekken.<a href="#fig:extrusion-sum-nlref">&#8617;</a></p></div>
+			</div>
+			<p id="fig:link-sum-nl"><img src="figs/link2.svg" class="img-responsive"></p>
+			<p class="small text-justify">Figuur 5: Twee detailniveaus van een 3D model van een huis (links en rechts) worden gelinkt tot een 4D model.<a href="#fig:link-sum-nlref">&#8617;</a></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3"><p class="text-left"><a href="summary.html"><i class="fa fa-angle-double-left"></i> Summary</a></p></div>
+		<div class="col-sm-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col-sm-3"><p class="text-right"><a href="resumen.html">Resumen (Spanish summary) <i class="fa fa-angle-double-right"></i></a></p>
+	</div>
+</div>
+</div>

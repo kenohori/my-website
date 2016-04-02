@@ -1,0 +1,63 @@
+---
+layout: default
+feijoa: true
+title: Resumen (Spanish summary) | Thesis
+file: thesis/resumen.html
+lang: es
+mathjax: true
+---
+
+<div class="container">
+	<div class="page-header">
+		<h1>Resumen (Spanish summary)</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<p class="text-justify">
+				Nuestro mundo es tridimensional y complejo, cambiando continuamente a trav&eacute;s del tiempo y mostr&aacute;ndose distinto a distintas escalas. A&uacute;n as&iacute;, cuando lo modelamos usando sistemas de informaci&oacute;n geogr&aacute;fica (SIG), generalmente usamos representaciones 2D, las cuales esencialmente consisten en conjuntos de puntos, l&iacute;neas y pol&iacute;gonos enlazados entre s&iacute; (<a href="#fig:brep-sum-es" id="fig:brep-sum-esref">Figura 1</a>). Estas representaciones son relativamente f&aacute;ciles de usar y eficientes, y una gran variedad de m&eacute;todos se han construido us&aacute;ndolas. Sin embargo, las representaciones 2D son necesariamente restrictivas. Nos fuerzan a reducir los problemas a dos dimensiones, limitan el tipo de objetos que podemos representar y dificultan guardar las relaciones entre diferentes objetos&mdash;especialmente cuando &eacute;stas son a trav&eacute;s del tiempo y diferentes escalas. A pesar de ello, la mayor&iacute;a de la investigaci&oacute;n en SIG se dedica a mejorar estas representaciones 2D, as&iacute; como a desarrollar nuevos m&eacute;todos que las usan para resolver problemas, sean &eacute;stos nuevos o antiguos.
+			</p>
+			<p class="text-justify">
+				Esta tesis explora un nuevo y fundamentalmente distinto paradigma de modelado&mdash;integrando caracter&iacute;sticas espaciales y espaciales como dimensiones en el sentido geom&eacute;trico, espec&iacute;ficamente apuntando hacia los casos del tiempo y la escala (<a href="#fig:axes-sum-es" id="fig:axes-sum-esref">Figura 2</a>). A pesar de que este paradigma ha sido propuesto antes a un nivel conceptual, esta tesis tiene como objetivo llevarlo a cabo al <em>implementar los aspectos fundamentales de un SIG de altas dimensiones</em>, desarrollando representaciones para objetos en altas dimensiones (\(n\)D), as&iacute; como nuevos m&eacute;todos que operen en ellas para crear, manipular y visualizar informaci&oacute;n geogr&aacute;fica. Como esta tesis muestra, el paradigma de altas dimensiones tiene un alto consumo de memoria pero tambi&eacute;n es muy poderoso, proveyendo un m&eacute;todo simple y consistente para guardar la geometr&iacute;a, los atributos y las relaciones topol&oacute;gicas entre objetos de cualquier dimensi&oacute;n. Este paradigma gen&eacute;rico puede ser f&aacute;cilmente extendido a otras caracter&iacute;sticas no espaciales, haciendo posible un mejor manejo de datos con consistencia a trav&eacute;s de las dimensiones y operaciones m&aacute;s poderosas, como verificar si dos objetos son adyacentes en alg&uacute;n momento.
+			</p>
+			<p class="text-justify">
+				Para poder modelar el espacio de altas dimensiones, es mejor considerar una partici&oacute;n espacial \(n\)D como una base (<a href="#fig:space-filling-sum-es" id="fig:space-filling-sum-esref">Figura 3</a>), la que es conceptualizada como un complejo simplicial o celular. &eacute;ste puede entonces ser implementado con una estructura de datos basada en s&iacute;mplices, un grafo de incidencia, como un conjunto de poliedros Nef, o&mdash;como en esta tesis&mdash;usando modelos topol&oacute;gicos ordenados, como la tupla de c&eacute;lulas (<em>cell-tuple</em>) o los mapas generalizados o combinatorios (<em>generalised/combinatorial maps</em>).
+			</p>
+			<p class="text-justify">
+				Crear representaciones de objetos en altas dimensiones puede ser complejo. Los m&eacute;todos comunes usados en 2D y 3D, como la manipulaci&oacute;n directa de elementos combinatorios primitivos, o el uso de operaciones de construcci&oacute;n que operan al nivel de los elementos primitivos (como las operaciones de Euler), se basan en nuestra intuici&oacute;n de la geometr&iacute;a 2D/3D, y por lo mismo no funcionan bien en altas dimensiones. Esto causa que sea demasiado f&aacute;cil crear objetos inv&aacute;lidos, los cuales no pueden ser f&aacute;cilmente interpretados o reparados&mdash;un problema que es extremadamente aparente incluso en tres dimensiones.
+			</p>
+			<p class="text-justify">
+				Esta tesis propone tres m&eacute;todos novedosos para crear f&aacute;cilmente representaciones de objetos en altas dimensiones, todos los cuales son intuitivos e intentar crear datos de salida v&aacute;lidos. La <em>extrusi&oacute;n</em> recibe un complejo celular \(n-1\) dimensional y un conjunto de intervalos por cada c&eacute;lula, proyect&aacute;ndolos de forma paralela a un nuevo eje para crear un complejo celular \(n\) dimensional (<a href="#fig:extrusion-sum-es" id="fig:extrusion-sum-esref">Figura 4</a>). La <em>construcci&oacute;n incremental</em> describe un objeto \(n\) dimensional basado en su frontera \(n-1\) dimensional, desde la dimensi&oacute;n cero (puntos) y hacia arriba. Finalmente, es posible construir un modelo 4D <em>enlazando</em> una serie de modelos 3D a diferentes niveles de detalle (<a href="#fig:link-sum-es" id="fig:link-sum-esref">Figura 5</a>).
+			</p>
+			<p class="text-justify">
+				Para poder visualizar modelos en altas dimensiones, as&iacute; como poder procesarlos en el software existente, es importante tener m&eacute;todos para extraer de &eacute;stos subconjuntos significativos 2D/3D. Estos m&eacute;todos consistir&iacute;an de dos pasos: (i) seleccionar un subconjunto de los objetos en el modelo y (ii) proyectar este subconjunto a una dimensi&oacute;n menor. Como un paso inicial hacia este tipo de m&eacute;todos, esta tesis muestra como se pueden definir las proyecciones ortogr&aacute;ficas y de perspectiva de \(n\) dimensiones a \(n-1\).
+			</p>
+			<p class="text-justify">
+				Finalmente, esta tesis tuvo un enfoque importante en validar los algoritmos con datos reales, lo cual s&oacute;lo fue posible al desarrollar m&eacute;todos para reparar datos inv&aacute;lidos, los cuales son comunes en la pr&aacute;ctica. Esta tesis por lo tanto contiene m&eacute;todos para crear pol&iacute;gonos y particiones planares v&aacute;lidas usando una triangulaci&oacute;n restringida de los datos de entrada, as&iacute; como un m&eacute;todo para reparar poliedros y particiones 3D juntando objetos (<em>snapping</em>) de menores dimensiones y eliminando las partes que se solapan utilizando operaciones booleanas de conjuntos con poliedros Nef. Esto permiti&oacute; pruebas hasta en seis dimensiones basados en datos reales&mdash;<em>una buena base para un SIG de altas dimensiones</em>.
+			</p>
+			<p class="text-justify">
+				En el futuro, el trabajo de esta tesis ser&aacute; extendido con operaciones de modificaci&oacute;n en altas dimensiones, datos reales espaciales y temporales 4D, as&iacute; como m&eacute;todos de reparaci&oacute;n de datos con garant&iacute;as de calidad. Todas las implementaciones hechas para esta tesis est&aacute;n disponibles p&uacute;blicamente bajo licencias de c&oacute;digo abierto.
+			</p>
+		</div>
+		<div class="col-md-3">
+			<p id="fig:brep-sum-es"><img src="figs/brep.svg" class="img-responsive"></p>
+			<p class="small text-justify">Figura 1: En los SIG, un cubo no se representa como un s&oacute;lido, sino como las 6 caras cuadradas en su superficie.<a href="#fig:brep-sum-esref">&#8617;</a></p>
+			<p id="fig:axes-sum-es"><img src="figs/axes-es.svg" class="img-responsive"></p>
+			<p class="small text-justify">Figura 2: El espacio 3D, el tiempo y la escala modelados como un espacio 5D.<a href="#fig:axes-sum-esref">&#8617;</a></p>
+			<p id="fig:space-filling-sum-es"><img src="figs/space-filling.jpg" class="img-responsive"></p>
+			<p class="small text-justify">Figura 3: Una partici&oacute;n espacial 3D se compone de un conjunto de vol&uacute;menes que llenan el espacio sin huecos y sin solaparse entre ellos.<a href="#fig:space-filling-sum-esref">&#8617;</a></p>
+			<div class="row" id="fig:extrusion-sum-es">
+				<div class="col-sm-12"><img src="figs/extrusion-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
+				<div class="col-sm-12"><img src="figs/extrusion-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col-sm-12"><p class="small text-justify">Figura 4: (a) Un conjunto de pol&iacute;gonos se convierte en (b) un conjunto de paralelep&iacute;pedos al aplicar una extrusi&oacute;n 2D a 3D.<a href="#fig:extrusion-sum-esref">&#8617;</a></p></div>
+			</div>
+			<p id="fig:link-sum-es"><img src="figs/link2.svg" class="img-responsive"></p>
+			<p class="small text-justify">Figura 5: Dos niveles de detalle de una casa (izquierda y derecha) se enlazan en un modelo 4D.<a href="#fig:link-sum-esref">&#8617;</a></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3"><p class="text-left"><a href="samenvatting.html"><i class="fa fa-angle-double-left"></i> Samenvatting (Dutch summary)</a></p></div>
+		<div class="col-sm-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col-sm-3"><p class="text-right"><a href="cv.html">Curriculum vitae <i class="fa fa-angle-double-right"></i></a></p>
+	</div>
+</div>
+</div>
