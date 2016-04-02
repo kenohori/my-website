@@ -12,7 +12,7 @@
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
 				{% for p in site.data.pages %}
-				<li{% if page.file == p.file %} class="active"{% endif %}><a href="{{ site.baseurl }}/{{ page.lang }}/{{ p.path }}">{% if page.lang == 'en' %}{{ p.en }}{% else %}{{ p.es }}{% endif %}</a></li>
+				<li{% if page.file == p.file %} class="active"{% endif %}><a href="{{ site.baseurl }}/{{ page.lang }}/{{ p.path }}">{% if page.lang == 'es' %}{{ p.es }}{% elsif page.lang == 'nl' %}{{ p.nl }}{% else %}{{ p.en }}{% endif %}</a></li>
 				{% endfor %}
 			</ul>
 			<ul class="nav navbar-nav pull-right">

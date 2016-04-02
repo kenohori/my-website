@@ -36,7 +36,7 @@ class LocalisedText
 			:Poster => 'Poster',
 			:Propositions => 'Propositions',
 			:Slides => 'Slides',
-			:www => 'External link',
+			:www => 'HMTL',
 			:Unknown => 'Unknown'
 		},
 		:es => {
@@ -53,7 +53,7 @@ class LocalisedText
 			:Poster => 'Póster',
 			:Propositions => 'Proposiciones',
 			:Slides => 'Presentación',
-			:www => 'Enlace externo',
+			:www => 'HTML',
 			:Unknown => 'Desconocido'
 		}
 	}

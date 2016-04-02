@@ -2,23 +2,28 @@
   path: 
   en: About
   es: Acerca de
+  nl: Over mij
 
 - file: blog/index.html
   path: blog/
   en: Blog
   es: Blog
+  nl: Weblog
 
 - file: papers/index.html
   path: papers/
   en: Papers
   es: Art&iacute;culos
+  nl: Artikels
 
 - file: code/index.html
   path: code/
   en: Code
   es: C&oacute;digo
+  nl: Broncode
 
 - file: contact/index.html
   path: contact/
   en: Contact
   es: Contacto
+  nl: Contact
