@@ -12,13 +12,13 @@ papers: true
 	</div>
 	<div class="row">
 		<div class="col-md-9" role="main">
-			<section id="pr">
-				<h2>Peer reviewed papers</h2>
-				{% imbiber pubs/publications.bib idswithprefix:pr %}
-			</section>
 			<section id="th">
 				<h2>Theses</h2>
 				{% imbiber pubs/theses.bib groupby:class idswithprefix:th %}
+			</section>
+			<section id="pr">
+				<h2>Peer reviewed papers</h2>
+				{% imbiber pubs/publications.bib idswithprefix:pr %}
 			</section>
 			<section id="other">
 				<h2>Other</h2>
@@ -34,6 +34,13 @@ papers: true
 				<h2>Go to</h2>
 				<ul class="nav nav-stacked">
 					<li>
+						<a href="#th">Theses</a>
+						<ul class="nav nav-stacked">
+							<li><a href="#thphdthesis">PhD</a></li>
+							<li><a href="#thmastersthesis">MSc</a></li>
+						</ul>
+					</li>
+					<li>
 						<a href="#pr">Peer reviewed papers</a>
 						<ul class="nav nav-stacked" style="display: block;">
 							<li><a href="#pr2016">2016</a></li>
@@ -42,13 +49,6 @@ papers: true
 							<li><a href="#pr2013">2013</a></li>
 							<li><a href="#pr2012">2012</a></li>
 							<li><a href="#pr2011">2011</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#th">Theses</a>
-						<ul class="nav nav-stacked">
-							<li><a href="#thphdthesis">PhD</a></li>
-							<li><a href="#thmastersthesis">MSc</a></li>
 						</ul>
 					</li>
 					<li>

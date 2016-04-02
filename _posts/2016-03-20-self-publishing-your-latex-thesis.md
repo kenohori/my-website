@@ -12,7 +12,7 @@ lang: en
 	<div class="col-sm-3 col-xs-3"></div>
 </div>
 
-I recently finished my PhD thesis on the Higher-dimensional modelling of geographic information ([High-quality 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Low-quality 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf)). Sorry for the shameless plug, but believe me, this really is relevant to what I am trying to say.
+I recently finished my PhD thesis on the Higher-dimensional modelling of geographic information ([High-quality 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Low-quality 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML](https://3d.bk.tudelft.nl/ken/en/thesis/)). Sorry for the shameless plug, but believe me, this really is relevant to what I am trying to say.
 
 ### Why?
 
