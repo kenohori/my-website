@@ -224,7 +224,7 @@ mathjax: true
 				 This particular mapping is notable because it correctly preserves all topological relationships between the cells, does not create additional cells at either LOD, and shows that cells are not necessarily only collapsed from higher LODs to lower LODs. Intuitively, the result of this mapping is a set of cells that bound the model along the LOD dimension<a href="#fn123" id="fnref123"><sup>123</sup></a>, so that an \(i\)-cell and a \(j\)-cell that are matched result in a \(k\)-cell lying between them, where \(k = \max(i, j)+1\). Concretely, if for instance a 0-cell (the tip of the roof) is matched to the flat roof (a 2-cell), then the resulting links will create a tetrahedron (a 3-cell). Admittedly, the rules needed to generate such a mapping can be quite complex, but the cell complex generated is identical in size to the equivalent model according to the scheme in <a href="#fig:linkingschemes" id="fig:linkingschemesref">Figure 8.3b</a>. 
 			</p>
 			<p class="text-justify">
-				 <h2 id="concrete-example">8.4 A concrete example</h2> 
+				 <h2 id="se:concrete-example">8.4 A concrete example</h2> 
 			</p>
 			<p class="text-justify">
 				 In order to show how the linking methods presented in this chapter work in practice, this section shows an implementation of the model from <a href="#fig:link2" id="fig:link2ref">Figure 8.8</a>. It uses CGAL Linear Cell Complexes and the incremental constructor operator described in <a href="incremental-construction.html">Chapter 7</a>. This model was chosen as it uses most of the linking methods discussed in the <a href="#ss:linkingrules">&sect;8.2.2</a>:  the body of the house in both LODs is directly linked (<a href="#sss:method1">Method 1</a>),  the top face of the house in the lower LOD is collapsed to the tip of the roof in the higher LOD (<a href="#sss:method2">Method 2</a>),  and the roof vertices/edges in the lower LOD are connected to existing roof edges/vertices in the higher LOD (<a href="#sss:method4">Method 4</a>). 
@@ -375,8 +375,8 @@ for (int i = 0; i < 17; ++i) {
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3"><p class="text-left"><a href="incremental-construction.html"><i class="fa fa-angle-double-left"></i> 7 Incremental construction</a></p></div>
-		<div class="col-sm-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3"><p class="text-right"><a href="slicing.html">9 Extracting information from higher-dimensional models <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="incremental-construction.html"><i class="fa fa-angle-double-left"></i> 7 Incremental construction</a></p></div>
+		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="slicing.html">9 Extracting information from higher-dimensional models <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>
