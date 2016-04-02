@@ -35,7 +35,7 @@ My choice for a versioning system is clear. [Git](https://git-scm.com) is admitt
 
 So, if you decide to use Git, you need to set up a repository. While you may decide to only do so locally, I personally prefer to keep everything pushed to a private GitHub[^3] repository too. It's an extra layer of security. Also, most people I've met don't know that GitHub provides [free academic plans](https://education.github.com) both for individual people and for groups. These allow you keep a few private repositories. At the [3D geoinformation group](https://3d.bk.tudelft.nl), we use them extensively.
 
-As a small note, Git versioning works best when you keep *one sentence per line*. This makes comparing and merging changes much easier. See my supervisor Hugo's [other tips](https://3d.bk.tudelft.nl/hledoux/blog/rules-happy-latex/) in this sense. I agree with most of them, but they're all reasonable even when working entirely by yourself and will help to keep LaTeX documents tidy.
+As a small note, Git versioning works best when you keep *one sentence per line*. This makes comparing and merging changes much easier. See my supervisor Hugo's [other tips](https://3d.bk.tudelft.nl/hledoux/blog/rules-happy-latex/) in this sense. I agree with most of them, but they're all reasonable even when working entirely by yourself and will help to keep LaTeX documents tidy. As a rule: commit early and commit often. Just before deciding on a big change and at the end of your working day are good times for this.
 
 ### Text editor: Sublime Text
 
@@ -78,9 +78,9 @@ For debugging, `showlabels` is nice to show every label you set and exactly wher
 
 ### Bibliography management
 
-If you need to keep track of a large number of references, you'll need a reference manager. There are many decent online options, but if you're a Mac user who works mostly with LaTeX, why not use [BibDesk](http://bibdesk.sourceforge.net)? It's great, free and keeps all your references in a BibTeX format, ready to insert into your thesis using something like `natbib`.
+If you need to keep track of a large number of references, you'll need a reference manager. There are many decent online options, but if you're a Mac user who works mostly with LaTeX, why not use [BibDesk](http://bibdesk.sourceforge.net)? It's great, free and keeps all your references in a BibTeX format, ready to insert into your thesis using something like `natbib`. Just make sure that you export a Minimal BibTeX file if you share your .bib file with others. You probably don't want to make your own candid thought on bad papers known to everyone.
 
-Many people are now recommending to use `biblatex` or `biber`. I tried both and had a bad experience with them, so I went back to plain old `natbib`.
+Many people are now recommending to use `biblatex` or `biber`. I tried both and had a bad experience with them, so I went back to plain old `natbib`. `Biblatex` is powerful, but it generates a really weird reference format (that I strongly dislike). Programming it back to sensible output is as cumbersome as typing your references by hand.
 
 ### Later: programming a 1.5 column layout
 
