@@ -31,7 +31,7 @@ However, simply having a backup is sometimes not good enough. Many times I have 
 
 <a href="http://xkcd.com/1597/"><img src="http://imgs.xkcd.com/comics/git.png" class="img-responsive center-block" alt="xkcd: Git"></a>
 
-My choice for a versioning system is clear. [Git](https://git-scm.com) is admittedly not that easy to use, but it's miles ahead of other versioning systems. I personally use [Tower](https://www.git-tower.com) as a GUI, which is a great piece of software and has a 50% student discount. It actually makes git easy to use and most likely faster too. For comparing files, I use [Kaleidoscope](http://www.kaleidoscopeapp.com). It's also great and also comes with an academic discount.
+My choice for a versioning system is clear. [Git](https://git-scm.com) is admittedly not that easy to use, but it's miles ahead of other versioning systems. I personally use [Tower](https://www.git-tower.com) as a GUI, which is a great piece of software and has a 50% student discount. It actually makes git easy to use and most likely faster too. For comparing and merging different versions of files, I use [Kaleidoscope](http://www.kaleidoscopeapp.com). It's also great and also comes with an academic discount.
 
 So, if you decide to use Git, you need to set up a repository. While you may decide to only do so locally, I personally prefer to keep everything pushed to a private GitHub[^3] repository too. It's an extra layer of security. Also, most people I've met don't know that GitHub provides [free academic plans](https://education.github.com) both for individual people and for groups. These allow you keep a few private repositories. At the [3D geoinformation group](https://3d.bk.tudelft.nl), we use them extensively.
 
