@@ -1,15 +1,28 @@
 ---
-layout: default
+layout: null
 title: Page not found
 file: 404.html
 lang: en
 ---
 
-<div class="container">
-	<div class="page-header">
-		<h1>Page not found</h1>
-	</div>
-	<p>
-		There's nothing at this URL. Perhaps you want to head back to my <a href="{{ site.baseurl }}">homepage</a>?
-	</p>
-</div>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript">
+      var userLang = navigator.language || navigator.userLanguage;
+      if (~window.location.href.indexOf("/en/")) {
+    		window.location.href = "{{ site.baseurl }}/en/404.html"
+      } else if (~window.location.href.indexOf("/es/")) {
+      	window.location.href = "{{ site.baseurl }}/es/404.html"
+      }	else if (userLang.substring(0, 2) == "es") {
+        window.location.href = "{{ site.baseurl }}/es/404.html"
+      } else {
+        window.location.href = "{{ site.baseurl }}/en/404.html"
+      }
+    </script>
+		<title>Ken Arroyo Ohori</title>
+	</head>
+	<body>
+		Error 404: Page not found
+  </body>
+</html>

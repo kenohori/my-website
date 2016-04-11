@@ -8,16 +8,16 @@ file: index.html
 <html>
 	<head>
 		<script type="text/javascript">
-	        var userLang = navigator.language || navigator.userLanguage;
-	        if (userLang.substring(0, 2) == "es") {
-	            window.location.href = "{{ site.baseurl }}/es/"
-	        } else {
-	            window.location.href = "{{ site.baseurl }}/en/"
-	        }
-        </script>
+      var userLang = navigator.language || navigator.userLanguage;
+      if (userLang.substring(0, 2) == "es") {
+          window.location.href = "{{ site.baseurl }}/es/"
+      } else {
+          window.location.href = "{{ site.baseurl }}/en/"
+      }
+    </script>
 		<title>Ken Arroyo Ohori</title>
 	</head>
 	<body>
-        <a href='{{ site.baseurl }}/en/'>English</a> | <a href='{{ site.baseurl }}/es/'>Espa&ntilde;ol</a>
-    </body>
+		<a href='{{ site.baseurl }}/en/'>English</a> | <a href='{{ site.baseurl }}/es/'>Espa&ntilde;ol</a>
+  </body>
 </html>
