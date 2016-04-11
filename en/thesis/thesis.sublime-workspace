@@ -946,7 +946,8 @@
 						{
 							"enable_checkbounce_grammar": false,
 							"enable_checkbounce_spelling": true,
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 21084.0,
@@ -984,7 +985,8 @@
 						{
 							"enable_checkbounce_grammar": false,
 							"enable_checkbounce_spelling": true,
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 20664.0,
@@ -1513,16 +1515,8 @@
 						"selection":
 						[
 							[
-								2520,
-								2520
-							],
-							[
-								2677,
-								2677
-							],
-							[
-								2853,
-								2853
+								388,
+								388
 							]
 						],
 						"settings":
