@@ -12,15 +12,23 @@
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
 				{% for p in site.data.pages %}
-				<li{% if page.file == p.file %} class="active"{% endif %}><a href="{{ site.baseurl }}/{{ page.lang }}/{{ p.path }}">{% if page.lang == 'es' %}{{ p.es }}{% elsif page.lang == 'nl' %}{{ p.nl }}{% else %}{{ p.en }}{% endif %}</a></li>
+					<li{% if page.file == p.file %} class="active"{% endif %}><a href="{{ site.baseurl }}/{% if page.lang == 'en' or page.lang == 'es' %}{{ page.lang }}{% else %}en{% endif %}/{{ p.path }}">{% if page.lang == 'es' %}{{ p.es }}{% elsif page.lang == 'nl' %}{{ p.nl }}{% else %}{{ p.en }}{% endif %}</a></li>
 				{% endfor %}
 			</ul>
 			<ul class="nav navbar-nav pull-right">
 				<li class="dropdown pull-right">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ page.lang }} <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="{{ site.baseurl }}/{% if page.lang == 'en' %}en{% else %}es{% endif %}/{{ page.file |remove: "index.html" }}">{% if page.lang == 'en' %}en{% else %}es{% endif %}</a></li>
-						<li><a href="{{ site.baseurl }}/{% if page.lang == 'en' %}es{% else %}en{% endif %}/{{ page.file |remove: "index.html" }}">{% if page.lang == 'en' %}es{% else %}en{% endif %}</a></li>
+						{% if page.locale_en %}
+							<li><a href="{{ site.baseurl }}{{ page.locale_en }}">en</a></li>
+						{% else %}
+							<li><a href="{{ site.baseurl }}{{ page.url | replace_first:'/es/','/en/' }}">en</a></li>
+						{% endif %}
+						{% if page.locale_es %}
+							<li><a href="{{ site.baseurl }}{{ page.locale_es }}">es</a></li>
+						{% else %}
+							<li><a href="{{ site.baseurl }}{{ page.url | replace_first:'/en/','/es/' }}">es</a></li>
+						{% endif %}
 					</ul>
 				</li>
 			</ul>
