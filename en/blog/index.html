@@ -9,13 +9,15 @@ lang: en
 	<div class="page-header">
 		<h1>Blog posts</h1>
 	</div>
+	<table>
 	{% for post in site.posts %}
-		{% if post.lang == 'en' %}
-	  <span class="post-date">{{ post.date | date_to_string }}</span>
-	  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-	  <br />
+		{% if post.lang == page.lang %}
+		<tr>
+		  <td style="padding: 2px;">{{ post.date | date_to_string }}</td>
+		  <td style="padding: 2px;"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></td>
+	  </tr>
 	  {% endif %}
 	{% endfor %}
-	<br />
+	</table>
 	<span class="grey"><a href="{{ site.baseurl }}/{{ page.lang }}/feed.xml"><i class="fa fa-rss"></i> RSS</a>
 </div>
