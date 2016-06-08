@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-# Copyright (c) 2015 Ken Arroyo Ohori
+# Copyright (c) 2015-2016 Ken Arroyo Ohori
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -954,6 +954,12 @@ class Imbiber
 					groups[entry[1][:class].to_s] = {:sortingvalue => @g.groupof(entry[1][:class].to_s), :entries => [], :nicename => @lt.classname(entry[1][:class].to_s)}
 				end
 				groups[entry[1][:class].to_s][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0], img)})
+			when :classthenyear
+				# puts entry[1][:class].to_s
+				if !groups.has_key?(entry[1][:class].to_s) then
+					groups[entry[1][:class].to_s] = {:sortingvalue => @g.groupof(entry[1][:class].to_s), :entries => [], :nicename => @lt.classname(entry[1][:class].to_s)}
+				end
+				groups[entry[1][:class].to_s][:entries].push({:sortingvalue => entry[1][:sortingvalue], :entry => html_of(entry[0], img)})
 			end
 		end
 		
@@ -982,7 +988,19 @@ class Imbiber
 			if order == :desc then
 				sorted_group = sorted_group.reverse
 			end
+			last_year = ""
 			sorted_group.each do |entry|
+				# pp entry
+				if groupby == :classthenyear then
+					if entry[:sortingvalue][0..3] != last_year then
+						if last_year == "" then
+							html << "</section>\n"
+						end
+						html << "<section id=\"" << idswithprefix.to_s << group[0] << entry[:sortingvalue][0..3] << "\">\n"
+						html << "<h4>" << entry[:sortingvalue][0..3] << "</h4>"
+						last_year = entry[:sortingvalue][0..3]
+					end
+				end
 				html << entry[:entry] << "\n"
 			end
 			if @idswithprefix != false then
@@ -998,9 +1016,10 @@ end
 # i = Imbiber.new
 # i.read("/Users/ken/Versioned/my-website/pubs/publications.bib")
 # i.read("/Users/ken/Versioned/website/jstoter/jantien.bib")
+# i.read("/Users/ken/Versioned/website/pubs/all.bib")
 
 # pp i.entries
-# pp i.html_of_all(:class)
+# pp i.html_of_all(:classthenyear)
 # pp i.entries
 # pp i.html_of(:"Jantien-Stoter14")
 
