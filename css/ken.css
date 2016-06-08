@@ -93,37 +93,69 @@ small {
 /* all links */
 .papers-sidebar .nav>li>a {
   color: #000;
-  border-left: 2px solid transparent;
-  padding: 2px 20px;
+  padding: 4px 20px;
   font-size: 16px;
+}
+
+/* hover links */
+.papers-sidebar .nav>li>a:hover, 
+.papers-sidebar .nav>li>a:focus {
+	padding-left: 19px;
+  color: #000;
+  text-decoration: none;
+  background-color: transparent;
+  border-left: 1px solid #00aa44;
+}
+
+/* active links */
+.papers-sidebar .nav>.active:focus>a, 
+.papers-sidebar .nav>.active:hover>a, 
+.papers-sidebar .nav>.active>a {
+	padding-left: 18px;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: transparent;
+  border-left: 2px solid #00aa44;
+}
+
+/* nested submenu */
+.papers-sidebar .nav .nav {
+	display: none;
+  padding-bottom: 10px;
 }
 
 /* nested links */
 .papers-sidebar .nav .nav>li>a {
   color: #999;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 30px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
-/* active & hover links */
-.papers-sidebar .nav>.active>a, 
-.papers-sidebar .nav>li>a:hover, 
-.papers-sidebar .nav>li>a:focus {
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  background-color: transparent;
-  border-left-color: #00aa44;
+/* nested hover links */
+.papers-sidebar .nav .nav>li>a:focus,
+.papers-sidebar .nav .nav>li>a:hover {
+	color: #000;
+  padding-left: 29px;
 }
+
+/* nested active links */
+.papers-sidebar .nav .nav>.active:focus>a,
+.papers-sidebar .nav .nav>.active:hover>a,
+.papers-sidebar .nav .nav>.active>a {
+	color: #000;
+  padding-left: 28px;
+}
+
 
 /* hide inactive nested list */
 .papers-sidebar .nav ul.nav {
-    display: none;
+  display: none;
 }
 
 /* show active nested list */
 .papers-sidebar .nav>.active>ul.nav {
-    display: block;
+  display: block;
 }
