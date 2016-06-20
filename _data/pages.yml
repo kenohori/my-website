@@ -16,6 +16,12 @@
   es: Art&iacute;culos
   nl: Artikels
 
+- file: thesis/index.html
+  path: thesis/
+  en: PhD thesis
+  es: Tesis doctoral
+  nl: Proefschrift
+
 - file: code/index.html
   path: code/
   en: Code
