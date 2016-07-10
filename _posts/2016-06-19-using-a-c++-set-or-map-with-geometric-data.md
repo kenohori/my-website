@@ -39,7 +39,7 @@ In a simple example, such a comparison functor can then be used to define a set 
 std::set<Point_d, Point_d_comparator> vertices;
 {% endhighlight %}
 
-In a more complex example, the same comparison functor can be used to index a set of edges (as defined by a unique start-end pair of points). I personally use this kind of structure to link a set of adjacent polygons by their common edges and to check if such a set forms a quasi-manifold in 3D.
+In a more complex example, the same comparison functor can be used to index a set of edges (as defined by a unique start-end pair of points). I personally use this kind of structure to link a set of adjacent polygons by their common edges and to check if such a set forms a quasi-manifold in 3D. Note that you should make sure to insert the two end-points in a well-defined order, such as the lexicographically smallest first!
 
 {% highlight c++ %}
 std::map<Point_d, std::map<Point_d, int, Point_d_comparator>, Point_d_comparator> edges;
