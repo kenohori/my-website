@@ -41,12 +41,12 @@ The types of the *n*- and *(n+1)*-dimensional datasets are automatically derived
 Since higher-dimensional programming is usually heavily constrained by CPU time during execution, **this effectively brings the best of both worlds: dimension-independence and speed**.
 
 {% highlight c++ %}
-template <unsigned int unextruded_dimension>
+template <unsigned int dimension>
 class Linear_cell_complex_extruder_with_range {
 public:
-  typedef typename Linear_cell_complex<unextruded_dimension>::type Lower_dimensional_cell_complex;
-  typedef typename Linear_cell_complex<unextruded_dimension+1>::type Higher_dimensional_cell_complex;
-  typedef Linear_cell_complex_extruder_with_range<unextruded_dimension> Self;
+  typedef typename Linear_cell_complex<dimension>::type Lower_dimensional_cell_complex;
+  typedef typename Linear_cell_complex<dimension+1>::type Higher_dimensional_cell_complex;
+  typedef Linear_cell_complex_extruder_with_range<dimension> Self;
   
 private:
   Lower_dimensional_cell_complex ldcc;
