@@ -83,9 +83,9 @@ This `struct` is specialised using a recursive template that prepends the tuple 
 
 {% highlight c++ %}
 template <unsigned int dimension, class ... Result>
-struct Values_map_tuple_per_dimension_up_to<dimension, std::tuple<Result ...> > {
+struct Values_map_tuple_per_dimension_up_to<dimension, std::tuple<Result ...>> {
   typedef typename Values_map_tuple_per_dimension_up_to<dimension - 1, 
-    std::tuple<Values_map_of_dimension<dimension>, Result ...> >::type type;
+    std::tuple<Values_map_of_dimension<dimension>, Result ...>>::type type;
 };
 {% endhighlight %}
 
@@ -93,7 +93,7 @@ Finally, this `struct` is further specialised with a terminating condition for d
 
 {% highlight c++ %}
 template <class ... Result>
-struct Values_map_tuple_per_dimension_up_to<0, std::tuple<Result ...> > {
+struct Values_map_tuple_per_dimension_up_to<0, std::tuple<Result ...>> {
   typedef std::tuple<Values_map_of_dimension<0>, Result ...> type;
 };
 {% endhighlight %}
