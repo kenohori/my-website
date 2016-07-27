@@ -8,7 +8,7 @@ lang: en
 
 <img src="{{ site.baseurl }}/img/blog/lcc-demo.png" class="img-responsive center-block" alt="New project in Xcode">
 
-CGAL dropped support for Qt4 with version 4.7 in October. But alas, its [Homebrew](http://brew.sh) formula hasn't been updated to reflect this. In practical terms this means that you can't  compile all the nice CGAL GUI demos out of the (homebrewed) box. This is bad if you want to use them as a tutorial or as a base for your own code.
+CGAL dropped support for Qt4 with version 4.7 in October. But alas, its [Homebrew](http://brew.sh) formula hasn't been updated to reflect this. In practical terms this means *you can't use Qt apps with CGAL*, including all the nice CGAL GUI demos out of the (homebrewed) box. This is bad if you want to build your own GUI applications, or use the demos as a tutorial or a base for your own code.
 
 Recently I spent some time trying to get the Linear Cell Complex demo working on Mac with a minimum of fuss. As that demo requires Qt5 and QGLViewer, the same procedure should work for a lot of other demos, so I decided to document it here. However, bear in mind that this solution requires you to unlink Qt4 in order to link Qt5, which will break any homebrewed formulae that depend on `qt`[^1].
 
@@ -25,7 +25,14 @@ $ brew install qt5
 $ brew link qt5 --force
 {% endhighlight %}
 
-Next, I modified the Homebrew formula for QGLViewer in order to change its dependency from `qt` to `qt5`[^2]. Something similar could be done for other formulae that depend on `qt`. For this, first edit the formula:
+Homebrew wants to keep its own hierarchy in `/usr/local`, but CMake's Qt5 script assumes that Qt5's `mkspecs` and `plugins` are accessible from the root folder. So, make a couple of symlinks from **the latest Qt5 version** in the Homebrew `Cellar` (currently 5.6.1-1) in `/usr/local`[^2]:
+
+{% highlight shell %}
+ln -s /usr/local/Cellar/qt5/5.6.1-1/mkspecs /usr/local/mkspecs
+ln -s /usr/local/Cellar/qt5/5.6.1-1/plugins /usr/local/plugins
+{% endhighlight %}
+
+Next, I modified the Homebrew formula for QGLViewer in order to change its dependency from `qt` to `qt5`[^3]. Something similar could be done for other formulae that depend on `qt`. For this, first edit the formula:
 
 {% highlight shell %}
 $ brew edit libqglviewer
@@ -45,7 +52,7 @@ Finally, you can then download CGAL and install it from source. My preferred way
 $ git clone https://github.com/CGAL/cgal.git
 {% endhighlight %}
 
-Then configuring it using the CMake GUI and compiling and installing it using `make`:
+Then configuring it using the CMake GUI[^4] and compiling and installing it using `make`:
 
 {% highlight shell %}
 $ cmake-gui .
@@ -57,7 +64,11 @@ In the CMake GUI you should be able to select the options that you need, includi
 
 <img src="{{ site.baseurl }}/img/blog/cmake.png" class="img-responsive center-block" alt="New project in Xcode">
 
+**Update 27 Jul 2016**: Added instructions to symlink Qt5's `mkspecs` and `plugins`, and a note about `cmake-gui`.
+
 ---
 
 [^1]: Ideally, it should be possible to compile CGAL with an unlinked Qt5 using `-L/usr/local/opt/qt5/lib` and `-I/usr/local/opt/qt5/include`. However, this doesn't work for me. Please let me know if you manage to get this working.
-[^2]: Or better yet, make a branch of the formula and change it there.
+[^2]: Thanks to stephane-lb in <https://github.com/Homebrew/legacy-homebrew/issues/29938> for the tip. This might be solvable using CMake's Qt paths, but alas I couldn't get them to work.
+[^3]: Or better yet, make a branch of the formula and change it there.
+[^4]: Rather annoyingly, Homebrew's CMake package doesn't include its GUI. So you might want want to install the official .pkg version (which causes no compatibility issues with Homebrew) or use the command line `cmake` with the appropriate `-D` parameters.
