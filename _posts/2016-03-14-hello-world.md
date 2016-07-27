@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hello world"
-date: 2016-03-14 23:45
+date: 2016-03-14 23:45 +01:00
 categories: en
 lang: en
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using CGAL and Xcode"
-date: 2016-03-16 17:42
+date: 2016-03-16 17:42 +01:00
 categories: en
 lang: en
 ---
