@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My LaTeX thesis workflow"
-date: 2016-04-02 22:45
+date: 2016-04-02 22:45 +02:00
 categories: en
 lang: en
 ---

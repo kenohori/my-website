@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using a C++ map or set with geometric data"
-date: 2016-06-19 18:25
+date: 2016-06-19 18:25 -05:00
 categories: en
 lang: en
 ---

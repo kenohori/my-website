@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dimension-independent programming using C++ templates"
-date: 2016-07-10 14:39
+date: 2016-07-10 14:39 -05:00
 categories: en
 lang: en
 ---

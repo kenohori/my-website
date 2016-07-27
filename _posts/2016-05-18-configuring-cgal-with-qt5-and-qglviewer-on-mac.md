@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Configuring CGAL with Qt5 and QGLViewer on Mac"
-date: 2016-05-18 19:30
+date: 2016-05-18 19:30 -05:00
 categories: en
 lang: en
 ---
