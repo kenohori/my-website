@@ -11,50 +11,62 @@ lang: en
 	</div>
 	<h2>Gustavo Adolfo Ken Arroyo Ohori</h2>
 	<address>
-		<i class="fa-fw fa fa-building"></i> 3D geoinformation, Urbanism, Faculty of Architecture<br>
-		<i class="fa-fw fa fa-building fade"></i> Delft University of Technology<br>
-		<i class="fa-fw fa fa-building fade"></i> Julianalaan 134<br>
-		<i class="fa-fw fa fa-building fade"></i> 2628 BL Delft<br>
+		<i class="fa-fw fa fa-building"></i> 3D geoinformation, Urbanism, Faculty of Architecture<br />
+		<i class="fa-fw fa fa-building fade"></i> Delft University of Technology<br />
+		<i class="fa-fw fa fa-building fade"></i> Julianalaan 134<br />
+		<i class="fa-fw fa fa-building fade"></i> 2628 BL Delft<br />
 		<i class="fa-fw fa fa-building fade"></i> The Netherlands
 	</address>
-	<p><a href="tel:+31%20681502237"><i class="fa-fw fa fa-phone"></i> +31 (0)68 150 2237</a></p>
+	<p><a href="tel:+31%20681502237"><i class="fa-fw fa fa-phone"></i> +52 55 3922 4175</a></p>
 	<p><a href="mailto:&#x47;&#x2e;&#x41;&#x2e;&#x4b;&#x2e;&#x41;&#x72;&#x72;&#x6f;&#x79;&#x6f;&#x4f;&#x68;&#x6f;&#x72;&#x69;&#x40;&#x74;&#x75;&#x64;&#x65;&#x6c;&#x66;&#x74;&#x2e;&#x6e;&#x6c;" class="mail" title="&#x47;&#x2e;&#x41;&#x2e;&#x4b;&#x2e;&#x41;&#x72;&#x72;&#x6f;&#x79;&#x6f;&#x4f;&#x68;&#x6f;&#x72;&#x69;&#x40;&#x74;&#x75;&#x64;&#x65;&#x6c;&#x66;&#x74;&#x2e;&#x6e;&#x6c;"><i class="fa-fw fa fa-envelope"></i> &#x47;&#x2e;&#x41;&#x2e;&#x4b;&#x2e;&#x41;&#x72;&#x72;&#x6f;&#x79;&#x6f;&#x4f;&#x68;&#x6f;&#x72;&#x69;&#x40;&#x74;&#x75;&#x64;&#x65;&#x6c;&#x66;&#x74;&#x2e;&#x6e;&#x6c;</a></p>
-	<p><a href="http://ken.mx"><i class="fa-fw fa fa-globe"></i> ken.mx</a><br>
+	<p><a href="http://ken.mx"><i class="fa-fw fa fa-globe"></i> ken.mx</a><br />
+
+	<h3>Work</h3>
+	<p>
+		<strong>Postdoc researcher - 2016&ndash;now</strong>
+		<br />3D Geoinformation, Delft University of Technology
+	</p>
+	<p>
+		<strong>PhD candidate - 2014&ndash;2015</strong>
+		<br />3D Geoinformation, Delft University of Technology
+	</p>
+	<p>
+		<strong>PhD candidate - 2011&ndash;2014</strong>
+		<br />GIS Technology, Delft University of Technology
+	</p>
+
 	<h3>Education</h3>
 	<p>
 		<strong>PhD - 2011&ndash;2016</strong>
-		<br>Topic: Higher-dimensional modelling of geographic information
-		<br>Delft University of Technology
+		<br />Topic: Higher-dimensional modelling of geographic information
+		<br />Delft University of Technology
 	</p>
 	<p>
 		Thesis:
-		{% imbiber pubs/theses.bib one:16phdthesis %}
+		{% imbiber pubs/theses.bib one:16phdthesis noimg %}
 	</p>
 	
 	<p>
 	<strong>MSc in Geomatics - 2008&ndash;2010</strong>
-		<br>Graduated with distinction
-		<br>Delft University of Technology
+		<br />Graduated with distinction
+		<br />Delft University of Technology
 	</p>
 	<p>
 		Thesis:
-		{% imbiber pubs/theses.bib one:10mscthesis %}
+		{% imbiber pubs/theses.bib one:10mscthesis noimg %}
 	</p>
 	
 	<p><strong>BSc in Computer Science and Technology - 2003 &ndash; 2007</strong>
-	<br>Minor in Software Engineering
-	<br>Monterrey Institute of Technology and Higher Education, Mexico City Campus</p>
+	<br />Minor in Software Engineering
+	<br />Monterrey Institute of Technology and Higher Education, Mexico City Campus</p>
 	
 	<p><strong>High School - 2000 &ndash; 2003</strong>
-	<br>Bicultural Programme
-	<br>Monterrey Institute of Technology and Higher Education, Mexico City Campus</p>
+	<br />Bicultural Programme
+	<br />Monterrey Institute of Technology and Higher Education, Mexico City Campus</p>
 	
-	<h3>Main publications</h3>
-	<p>Note: full list available <a href="{{ baseurl }}/{{ page.lang}}/papers/">here</a>.</p>
-	{% imbiber pubs/publications.bib one:15ijgis_extrusion %}
-	{% imbiber pubs/publications.bib one:15ijgis_ndstructures %}
-	{% imbiber pubs/publications.bib one:14cg %}
-	{% imbiber pubs/publications.bib one:12pfg %}
+	<h3>Peer-reviewed publications</h3>
+	<p>Others available <a href="{{ baseurl }}/{{ page.lang}}/papers/">here</a>.</p>
+	{% imbiber pubs/publications.bib noimg %}
 	
 	<h3>Other writings</h3>
 	<ul>
@@ -64,7 +76,7 @@ lang: en
 	</ul>
 	
 	<h3>Supervised theses</h3>
-		{% imbiber pubs/supervised.bib %}
+		{% imbiber pubs/supervised.bib noimg %}
 	
 	<h3>Full courses given</h3>
 	<ul>
@@ -88,6 +100,7 @@ lang: en
 	<h3>Conferences, workshops, competitions and courses</h3>
 	<p>Note: the papers themselves are available <a href="{{ baseurl }}/{{ page.lang}}/papers/">here</a>.</p>
 	<ul>
+		<li>Paper accepted: <em>11th 3D Geoinfo Conference</em>. Athens, Greece. October 2016.</li>
 		<li>Paper accepted: <em>3rd Eurographics Workshop on Urban Data Modelling and Visualisation</em>. Delft, the Netherlands. November 2015.</li>
 		<li>Presented paper: <em>ISPRS WG II/2 Workshop</em>. Kuala Lumpur, Malaysia. October 2015.</li>
 		<li>Presentation: 5D Workshop, <em>GeoBuzz</em>. 's-Hertogenbosch, The Netherlands. November 2014.</li>
@@ -117,6 +130,7 @@ lang: en
 
 	<h3>Important software</h3>
 	<ul>
+		<li><a href="https://github.com/tudelft3d/azul">azul</a>, a CityGML viewer for macOS (2016-)</li>
 		<li><a href="https://github.com/kenohori/imbiber">imbiber</a>, Create nicely formatted HTML from BibTeX files directly from Jekyll (2015-)</li>
 		<li><a href="https://github.com/kenohori/lcc-tools">lcc-tools</a>, tools to construct and manipulate higher-dimensional linear cell complexes (2014-)</li>
 		<li><a href="https://github.com/kenohori/bibhtmler">bibhtmler</a>, simple PHP class to convert BiBTeX to HTML (2013-)</li>
@@ -131,6 +145,7 @@ lang: en
 
 	<h3>Scientific committee member in conferences</h3>
 	<ul>
+		<li>2nd International Conference on Smart Data and Smart Cities. October 2017.</li>
 		<li>4th Eurographics Workshop on Urban Data Modelling and Visualisation. December 2016.</li>
 		<li>11th 3D Geoinfo Conference. October 2016.</li>
 		<li>2nd International Conference in 3D Indoor Modelling and Navigation. October 2016.</li>
@@ -184,8 +199,8 @@ lang: en
 	<h3>Skills</h3>
 	<h4>Computer related</h4>
 	<ul>
-		<li><strong>Operating Systems:</strong> Familiar with all recent versions of Windows, Mac OS and various Linux distributions. Others as a user, but with little programming experience.</li>
-		<li><strong>Programming:</strong> Familiar with C, C++, CSS, HTML, Objective-C, PHP, Python and Ruby. Others in a lesser degree (e.g. Java, Javascript, Lisp, Matlab, Scheme, Perl, Prolog). Use of other relevant software, libraries and frameworks for computational geometry (e.g. CGAL, openCASCADE), graphics and visualisation (e.g. OpenGL), debugging and unit testing, parsing, I/O in various file formats, and user interfaces, among others.</li>
+		<li><strong>Operating Systems:</strong> Familiar with all recent versions of Windows, macOS and various Linux distributions. Others as a user, but with little programming experience.</li>
+		<li><strong>Programming:</strong> Familiar with C, C++, CSS, HTML, Objective-C, PHP, Python, Ruby and Swift. Others in a lesser degree (Java, Javascript, Lisp, Matlab, Scheme, Perl, Prolog). Use of other relevant software, libraries and frameworks for computational geometry (e.g. CGAL, openCASCADE), graphics and visualisation (Metal and OpenGL), debugging and unit testing, parsing, I/O in various file formats, and user interfaces, among others.</li>
 		<li><strong>Software:</strong> Various office suites (e.g. iWork, MS Office and OpenOffice.org), databases (e.g. MySQL, Oracle and PostgreSQL) with spatial extensions, web servers (Apache and nginx), typesetting with (Xe)LaTeX, image editing packages and drawing programs (e.g. Aperture, OmniGraffle and Adobe Photoshop), among others.</li>
 	</ul>
 	<h4>Languages</h4>
