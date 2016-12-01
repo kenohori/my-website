@@ -6,7 +6,7 @@ categories: en
 lang: en
 ---
 
-Those who know me also know that I am enthusiastic about technology. I like to keep on the bleeding edge even if I end up (figuratively) bleeding because of it. For a long time, this meant that I immediately tried pretty much every interesting piece of software or internet service.
+Those who know me also know that I am enthusiastic about technology. I like to keep on the bleeding edge even if I end up (figuratively) bleeding because of it. For a long time, this meant that I was an early adopter of  all sorts of software or internet services.
 
 But alas, that time has seemingly come to an end.
 
