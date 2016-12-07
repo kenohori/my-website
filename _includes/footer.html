@@ -19,7 +19,7 @@
   $.bigfoot();
 </script>
 {% if page.papers == true %}
-  <script>
+<script>
   $(document).ready(function() {
      $("#toTop").hide();
 
@@ -30,7 +30,8 @@
       } else {
         $('#toTop').fadeOut();
       }
-  	});     
+  	});
+
     $('a[href^=#pr],a[href^=#th],a[href^=#other],a[href^=#st]').each(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
       && location.hostname == this.hostname
@@ -45,6 +46,28 @@
            });
         }
       }
+    });
+
+    $("#small-filter").keyup(function(){
+      // Retrieve the input field text and reset the count to zero
+      var filter = $(this).val();
+      $(".filteredgroup").each(function(){
+        var count = 0;
+        $(this).find(".filteredelement").each(function(){
+          if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+            $(this).fadeOut();
+          } else {
+            $(this).fadeIn();
+            count++;
+          }
+        });
+        if (count > 0) {
+          // $(this).find("#filteredcount").text(" (" + count + ")")
+          $(this).fadeIn();
+        } else {
+          $(this).fadeOut();
+        }
+      });
     });
 
     $("#filter").keyup(function(){
@@ -68,10 +91,11 @@
         }
       });
     });
-  });
-  $('body').scrollspy({
+
+    $('body').scrollspy({
       target: '.papers-sidebar',
       offset: 40
+    });
   });
-  </script>
+</script>
 {% endif %}
