@@ -56,6 +56,14 @@ struct CityGMLParserWrapper {
 
 Note that we need to create the two wrapper levels in `init` and release then in the `dealloc`. This file can contain as much C++ as Objective-C++ allows.
 
+<img src="{{ site.baseurl }}/img/blog/bridging-header.png" class="img-responsive center-block" alt="Setting the bridging header in Xcode">
+
+Finally, you likely need to add a *bridging header* that contains the import statement of your wrapper wrapper so that it can be used in Swift. If you use Xcode, this needs to be set in the Build Settings tab of the project settings. It simply needs to contain something like:
+
+{% highlight objective_c %}
+#import "CityGMLParserWrapperWrapper.h"
+{% endhighlight %}
+
 ## Passing information between C++ and Swift code
 
 Now, you will probably need to pass information between the C++ and the Swift code. This is relatively straightforward but is one of the areas where Swift offers little syntactic sugar.
