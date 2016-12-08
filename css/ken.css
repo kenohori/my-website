@@ -164,3 +164,8 @@ small {
   max-height: 35px;
   margin-top: -5px;
 }
+
+mark {
+  background: #A0FF7C;
+  padding: 0em;
+}

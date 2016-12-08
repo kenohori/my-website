@@ -15,6 +15,7 @@
 <script src="{{ site.baseurl }}/js/jquery.min.js"></script>
 <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
 <script src="{{ site.baseurl }}/js/bigfoot.min.js"></script>
+<script src="{{ site.baseurl }}/js/jquery.mark.min.js"></script>
 <script type="text/javascript">
   $.bigfoot();
 </script>
@@ -51,10 +52,18 @@
     $("#small-filter").keyup(function(){
       // Retrieve the input field text and reset the count to zero
       var filter = $(this).val();
+      $("#filter").val(filter);
       $(".filteredgroup").each(function(){
         var count = 0;
         $(this).find(".filteredelement").each(function(){
-          if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+          $(this).unmark();
+          window.filterhits = 0;
+          $(this).mark(filter, {"done": function(counter){
+            if (counter > 0) {
+              window.filterhits = counter;
+            }
+          }});
+          if (window.filterhits == 0 && filter.length > 0) {
             $(this).fadeOut();
           } else {
             $(this).fadeIn();
@@ -73,10 +82,18 @@
     $("#filter").keyup(function(){
       // Retrieve the input field text and reset the count to zero
       var filter = $(this).val();
+      $("#small-filter").val(filter);
       $(".filteredgroup").each(function(){
         var count = 0;
         $(this).find(".filteredelement").each(function(){
-          if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+          $(this).unmark();
+          window.filterhits = 0;
+          $(this).mark(filter, {"done": function(counter){
+            if (counter > 0) {
+              window.filterhits = counter;
+            }
+          }});
+          if (window.filterhits == 0 && filter.length > 0) {
             $(this).fadeOut();
           } else {
             $(this).fadeIn();
