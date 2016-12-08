@@ -54,7 +54,7 @@ struct CityGMLParserWrapper {
 }
 {% endhighlight %}
 
-Note that we need to create the two wrapper levels in `init` and release then in the `dealloc`. This file can contain as much C++ as Objective-C++ allows.
+Note that `CityGMLParser` is the C++ class, and that we need to create the two wrapper levels in `init` and delete them (C++ style) in the `dealloc`. This file can contain as much C++ as Objective-C++ allows.
 
 <img src="{{ site.baseurl }}/img/blog/bridging-header.png" class="img-responsive center-block" alt="Setting the bridging header in Xcode">
 
