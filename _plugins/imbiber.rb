@@ -929,6 +929,12 @@ class Imbiber
 				end
 				if entry[1].has_key?(:month) then
 					entry[1][:sortingvalue] << @mu.abbreviated_month_to_sorting_number(entry[1][:month])
+				elsif entry[1].has_key?(:info)
+					if entry[1][:info] == "In press" then
+						entry[1][:sortingvalue] << "99"
+					else
+						entry[1][:sortingvalue] << "00"
+					end
 				else
 					entry[1][:sortingvalue] << "00"
 				end
@@ -975,7 +981,7 @@ class Imbiber
 		sorted_groups.each do |group|
 			# pp group[1][:entries]
 			if idswithprefix != false then
-				html << "<section id=\"" << idswithprefix << group[0] << "\" class=\"filteredtopgroup\">\n"
+				html << "<section id=\"" << idswithprefix << group[0] << "\" class=\"filteredgroup\">\n"
 			end
 			html << @options[:beforegrouptitle]
 			if group[1].has_key?(:nicename) then
