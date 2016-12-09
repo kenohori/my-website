@@ -58,11 +58,13 @@
         $(this).find(".filteredelement").each(function(){
           $(this).unmark();
           window.filterhits = 0;
-          $(this).mark(filter, {"done": function(counter){
-            if (counter > 0) {
-              window.filterhits = counter;
+          $(this).mark(filter, {"separateWordSearch": false,
+            "done": function(counter){
+              if (counter > 0) {
+                window.filterhits = counter;
+              }
             }
-          }});
+          });
           if (window.filterhits == 0 && filter.length > 0) {
             $(this).fadeOut();
           } else {
@@ -88,11 +90,13 @@
         $(this).find(".filteredelement").each(function(){
           $(this).unmark();
           window.filterhits = 0;
-          $(this).mark(filter, {"done": function(counter){
-            if (counter > 0) {
-              window.filterhits = counter;
+          $(this).mark(filter, {"separateWordSearch": false,
+            "done": function(counter){
+              if (counter > 0) {
+                window.filterhits = counter;
+              }
             }
-          }});
+          });
           if (window.filterhits == 0 && filter.length > 0) {
             $(this).fadeOut();
           } else {
