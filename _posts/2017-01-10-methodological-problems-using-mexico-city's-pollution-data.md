@@ -30,7 +30,7 @@ While the raw pollution data is generally regarded as accurate and reliable, it 
 * Stations are regularly offline for maintenance.
 
 All of the above means that many (most?) users of Mexico City's pollution data use it incorrectly **including the Mexico City and the Mexican federal governments**.
-This blog post documents a few examples of what I think are the main incorrect uses of the data and hopefully helps others to use it better.
+This blog post documents a couple of examples of what I think are the main incorrect uses of the data and hopefully helps others to use it better.
 
 ## Statistically weak statistics
 
@@ -42,14 +42,14 @@ For instance, the station in Xalostoc (an industrial area in the Northeast of th
 If this station is (temporarily) offline, the chances of a pollution alert being declared decrease substantially.
 I am certain that if more stations were integrated into the system, particularly in other industrial areas such as Cuautitlán Izcalli, Iztapalapa, or the neighbouring Toluca or Mezquital valleys (which are also part of the megalopolis), it would cause the number of pollution alerts to increase.
 
-For other example of statistically weak statistics, consider the [pretty mosaics](http://www.aire.cdmx.gob.mx/default.php?opc='aqBhnmOkYw==') showing the maximum pollutant data for every day during the past years.
+For another example of statistically weak statistics, consider the [pretty mosaics](http://www.aire.cdmx.gob.mx/default.php?opc='aqBhnmOkYw==') showing the maximum pollutant data for every day during the past years.
 They also use only the maximum and fail to take into account the general increase in the number of stations throughout the years.
 
-## Not interpolating holes in the data
+## Not dealing correctly with holes in the data
 
 Raw pollutant levels are hard to grasp for non-specialists.
 Thus, the government of Mexico (like most other governments) has defined a *pollution index* called IMECA.
-Its value is calculated independently for every pollutant (CO, CO2, NO2, ozone, PM10, PM2.5, etc.), but the only number that is easily available and widely broadcast to the population is the maximum for all pollutants per station[^4].
+Its value is calculated independently for every pollutant (CO, CO<sub>2</sub>, NO<sub>2</sub>, ozone, PM<sub>10</sub>, PM<sub>2.5</sub>, etc.), but the only number that is easily available and widely broadcast to the population is the maximum for all pollutants per station[^4].
 
 When you consider this issue together with the fact that not all stations measure all pollutants, another problem becomes apparent: the IMECA value for each station is only really a lower bound (as opposed to its actual but unknown value) and **these values cannot be interpolated**.
 And yet, they are directly interpolated by most services, including the otherwise great [Hoyo de Smog](https://hoyodesmog.diegovalle.net/) and the [Netatmo](https://www.netatmo.com/) app.
@@ -63,9 +63,9 @@ This is a completely wrong way to provide pollution data at every location[^5].
 As another bad example, consider the maps shown in SIMAT's website.
 Apparently, my home borough of Coyoacán (circled in red) is cleaner than the surrounding area, right?
 In reality, the monitoring stations in the borough do not measure PM10, which is the main pollutant in these cold winter days.
-This is doubly misleading in the borough/municipality view shown in the right where (again) boroughs/municipalities with fewer stations and measuring fewer pollutants are generally shown as cleaner.
+This is doubly misleading in the borough/municipality view shown on the right where (again) boroughs/municipalities with fewer stations and measuring fewer pollutants are generally shown as cleaner.
 
-Perhaps I'll end up creating my own real-time pollution map someday...
+Perhaps I'll end up creating my own real-time pollution map someday. That would be a nice small project.
 
 ## Appendix: getting the data
 
