@@ -25,12 +25,12 @@ For one, if the pollution levels reach a certain level on a given day, restricti
 Many people in Mexico City check the pollution levels more frequently than the weather forecast[^3].
 
 While the raw pollution data is generally regarded as accurate and reliable, it has some quirks:
-* Pollution monitoring stations have moved *very* frequently and the number of stations has constantly fluctuated.
+* Pollution monitoring stations have been moved *many times* and the number of stations has constantly fluctuated.
 * Not all pollutants are measured at every station.
-* Stations are regularly offline for maintenance.
+* Stations are regularly taken offline for maintenance.
 
 All of the above means that many (most?) users of Mexico City's pollution data use it incorrectly **including the Mexico City and the Mexican federal governments**.
-This blog post documents a couple of examples of what I think are the main incorrect uses of the data and hopefully helps others to use it better.
+This blog post documents a couple of bad examples that show what I think are the main incorrect uses of the data and hopefully helps others to use it better.
 
 ## Statistically weak statistics
 
@@ -62,7 +62,7 @@ This is a completely wrong way to provide pollution data at every location[^5].
 
 As another bad example, consider the maps shown in SIMAT's website.
 Apparently, my home borough of Coyoacán (circled in red) is cleaner than the surrounding area, right?
-In reality, the monitoring stations in the borough do not measure PM10, which is the main pollutant in these cold winter days.
+In reality, the monitoring stations in the borough do not measure PM<sub>10</sub>, which is the main pollutant in these cold winter days[^6].
 This is doubly misleading in the borough/municipality view shown on the right where (again) boroughs/municipalities with fewer stations and measuring fewer pollutants are generally shown as cleaner.
 
 Perhaps I'll end up creating my own real-time pollution map someday. That would be a nice small project.
@@ -79,3 +79,4 @@ Perhaps I'll end up creating my own real-time pollution map someday. That would 
 [^3]: which is perhaps not a surprise considering the predictably mild weather of Mexico City
 [^4]: which is another case of statistically weak statistics...
 [^5]: A still-simple-but-much-better solution: interpolate IMECA values per pollutant, then use the maximum everywhere.
+[^6]: due to [thermal inversions](https://en.wikipedia.org/wiki/Inversion_(meteorology)) trapping the pollution in the valley
