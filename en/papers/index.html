@@ -11,15 +11,15 @@ papers: true
 		<h1>Papers</h1>
 	</div>
 	<div class="row">
-		<div class="col-sm-12 visible-xs-block visible-sm-block">
+		<div class="col col-12 col-sm-12 d-md-none">
 			<input type="text" class="text-input" id="small-filter" type="search" value="" placeholder="Search" /><br />
-			Peer reviewed papers: <a href="#pr2017">2017</a> <a href="#pr2016">2016</a> <a href="#pr2015">2015</a> <a href="#pr2014">2014</a> <a href="#pr2013">2013</a> <a href="#pr2012">2012</a> <a href="#pr2011">2011</a><br />
-			Theses: <a href="#thphdthesis">PhD</a> <a href="#thmastersthesis">MSc</a>
-			Other: <a href="#other2016">2016</a> <a href="#other2015">2015</a> <a href="#other2014">2014</a> <a href="#other2013">2013</a> <a href="#other2012">2012</a> <a href="#other2011">2011</a>
+			Papers: <a href="#pr2018">2018</a> <a href="#pr2017">2017</a> <a href="#pr2016">2016</a> <a href="#pr2015">2015</a> <a href="#pr2014">2014</a> <a href="#pr2013">2013</a> <a href="#pr2012">2012</a> <a href="#pr2011">2011</a><br />
+			Theses: <a href="#thphdthesis">PhD</a> <a href="#thmastersthesis">MSc</a><br />
+			Other: <a href="#other2018">2018</a> <a href="#other2017">2017</a> <a href="#other2016">2016</a> <a href="#other2015">2015</a> <a href="#other2014">2014</a> <a href="#other2013">2013</a> <a href="#other2012">2012</a> <a href="#other2011">2011</a>
 		</div>
-		<div class="col-md-9" role="main">
+		<div class="col col-md-9" role="main">
 			<section id="pr">
-				<h2>Peer reviewed papers</h2>
+				<!-- <h2>Papers</h2> -->
 				{% imbiber pubs/publications.bib idswithprefix:pr %}
 			</section>
 			<section id="th">
@@ -35,45 +35,46 @@ papers: true
 				{% imbiber pubs/supervised.bib %}
 			</section>
 		</div>
-		<div class="col-md-3 hidden-xs hidden-sm" role="complementary">
+		<div class="col col-md-3 d-none d-md-block" role="complementary">
 			<div id="sidebar" class="papers-sidebar" role="complementary" data-spy="affix">
 				<h2>Search</h2>
 				<input type="text" class="text-input" id="filter" type="search" value="" autofocus />
 				<h2>Go to</h2>
-				<ul class="nav nav-stacked">
-					<li>
-						<a href="#pr">Peer reviewed papers</a>
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a href="#pr">Papers</a>
 						<ul class="nav nav-stacked" style="display: block;">
-							<li><a href="#pr2017">2017</a></li>
-							<li><a href="#pr2016">2016</a></li>
-							<li><a href="#pr2015">2015</a></li>
-							<li><a href="#pr2014">2014</a></li>
-							<li><a href="#pr2013">2013</a></li>
-							<li><a href="#pr2012">2012</a></li>
-							<li><a href="#pr2011">2011</a></li>
+							<li class="nav-item"><a href="#pr2018">2018</a></li>
+							<li class="nav-item"><a href="#pr2017">2017</a></li>
+							<li class="nav-item"><a href="#pr2016">2016</a></li>
+							<li class="nav-item"><a href="#pr2015">2015</a></li>
+							<li class="nav-item"><a href="#pr2014">2014</a></li>
+							<li class="nav-item"><a href="#pr2013">2013</a></li>
+							<li class="nav-item"><a href="#pr2012">2012</a></li>
+							<li class="nav-item"><a href="#pr2011">2011</a></li>
 						</ul>
 					</li>
-					<li>
+					<li class="nav-item">
 						<a href="#th">Theses</a>
 						<ul class="nav nav-stacked">
-							<li><a href="#thphdthesis">PhD</a></li>
-							<li><a href="#thmastersthesis">MSc</a></li>
+							<li class="nav-item"><a href="#thphdthesis">PhD</a></li>
+							<li class="nav-item"><a href="#thmastersthesis">MSc</a></li>
 						</ul>
 					</li>
-					<li>
+					<li class="nav-item">
 						<a href="#other">Other</a>
 						<ul class="nav nav-stacked">
-							<li><a href="#other2018">2018</a></li>
-							<li><a href="#other2017">2017</a></li>
-							<li><a href="#other2016">2016</a></li>
-							<li><a href="#other2015">2015</a></li>
-							<li><a href="#other2014">2014</a></li>
-							<li><a href="#other2013">2013</a></li>
-							<li><a href="#other2012">2012</a></li>
-							<li><a href="#other2011">2011</a></li>
+							<li class="nav-item"><a href="#other2018">2018</a></li>
+							<li class="nav-item"><a href="#other2017">2017</a></li>
+							<li class="nav-item"><a href="#other2016">2016</a></li>
+							<li class="nav-item"><a href="#other2015">2015</a></li>
+							<li class="nav-item"><a href="#other2014">2014</a></li>
+							<li class="nav-item"><a href="#other2013">2013</a></li>
+							<li class="nav-item"><a href="#other2012">2012</a></li>
+							<li class="nav-item"><a href="#other2011">2011</a></li>
 						</ul>
 					</li>
-					<li><a href="#st">Supervised thesis</a></li>
+					<li class="nav-item"><a href="#st">Supervised thesis</a></li>
 				</ul>
 			</div>
 		</div>
