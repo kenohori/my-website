@@ -16,19 +16,19 @@ papers: true
 		</div>
 		<div class="col col-md-9">
 			<section id="pr">
-				<h2>Papers</h2>
+				<h1>Papers</h1>
 				{% imbiber pubs/publications.bib idswithprefix:pr %}
 			</section>
 			<section id="th">
-				<h2>Theses</h2>
+				<h1>Theses</h1>
 				{% imbiber pubs/theses.bib groupby:class idswithprefix:th %}
 			</section>
 			<section id="other">
-				<h2>Other</h2>
+				<h1>Other</h1>
 				{% imbiber pubs/others.bib idswithprefix:other %}
 			</section>
 			<section id="st">
-				<h2>Supervised theses</h2>
+				<h1>Supervised theses</h1>
 				{% imbiber pubs/supervised.bib idswithprefix:st %}
 			</section>
 		</div>

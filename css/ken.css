@@ -29,7 +29,7 @@ html, body {
          url('../fonts/MetricWeb-Regular.woff') format('woff');
     font-weight: bold;
 }
-/*body {
+body {
   font-family: "Metric", Helvetica, Arial, sans-serif;
   font-size: 20px;
   color: #000000;
@@ -68,19 +68,19 @@ pre {
 .bibtex {
 	font-size: 10px;
 }
-a.thumbnail:hover,
-a.thumbnail:focus {
+.img-thumbnail:hover,
+.img-thumbnail:focus {
   border-color: #007722;
 }
-.navbar .nav > li {
+/*.navbar .nav > li {
   color: #000000;
-}
+}*/
 .navbar-brand {
   font-size: 20px;
   color: #000000 !important;
   font-weight: bold;
 }
-small {
+/*small {
   font-size: 70%;
 }
 
@@ -91,11 +91,10 @@ small {
 }*/
 
 /* all links */
-/*.papers-sidebar .nav>li>a {
+.papers-sidebar .nav>li>a {
   color: #000;
-  padding: 4px 20px;
   font-size: 16px;
-}*/
+}
 
 /* hover links */
 /*.papers-sidebar .nav>li>a:hover, 
@@ -126,13 +125,10 @@ small {
 }*/
 
 /* nested links */
-/*.papers-sidebar .nav .nav>li>a {
+.papers-sidebar .nav .nav>li>a {
   color: #999;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 30px;
   font-size: 12px;
-}*/
+}
 
 /* nested hover links */
 /*.papers-sidebar .nav .nav>li>a:focus,
@@ -154,7 +150,7 @@ small {
   margin-top: -5px;
 }
 
-/*mark {
+mark {
   background: #A0FF7C;
   padding: 0em;
-}*/
+}
