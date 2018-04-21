@@ -17,7 +17,7 @@ locale_es: /en/thesis/resumen.html
 	</nav>
 	<h1>2 Mathematical foundations of spatial modelling</h1>
 	<div class="row">
-		<div class="col col-12 col-sm-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 Spatial modelling has its origins in the geographical notion of space, which is in turn based on our own observations of the world and empirical experience [<a href="bibliography.html#Couclelis99">Couclelis, 1999</a>]. However, these informal notions are error-prone and differ from person to person. In order to describe space unambiguously, people have thus turned to models that still describe geographical phenomena, but do so using formal notions derived from mathematics. These formal models make it possible to create and store digital representations of the world in a computer, and thus to use the power of a computer to easily solve spatial problems [<a href="bibliography.html#Burrough86">Burrough, 1986</a>; <a href="bibliography.html#Bailey95">Bailey and Gatrell, 1995</a>]. 
 			</p>
@@ -88,11 +88,11 @@ locale_es: /en/thesis/resumen.html
 				 Since analytic geometry allows the description of objects as sets of points in \(\mathbb{R}^n\), as shown in <a href="#fig:boolean" id="fig:booleanref">Figure 2.4</a>, it is also possible to define objects based on Boolean set operations of their point sets.
 			</p>
 			<div class="row" id="fig:boolean">
-				<div class="col-sm-6 col-xs-6"><img src="figs/boolean.jpg" class="img-fluid" /><p class="small text-center">(a) \(\mathbb{A}\) (purple) and \(\mathbb{B}\) (blue)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/boolean-intersection.jpg" class="img-fluid" /><p class="small text-center">(b) Intersection: \(\mathbb{A} \cap \mathbb{B}\)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/boolean-union.jpg" class="img-fluid" /><p class="small text-center">(c) Union: \(\mathbb{A} \cup \mathbb{B}\)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/boolean-difference.jpg" class="img-fluid" /><p class="small text-center">(d) Difference: \(\mathbb{A} - \mathbb{B}\)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 2.4: Based on two balls \(\mathbb{A}\) and \(\mathbb{B}\), other objects that can be defined using Boolean set operations.<a href="#fig:booleanref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/boolean.jpg" class="img-fluid" /><p class="small text-center">(a) \(\mathbb{A}\) (purple) and \(\mathbb{B}\) (blue)</p></div>
+				<div class="col col-6"><img src="figs/boolean-intersection.jpg" class="img-fluid" /><p class="small text-center">(b) Intersection: \(\mathbb{A} \cap \mathbb{B}\)</p></div>
+				<div class="col col-6"><img src="figs/boolean-union.jpg" class="img-fluid" /><p class="small text-center">(c) Union: \(\mathbb{A} \cup \mathbb{B}\)</p></div>
+				<div class="col col-6"><img src="figs/boolean-difference.jpg" class="img-fluid" /><p class="small text-center">(d) Difference: \(\mathbb{A} - \mathbb{B}\)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 2.4: Based on two balls \(\mathbb{A}\) and \(\mathbb{B}\), other objects that can be defined using Boolean set operations.<a href="#fig:booleanref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h2 id="se:topology">2.3 Topology</h2> 
@@ -139,8 +139,8 @@ locale_es: /en/thesis/resumen.html
 				 Conceptually based on point-set topology, <em>algebraic topology</em>, also known as combinatorial topology, uses concepts from abstract algebra in order to analyse topological spaces. A famous early application involved the answer to the problem of the Seven Bridges of K&ouml;nigsberg by <a href="bibliography.html#Euler41">Euler [1741]</a>, explained in <a href="#fig:konigsberg" id="fig:konigsbergref">Figure 2.10</a>. However, the real foundations of the field were set when many of its concepts were formalised in algebraic form by <a href="bibliography.html#Poincare95">Poincar&eacute; [1895]</a>. 
 			</p>
 			<div class="row" id="fig:konigsberg">
-				<div class="col-sm-12"><img src="figs/konigsberg.jpg" class="img-fluid" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 2.10: The problem of the Seven Bridges of K&ouml;nigsberg asks whether it is possible to find a route through the city that would cross each bridge (highlighted in red) exactly once. <a href="bibliography.html#Euler41">Euler [1741]</a> proved that there is no such route in terms of a graph. Whenever one enters a piece of land by a bridge, one has to leave it by another bridge except at the beginning or end of the route. Thus, there must be an <em>even</em> number of bridges connected to all but (at most) two pieces of land. Since all pieces of land have an <em>odd</em> number of bridges, the problem has no solution. Based on an image from a 1613 engraving by Joachim Bering.<a href="#fig:konigsbergref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/konigsberg.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 2.10: The problem of the Seven Bridges of K&ouml;nigsberg asks whether it is possible to find a route through the city that would cross each bridge (highlighted in red) exactly once. <a href="bibliography.html#Euler41">Euler [1741]</a> proved that there is no such route in terms of a graph. Whenever one enters a piece of land by a bridge, one has to leave it by another bridge except at the beginning or end of the route. Thus, there must be an <em>even</em> number of bridges connected to all but (at most) two pieces of land. Since all pieces of land have an <em>odd</em> number of bridges, the problem has no solution. Based on an image from a 1613 engraving by Joachim Bering.<a href="#fig:konigsbergref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Algebraic topology works by relating topological spaces to groups with specific properties, often by creating combinatorial analogues of such spaces, from which their properties can be extracted using algebraic methods [<a href="bibliography.html#Henle94">Henle, 1994</a>], which can be applied algorithmically. As it uses discrete structures rather than continuous point sets, it is often more suited to computer implementations of topological concepts than point-set topology [<a href="bibliography.html#Worboys04">Worboys and Duckham 2004, &sect;3.3.5</a>]. 
@@ -149,8 +149,8 @@ locale_es: /en/thesis/resumen.html
 				 Two constructions of algebraic topology are widely used as the basis of GIS: <em>simplicial complexes</em> and <em>cell complexes</em>. An \(n\)-dimensional simplicial complex is a structure made of connected <em>simplices</em>, the simplest objects that can be built in any dimension. As shown in <a href="#fig:simplex" id="fig:simplexref">Figure 2.11</a>, an \(n\)-dimensional simplex (\(n\)-simplex) is a combinatorial primitive made from a set of \(n+1\) vertices. <a href="#fig:simplicescampus" id="fig:simplicescampusref">Figure 2.12</a> shows a group of buildings represented as a 3D simplicial complex. A 0D simplicial complex consists of a set of discrete points (i.e. a point cloud) and a 1D simplicial complex is a plane graph. A 2D simplicial complex is known as a <em>triangulation</em> and a 3D simplicial complex as a <em>tetrahedralisation</em>.
 			</p>
 			<div class="row" id="fig:simplicescampus">
-				<div class="col-sm-12"><img src="figs/simplicescampus.jpg" class="img-fluid" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 2.12: The buildings in the TU Delft campus are represented as a 3D simplicial complex, such that each separate building is a set of adjacent tetrahedra. Note that only the tetrahedra&rsquo;s edges are shown here.<a href="#fig:simplicescampusref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/simplicescampus.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 2.12: The buildings in the TU Delft campus are represented as a 3D simplicial complex, such that each separate building is a set of adjacent tetrahedra. Note that only the tetrahedra&rsquo;s edges are shown here.<a href="#fig:simplicescampusref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 A \(j\)-dimensional face (\(j\)-face) of an \(i\)-simplex, \(j < i\), is a \(j\)-simplex made from a proper subset of its vertices. Sometimes the dimension of the face is omitted and it can be deduced from the context, but in GIS it generally refers to each of the \(i+1\) \((i-1)\)-faces of an \(i\)-simplex. In the context of an \(i\)-dimensional simplicial complex, a face refers to each of the \(i\)-simplices in the complex, such as the triangles in a triangular mesh. 
@@ -169,8 +169,8 @@ locale_es: /en/thesis/resumen.html
 				 A cell complex is a structure made of connected <em>cells</em>, where an \(i\)-dimensional cell (\(i\)-cell) is an object homeomorphic to an open \(i\)-ball (i.e.  point, open arc, open disk and open ball). 0-cells are known as vertices, 1-cells as edges, 2-cells as faces and 3-cells as volumes. Considering only linear geometries, 1-cells are thus line segments, 2-cells polygons and 3-cells polyhedra. <a href="#fig:cellscampus" id="fig:cellscampusref">Figure 2.13</a> shows a group of buildings represented as a 3D cell complex.
 			</p>
 			<div class="row" id="fig:cellscampus">
-				<div class="col-sm-12"><img src="figs/cellscampus.jpg" class="img-fluid" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 2.13: The buildings in the TU Delft campus are represented as a 3D cell complex. All the 2-cells of a 3-cell are shown in the same colour, the 1-cells are shown as black lines.<a href="#fig:cellscampusref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/cellscampus.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 2.13: The buildings in the TU Delft campus are represented as a 3D cell complex. All the 2-cells of a 3-cell are shown in the same colour, the 1-cells are shown as black lines.<a href="#fig:cellscampusref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 A \(j\)-dimensional face (\(j\)-face) of an \(i\)-cell is a \(j\)-cell, \(j \leq i\), that lies on the boundary of the \(i\)-cell. A facet of an \(i\)-cell is an \((n-1)\)-face of the cell. As in a simplicial complex, two \(i\)-cells are said to be adjacent if they have a common facet, and an \(i\)-cell and a \(j\)-cell, \(i \neq j\), are said to be incident if either is a face of the other. In the context of an \(i\)-dimensional cell complex, a face refers to each of the \(i\)-cells in the complex, such as the polygons in a polygonal mesh. 
@@ -185,26 +185,22 @@ locale_es: /en/thesis/resumen.html
 				 For example, considering the Platonic solids in <a href="#fig:ps" id="fig:psref">Figure 2.14</a>, the tetrahedron is self-dual (i.e. it is dual to itself), the octahedron is dual to the cube (and vice versa), and the dodecahedron is dual to the icosahedron (and vice versa). This transformation can be seen by creating a new vertex at the centre point of the face of the Platonic solid, connecting these vertices when their dual faces are adjacent. The original vertices become faces whose number of vertices is equal to the number of originally incident faces.
 			</p>
 			<div class="row" id="fig:ps">
-				<div class="col-sm-1 col-xs-1"></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_tetrahedron.jpg" class="img-fluid" /></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_octahedron.jpg" class="img-fluid" /></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_hexahedron.jpg" class="img-fluid" /></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_dodecahedron.jpg" class="img-fluid" /></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_icosahedron.jpg" class="img-fluid" /></div>
-				<div class="col-sm-1 col-xs-1"></div>
+				<div class="col col-2 offset-1"><img src="figs/ps_tetrahedron.jpg" class="img-fluid" /></div>
+				<div class="col col-2"><img src="figs/ps_octahedron.jpg" class="img-fluid" /></div>
+				<div class="col col-2"><img src="figs/ps_hexahedron.jpg" class="img-fluid" /></div>
+				<div class="col col-2"><img src="figs/ps_dodecahedron.jpg" class="img-fluid" /></div>
+				<div class="col col-2"><img src="figs/ps_icosahedron.jpg" class="img-fluid" /></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-1 col-xs-1"></div>
-				<div class="col-sm-2 col-xs-2"><p class="small text-center">(a)</p></div>
-				<div class="col-sm-2 col-xs-2"><p class="small text-center">(b)</p></div>
-				<div class="col-sm-2 col-xs-2"><p class="small text-center">(c)</p></div>
-				<div class="col-sm-2 col-xs-2"><p class="small text-center">(d)</p></div>
-				<div class="col-sm-2 col-xs-2"><p class="small text-center">(e)</p></div>
-				<div class="col-sm-1 col-xs-1"></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 2.14: The Platonic solids are the five regular polyhedra that have regular polygonal faces: (a) tetrahedron, (b) octahedron, (c) cube or hexahedron, (d) dodecahedron, and (e) icosahedron. From Wikimedia Commons.<a href="#fig:psref">&#8617;</a></p></div>
+				<div class="col col-2 offset-1"><p class="small text-center">(a)</p></div>
+				<div class="col col-2"><p class="small text-center">(b)</p></div>
+				<div class="col col-2"><p class="small text-center">(c)</p></div>
+				<div class="col col-2"><p class="small text-center">(d)</p></div>
+				<div class="col col-2"><p class="small text-center">(e)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 2.14: The Platonic solids are the five regular polyhedra that have regular polygonal faces: (a) tetrahedron, (b) octahedron, (c) cube or hexahedron, (d) dodecahedron, and (e) icosahedron. From Wikimedia Commons.<a href="#fig:psref">&#8617;</a></p></div>
 			</div>
 		</div>
-		<div class="col col-12 col-sm-3">
+		<div class="col col-12 col-md-3">
 			<p id="fn8" class="small text-justify">
 				8. Even as some mathematicians and philosophers have argued against set theory as a foundation for all of mathematics.<a href="#fnref8">&#8617;</a>
 			</p>
@@ -241,9 +237,9 @@ locale_es: /en/thesis/resumen.html
 			<p id=fig:annulus><img src="figs/annulus.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2.8: An annulus with boundary partitions the Euclidean plane into three parts: its interior (yellow), its boundary (black) and its exterior (the rest of this page). Note that none of these necessarily have to be connected.</p>
 			<div class="row" id="fig:homeomorphism">
-				<div class="col-sm-12"><img src="figs/mug.jpg" class="img-fluid" /><p class="small text-center">(a) A coffee mug</p></div>
-				<div class="col-sm-12"><img src="figs/donut.jpg" class="img-fluid" /><p class="small text-center">(b) A donut</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 2.9: A coffee mug and a donut are homeomorphic<a href="#fn15" id="fnref15"><sup>15</sup></a>. Intuitively, this can be known as it is possible to deform one into the other. The mug was rendered from the model at <a href="http://www.thingiverse.com/thing:7953">http://www.thingiverse.com/thing:7953</a>.<a href="#fig:homeomorphismref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/mug.jpg" class="img-fluid" /><p class="small text-center">(a) A coffee mug</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/donut.jpg" class="img-fluid" /><p class="small text-center">(b) A donut</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 2.9: A coffee mug and a donut are homeomorphic<a href="#fn15" id="fnref15"><sup>15</sup></a>. Intuitively, this can be known as it is possible to deform one into the other. The mug was rendered from the model at <a href="http://www.thingiverse.com/thing:7953">http://www.thingiverse.com/thing:7953</a>.<a href="#fig:homeomorphismref">&#8617;</a></p></div>
 			</div>
 			<p id="fn15" class="small text-justify">
 				15. Related to the joke: &lsquo;A topologist is a mathematician who can&rsquo;t tell the difference between a coffee mug and a donut&rsquo;.<a href="#fnref15">&#8617;</a>
@@ -259,8 +255,8 @@ locale_es: /en/thesis/resumen.html
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="introduction.html"><i class="fa fa-angle-double-left"></i> 1 Introduction</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="modelling-background.html">3 Modelling of 2D/3D space, time, scale and attributes <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="introduction.html"><i class="fa fa-angle-double-left"></i> 1 Introduction</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="modelling-background.html">3 Modelling of 2D/3D space, time, scale and attributes <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>
