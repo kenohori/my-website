@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">2 Mathematical foundations of spatial modelling</li>
-	</ol>
-	<div class="page-header">
-		<h1>2 Mathematical foundations of spatial modelling</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">2 Mathematical foundations of spatial modelling</li>
+		</ol>
+	</nav>
+	<h1>2 Mathematical foundations of spatial modelling</h1>
 	<div class="row">
-		<div class="col-sm-9">
+		<div class="col col-12 col-sm-9">
 			<p class="text-justify">
 				 Spatial modelling has its origins in the geographical notion of space, which is in turn based on our own observations of the world and empirical experience [<a href="bibliography.html#Couclelis99">Couclelis, 1999</a>]. However, these informal notions are error-prone and differ from person to person. In order to describe space unambiguously, people have thus turned to models that still describe geographical phenomena, but do so using formal notions derived from mathematics. These formal models make it possible to create and store digital representations of the world in a computer, and thus to use the power of a computer to easily solve spatial problems [<a href="bibliography.html#Burrough86">Burrough, 1986</a>; <a href="bibliography.html#Bailey95">Bailey and Gatrell, 1995</a>]. 
 			</p>
@@ -88,10 +88,10 @@ locale_es: /en/thesis/resumen.html
 				 Since analytic geometry allows the description of objects as sets of points in \(\mathbb{R}^n\), as shown in <a href="#fig:boolean" id="fig:booleanref">Figure 2.4</a>, it is also possible to define objects based on Boolean set operations of their point sets.
 			</p>
 			<div class="row" id="fig:boolean">
-				<div class="col-sm-6 col-xs-6"><img src="figs/boolean.jpg" class="img-responsive" /><p class="small text-center">(a) \(\mathbb{A}\) (purple) and \(\mathbb{B}\) (blue)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/boolean-intersection.jpg" class="img-responsive" /><p class="small text-center">(b) Intersection: \(\mathbb{A} \cap \mathbb{B}\)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/boolean-union.jpg" class="img-responsive" /><p class="small text-center">(c) Union: \(\mathbb{A} \cup \mathbb{B}\)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/boolean-difference.jpg" class="img-responsive" /><p class="small text-center">(d) Difference: \(\mathbb{A} - \mathbb{B}\)</p></div>
+				<div class="col-sm-6 col-xs-6"><img src="figs/boolean.jpg" class="img-fluid" /><p class="small text-center">(a) \(\mathbb{A}\) (purple) and \(\mathbb{B}\) (blue)</p></div>
+				<div class="col-sm-6 col-xs-6"><img src="figs/boolean-intersection.jpg" class="img-fluid" /><p class="small text-center">(b) Intersection: \(\mathbb{A} \cap \mathbb{B}\)</p></div>
+				<div class="col-sm-6 col-xs-6"><img src="figs/boolean-union.jpg" class="img-fluid" /><p class="small text-center">(c) Union: \(\mathbb{A} \cup \mathbb{B}\)</p></div>
+				<div class="col-sm-6 col-xs-6"><img src="figs/boolean-difference.jpg" class="img-fluid" /><p class="small text-center">(d) Difference: \(\mathbb{A} - \mathbb{B}\)</p></div>
 				<div class="col-sm-12"><p class="small text-justify">Figure 2.4: Based on two balls \(\mathbb{A}\) and \(\mathbb{B}\), other objects that can be defined using Boolean set operations.<a href="#fig:booleanref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
@@ -139,7 +139,7 @@ locale_es: /en/thesis/resumen.html
 				 Conceptually based on point-set topology, <em>algebraic topology</em>, also known as combinatorial topology, uses concepts from abstract algebra in order to analyse topological spaces. A famous early application involved the answer to the problem of the Seven Bridges of K&ouml;nigsberg by <a href="bibliography.html#Euler41">Euler [1741]</a>, explained in <a href="#fig:konigsberg" id="fig:konigsbergref">Figure 2.10</a>. However, the real foundations of the field were set when many of its concepts were formalised in algebraic form by <a href="bibliography.html#Poincare95">Poincar&eacute; [1895]</a>. 
 			</p>
 			<div class="row" id="fig:konigsberg">
-				<div class="col-sm-12"><img src="figs/konigsberg.jpg" class="img-responsive" /></div>
+				<div class="col-sm-12"><img src="figs/konigsberg.jpg" class="img-fluid" /></div>
 				<div class="col-sm-12"><p class="small text-justify">Figure 2.10: The problem of the Seven Bridges of K&ouml;nigsberg asks whether it is possible to find a route through the city that would cross each bridge (highlighted in red) exactly once. <a href="bibliography.html#Euler41">Euler [1741]</a> proved that there is no such route in terms of a graph. Whenever one enters a piece of land by a bridge, one has to leave it by another bridge except at the beginning or end of the route. Thus, there must be an <em>even</em> number of bridges connected to all but (at most) two pieces of land. Since all pieces of land have an <em>odd</em> number of bridges, the problem has no solution. Based on an image from a 1613 engraving by Joachim Bering.<a href="#fig:konigsbergref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
@@ -149,7 +149,7 @@ locale_es: /en/thesis/resumen.html
 				 Two constructions of algebraic topology are widely used as the basis of GIS: <em>simplicial complexes</em> and <em>cell complexes</em>. An \(n\)-dimensional simplicial complex is a structure made of connected <em>simplices</em>, the simplest objects that can be built in any dimension. As shown in <a href="#fig:simplex" id="fig:simplexref">Figure 2.11</a>, an \(n\)-dimensional simplex (\(n\)-simplex) is a combinatorial primitive made from a set of \(n+1\) vertices. <a href="#fig:simplicescampus" id="fig:simplicescampusref">Figure 2.12</a> shows a group of buildings represented as a 3D simplicial complex. A 0D simplicial complex consists of a set of discrete points (i.e. a point cloud) and a 1D simplicial complex is a plane graph. A 2D simplicial complex is known as a <em>triangulation</em> and a 3D simplicial complex as a <em>tetrahedralisation</em>.
 			</p>
 			<div class="row" id="fig:simplicescampus">
-				<div class="col-sm-12"><img src="figs/simplicescampus.jpg" class="img-responsive" /></div>
+				<div class="col-sm-12"><img src="figs/simplicescampus.jpg" class="img-fluid" /></div>
 				<div class="col-sm-12"><p class="small text-justify">Figure 2.12: The buildings in the TU Delft campus are represented as a 3D simplicial complex, such that each separate building is a set of adjacent tetrahedra. Note that only the tetrahedra&rsquo;s edges are shown here.<a href="#fig:simplicescampusref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
@@ -169,7 +169,7 @@ locale_es: /en/thesis/resumen.html
 				 A cell complex is a structure made of connected <em>cells</em>, where an \(i\)-dimensional cell (\(i\)-cell) is an object homeomorphic to an open \(i\)-ball (i.e.  point, open arc, open disk and open ball). 0-cells are known as vertices, 1-cells as edges, 2-cells as faces and 3-cells as volumes. Considering only linear geometries, 1-cells are thus line segments, 2-cells polygons and 3-cells polyhedra. <a href="#fig:cellscampus" id="fig:cellscampusref">Figure 2.13</a> shows a group of buildings represented as a 3D cell complex.
 			</p>
 			<div class="row" id="fig:cellscampus">
-				<div class="col-sm-12"><img src="figs/cellscampus.jpg" class="img-responsive" /></div>
+				<div class="col-sm-12"><img src="figs/cellscampus.jpg" class="img-fluid" /></div>
 				<div class="col-sm-12"><p class="small text-justify">Figure 2.13: The buildings in the TU Delft campus are represented as a 3D cell complex. All the 2-cells of a 3-cell are shown in the same colour, the 1-cells are shown as black lines.<a href="#fig:cellscampusref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
@@ -186,11 +186,11 @@ locale_es: /en/thesis/resumen.html
 			</p>
 			<div class="row" id="fig:ps">
 				<div class="col-sm-1 col-xs-1"></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_tetrahedron.jpg" class="img-responsive" /></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_octahedron.jpg" class="img-responsive" /></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_hexahedron.jpg" class="img-responsive" /></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_dodecahedron.jpg" class="img-responsive" /></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/ps_icosahedron.jpg" class="img-responsive" /></div>
+				<div class="col-sm-2 col-xs-2"><img src="figs/ps_tetrahedron.jpg" class="img-fluid" /></div>
+				<div class="col-sm-2 col-xs-2"><img src="figs/ps_octahedron.jpg" class="img-fluid" /></div>
+				<div class="col-sm-2 col-xs-2"><img src="figs/ps_hexahedron.jpg" class="img-fluid" /></div>
+				<div class="col-sm-2 col-xs-2"><img src="figs/ps_dodecahedron.jpg" class="img-fluid" /></div>
+				<div class="col-sm-2 col-xs-2"><img src="figs/ps_icosahedron.jpg" class="img-fluid" /></div>
 				<div class="col-sm-1 col-xs-1"></div>
 			</div>
 			<div class="row">
@@ -204,7 +204,7 @@ locale_es: /en/thesis/resumen.html
 				<div class="col-sm-12"><p class="small text-justify">Figure 2.14: The Platonic solids are the five regular polyhedra that have regular polygonal faces: (a) tetrahedron, (b) octahedron, (c) cube or hexahedron, (d) dodecahedron, and (e) icosahedron. From Wikimedia Commons.<a href="#fig:psref">&#8617;</a></p></div>
 			</div>
 		</div>
-		<div class="col-sm-3">
+		<div class="col col-12 col-sm-3">
 			<p id="fn8" class="small text-justify">
 				8. Even as some mathematicians and philosophers have argued against set theory as a foundation for all of mathematics.<a href="#fnref8">&#8617;</a>
 			</p>
@@ -217,38 +217,38 @@ locale_es: /en/thesis/resumen.html
 			<p id="fn11" class="small text-justify">
 				11. Non-Euclidean geometry does away with some of these axioms while remaining self-consistent [<a href="bibliography.html#Bolyai32">Bolyai, 1832</a>; <a href="bibliography.html#Lobachevsky40">Lobachevsky, 1840</a>]. However, it is much less relevant in the context of spatial modelling.<a href="#fnref11">&#8617;</a>
 			</p>
-			<p id=fig:line><img src="figs/line.svg" class="img-responsive"></p>
+			<p id=fig:line><img src="figs/line.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2.1: There is exactly one line that passes through any pair of points.<a href="#fig:lineref">&#8617;</a></p>
 			<p id="fn12" class="small text-justify">
 				12. A more rigorous and correct explanation would be based on a set of linearly independent vectors, but this creates a recursive definition.<a href="#fnref12">&#8617;</a>
 			</p>
-			<p id=fig:point><img src="figs/point.svg" class="img-responsive"></p>
+			<p id=fig:point><img src="figs/point.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2.2: A point \(p\) in 3D described by a treble \((p_x,p_y,p_z)\)<a href="#fig:pointref">&#8617;</a></p>
-			<p id=fig:halfspaces><img src="figs/halfspaces.jpg" class="img-responsive"></p>
+			<p id=fig:halfspaces><img src="figs/halfspaces.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2.3: A plane separates \(\mathbb{R}^3\) into two parts on either side of it.<a href="#fig:halfspacesref">&#8617;</a></p>
 			<p id="fn13" class="small text-justify">
 				13. This hides the fact that using real numbers in a computer is very difficult in practice, thus floating-point approximations are generally used instead [<a href="bibliography.html#Goldberg91">Goldberg, 1991</a>]. The main consequences of this in spatial modelling are discussed in <a href="implementation.html#se:computerarithmetic">&sect;A.2</a>.<a href="#fnref13">&#8617;</a>
 			</p>
-			<p id=fig:pointset><img src="figs/pointset.svg" class="img-responsive"></p>
+			<p id=fig:pointset><img src="figs/pointset.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2.5: The rectangle \(\mathbb{A}\) is represented by the set of points where \(1 \leq x \leq 4\) and \(1 \leq y \leq 3\). In more compact (set builder) notation, \(\mathbb{A} = \left\{ (x,y) \middle| x \in [1,4] \wedge y \in [1,3] \right\}\). For the other objects, rectangle \(\mathbb{B} = \left\{ (x,y) \middle| x \in [2,3] \wedge y \in [1,2] \right\}\), point \(a \in \mathbb{A}\), point \(b \in \mathbb{B}\) and point \(b \in \mathbb{A}\). \(\mathbb{B}\) is a subset of \(\mathbb{A}\) (i.e. \(\mathbb{B} \subset \mathbb{A}\)).<a href="#fig:pointsetref">&#8617;</a></p>
 			<p id="fn14" class="small text-justify">
 				14. Note that there are alternative definitions based on the concepts of closed sets or of neighbourhoods [<a href="bibliography.html#Hausdorff14">Hausdorff, 1914</a>]. For a simple definition using neighbourhoods in a GIS context see <a href="bibliography.html#Worboys04">Worboys and Duckham [2004, &sect;3.2.2]</a> <a href="#fnref14">&#8617;</a>
 			</p>
-			<p id=fig:intervals><img src="figs/intervals.svg" class="img-responsive"></p>
+			<p id=fig:intervals><img src="figs/intervals.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2.6: An open interval \(\mathbb{C} = (0,3) = \left\{x \middle| 0 < x < 3 \right\}\) does not include its endpoints. By contrast, a closed interval \(\mathbb{D} = [0,3] = \left\{x \middle| 0 \leq x \leq 3 \right\}\) includes its endpoints.<a href="#fig:intervalsref">&#8617;</a></p>
-			<p id=fig:unitopendisk><img src="figs/unitopendisk.svg" class="img-responsive"></p>
+			<p id=fig:unitopendisk><img src="figs/unitopendisk.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2.7: The unit open disk, i.e. an open disk of radius 1 centred at the origin can be defined as \(\mathbb{D} = \left\{ x \in \mathbb{R}^2 \middle| \| x \| < 1 \right\}\).<a href="#fig:unitopendiskref">&#8617;</a></p>
-			<p id=fig:annulus><img src="figs/annulus.svg" class="img-responsive"></p>
+			<p id=fig:annulus><img src="figs/annulus.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2.8: An annulus with boundary partitions the Euclidean plane into three parts: its interior (yellow), its boundary (black) and its exterior (the rest of this page). Note that none of these necessarily have to be connected.</p>
 			<div class="row" id="fig:homeomorphism">
-				<div class="col-sm-12"><img src="figs/mug.jpg" class="img-responsive" /><p class="small text-center">(a) A coffee mug</p></div>
-				<div class="col-sm-12"><img src="figs/donut.jpg" class="img-responsive" /><p class="small text-center">(b) A donut</p></div>
+				<div class="col-sm-12"><img src="figs/mug.jpg" class="img-fluid" /><p class="small text-center">(a) A coffee mug</p></div>
+				<div class="col-sm-12"><img src="figs/donut.jpg" class="img-fluid" /><p class="small text-center">(b) A donut</p></div>
 				<div class="col-sm-12"><p class="small text-justify">Figure 2.9: A coffee mug and a donut are homeomorphic<a href="#fn15" id="fnref15"><sup>15</sup></a>. Intuitively, this can be known as it is possible to deform one into the other. The mug was rendered from the model at <a href="http://www.thingiverse.com/thing:7953">http://www.thingiverse.com/thing:7953</a>.<a href="#fig:homeomorphismref">&#8617;</a></p></div>
 			</div>
 			<p id="fn15" class="small text-justify">
 				15. Related to the joke: &lsquo;A topologist is a mathematician who can&rsquo;t tell the difference between a coffee mug and a donut&rsquo;.<a href="#fnref15">&#8617;</a>
 			</p>
-			<p id=fig:simplex><img src="figs/simplex.jpg" class="img-responsive"></p>
+			<p id=fig:simplex><img src="figs/simplex.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2.11: An \(n\)-dimensional simplex is a combinatorial primitive made from a set of \(n+1\) vertices. A 0-simplex is thus a point, a 1-simplex is a line segment, a 2-simplex is a triangle, and a 3-simplex is a tetrahedron. Here they are shown as if embedded in \(\mathbb{R^3}\).<a href="#fig:simplexref">&#8617;</a></p>
 			<p id="fn16" class="small text-justify">
 				16. Note that this implies a definition where a simplex contains its boundary.<a href="#fnref16">&#8617;</a>
