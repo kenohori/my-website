@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">6 Extrusion</li>
-	</ol>
-	<div class="page-header">
-		<h1>6 Extrusion</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">6 Extrusion</li>
+		</ol>
+	</nav>
+	<h1>6 Extrusion</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 Extrusion is a commonly used technique in GIS to construct simple 3D models. Starting from a planar partition of polygons and a height interval associated to each of them, it generates a set of space-partitioning box-shaped polyhedra by considering that each polygon exists all along its related interval. For instance, a set of building footprints and associated heights is extruded into a set of simple prismatic buildings. Based on the fundamental operations on generalised and combinatorial maps discussed in <a href="operations-background.html">Chapter 5</a>, this chapter presents a generalisation of this technique to higher dimensions: an \((n-1)\)-dimensional cell complex and a set of associated intervals per \((n-1)\)-cell is thus transformed into an \(n\)-dimensional cell complex. 
 			</p>
@@ -35,8 +35,8 @@ locale_es: /en/thesis/resumen.html
 				 Extrusion is most commonly used in GIS<a href="#fn92" id="fnref92"><sup>92</sup></a> in order to create simple 3D city models with box-shaped buildings. In such a process, a user takes a set of building footprints, optionally subdivided into parts of similar height, and extrudes them using intervals that extend from the ground level to the building height at the location of each polygon. This process thus creates simple 3D representations of each building, where a building is represented by one or more box-shaped polyhedra. <a href="#fig:3dtop10nl" id="fig:3dtop10nlref">Figure 6.1</a> shows an example of such a model over a triangulated terrain (i.e.  a 2D simplicial complex embedded in 3D).
 			</p>
 			<div class="row" id="fig:3dtop10nl">
-				<div class="col-sm-12"><img src="figs/3dtop10nl.jpg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.1: A view of the 3D TOP10NL dataset<a href="#fn93" id="fnref93"><sup>93</sup></a> in the area of Valkenburg, the Netherlands.<a href="#fig:3dtop10nlref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/3dtop10nl.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.1: A view of the 3D TOP10NL dataset<a href="#fn93" id="fnref93"><sup>93</sup></a> in the area of Valkenburg, the Netherlands.<a href="#fig:3dtop10nlref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Such an extrusion process is appealing largely because of its simplicity. All the information that is required for the previous example is notoriously easy to obtain: building footprints are widely available&mdash;including in open datasets such as OpenStreetMap<a href="#fn94" id="fnref94"><sup>94</sup></a>&mdash;or can be easily obtained from satellite imagery, while the height information can be acquired with techniques like airborne laser scanning or photogrammetry. Not coincidentally, this type of 3D models are commonly generated in practice and often appear in standards such as CityGML [<a href="bibliography.html#CityGML2">Gr&ouml;ger et al., 2012</a>], where it is defined as the level of detail (LOD) 1. 
@@ -51,9 +51,9 @@ locale_es: /en/thesis/resumen.html
 				 Viewed at a more fundamental level, shown in <a href="#fig:extrusion" id="fig:extrusionref">Figure 6.2</a>, extrusion &lsquo;lifts&rsquo; a 2D cell complex to form a 3D cell complex. In order to form a valid cell complex as defined in <a href="math.html#ss:algebraic-topology">&sect;2.3.2</a>, cells must not overlap, but instead they should form a structure of cells of dimension from 0 to 3, where \(i\)-cells (\(\forall i > 0\)) are bounded by sets of \((i-1)\)-cells. The extruded cells must therefore take into account the incidence and adjacency relationships between cells, splitting cells of every dimension at the places where the common boundaries of higher-dimensional cells start and end.
 			</p>
 			<div class="row" id="fig:extrusion">
-				<div class="col-sm-6 col-xs-6"><img src="figs/extrusion-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/extrusion-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.2: (a) A 2D cell complex, where each 2-cell is associated with a height, is extruded to generate (b) a 3D cell complex. Note how the extrusion of vertex \(v\) in (a) causes the generation of several vertices and edges. In particular, the vertex \(v^\prime\) in (b), which is at the height of the top face of the back left polyhedron. This vertex needs to be used in the representation of the all 4 edges, 5 faces and 3 volumes that are incident to it, not only in those that are part of the back left polyhedron. This ensures that the cells in (b) are pairwise disjoint and have the expected correct topology.<a href="#fig:extrusionref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/extrusion-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/extrusion-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.2: (a) A 2D cell complex, where each 2-cell is associated with a height, is extruded to generate (b) a 3D cell complex. Note how the extrusion of vertex \(v\) in (a) causes the generation of several vertices and edges. In particular, the vertex \(v^\prime\) in (b), which is at the height of the top face of the back left polyhedron. This vertex needs to be used in the representation of the all 4 edges, 5 faces and 3 volumes that are incident to it, not only in those that are part of the back left polyhedron. This ensures that the cells in (b) are pairwise disjoint and have the expected correct topology.<a href="#fig:extrusionref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Extrusion, in the sense of its GIS definition as exposed in the previous paragraph, has a natural extension to higher dimensions. A dimension-independent extrusion operation thus &lsquo;lifts&rsquo; an \((n-1)\)-dimensional cell complex, to an \(n\)-dimensional cell complex by assigning one or more intervals to each \((n-1)\)-cell, i.e. a subset of 1D Euclidean space<a href="#fn95" id="fnref95"><sup>95</sup></a>, along which this cell is defined. For instance, just as a polygon representing the footprint of a building is commonly extruded using an interval \((0, height)\), a polyhedron representing a building can be extruded along the time interval \((construction, destruction)\). As <a href="#fig:Frauenkirche" id="fig:Frauenkircheref">Figure 6.3</a> shows, extrusion using multiple unconnected intervals is also a possible use case.
@@ -68,9 +68,9 @@ locale_es: /en/thesis/resumen.html
 				 The dimension-independent extrusion algorithm requires two input arguments: an \((n-1)\)-dimensional space partition of \((n-1)\)-polytopes embedded into \((n-1)\)-dimensional space, stored as an \((n-1)\)-dimensional generalised map \(G\); and a map of extrusion intervals \(\rho\)<a href="#fn96" id="fnref96"><sup>96</sup></a> that links each \((n-1)\)-cell \(c\) in \(G\) to a set \(R\) of 1-dimensional intervals, where every interval \(r\) in \(R\) is represented as a pair of values \((r_{\min}, r_{\max})\) where \(c\) is extruded along the \(n\)-th dimension. The intervals in \(\rho\) for the cells of lower dimension do not need to be given, since they can be computed by the algorithm based on their incidence relationships to the \((n-1)\)-cells. Note that, as <a href="#fig:extrusion-intervals" id="fig:extrusion-intervalsref">Figure 6.4</a> shows, multiple intervals for the same cell are possible. 
 			</p>
 			<div class="row" id="fig:extrusion-intervals">
-				<div class="col-sm-6 col-xs-6"><img src="figs/intervals-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/intervals-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.4: All the cells are given extrusion intervals based on the intervals for the \((n-1)\)-cells. Note how it is possible to have multiple intervals per cell both in the input, e.g. the purple square on the right is extruded along two intervals, and in the output, e.g. the two edges \(v^{(0,1)}\), \(v^{(1.5,2)}\) and \(v^{(2,3)}\) are the result of the extrusion of a single vertex \(v\) whose extrusion interval was not directly given.<a href="#fig:extrusion-intervalsref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/intervals-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/intervals-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.4: All the cells are given extrusion intervals based on the intervals for the \((n-1)\)-cells. Note how it is possible to have multiple intervals per cell both in the input, e.g. the purple square on the right is extruded along two intervals, and in the output, e.g. the two edges \(v^{(0,1)}\), \(v^{(1.5,2)}\) and \(v^{(2,3)}\) are the result of the extrusion of a single vertex \(v\) whose extrusion interval was not directly given.<a href="#fig:extrusion-intervalsref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 There are two cases in which a cell has multiple intervals. One of these is that for an \((n-1)\)-dimensional cell, multiple intervals may be explicitly provided in the input (e.g. the example previously given in <a href="#fig:Frauenkirche" id="fig:Frauenkircheref">Figure 6.3</a>). The other case is that for a lower-dimensional cell, multiple extrusion intervals may be passed to it by several adjacent higher-dimensional cells. 
@@ -86,14 +86,14 @@ locale_es: /en/thesis/resumen.html
 				 </ul>
 			</p>
 			<div class="row" id="fig:trianglecomplex">
-				<div class="col-sm-6 col-xs-6"><img src="figs/trianglecomplex-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/trianglecomplex-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.5: Extruding the embeddings of an \(i\)-cell \(c\) along a single interval \(r = (a,b)\) such that \(a,b \in \mathbb{R}, a \neq b\), generates the embeddings of three cells: two \(i\)-cells \(c^{a}\) and \(c^{b}\), and an \((i+1)\)-cell \(c^{r} = c^{(a,b)}\) lying between them.<a href="#fig:trianglecomplexref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/trianglecomplex-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/trianglecomplex-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.5: Extruding the embeddings of an \(i\)-cell \(c\) along a single interval \(r = (a,b)\) such that \(a,b \in \mathbb{R}, a \neq b\), generates the embeddings of three cells: two \(i\)-cells \(c^{a}\) and \(c^{b}\), and an \((i+1)\)-cell \(c^{r} = c^{(a,b)}\) lying between them.<a href="#fig:trianglecomplexref">&#8617;</a></p></div>
 			</div>
 			<div class="row" id="fig:blockscomplex">
-				<div class="col-sm-6 col-xs-6"><img src="figs/blockscomplex-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/blockscomplex-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.6: Extruding a 2D cell complex using an interval that is defined per 2-cell. The facet \(f_0\) is to be extruded along the interval \(r_0 = (a,c)\) and \(f_1\) along \(r_1 = (a,b)\). Note how the vertices and edges incident to multiple facets in the input are extruded along the intervals of these facets, generating a series of cells connecting the end points of their intervals.<a href="#fig:blockscomplexref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/blockscomplex-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/blockscomplex-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.6: Extruding a 2D cell complex using an interval that is defined per 2-cell. The facet \(f_0\) is to be extruded along the interval \(r_0 = (a,c)\) and \(f_1\) along \(r_1 = (a,b)\). Note how the vertices and edges incident to multiple facets in the input are extruded along the intervals of these facets, generating a series of cells connecting the end points of their intervals.<a href="#fig:blockscomplexref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 For the combinatorial structure, the algorithm takes advantage of the fact that the darts in the generalised map \(G\) can be extruded largely independently based on querying the combinatorial structure of \(G\) and simple 1D geometric queries along the \(n\)-th dimension. Intuitively, the extrusion of a single \((n-1)\)-simplex in \(G\) consists of layers of \(n\)-simplices that are &lsquo;stacked&rsquo; so as to form one part of the prism-shaped output. Each new layer corresponds to a new \(n\)-simplex that shares all but one of the nodes with the \(n\)-simplex below it. 
@@ -193,9 +193,9 @@ locale_es: /en/thesis/resumen.html
 				 The extrusion of a <em>single</em> dart in the input map \(G\) along a single interval \(r = (r_{\min}, r_{\max})\) generates a series of connected darts in \(G^\prime\) connected by a sequence of involutions \(\alpha_{n-1}, \alpha_{n-2}, \ldots, \alpha_{1}, \alpha_{0}, \alpha_{1}, \ldots, \alpha_{n-2}, \alpha_{n-1}\). Intuitively, these are equivalent to stacked \(n\)-simplices that together form a prism<a href="#fn97" id="fnref97"><sup>97</sup></a>. <a href="#fig:triangle" id="fig:triangleref">Figure 6.8</a> shows a simple extrusion of the cell complex from <a href="#fig:trianglecomplex" id="fig:trianglecomplexref">Figure 6.5</a> including all its darts. 
 			</p>
 			<div class="row" id="fig:triangle">
-				<div class="col-sm-6 col-xs-6"><img src="figs/triangle-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/triangle-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.8: The darts in the cell complexes in <a href="#fig:trianglecomplex" id="fig:trianglecomplexref">Figure 6.5</a>. Note that one can obtain a dart&rsquo;s representation as a simplex by considering additional nodes at its corresponding facet and one in the interior of the volume.<a href="#fig:triangleref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/triangle-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/triangle-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.8: The darts in the cell complexes in <a href="#fig:trianglecomplex" id="fig:trianglecomplexref">Figure 6.5</a>. Note that one can obtain a dart&rsquo;s representation as a simplex by considering additional nodes at its corresponding facet and one in the interior of the volume.<a href="#fig:triangleref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Since two darts connected by an \(\alpha_i\) involution share all but the \(i\)-th node, and the \(i\)-th node in a generalised map means that a dart belongs to a certain \(i\)-cell<a href="#fn98" id="fnref98"><sup>98</sup></a>, this series of darts represents a succession of simplices that progressively change from the cells at the &lsquo;base&rsquo; (at \(r_{\min}\)) to those at the &lsquo;side&rsquo; (at the interval \((r_{\min}, r_{\max})\)) to those at the &lsquo;top&rsquo; (at \(r_{\max}\)). This can be more clearly seen in <a href="#fig:stack" id="fig:stackref">Figure 6.9</a>. As the pattern that is followed in each stack of darts in \(G^\prime\) is the same for all the darts in \(G\), assuming that their extrusion intervals are the same, they can also be expressed in terms of the dart in \(G\) being extruded and their position in the stack. The darts at a certain level in the stack are thus called a <em>layer</em>, and various functions will map an input dart in \(G\) to the equivalent dart at a specific layer in \(G^\prime\). 
@@ -210,11 +210,11 @@ locale_es: /en/thesis/resumen.html
 				 As shown by <a href="bibliography.html#Ferrucci93">Ferrucci [1993]</a>, when multiple intervals are involved this procedure can simply be repeated for all intervals, assuming that these have all been subdivided so as not to intersect one another. However, it is possible to greatly reduce the number of darts generated by skipping the creation of some of the darts. This is possible because the extrusion intervals have been independently propagated to each cell of every dimension. Based on the algorithm, the lower-dimensional cells in the complex have received all the intervals from their incident higher-dimensional cells so that the intervals in the lower-dimensional cells contain all the endpoints of the intervals of their incidences. However, the same is not true in the opposite direction: the intervals for the higher-dimensional cells have not been subdivided so as to contain all the ones of their incident lower-dimensional cells. Nevertheless, as <a href="#fig:blocks" id="fig:blocksref">Figure 6.10</a> shows, even when an extrusion interval that would be used by the pattern described above is not in a cell, it is possible to map it to a <em>bigger</em> interval that contains it. If one considers the darts that would be generated using the above mentioned approach for all the non-intersecting intervals in the cell complex, but at the same time mapping the non-existent extrusion intervals to their immediately bigger containing ones, this can result in many darts that are equivalent (i.e.  they have nodes at the same cells). These darts are those that can be skipped during the extrusion process.
 			</p>
 			<div class="row" id="fig:blocks">
-				<div class="col-sm-6 col-xs-6"><img src="figs/blocks-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/blocks-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6"><img src="figs/blocks-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/blocks-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.10: The darts in the cell complexes in <a href="#fig:blockscomplex" id="fig:blockscomplexref">Figure 6.10</a>. Note that the darts of the right cube in (b), when viewed as individual stacks, are similar to the ones in Figures <a href="#fig:triangle">6.8</a> and <a href="#fig:stack">6.9</a>. The darts of the left box are however different: those on the left all involve an extrusion along the interval \((a,c)\) due to the fact that there is no vertex, edge or facet extruded to \(b\). On the other hand, those in the right do have a vertex and an edge at \(b\), but not a facet and still belong to the same volume.<a href="#fig:blocksref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.10: The darts in the cell complexes in <a href="#fig:blockscomplex" id="fig:blockscomplexref">Figure 6.10</a>. Note that the darts of the right cube in (b), when viewed as individual stacks, are similar to the ones in Figures <a href="#fig:triangle">6.8</a> and <a href="#fig:stack">6.9</a>. The darts of the left box are however different: those on the left all involve an extrusion along the interval \((a,c)\) due to the fact that there is no vertex, edge or facet extruded to \(b\). On the other hand, those in the right do have a vertex and an edge at \(b\), but not a facet and still belong to the same volume.<a href="#fig:blocksref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Therefore, in order to generate the darts for all intervals of all cells, this procedure is repeated for all the intervals in \(\rho\), after making them non-intersecting using the same procedure delineated in <a href="#ss:propagation">&sect;6.2.1</a>, and skipping all the darts that would be equivalent to those that have already been created. This is done using a sweep-hyperplane-like algorithm that generates up to \(n\) layers of darts at the events at the beginning or end of an interval, creating darts only when the sweep-hyperplane<a href="#fn99" id="fnref99"><sup>99</sup></a> passes by the beginning or end of their extrusion intervals (i.e.  not while it is in their interior). The darts are linked to their appropriate embedding according to the same pattern. The complete procedure to generate the combinatorial structure is presented in <a href="#algo:gmapextrusion">Algorithm 3</a>, which uses the <a href="#algo:gmaplayerbase">Algorithm 4</a> when the sweep hyperplane passes by the beginning of an interval and the similar <a href="#algo:gmaplayertop">Algorithm 5</a> when the sweep hyperplane by the end of one. If an input dart is denoted as \(d\), its corresponding dart in the currently being generated layer of the output is denoted as \(cur(d)\), the dart linked to \(d\) by an \(i\)-involution as \(\alpha_{i}(d)\), and the \(i\)-embedding of \(d\) as \(e_{i}(d)\). 
@@ -362,19 +362,19 @@ locale_es: /en/thesis/resumen.html
 				 One test involved the Aula Congress Centre in Delft, a building represented by a single polygon with 14 vertices extracted from the GBKN dataset<a href="#fn103" id="fnref103"><sup>103</sup></a>, as shown in <a href="#fig:aula-ex" id="fig:aula-exref">Figure 6.11</a>. It was extruded from 2D up to 5D using some manually added attributes: its height, construction date and a specified level of detail for the model. <a href="#fig:aula4d" id="fig:aula4dref">Figure 6.12</a> shows the extruded model at an intermediate stage in this process, in 4D. The end result was a generalised map with 80 640 darts, 112 vertices, 280 edges, 260 facets, 110 volumes, 20 4-cells and 1 5-cell. It was generated in 3 seconds using 15 MB of RAM.
 			</p>
 			<div class="row" id="fig:boolean">
-				<div class="col-sm-4 col-xs-4"><img src="figs/aula4d-ends.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/aula4d-sides.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/aula4d-top-bottom.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.12: The footprint of the Aula Congress Centre (<a href="#fig:aula-ex" id="fig:aula-exref">Figure 6.11</a>) extruded twice to create a 4D model. It is shown here in three parts for clarity: (a) the faces in the two end volumes, (b) the lateral faces connecting corresponding vertical edges, and (c) the top and bottom faces connecting corresponding horizontal edges. Not shown here are the 16 different polyhedra that bound the polychoron and which are all bounded by different sets of these faces.<a href="#fig:booleanref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/aula4d-ends.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/aula4d-sides.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/aula4d-top-bottom.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.12: The footprint of the Aula Congress Centre (<a href="#fig:aula-ex" id="fig:aula-exref">Figure 6.11</a>) extruded twice to create a 4D model. It is shown here in three parts for clarity: (a) the faces in the two end volumes, (b) the lateral faces connecting corresponding vertical edges, and (c) the top and bottom faces connecting corresponding horizontal edges. Not shown here are the 16 different polyhedra that bound the polychoron and which are all bounded by different sets of these faces.<a href="#fig:booleanref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Another test, shown in 2D and 3D in <a href="#fig:campus" id="fig:campusref">Figure 6.13</a>, involved a previously generated dataset of the campus of the Delft University of Technology (see <a href="bibliography.html#Ledoux11a">Ledoux and Meijers [2011]</a>), consisting of 2 749 vertices, 2 946 edges, and 370 facets. This dataset, covering 2.3 km\(^{2}\), was originally built from the GBKN dataset by manually forming footprint polygons from the lines in the dataset. Building heights for each polygon were obtained from the AHN dataset<a href="#fn104" id="fnref104"><sup>104</sup></a> (airborne laser altimetry), while building dates were obtained from the BAG dataset<a href="#fn105" id="fnref105"><sup>105</sup></a>. This dataset, including the added attributes, is available together with the source code of the program. It was therefore extruded from its original 2D representation to 4D using building heights for the third dimension and dates for the fourth dimension. The result was a generalised map with 123 184 darts, 8 613 vertices, 17 919 edges, 12 471 facets, 3 310 volumes and 239 4-cells. It was generated in 12 seconds using 46 MB of RAM.  
 			</p>
 			<div class="row" id="fig:campus">
-				<div class="col-sm-6"><img src="figs/campus.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6"><img src="figs/campusextruded.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><img src="figs/campusdarts.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.13: Extruding a dataset of the campus of the Delft University of Technology<a href="#fig:campusref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/campus.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/campusextruded.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><img src="figs/campusdarts.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.13: Extruding a dataset of the campus of the Delft University of Technology<a href="#fig:campusref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 One more test used 1 836 buildings from Delft from the TOP10NL dataset<a href="#fn106" id="fnref106"><sup>106</sup></a>, which was extruded to 3D using intervals from building dates also obtained from the BAG dataset. The result was a generalised map with 181 640 darts, 46 464 vertices, 71 826 edges, 27 975 facets and 1 837 volumes. 
@@ -416,7 +416,7 @@ locale_es: /en/thesis/resumen.html
 				 In the future, it would be interesting to consider other types of models that can be generated using extrusion-like algorithms, such as sweeps and \(n\)-dimensional cells of revolution. These are both simple extensions either using either non-linear embeddings or discretised approximations with small cells with linear geometries. A more complex extension would involve starting from a <em>series of cell complexes</em> that each form a planar partition, such as series of 3D models of the same region at different levels of detail. While most of the algorithm described here should work directly on this latter example, managing the differing boundaries of the cells along the \(n\)-th dimension could be challenging&mdash;possibly requiring the computation of all intersections in an arrangement of \((n-1)\)-cells. 
 			</p>
 		</div>
-		<div class="col-md-3">
+		<div class="col col-12 col-md-3">
 			<p id="fn92" class="small text-justify">
 				92. This contrasts with the use of the term &lsquo;extrusion&rsquo; in other fields. For instance, in geometric modelling, extrusion is a well-known operation in which all of the objects in the model are &lsquo;dragged&rsquo; along a predefined path given by a curve, more akin to an actual (physical) extrusion process, but whose output topology can be computed without any geometric computations.<a href="#fnref92">&#8617;</a>
 			</p>
@@ -429,14 +429,14 @@ locale_es: /en/thesis/resumen.html
 			<p id="fn95" class="small text-justify">
 				95. This is equivalent to one or more edges in <a href="bibliography.html#Lienhardt04">Lienhardt et al. [2004]</a> or 1-dimensional polyhedra in <a href="bibliography.html#Ferrucci95">Ferrucci [1993]</a>.<a href="#fnref93">&#8617;</a>
 			</p>
-			<p id="fig:Frauenkirche"><img src="figs/Frauenkirche.jpg" class="img-responsive"></p>
+			<p id="fig:Frauenkirche"><img src="figs/Frauenkirche.jpg" class="img-fluid"></p>
 			<p class="small text-justify">
 				Figure 6.3: The Frauenkirche in Dresden, Germany, was originally built in 1743, destroyed during the bombing of Dresden in 1945, and reconstructed in 2005. A simple 4D model of the building could be made by extruding a 3D model of it along the interval \((1743, 1945) \cup (2005, \infty)\). Photograph by David M&uuml;ller in Wikimedia Commons.<a href="#fig:Frauenkircheref">&#8617;</a>
 			</p>
 			<p id="fn96" class="small text-justify">
 				96. I originally referred to these as <em>ranges</em> and thus used variations of \(R\) and \(\rho\) (rho). While a kind anonymous reviewer correctly suggested that it is more precise to refer to them as <em>intervals</em>, \(\rho\) is more distinctive than iota (\(\iota\)) and upsilon (\(\upsilon\)), and so it remains as \(\rho\) here.<a href="#fnref96">&#8617;</a>
 			</p>
-			<p id=fig:intersectingintervals><img src="figs/intersectingintervals.svg" class="img-responsive"></p>
+			<p id=fig:intersectingintervals><img src="figs/intersectingintervals.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 6.7: The extrusion intervals from the cells incident to the middle vertex of <a href="#fig:extrusion-intervals" id="fig:extrusion-intervalsref">Figure 6.4</a> in (a), are passed on to it, resulting in a new set of non-intersecting intervals in (b).<a href="#fig:intersectingintervalsref">&#8617;</a></p>
 			<p id="fn97" class="small text-justify">
 				97. This is always true combinatorially, but it might not be true geometrically if the \((n-1)\)-simplex is not embedded so as to lie in the interior of the cell, as shown in <a href="nd-modelling.html#ss:ordered-topological-models">&sect;4.3.6</a>.<a href="#fnref97">&#8617;</a>
@@ -445,14 +445,14 @@ locale_es: /en/thesis/resumen.html
 				98. In this specific case, where cells have linear geometries.<a href="#fnref98">&#8617;</a>
 			</p>
 			<div class="row" id="fig:stack">
-				<div class="col-sm-12"><img src="figs/stack-6.jpg" class="img-responsive" /><p class="small text-center">(g)</p></div>
-				<div class="col-sm-12"><img src="figs/stack-5.jpg" class="img-responsive" /><p class="small text-center">(f)</p></div>
-				<div class="col-sm-12"><img src="figs/stack-4.jpg" class="img-responsive" /><p class="small text-center">(e)</p></div>
-				<div class="col-sm-12"><img src="figs/stack-3.jpg" class="img-responsive" /><p class="small text-center">(d)</p></div>
-				<div class="col-sm-12"><img src="figs/stack-2.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><img src="figs/stack-1.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><img src="figs/stack-0.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.9: The extrusion of a single dart (blue) results in a stack of simplices that together form a prism. In order to visualise it more intuitively, the procedure here is shown from bottom (a) to top (g).<a href="#fig:stackref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/stack-6.jpg" class="img-fluid" /><p class="small text-center">(g)</p></div>
+				<div class="col col-12"><img src="figs/stack-5.jpg" class="img-fluid" /><p class="small text-center">(f)</p></div>
+				<div class="col col-12"><img src="figs/stack-4.jpg" class="img-fluid" /><p class="small text-center">(e)</p></div>
+				<div class="col col-12"><img src="figs/stack-3.jpg" class="img-fluid" /><p class="small text-center">(d)</p></div>
+				<div class="col col-12"><img src="figs/stack-2.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><img src="figs/stack-1.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><img src="figs/stack-0.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.9: The extrusion of a single dart (blue) results in a stack of simplices that together form a prism. In order to visualise it more intuitively, the procedure here is shown from bottom (a) to top (g).<a href="#fig:stackref">&#8617;</a></p></div>
 			</div>
 			<p id="fn99" class="small text-justify">
 				99. i.e. a \((n-1)\)-dimensional shape that is unbounded along \(n-1\) dimensions in \(n\)D space, e.g.  a line in \(\mathbb{R^2}\) or a plane in \(\mathbb{R}^3\).}<a href="#fnref99">&#8617;</a>
@@ -470,9 +470,9 @@ locale_es: /en/thesis/resumen.html
 				103. <a href="http://www.gbkn.nl">http://www.gbkn.nl</a><a href="#fnref103">&#8617;</a>
 			</p>
 			<div class="row" id="fig:aula-ex">
-				<div class="col-sm-12"><img src="figs/aula-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/aula-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.11: Extruding the (a) footprint of the Aula Congress Centre in Delft to (b) a 3D representation showing individual darts.<a href="#fig:aula-exref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/aula-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/aula-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.11: Extruding the (a) footprint of the Aula Congress Centre in Delft to (b) a 3D representation showing individual darts.<a href="#fig:aula-exref">&#8617;</a></p></div>
 			</div>
 			<p id="fn104" class="small text-justify" style="word-break: break-word;">
 				104. <a href="http://www.ahn.nl">http://www.ahn.nl</a><a href="#fnref104">&#8617;</a>
@@ -487,9 +487,9 @@ locale_es: /en/thesis/resumen.html
 				107. i.e. checking that the links between darts correctly form partial permutations or involutions, and all the darts in the orbit of an \(i\)-cell are linked to its correct \(i\)-attribute and vice versa.<a href="#fnref107">&#8617;</a>
 			</p>
 			<div class="row" id="fig:aula-collapse">
-				<div class="col-sm-12"><img src="figs/aula-collapse.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/aula-edge-collapse.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 6.14: Cells can be collapsed by moving all of their vertices to the same location. Shown here are the collapse of: (a) a face and (b) an edge (in red).<a href="#fig:aula-collapseref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/aula-collapse.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/aula-edge-collapse.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 6.14: Cells can be collapsed by moving all of their vertices to the same location. Shown here are the collapse of: (a) a face and (b) an edge (in red).<a href="#fig:aula-collapseref">&#8617;</a></p></div>
 			</div>
 			<p id="fn108" class="small text-justify">
 				108. In practice a small constant.<a href="#fnref108">&#8617;</a>
@@ -497,8 +497,8 @@ locale_es: /en/thesis/resumen.html
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="operations-background.html"><i class="fa fa-angle-double-left"></i> 5 Basic dimension-independent operations</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="incremental-construction.html">7 Incremental construction <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="operations-background.html"><i class="fa fa-angle-double-left"></i> 5 Basic dimension-independent operations</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="incremental-construction.html">7 Incremental construction <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>
