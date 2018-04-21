@@ -10,15 +10,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">Resumen (Spanish summary)</li>
-	</ol>
-	<div class="page-header">
-		<h1>Resumen (Spanish summary)</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">Resumen (Spanish summary)</li>
+		</ol>
+	</nav>
+	<h1>Resumen (Spanish summary)</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				Nuestro mundo es tridimensional y complejo, cambiando continuamente a trav&eacute;s del tiempo y mostr&aacute;ndose distinto a distintas escalas. A&uacute;n as&iacute;, cuando lo modelamos usando sistemas de informaci&oacute;n geogr&aacute;fica (SIG), generalmente usamos representaciones 2D, las cuales esencialmente consisten en conjuntos de puntos, l&iacute;neas y pol&iacute;gonos enlazados entre s&iacute; (<a href="#fig:brep-sum-es" id="fig:brep-sum-esref">Figura 1</a>). Estas representaciones son relativamente f&aacute;ciles de usar y eficientes, y una gran variedad de m&eacute;todos se han construido us&aacute;ndolas. Sin embargo, las representaciones 2D son necesariamente restrictivas. Nos fuerzan a reducir los problemas a dos dimensiones, limitan el tipo de objetos que podemos representar y dificultan guardar las relaciones entre diferentes objetos&mdash;especialmente cuando &eacute;stas son a trav&eacute;s del tiempo y diferentes escalas. A pesar de ello, la mayor&iacute;a de la investigaci&oacute;n en SIG se dedica a mejorar estas representaciones 2D, as&iacute; como a desarrollar nuevos m&eacute;todos que las usan para resolver problemas, sean &eacute;stos nuevos o antiguos.
 			</p>
@@ -44,25 +44,25 @@ locale_es: /en/thesis/resumen.html
 				En el futuro, el trabajo de esta tesis ser&aacute; extendido con operaciones de modificaci&oacute;n en altas dimensiones, datos reales espaciales y temporales 4D, as&iacute; como m&eacute;todos de reparaci&oacute;n de datos con garant&iacute;as de calidad. Todas las implementaciones hechas para esta tesis est&aacute;n disponibles p&uacute;blicamente bajo licencias de c&oacute;digo abierto.
 			</p>
 		</div>
-		<div class="col-md-3">
-			<p id="fig:brep-sum-es"><img src="figs/brep.svg" class="img-responsive"></p>
+		<div class="col col-12 col-md-3">
+			<p id="fig:brep-sum-es"><img src="figs/brep.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figura 1: En los SIG, un cubo no se representa como un s&oacute;lido, sino como las 6 caras cuadradas en su superficie.<a href="#fig:brep-sum-esref">&#8617;</a></p>
-			<p id="fig:axes-sum-es"><img src="figs/axes-es.svg" class="img-responsive"></p>
+			<p id="fig:axes-sum-es"><img src="figs/axes-es.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figura 2: El espacio 3D, el tiempo y la escala modelados como un espacio 5D.<a href="#fig:axes-sum-esref">&#8617;</a></p>
-			<p id="fig:space-filling-sum-es"><img src="figs/space-filling.jpg" class="img-responsive"></p>
+			<p id="fig:space-filling-sum-es"><img src="figs/space-filling.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figura 3: Una partici&oacute;n espacial 3D se compone de un conjunto de vol&uacute;menes que llenan el espacio sin huecos y sin solaparse entre ellos.<a href="#fig:space-filling-sum-esref">&#8617;</a></p>
 			<div class="row" id="fig:extrusion-sum-es">
-				<div class="col-sm-12"><img src="figs/extrusion-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/extrusion-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figura 4: (a) Un conjunto de pol&iacute;gonos se convierte en (b) un conjunto de paralelep&iacute;pedos al aplicar una extrusi&oacute;n 2D a 3D.<a href="#fig:extrusion-sum-esref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/extrusion-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/extrusion-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figura 4: (a) Un conjunto de pol&iacute;gonos se convierte en (b) un conjunto de paralelep&iacute;pedos al aplicar una extrusi&oacute;n 2D a 3D.<a href="#fig:extrusion-sum-esref">&#8617;</a></p></div>
 			</div>
-			<p id="fig:link-sum-es"><img src="figs/link2.svg" class="img-responsive"></p>
+			<p id="fig:link-sum-es"><img src="figs/link2.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figura 5: Dos niveles de detalle de una casa (izquierda y derecha) se enlazan en un modelo 4D.<a href="#fig:link-sum-esref">&#8617;</a></p>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="samenvatting.html"><i class="fa fa-angle-double-left"></i> Samenvatting (Dutch summary)</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="cv.html">Curriculum vitae <i class="fa fa-angle-double-right"></i></a></p>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="samenvatting.html"><i class="fa fa-angle-double-left"></i> Samenvatting (Dutch summary)</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="cv.html">Curriculum vitae <i class="fa fa-angle-double-right"></i></a></p>
 	</div>
 </div>

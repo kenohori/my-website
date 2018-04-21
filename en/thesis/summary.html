@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">Summary</li>
-	</ol>
-	<div class="page-header">
-		<h1>Summary</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">Summary</li>
+		</ol>
+	</nav>
+	<h1>Summary</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				Our world is three-dimensional and complex, continuously changing over time and appearing different at different scales. Yet, when we model it in a computer using Geographic Information Systems (GIS), we mostly use 2D representations, which essentially consist of linked points, lines and polygons (<a href="#fig:brep-sum-en" id="fig:brep-sum-enref">Figure 1</a>). These representations are relatively easy to use and efficient, and a wide variety of methods is built on top of them. However, 2D representations are necessarily limiting. They force us to reduce problems to two dimensions, limit the type of objects we can represent, and complicate storing the relationships between different objects&mdash;especially when these are across time and different scales. Nevertheless, most research in GIS is devoted to improving these 2D representations, as well as to the development of new methods that build on them to solve problems, both old and new.
 			</p>
@@ -43,26 +43,26 @@ locale_es: /en/thesis/resumen.html
 				In the future, the work in this thesis will be extended with higher-dimensional modification operations, true 4D spatiotemporal datasets and repair methods with quality guarantees. All implementations made for this thesis are publicly available under open source licences.
 			</p>
 		</div>
-		<div class="col-md-3">
-			<p id="fig:brep-sum-en"><img src="figs/brep.svg" class="img-responsive"></p>
+		<div class="col col-12 col-md-3">
+			<p id="fig:brep-sum-en"><img src="figs/brep.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 1: In GIS, a cube is not represented as a 3D solid, but as the 6 square 2D faces that bound it.<a href="#fig:brep-sum-enref">&#8617;</a></p>
-			<p id="fig:axes-sum-en"><img src="figs/axes.svg" class="img-responsive"></p>
+			<p id="fig:axes-sum-en"><img src="figs/axes.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 2: 3D space, time and scale can be modelled as 5D space.<a href="#fig:axes-sum-enref">&#8617;</a></p>
-			<p id="fig:space-filling-sum-en"><img src="figs/space-filling.jpg" class="img-responsive"></p>
+			<p id="fig:space-filling-sum-en"><img src="figs/space-filling.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 3: A 3D space subdivision model is composed of a set of space-filling volumes without gaps or overlaps.<a href="#fig:space-filling-sum-enref">&#8617;</a></p>
 			<div class="row" id="fig:extrusion-sum-en">
-				<div class="col-sm-12"><img src="figs/extrusion-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/extrusion-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4: (a) A set of polygons is converted into (b) a set of boxes by 2D-to-3D extrusion.<a href="#fig:extrusion-sum-enref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 com-md-12"><img src="figs/extrusion-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 com-md-12"><img src="figs/extrusion-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4: (a) A set of polygons is converted into (b) a set of boxes by 2D-to-3D extrusion.<a href="#fig:extrusion-sum-enref">&#8617;</a></p></div>
 			</div>
-			<p id="fig:link-sum-en"><img src="figs/link2.svg" class="img-responsive"></p>
+			<p id="fig:link-sum-en"><img src="figs/link2.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 5: Two LODs of a 3D model of a house (left and right) are linked into a 4D model.<a href="#fig:link-sum-enref">&#8617;</a></p>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="bibliography.html"><i class="fa fa-angle-double-left"></i> Bibliography</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="samenvatting.html">Samenvatting (Dutch summary) <i class="fa fa-angle-double-right"></i></a></p>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="bibliography.html"><i class="fa fa-angle-double-left"></i> Bibliography</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="samenvatting.html">Samenvatting (Dutch summary) <i class="fa fa-angle-double-right"></i></a></p>
 	</div>
 </div>
 </div>
