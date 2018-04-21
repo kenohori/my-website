@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">A Implementing higher-dimensional representations and operations</li>
-	</ol>
-	<div class="page-header">
-		<h1>A Implementing higher-dimensional representations and operations</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">A Implementing higher-dimensional representations and operations</li>
+		</ol>
+	</nav>
+	<h1>A Implementing higher-dimensional representations and operations</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 The higher-dimensional representations described in <strong>Part I</strong> and the operations described in <strong>Part II</strong> can be difficult to implement, especially when we expect these implementations to be fast, robust, generic, compact and dimension-independent. This is true even when the basic ideas and algorithms are provided, as has been done in this thesis. 
 			</p>
@@ -86,7 +86,7 @@ locale_es: /en/thesis/resumen.html
 				 A possible solution to the aforementioned problems is based on <em>template meta-programming</em>. Template meta-programming is a technique that uses templates to generate certain data structures or perform certain computations during the compilation of a program rather than during its execution. Templates are normally used as a way to support generic programming, enabling the creation of functions that can deal with different data types indistinctly. A template might thus be instantiated with the dimension of an object or a particular attribute type, thus generating a data structure of the appropriate size and disposition whose members can be accessed in constant time. <a href="#fig:template-conversion" id="fig:template-conversionref">Figure A.1</a> shows a slightly more complex example, where a template can be used to convert a string into any number type, which is used in this thesis to parse numbers from various types of files (e.g.  coordinates and identifiers).
 			</p>
 			<div class="row" id="fig:template-conversion">
-				<div class="col-sm-12">{% highlight c++ %}
+				<div class="col col-12">{% highlight c++ %}
 template <typename T>
 T string_to_number (const std::string &text, T def_value) {
     std::stringstream ss;
@@ -96,13 +96,13 @@ T string_to_number (const std::string &text, T def_value) {
     return ss >> result ? result : def_value;
 }
 {% endhighlight %}</div>
-				<div class="col-sm-12"><p class="small text-justify">Figure A.1: Using C++ templates to convert a <code>string</code> containing a number into any number type \(T\), including scientific notation. Adapted from <a href="http://www.cplusplus.com/forum/articles/9645/">http://www.cplusplus.com/forum/articles/9645/</a>.<a href="#fig:template-conversionref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure A.1: Using C++ templates to convert a <code>string</code> containing a number into any number type \(T\), including scientific notation. Adapted from <a href="http://www.cplusplus.com/forum/articles/9645/">http://www.cplusplus.com/forum/articles/9645/</a>.<a href="#fig:template-conversionref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 However, apart from their use in generic programming, templates can also be used to create complex dimension-dependent structures, such as through the use of the traits programming technique [<a href="bibliography.html#Myers95">Myers, 1995</a>] used in CGAL, which exploits C++&rsquo;s <code>typedef</code> declarations to create custom dependent types.  As an example, <a href="#fig:extrudedlcc" id="fig:extrudedlccref">Figure A.2</a> shows how the implementation of the extrusion algorithm defines a combinatorial map that is one dimension higher than the input, which is created during compilation.
 			</p>
 			<div class="row" id="fig:extrudedlcc">
-				<div class="col-sm-12">{% highlight c++ %}
+				<div class="col col-12">{% highlight c++ %}
 template <unsigned int unextruded_dimension>
 class Linear_cell_complex_extruder_with_range {
 public:
@@ -120,13 +120,13 @@ private:
  Higher_dimensional_cell_complex hdcc;
 };
 {% endhighlight %}</div>
-				<div class="col-sm-12"><p class="small text-justify">Figure A.2: Using C++ templates it is possible to create dependent types such as the <code>Higher_dimensional_cell_complex</code> defined in line 5 and used in line 15.<a href="#fig:extrudedlccref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure A.2: Using C++ templates it is possible to create dependent types such as the <code>Higher_dimensional_cell_complex</code> defined in line 5 and used in line 15.<a href="#fig:extrudedlccref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 This type of mechanism can be used to a much higher degree by defining <em>recursive templates</em>, which are used extensively in the CGAL Combinatorial Maps package. As an example, <a href="#fig:dimensionindependent" id="fig:dimensionindependentref">Figure A.3</a> shows how this was applied in order to store the extrusion ranges maps for each dimension separately, which is necessary because the embedding structures of each cell are different depending on the dimension.
 			</p>
 			<div class="row" id="fig:dimensionindependent">
-				<div class="col-sm-12">{% highlight c++ %}
+				<div class="col col-12">{% highlight c++ %}
 // Abstracts a map of cell->ranges for a particular dimension
 template <class LCC, unsigned int dimension>
 struct Extrusion_ranges_map_of_dimension {
@@ -160,13 +160,13 @@ public:
   type ranges;
 };
 {% endhighlight %}</div>
-				<div class="col-sm-12"><p class="small text-justify">Figure A.3: Recursive C++ templates can be used to generate dimension independent code. The first structure <code>Extrusion_ranges_map_of_dimension</code> (lines 1&ndash;8) contains the extrusion map for a single dimension. The second structure <code>Extrusion_ranges_tuple_per_dimension_up_to</code> (lines 10&ndash;23) uses as a triplet of definitions to create copies of the first for every dimension up to a given one. This is done using a template specialisation for dimension 0 which stops the recursion. The last structure <code>Extrusion_ranges_tuple_per_dimension</code> (lines 25&ndash;32) creates all structures using the dimension of a passed combinatorial map <code>LCC</code>. Note the non-ideal use of <code>std::map</code> in line 5.<a href="#fig:dimensionindependentref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure A.3: Recursive C++ templates can be used to generate dimension independent code. The first structure <code>Extrusion_ranges_map_of_dimension</code> (lines 1&ndash;8) contains the extrusion map for a single dimension. The second structure <code>Extrusion_ranges_tuple_per_dimension_up_to</code> (lines 10&ndash;23) uses as a triplet of definitions to create copies of the first for every dimension up to a given one. This is done using a template specialisation for dimension 0 which stops the recursion. The last structure <code>Extrusion_ranges_tuple_per_dimension</code> (lines 25&ndash;32) creates all structures using the dimension of a passed combinatorial map <code>LCC</code>. Note the non-ideal use of <code>std::map</code> in line 5.<a href="#fig:dimensionindependentref">&#8617;</a></p></div>
 				</div>
 				<p class="text-justify">
 					 The same technique can be used to create algorithms that are also fully dimension-independent. In fact, C++ templates are known to be Turing-complete [<a href="bibliography.html#Veldhuizen03">Veldhuizen, 2003</a>], and thus can be used to compute general-purpose problems. <a href="#fig:manifoldvalidation" id="fig:manifoldvalidationref">Figure A.4</a> shows one such example from the implementation of the incremental construction algorithm of <a href="incremental-construction.html">Chapter 7</a>, which shows the validation that a set of \((n-1)\)-cells form a quasi-\(n\)-manifold.
 				</p>
 		<div class="row" id="fig:manifoldvalidation">
-				<div class="col-sm-12">{% highlight c++ %}
+				<div class="col col-12">{% highlight c++ %}
 template <unsigned int dimension, class InputIterator>
 Dart_handle get_cell(InputIterator begin, InputIterator end) {
 
@@ -206,10 +206,10 @@ Dart_handle get_cell(InputIterator begin, InputIterator end) {
   }  
 }
 {% endhighlight %}</div>
-				<div class="col-sm-12"><p class="small text-justify">Figure A.4: Recursive C++ templates can also be used to implement dimension-independent algorithms. In this case, the <code>dimension</code> that is passed to the templated function is passed on to other functions to obtain appropriate orbits for a given facet (<code>dimension-1</code>) or ridge (<code>dimension-2</code>), which are then compared dart by dart.<a href="#fig:manifoldvalidationref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure A.4: Recursive C++ templates can also be used to implement dimension-independent algorithms. In this case, the <code>dimension</code> that is passed to the templated function is passed on to other functions to obtain appropriate orbits for a given facet (<code>dimension-1</code>) or ridge (<code>dimension-2</code>), which are then compared dart by dart.<a href="#fig:manifoldvalidationref">&#8617;</a></p></div>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col col-12 col-md-3">
 			<p id="fn158" class="small text-justify">
 				158. <a href="http://www.cgal.org">http://www.cgal.org</a><a href="#fnref158">&#8617;</a>
 			</p>
@@ -260,8 +260,8 @@ Dart_handle get_cell(InputIterator begin, InputIterator end) {
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="conclusions.html"><i class="fa fa-angle-double-left"></i> 11 Conclusions and future work</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="dictionary.html">B A short dictionary of dimension-based GIS terms <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="conclusions.html"><i class="fa fa-angle-double-left"></i> 11 Conclusions and future work</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="dictionary.html">B A short dictionary of dimension-based GIS terms <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>
