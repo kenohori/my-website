@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">5 Basic dimension-independent operations</li>
-	</ol>
-	<div class="page-header">
-		<h1>5 Basic dimension-independent operations</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">5 Basic dimension-independent operations</li>
+		</ol>
+	</nav>
+	<h1>5 Basic dimension-independent operations</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 <a href="nd-modelling.html">Chapter 4</a> identified the most promising data structures in the context of a higher-dimensional GIS and explained how certain fundamental operations are intimately related to the data structures for which they are defined. This chapter therefore covers a number of basic dimension-independent operations, some of which need to be defined in the context of a specific data structure. These operations are by themselves useful, as they correspond to common simple queries and modification. In addition, some of them are used as building blocks for the more complex operations described in latter chapters of this thesis. 
 			</p>
@@ -44,12 +44,12 @@ locale_es: /en/thesis/resumen.html
 				 In the case of a generalised map, which is shown in <a href="#fig:2dcc" id="fig:2dccref">Figure 5.1</a>, all the relations between darts take the form of <em>involutions</em>&mdash;bijective functions that are their own inverse. That is, they are functions \(f\) such that \(f\big(f(x)\big) = x\), or equivalently \(f = f^{-1}\). In addition, certain darts are \(i\)-free, which means that for a given dart \(d\), \(\alpha_i(d) = d\). These darts represent the boundary of the map. 
 			</p>
 			<div class="row" id="fig:2dcc">
-				<div class="col-sm-4 col-xs-4"><img src="figs/2dcc.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/2dcc-gmap.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/2dcc-alphas.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
+				<div class="col col-4"><img src="figs/2dcc.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/2dcc-gmap.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/2dcc-alphas.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 5.1: (a) A 2D cell complex represented as (b) a 2D generalised map  in a simplicial complex-based depiction as used in <a href="nd-modelling.html#ss:ordered-topological-models">&sect;4.3.6</a>, and (c) in a simpler depiction using half-edges and showing explicitly the relations between the darts. As involutions are pairwise relations between darts, they are their own inverse, i.e. applying them twice always means returning to the original dart.<a href="#fig:2dccref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 5.1: (a) A 2D cell complex represented as (b) a 2D generalised map  in a simplicial complex-based depiction as used in <a href="nd-modelling.html#ss:ordered-topological-models">&sect;4.3.6</a>, and (c) in a simpler depiction using half-edges and showing explicitly the relations between the darts. As involutions are pairwise relations between darts, they are their own inverse, i.e. applying them twice always means returning to the original dart.<a href="#fig:2dccref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 More formally, a \(n\)-dimensional generalised map is defined as a \((n+2)\)-tuple \(G = (D,\alpha_{0},\ldots,\alpha_{n})\), where: 
@@ -80,9 +80,9 @@ locale_es: /en/thesis/resumen.html
 				 </ul>
 			</p>
 			<div class="row" id="fig:darts-of-cell">
-				<div class="col-sm-6 col-xs-6"><img src="figs/darts-of-cell-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/darts-of-cell-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 5.4: Starting from (a) a 2D generalised map representation of a cube, all the darts representing an \(i\)-cell of the map can be obtained by starting from any dart known to be part of the \(i\)-cell, then using the orbit that contains all relations but \(\alpha_i\). (b) Here, the orbits of a specific 0-cell, 1-cell and 2-cell.<a href="#fig:darts-of-cellref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/darts-of-cell-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/darts-of-cell-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 5.4: Starting from (a) a 2D generalised map representation of a cube, all the darts representing an \(i\)-cell of the map can be obtained by starting from any dart known to be part of the \(i\)-cell, then using the orbit that contains all relations but \(\alpha_i\). (b) Here, the orbits of a specific 0-cell, 1-cell and 2-cell.<a href="#fig:darts-of-cellref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				<ul style="list-style-type: none;">
@@ -92,8 +92,8 @@ locale_es: /en/thesis/resumen.html
 				 </ul>
 			</p>
 			<div class="row" id="fig:3-sew">
-				<div class="col-sm-12"><img src="figs/3-sew.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 5.5: Two cubes in a 3D generalised map can be linked together by 3-sewing corresponding darts on the common face (highlighted) on each cube. This operation uses the orbits of each face on each cube in order to link all corresponding darts on both orbits.<a href="#fig:3-sewref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/3-sew.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 5.5: Two cubes in a 3D generalised map can be linked together by 3-sewing corresponding darts on the common face (highlighted) on each cube. This operation uses the orbits of each face on each cube in order to link all corresponding darts on both orbits.<a href="#fig:3-sewref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h3 id="ss:operations-nef">5.1.2 Nef polyhedra</h3> 
@@ -114,15 +114,15 @@ locale_es: /en/thesis/resumen.html
 				 <a href="#fig:nef-boolean" id="fig:nef-booleanref">Figure 5.6</a> shows an example of how this works in practice in 2D. A 2D Boolean set operation kernel starts from two Nef polygons \(A\) and \(B\)&mdash;each of which is stored as a set of local pyramids at its corresponding vertices. As shown previously in <a href="modelling-background.html#fig:nef">Figure 3.3</a>, each of these 2D local pyramids can be stored as a list of 1D intervals<a href="#fn78" id="fnref78"><sup>78</sup></a>. The kernel first computes the intersections between the line segments (as an overlay problem). The vertices of each polygon and the intersection points between the line segments yield the local pyramids to be considered. The local pyramid intervals for both polygons at all of these locations are computed. A Boolean set operation is then computed by applying it to the local pyramids (i.e.  to the intervals). Finally, unnecessary local pyramids can be removed from the output (e.g.  in <a href="#fig:nef-boolean" id="fig:nef-booleanref">Figure 5.5</a>: \(f\) in \(A \cup B\); \(a\), \(b\), \(c\), \(g\), \(i\), \(j\) and \(k\) in \(A \cap B\); and \(a\), \(c\), \(j\) and \(k\) in \(A - B\)).
 			</p>
 			<div class="row" id="fig:nef-boolean">
-				<div class="col-sm-4 col-xs-4"><img src="figs/nef-boolean-1.svg" class="img-responsive" /></div>
-				<div class="col-sm-8 col-xs-8"><img src="figs/nef-boolean-2.svg" class="img-responsive" /></div>
+				<div class="col col-4"><img src="figs/nef-boolean-1.svg" class="img-fluid" /></div>
+				<div class="col col-8"><img src="figs/nef-boolean-2.svg" class="img-fluid" /></div>
 			</div>
 			<div class="row" id="fig:nef-boolean">
-				<div class="col-sm-4 col-xs-4"><p class="small text-center">(a)</p></div>
-				<div class="col-sm-8 col-xs-8"><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><p class="small text-center">(a)</p></div>
+				<div class="col col-8"><p class="small text-center">(b)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 5.6: Various Boolean set operations on (a) the Nef polygons \(A\) (red) and \(B\) (blue) that can be performed on (b) their local pyramids: complement (\(\neg\)), union (\(\cup\)), intersection (\(\cap\)) and difference (\(-\)).<a href="#fig:nef-booleanref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 5.6: Various Boolean set operations on (a) the Nef polygons \(A\) (red) and \(B\) (blue) that can be performed on (b) their local pyramids: complement (\(\neg\)), union (\(\cup\)), intersection (\(\cap\)) and difference (\(-\)).<a href="#fig:nef-booleanref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h2 id="se:ndmath">5.2 Basic transformations of an \(n\)D scene</h2> 
@@ -236,17 +236,17 @@ locale_es: /en/thesis/resumen.html
 				 The concept of Poincar&eacute; duality (<a href="math.html#ss:algebraic-topology">&sect;2.3.2</a>) is used in conjunction with spatial information to understand and represent how things are connected. In two dimensions, one application is qualifying the spatial relationships between adjacent objects: as shown in <a href="#fig:dual_polygonal_map" id="fig:dual_polygonal_mapref">Figure 5.7</a>, <a href="bibliography.html#Gold91">Gold [1991]</a> uses the quad-edge data structure [<a href="bibliography.html#Guibas85">Guibas and Stolfi, 1985</a>] to store simultaneously a map (where each polygon in the map can have certain attributes) and its dual (the boundaries between two adjacent map objects, which can also have certain attributes, e.g.  the boundary type or the flow direction).
 			</p>
 			<div class="row" id="fig:dual_polygonal_map">
-				<div class="col-sm-4 col-xs-4"><img src="figs/dpm1.svg" class="img-responsive" /></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/dpm2.svg" class="img-responsive" /></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/dpm3.svg" class="img-responsive" /></div>
+				<div class="col col-4"><img src="figs/dpm1.svg" class="img-fluid" /></div>
+				<div class="col col-4"><img src="figs/dpm2.svg" class="img-fluid" /></div>
+				<div class="col col-4"><img src="figs/dpm3.svg" class="img-fluid" /></div>
 			</div>
 			<div class="row" id="fig:dual_polygonal_map">
-				<div class="col-sm-4 col-xs-4"><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><p class="small text-center">(c)</p></div>
+				<div class="col col-4"><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><p class="small text-center">(c)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 5.7: (a) Six map objects and their boundaries. (b) The same map stored as a graph and its dual (dotted lines). (c) The dual graph is used to describe the relationships between adjacent polygons. From <a href="bibliography.html#Ledoux06">Ledoux [2006, Ch. 6</a>], itself based on <a href="bibliography.html#Gold91">Gold [1991]</a>.<a href="#fig:dual_polygonal_mapref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 5.7: (a) Six map objects and their boundaries. (b) The same map stored as a graph and its dual (dotted lines). (c) The dual graph is used to describe the relationships between adjacent polygons. From <a href="bibliography.html#Ledoux06">Ledoux [2006, Ch. 6</a>], itself based on <a href="bibliography.html#Gold91">Gold [1991]</a>.<a href="#fig:dual_polygonal_mapref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 In three dimensions, duality characterises how volumes are related (e.g.  stating that two neighbouring rooms in a building are connected or adjacent). A typical example involves the Delaunay triangulation and the Voronoi diagram, which are dual to each other. <a href="bibliography.html#Dakowicz03">Dakowicz and Gold [2003]</a> use them for terrain modelling, <a href="bibliography.html#Lee02">Lee and Gahegan [2002]</a> for interactive analysis, and <a href="bibliography.html#Ledoux08">Ledoux and Gold [2008]</a> for three-dimensional fields in the geosciences. In GIS, it is most commonly used to model paths inside 3D buildings, which can be used for navigation computations. <a href="bibliography.html#Lee08">Lee and Zlatanova [2008]</a> and <a href="bibliography.html#Lee08a">Lee and Kwan [2005]</a> extract from a 3D building a graph that can be used in case of emergency, and <a href="bibliography.html#Boguslawski11a">Boguslawski et al. [2011]</a> and <a href="bibliography.html#Boguslawski11">Boguslawski and Gold [2011]</a> perform the same using the <em>dual half-edge</em> data structure, which simultaneously represents the buildings (the rooms and their boundaries) and the navigation graph. <a href="bibliography.html#Liu13">Liu and Zlatanova [2013]</a> is especially interesting, as it attempts to obtain such a graph from models stored in the 3D standards most widely used in GIS, CityGML and IFC.  
@@ -258,13 +258,13 @@ locale_es: /en/thesis/resumen.html
 				 In a dimension-independent setting, generalised and combinatorial maps are notable because they simultaneously encode a cell complex and its dual. As shown in <a href="#fig:dual_gmap" id="fig:dual_gmapref">Figure 5.8</a>, if an \(n\)-dimensional cell complex is stored as an \(n\)-dimensional generalised map, swapping \(\alpha_n\) and \(\alpha_{n-i}\) for every \(i\) for every dart, the dual of the map is obtained<a href="#fn84" id="fnref84"><sup>84</sup></a>. Note however that as shown in <a href="#fig:dual_gmap" id="fig:dual_gmapref">Figure 5.8b</a>, in order to obtain a dual cell complex properly embedded in \(\mathbb{R}^n\), it is in practice necessary to compute a new point embedding that lies in the interior of every \(n\)-cell.
 			</p>
 			<div class="row" id="fig:dual_gmap">
-				<div class="col-sm-3 col-xs-6"><img src="figs/dual_gmap1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/dual_gmap2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/dual_gmap4.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/dual_gmap3.svg" class="img-responsive" /><p class="small text-center">(d)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/dual_gmap1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/dual_gmap2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/dual_gmap4.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/dual_gmap3.svg" class="img-fluid" /><p class="small text-center">(d)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 5.8: The dual of (a) a 2D generalised map can be obtained by (b) computing a point location for the dual 2-cells (e.g.  their centroid) and swapping \(\alpha_0\) and \(\alpha_2\), and (c) considering the 2-cells as 0-cells with their new point embeddings. By extending every the exterior of (a) as an additional unbounded face, it is possible to arrive at the alternative dual map in (d).<a href="#fig:dual_gmapref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 5.8: The dual of (a) a 2D generalised map can be obtained by (b) computing a point location for the dual 2-cells (e.g.  their centroid) and swapping \(\alpha_0\) and \(\alpha_2\), and (c) considering the 2-cells as 0-cells with their new point embeddings. By extending every the exterior of (a) as an additional unbounded face, it is possible to arrive at the alternative dual map in (d).<a href="#fig:dual_gmapref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h2 id="se:ndqueries">5.5 Comparing two objects with and without signatures</h2> 
@@ -273,10 +273,10 @@ locale_es: /en/thesis/resumen.html
 				 In order to showcase the difference between the topological and non-topological approaches in representing higher-dimensional spatial information, this section compares how efficient the two approaches are in terms of size, and how efficiently three fundamental operations can be performed in either case. The configurations for these tests are shown in <a href="#fig:tesseract-tests" id="fig:tesseract-testsref">Figure 5.9</a> and respectively involve verifying that two tesseracts are: equal (i.e. that they represent the same 4-cell), adjacent (i.e. that they share a common 3-cell facet), and sharing a common 2-cell ridge. As an example of the topological approach, objects will be represented as a combinatorial map with indices on the lexicographically smallest vertex of every cell. Meanwhile, the non-topological approach will be exemplified with the Simple Features-like [<a href="bibliography.html#SimpleFeatures1">OGC, 2011</a>] representation shown in <a href="nd-modelling.html#ss:nd-topology">&sect;4.2.3</a> and <a href="nd-modelling.html#fig:sfsnd">Figure 4.7</a>. Indices make little sense in the latter, as there are no combinatorial primitives to navigate and every lower-dimensional cell is represented multiple times. Note that the objects are assumed to have identical coordinates and structure at this point. If this is not the case, cleaning methods such as those mentioned in <a href="cleaning.html">Chapter 10</a> or those described by <a href="bibliography.html#Diakite14">Diakit&eacute; et al. [2014]</a> need to be applied first.
 			</p>
 			<div class="row" id="fig:tesseract-tests">
-				<div class="col-sm-4 col-xs-4"><img src="figs/tesseract-tests-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/tesseract-tests-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/tesseract-tests-3.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 5.9: A stereographic projection of three pairs of tesseracts representing: (a) equality (common 4-cell), (b) adjacency (a common 3-cell), and (c) common 2-cell. Only the edges of each tesseract are shown.<a href="#fig:tesseract-testsref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/tesseract-tests-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/tesseract-tests-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/tesseract-tests-3.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 5.9: A stereographic projection of three pairs of tesseracts representing: (a) equality (common 4-cell), (b) adjacency (a common 3-cell), and (c) common 2-cell. Only the edges of each tesseract are shown.<a href="#fig:tesseract-testsref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 The tests involving comparisons of combinatorial maps use the method of <a href="bibliography.html#Gosselin11">Gosselin et al. [2011]</a>, which can be used to compare two orbits of a map using <em>signatures</em>. This method will also be used extensively in <a href="incremental-construction.html">Chapter 7</a>. Based on the ordering properties of a map, it is possible to traverse a given orbit from a given dart in a manner that is always consistent, yielding a canonical representation. By following parallel traversals of this type, an algorithm can verify that two cells or maps are isomorphic in \(O(n^2)\) time on the number of darts in a cell or cell complex. 
@@ -359,14 +359,12 @@ locale_es: /en/thesis/resumen.html
 				 However, it is worth noting that the differences between the two could be heavily reduced by using a modicum of topology in the Simple Features-like representation<a href="#fn91" id="fnref91"><sup>91</sup></a>. If the lowest-level lists representing the coordinates of a point were exchanged for unique pointers to an external array with the coordinates of all points, many of these searches and the overall storage of the Simple Features approach could be significantly optimised. 
 			</p>
 		</div>
-		<div class="col-md-3">
+		<div class="col col-12 col-md-3">
 			<div class="row" id=fig:cmap-free>
-				<div class="col-sm-2"></div>
-				<div class="col-sm-8"><img src="figs/cmap-free.svg" class="img-responsive"></div>
-				<div class="col-sm-2"></div>
+				<div class="col col-8 offset-2"><img src="figs/cmap-free.svg" class="img-fluid"></div>
 			</div>
 			<p class="small text-justify">Figure 5.2: The \(\beta_1\) relations in a 1D combinatorial map are partial permutations. Whereas \(\beta_1(d_1) = d_2\), \(\beta_1(d_2) = d_3\) and \(\beta_1(d_3) = \emptyset\).<a href="#fig:cmap-freeref">&#8617;</a></p>
-			<p id=fig:2dcc-betas><img src="figs/2dcc-betas.svg" class="img-responsive"></p>
+			<p id=fig:2dcc-betas><img src="figs/2dcc-betas.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 5.3: The \(\beta_1\) relations in a 2D combinatorial map are partial permutations, the \(\beta_2\) relations are partial involutions.<a href="#fig:2dcc-betasref">&#8617;</a></p>
 			<p id="fn76" class="small text-justify">
 				76. This last condition enforces the last criterion in the definition of a generalised map given above.<a href="#fnref76">&#8617;</a>
@@ -419,8 +417,8 @@ locale_es: /en/thesis/resumen.html
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="nd-modelling.html"><i class="fa fa-angle-double-left"></i> 4 The higher-dimensional spatial modelling approach</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="extrusion.html">6 Extrusion <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="nd-modelling.html"><i class="fa fa-angle-double-left"></i> 4 The higher-dimensional spatial modelling approach</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="extrusion.html">6 Extrusion <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>
