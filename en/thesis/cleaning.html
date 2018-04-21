@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">10 Processing real-world datasets into clean geometric models</li>
-	</ol>
-	<div class="page-header">
-		<h1>10 Processing real-world datasets into clean geometric models</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">10 Processing real-world datasets into clean geometric models</li>
+		</ol>
+	</nav>
+	<h1>10 Processing real-world datasets into clean geometric models</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 The representations described in <strong>Part I</strong> and the operations described in <strong>Part II</strong> work well on perfectly <em>valid</em> data. Objects are assumed not to overlap each other, to be properly closed with no degenerate geometries, and to have perfectly planar faces which are consistently oriented, among many other validity criteria. Unfortunately, as <a href="#se:repair-motivation">&sect;10.1</a> explains, GIS processes often fail to clearly specify which criteria are expected and real-world data often fails to meet them, with consequences ranging from the innocuous to a complete inability to use a desired tool, including instances where software gives erroneous results unbeknownst to the user. As GIS datasets can be rather intricate and expensive to acquire, they are not easily replaceable and must therefore be <em>repaired</em>, i.e. they must be processed into geometric models that conform to certain validity specifications, so as to make them fit for use. 
 			</p>
@@ -51,11 +51,11 @@ locale_es: /en/thesis/resumen.html
 				 It is thus perhaps unsurprising that invalid GIS datasets are prevalent [<a href="bibliography.html#Panigrahi14">Panigrahi, 2014, Ch. 7</a>] and a major source of problems for those who work with them. As shown in <a href="#fig:partially" id="fig:partiallyref">Figure 10.1</a>, invalid datasets can be interpreted inconsistently in different software, leading to inconsistent or erroneous results. They can also make it impossible to perform a certain operation, either due to a failing precondition check or due to software crashes. A partial solution to this issue lies in <em>validating</em> these datasets, i.e. identifying the problematic objects in the data so that they can be discarded or (manually) fixed. There are a variety of checklists and (semi) automatic tools for this purpose, such as those provided by SAFE<a href="#fn131" id="fnref131"><sup>131</sup></a> and ESRI<a href="#fn132" id="fnref132"><sup>132</sup></a>.
 			</p>
 			<div class="row" id="fig:partially">
-				<div class="col-sm-6 col-xs-6"><img src="figs/part-arcgis.png" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/part-grass.png" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6"><img src="figs/part-arcgis.png" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/part-grass.png" class="img-fluid" /><p class="small text-center">(b)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.1: Different interpretations of a polygon with a hole that is partly outside its outer boundary (\(p_3\) in <a href="#fig:p" id="fig:pref">Figure 10.2</a>). (a) ArcGIS<a href="#fn133" id="fnref133"><sup>133</sup></a> considers the overlapping region as a hole, but the non-overlapping part of the hole as a new polygon (QGIS<a href="#fn134" id="fnref134"><sup>134</sup></a> and FME<a href="#fn135" id="fnref135"><sup>135</sup></a> do this as well). (b) GRASS<a href="#fn136" id="fnref136"><sup>136</sup></a> removes the overlapping part from the polygon, becoming a new polygon with a different shape. No warning is shown in any software.<a href="#fig:partiallyref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.1: Different interpretations of a polygon with a hole that is partly outside its outer boundary (\(p_3\) in <a href="#fig:p" id="fig:pref">Figure 10.2</a>). (a) ArcGIS<a href="#fn133" id="fnref133"><sup>133</sup></a> considers the overlapping region as a hole, but the non-overlapping part of the hole as a new polygon (QGIS<a href="#fn134" id="fnref134"><sup>134</sup></a> and FME<a href="#fn135" id="fnref135"><sup>135</sup></a> do this as well). (b) GRASS<a href="#fn136" id="fnref136"><sup>136</sup></a> removes the overlapping part from the polygon, becoming a new polygon with a different shape. No warning is shown in any software.<a href="#fig:partiallyref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 For example, it is possible to incorporate a set of formal preconditions for every operation, as is done in the design by contract software engineering pattern [<a href="bibliography.html#Meyer86">Meyer, 1986</a>] or the Eiffel programming language [<a href="bibliography.html#ISO/IEC25436:2007">ISO/IEC, 2007</a>]. However, simply discarding problematic (subsets of) datasets is not always feasible, as GIS datasets can be expensive to acquire and thus irreplaceable in practice, and manually fixing errors can be an extremely time-consuming process. In fact, according to <a href="bibliography.html#McKenney98">McKenney [1998]</a>, users of 3D CAD models for finite element analysis&mdash;which has similar requirements as certain computations in GIS, such as well-shaped and non-overlapping mesh elements&mdash;spend up to 70% of their time fixing the input CAD models. While similar figures for GIS are to the best of my knowledge not available, it is worth noting that CAD software tends to produce better quality models than GIS software<a href="#fn133" id="fnref133"><sup>133</sup></a>. 
@@ -137,21 +137,21 @@ locale_es: /en/thesis/resumen.html
 				 </ol>
 			</p>
 			<div class="row" id="fig:prepair-workflow">
-				<div class="col-sm-3 col-xs-6"><img src="figs/prepair-workflow-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/prepair-workflow-3.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/prepair-workflow-4.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/prepair-workflow-5.svg" class="img-responsive" /><p class="small text-center">(d)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.5: Steps to repair a (multi)polygon using a constrained triangulation: (a) input data, (b) triangulation, (c) labelling, and (d) reconstruction.<a href="#fig:prepair-workflowref">&#8617;</a></p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/prepair-workflow-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/prepair-workflow-3.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/prepair-workflow-4.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/prepair-workflow-5.svg" class="img-fluid" /><p class="small text-center">(d)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.5: Steps to repair a (multi)polygon using a constrained triangulation: (a) input data, (b) triangulation, (c) labelling, and (d) reconstruction.<a href="#fig:prepair-workflowref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 This method is remarkably efficient, and its implementation based on CGAL classes is able to process large polygons quickly. As an example, <a href="#fig:prepair" id="fig:prepairref">Figure 10.6</a> shows the process on the largest polygon in the CORINE land cover dataset<a href="#fn145" id="fnref145"><sup>145</sup></a>, which consists of almost 1 189 903 vertices and 7 672 holes, which is processed in under a second. 
 			</p>
 			<div class="row" id="fig:prepair">
-				<div class="col-sm-3 col-xs-6"><img src="figs/prepair-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/prepair-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/prepair-3.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/prepair-4.jpg" class="img-responsive" /><p class="small text-center">(d)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.6: Processing the largest polygon in the CORINE land cover dataset: (a) outer and inner boundaries, (b) triangulation, (c) labelling, (d) reconstruction.<a href="#fig:prepairref">&#8617;</a></p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/prepair-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/prepair-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/prepair-3.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/prepair-4.jpg" class="img-fluid" /><p class="small text-center">(d)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.6: Processing the largest polygon in the CORINE land cover dataset: (a) outer and inner boundaries, (b) triangulation, (c) labelling, (d) reconstruction.<a href="#fig:prepairref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 The method to <strong>repair a planar partition</strong> then uses polygons which are known to be valid based on the previous method. It consists of four main steps, shown in <a href="#fig:pprepair-workflow" id="fig:pprepair-workflowref">Figure 10.7</a>, and is as follows:
@@ -163,27 +163,27 @@ locale_es: /en/thesis/resumen.html
 				 </ol>
 			</p>
 			<div class="row" id="fig:pprepair-workflow">
-				<div class="col-sm-2 col-xs-4"><img src="figs/pprepair-workflow-a.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-2 col-xs-4"><img src="figs/pprepair-workflow-b.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-2 col-xs-4"><img src="figs/pprepair-workflow-c.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-2 col-xs-4"><img src="figs/pprepair-workflow-d.svg" class="img-responsive" /><p class="small text-center">(d)</p></div>
-				<div class="col-sm-2 col-xs-4"><img src="figs/pprepair-workflow-e.svg" class="img-responsive" /><p class="small text-center">(e)</p></div>
-				<div class="col-sm-2 col-xs-4"><img src="figs/pprepair-workflow-f.svg" class="img-responsive" /><p class="small text-center">(f)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.7: Steps to repair a planar partition using a constrained triangulation: (a) input data, (b) triangulation, (c) labelling, (d&ndash;e) relabelling problematic triangles, (f) reconstruction.<a href="#fig:pprepair-workflowref">&#8617;</a></p></div>
+				<div class="col col-4 col-lg-2"><img src="figs/pprepair-workflow-a.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4 col-lg-2"><img src="figs/pprepair-workflow-b.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4 col-lg-2"><img src="figs/pprepair-workflow-c.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-4 col-lg-2"><img src="figs/pprepair-workflow-d.svg" class="img-fluid" /><p class="small text-center">(d)</p></div>
+				<div class="col col-4 col-lg-2"><img src="figs/pprepair-workflow-e.svg" class="img-fluid" /><p class="small text-center">(e)</p></div>
+				<div class="col col-4 col-lg-2"><img src="figs/pprepair-workflow-f.svg" class="img-fluid" /><p class="small text-center">(f)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.7: Steps to repair a planar partition using a constrained triangulation: (a) input data, (b) triangulation, (c) labelling, (d&ndash;e) relabelling problematic triangles, (f) reconstruction.<a href="#fig:pprepair-workflowref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Various local repair methods can thus be defined, all of which are based on choosing how to relabel a triangle which no label or with multiple labels. <a href="#fig:pprepair-method" id="fig:pprepair-methodref">Figure 10.8</a> shows a few examples of such methods. Within this thesis, planar partitions are obtained by repairing invalid regions using the longest boundary with a neighbour (<a href="#fig:pprepair-method" id="fig:pprepair-methodref">Figure 10.8c</a>) if possible, as this tends to produce a cartographically more pleasing result, and a random neighbour (<a href="#fig:pprepair-method" id="fig:pprepair-methodref">Figure 10.8d</a>) otherwise. 
 			</p>
 			<div class="row" id="fig:pprepair-method">
-				<div class="col-sm-6 col-xs-6"><img src="figs/pprepair-method-a.png" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/pprepair-method-b.png" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6"><img src="figs/pprepair-method-a.png" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/pprepair-method-b.png" class="img-fluid" /><p class="small text-center">(b)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-6 col-xs-6"><img src="figs/pprepair-method-c.png" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/pprepair-method-d.png" class="img-responsive" /><p class="small text-center">(d)</p></div>
+				<div class="col col-6"><img src="figs/pprepair-method-c.png" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-6"><img src="figs/pprepair-method-d.png" class="img-fluid" /><p class="small text-center">(d)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.8: Various repair methods can be defined based on relabelling triangles or sets of connected triangles. For instance, based on (a) the input data, it is possible to relabel: (b) an invalid triangle based using its longest boundary with a neighbour, (c) an invalid region of connected triangles using its longest boundary with a neighbour, or (d) an invalid region of connected triangles using a random neighbour.<a href="#fig:pprepair-methodref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.8: Various repair methods can be defined based on relabelling triangles or sets of connected triangles. For instance, based on (a) the input data, it is possible to relabel: (b) an invalid triangle based using its longest boundary with a neighbour, (c) an invalid region of connected triangles using its longest boundary with a neighbour, or (d) an invalid region of connected triangles using a random neighbour.<a href="#fig:pprepair-methodref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 This method is able to process large datasets quickly, such as the one shown in <a href="#fig:16tiles" id="fig:16tilesref">Figure 10.9</a>, which consists of 16 tiles of the CORINE land cover dataset in a 4\(\times\)4 configuration. It has 63 868 polygons with a total of 6 622 133 vertices and was processed in 4 minutes 47 seconds. By comparison, both ArcGIS and GRASS are unable to repair this dataset by snapping geometries, while FME repairs it in 15 minutes 48 seconds<a href="#fn146" id="fnref146"><sup>146</sup></a>, also using snapping. Note that apart from the fact that snapping is slower, it does not guarantee a valid result.
@@ -201,8 +201,8 @@ locale_es: /en/thesis/resumen.html
 				 The volumetric models that are often used in CAD and BIM, such as those in IFC format [<a href="bibliography.html#ISO16739:2013">ISO, 2013</a>], follow a different approach, which is shown in <a href="#fig:volumetric" id="fig:volumetricref">Figure 10.10</a>. In it, almost all real-world volumetric objects, i.e. the objects with a non-zero volume, are modelled as volumes as well. This approach is more expensive in terms of space and makes certain computations more difficult, such as obtaining the volume of a room that is only represented implicitly by a set of (volumetric) walls, doors and windows around it. However, the approach is ultimately a more powerful representation that is closer to reality, enabling more complex operations, such as the structural analysis of a building, and eliminates the ambiguities inherent in interpreting volumetric real-world objects that have been modelled as points, curves or surfaces.
 			</p>
 			<div class="row" id="fig:volumetric">
-				<div class="col-sm-12"><img src="figs/volumetric.jpg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.10: A surface-based model (left) consists of a set of semantically labelled surfaces, which are shown here in different colours. A volumetric model (centre+right) instead consists of a set of semantically labelled <em>volumes</em>.<a href="#fig:volumetricref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/volumetric.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.10: A surface-based model (left) consists of a set of semantically labelled surfaces, which are shown here in different colours. A volumetric model (centre+right) instead consists of a set of semantically labelled <em>volumes</em>.<a href="#fig:volumetricref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Although the volumes in such a model do not generally fit together perfectly, they can nevertheless be better processed<a href="#fn147" id="fnref147"><sup>147</sup></a> into a 3D space partition consisting of a set of non-overlapping 3D objects, where each of the volumes&mdash;and optionally also their vertices, edges and faces&mdash;is labelled with appropriate semantic information<a href="#fn148" id="fnref148"><sup>148</sup></a>. The result is thus a <em>space-partitioning 3D model</em>, which is analogous to the 2D planar partitions often used to model coverages in GIS.  Such a model can be stored in a computer using the topological data structures for 3D (<a href="modelling-background.html#ss:data-structures">&sect;3.1.3</a>) or \(n\)D (<a href="nd-modelling.html#ss:cell-complexes">&sect;4.3.5</a>) cell complexes. 
@@ -214,8 +214,8 @@ locale_es: /en/thesis/resumen.html
 				 A space-partitioning model is also better able to take advantage of the complex 3D models that are already created during the design and construction processes of a building, such as the faces that form a room, storey or building. This avoids the need to extract or abstract appropriate surfaces for their recreation in a GIS model, such as was done by <a href="bibliography.html#Donkers13">Donkers [2013]</a>. Since architectural and BIM models have a strong emphasis on representing individual 3D elements that need to be designed, manufactured and put together, such as those shown in <a href="#fig:fzk" id="fig:fzkref">Figure 10.11</a>, as well as the fact that these elements generally do not overlap in reality (except as part of hierarchies), they are ideally suited to be used in a space-partitioning model.
 			</p>
 			<div class="row" id="fig:ifc">
-				<div class="col-sm-12"><img src="figs/ifc.jpg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.11: An IFC model of the FZK-house<a href="#fn149" id="fnref149"><sup>149</sup></a> contains a complex representation of the structural elements of the building. Note how the volumes in this model fit together, having no overlaps even in places that are normally not visible (e.g. the beam ends which are embedded in the walls).<a href="#fig:ifcref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/ifc.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.11: An IFC model of the FZK-house<a href="#fn149" id="fnref149"><sup>149</sup></a> contains a complex representation of the structural elements of the building. Note how the volumes in this model fit together, having no overlaps even in places that are normally not visible (e.g. the beam ends which are embedded in the walls).<a href="#fig:ifcref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h3>10.3.2 What is a valid solid or 3D space partition?</h3>
@@ -224,8 +224,8 @@ locale_es: /en/thesis/resumen.html
 				 The ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a, &sect;6.3.18</a>] defines 3D objects with 3D holes that are known as <em>solids</em>, which are specified based on a boundary representation scheme. As shown in <a href="#fig:iso-brep" id="fig:iso-brepref">Figure 10.12</a>, the standard thus defines a <code>GM_Solid</code> with a <em>boundary</em> operation returning a <code>GM_SolidBoundary</code>, which is a &lsquo;<em>sequence of sets of <code>GM_Surfaces</code> that limit the extent of [the] <code>GM_Solid</code>}</em>&rsquo;. Each of these sets of surfaces describes one of the boundaries of the <code>GM_Solid</code> as a <code>GM_Shell</code>, corresponding to either the outer boundary for the solid<a href="#fn150" id="fnref150"><sup>150</sup></a> or one of its holes. 
 			</p>
 			<div class="row" id="fig:iso-brep">
-				<div class="col-sm-12"><img src="figs/iso-brep.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.12: The ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a, &sect;6.3.2</a>] is able to specify the boundaries of <code>GM_Curve</code>, <code>GM_Surface</code> and <code>GM_Solid</code> as subclasses of <code>GM_Boundary</code>, respectively a <code>GM_CurveBoundary</code> linked to a pair of <code>GM_Point</code> (the end-points of a line segment), <code>GM_SurfaceBoundary</code> linked to a set of instances of <code>GM_Ring</code>, and a <code>GM_SolidBoundary</code> linked to set of instances of <code>GM_Shell</code>.<a href="#fig:iso-brepref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/iso-brep.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.12: The ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a, &sect;6.3.2</a>] is able to specify the boundaries of <code>GM_Curve</code>, <code>GM_Surface</code> and <code>GM_Solid</code> as subclasses of <code>GM_Boundary</code>, respectively a <code>GM_CurveBoundary</code> linked to a pair of <code>GM_Point</code> (the end-points of a line segment), <code>GM_SurfaceBoundary</code> linked to a set of instances of <code>GM_Ring</code>, and a <code>GM_SolidBoundary</code> linked to set of instances of <code>GM_Shell</code>.<a href="#fig:iso-brepref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 A <code>GM_Shell</code> [<a href="bibliography.html#ISO19107:2005">ISO, 2005a, &sect;6.3.8</a>] thus represents &lsquo;<em>a single connected component of a <code>GM_SolidBoundary</code></em>&rsquo;. It is known to be <em>simple</em>, and consists of a set of oriented instances of <code>GM_Surface</code> composed of instances of <code>GM_SurfacePatch</code>, which intuitively form a cellular subdivision of the surface and themselves have a <code>GM_SurfaceBoundary</code>. A <code>GM_SurfaceBoundary</code> represents an area potentially with any number of holes, each of which is stored as a reference to a <code>GM_Ring</code>. A <code>GM_Ring</code> [<a href="bibliography.html#ISO19107:2005">ISO, 2005a, &sect;6.3.6</a>] is additionally defined as being <em>simple</em>. 
@@ -263,28 +263,28 @@ locale_es: /en/thesis/resumen.html
 				<li><strong>Implicit geometries</strong> Objects are often represented using sweeps, intersections of half-spaces and Boolean set operations, such as in the case of openings as shown in <a href="#fig:ioh-diff" id="fig:ioh-diffref">Figure 10.13</a>. These need to be converted to explicit (boundary representation) objects that can be made to fit with other objects. As these need to be discretised, they will often not perfectly match the shape of the original objects, sometimes creating problems in their interaction with other objects. </li>
 			</ul>
 			<div class="row" id="fig:ioh-diff">
-				<div class="col-sm-4 col-xs-4"><img src="figs/ioh-diff-w.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/ioh-diff-wo.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/ioh-diff-o.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.13: In the (a) IfcOpenHouse dataset<a href="#fn151" id="fnref151"><sup>151</sup></a>, the openings where the windows and door fit are not explicitly carved out from the wall volumes. Instead, the dataset consists of (b) walls with simple shapes and (c) the openings themselves as large boxes. A Boolean point set difference thus needs to be computed in order to obtain the final explicit geometries.<a href="#fig:ioh-diffref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/ioh-diff-w.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/ioh-diff-wo.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/ioh-diff-o.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.13: In the (a) IfcOpenHouse dataset<a href="#fn151" id="fnref151"><sup>151</sup></a>, the openings where the windows and door fit are not explicitly carved out from the wall volumes. Instead, the dataset consists of (b) walls with simple shapes and (c) the openings themselves as large boxes. A Boolean point set difference thus needs to be computed in order to obtain the final explicit geometries.<a href="#fig:ioh-diffref">&#8617;</a></p></div>
 			</div>
 			<ul style="list-style-type: none;">
 				<li><strong>Local coordinate systems</strong> Objects are defined using a local coordinate system, which might differ per object. As the parameters of these coordinate systems are stored (and computed) in a finite computer representation, this will cause the objects not to fit together perfectly. In addition, applying a transformation to embed all objects into a unique coordinate system using computed arithmetic will cause additional problems. The result is that objects that visually appear to fit together do not actually do so, having small gaps and overlaps between them as shown in <a href="#fig:ioh-small" id="fig:ioh-smallref">Figure 10.14</a>. </li>
 			</ul>
 			<div class="row" id="fig:ioh-small">
-				<div class="col-sm-4 col-xs-4"><img src="figs/ioh-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/ioh-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/ioh-3.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.14: The volumes in the (a) IfcOpenHouse dataset do not perfectly match each other at their common boundaries. (b) The two volumes forming the roof actually do not touch, causing the house not to be closed. (c) The left wall and the foundation volumes have a small overlapping portion (i.e. the wall sinks inside the foundation).<a href="#fig:ioh-smallref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/ioh-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/ioh-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/ioh-3.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.14: The volumes in the (a) IfcOpenHouse dataset do not perfectly match each other at their common boundaries. (b) The two volumes forming the roof actually do not touch, causing the house not to be closed. (c) The left wall and the foundation volumes have a small overlapping portion (i.e. the wall sinks inside the foundation).<a href="#fig:ioh-smallref">&#8617;</a></p></div>
 			</div>
 			<ul style="list-style-type: none;">
 				<li><strong>Hidden intentional overlaps</strong> Not caring about hidden object intersections is common practice in most 3D modelling approaches. By not caring about these intersections, it is possible to ease and speed up the modelling process by using simpler volumes (e.g. boxes or rectangles) than would otherwise be required and hiding their undesirable parts behind or inside other objects, as is shown in <a href="#fig:ioh-large" id="fig:ioh-largeref">Figure 10.15</a>. </li>
 			</ul>
 			<div class="row" id="fig:fig:ioh-large">
-				<div class="col-sm-4 col-xs-4"><img src="figs/ioh-4.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/ioh-5.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/ioh-6.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.15: (a) The right wall and the right roof volumes in the IfcOpenHouse dataset visually appear to match each other, but the (b) right wall and (c) right roof are modelled as parallelepipeds, so they have a non-empty intersection (a triangular pyramid).<a href="#fig:fig:ioh-largeref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/ioh-4.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/ioh-5.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/ioh-6.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.15: (a) The right wall and the right roof volumes in the IfcOpenHouse dataset visually appear to match each other, but the (b) right wall and (c) right roof are modelled as parallelepipeds, so they have a non-empty intersection (a triangular pyramid).<a href="#fig:fig:ioh-largeref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h3>10.3.4 Commonly used validation and repair methods</h3>
@@ -341,9 +341,9 @@ locale_es: /en/thesis/resumen.html
 				</li>
 			</ol>
 			<div class="row" id="fig:faceplanes">
-				<div class="col-sm-6 col-xs-6"><img src="figs/faceplanes-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/faceplanes-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.16: The best fitting plane to the vertices of every face is computed, here showing those belonging to (a) the floor, back right wall, back left wall and back eave, and (b) the front left wall, front right wall and front eave.<a href="#fig:faceplanesref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/faceplanes-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/faceplanes-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.16: The best fitting plane to the vertices of every face is computed, here showing those belonging to (a) the floor, back right wall, back left wall and back eave, and (b) the front left wall, front right wall and front eave.<a href="#fig:faceplanesref">&#8617;</a></p></div>
 			</div>
 			<ol>
 				<li>
@@ -404,8 +404,8 @@ locale_es: /en/thesis/resumen.html
 				 Following the terminology used in the standard and as shown in <a href="#fig:iso-cell-brep" id="fig:iso-cell-brepref">Figure 10.19</a>, such an extension of the would mainly entail a <code>GM_OrientableGeometricPrimitive</code> with a <code>dimension</code> attribute, which would set to \(n\). This class would be analogous to <code>GM_OrientableCurve</code> for <code>dimension</code> 1, <code>GM_OrientableSurface</code> for <code>dimension</code> 2 and a newly created <code>GM_OrientableSolid</code> for <code>dimension</code> 3, which would be a subclass of <code>GM_OrientablePrimitive</code>. The <code>GM_OrientableGeometricPrimitive</code> would be bounded by a <code>GM_GeometricPrimitiveBoundary</code>, which would be linked to aggregations of \((n-1)\)-dimensional instances of a newly created <code>GM_Cell</code> (with their <code>dimension</code> attribute set to \(n-1\)). This <code>GM_Cell</code> class would be analogous to <code>GM_Point</code> for <code>dimension</code> 0, <code>GM_Curve</code> for <code>dimension</code> 1, <code>GM_Ring</code> for <code>dimension</code> 2, and <code>GM_Shell</code> for <code>dimension</code> 3. Each of the instances of <code>GM_Cell</code> bounding a <code>GM_OrientablePrimitive</code> would represent either the outer boundary of the geometric primitive (if any), or one of any number of inner boundaries representing \(n\)-dimensional holes. This extension of the standard would seem to follow most in the spirit of ISO 19107. 
 			</p>
 			<div class="row" id="fig:iso-cell-brep">
-				<div class="col-sm-12"><img src="figs/iso-cell-brep.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.19: A dimension-independent definition of a cell in a harmonised manner with other classes in the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a</a>].<a href="#fig:iso-cell-brepref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/iso-cell-brep.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.19: A dimension-independent definition of a cell in a harmonised manner with other classes in the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a</a>].<a href="#fig:iso-cell-brepref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 However, other alternative extensions could be considered. As <code>GM_Curve</code>, <code>GM_Surface</code>, and <code>GM_Solid</code> would essentially be special cases of <code>GM_Cell</code>, all of the former could be seen as redundant and eliminated. However, the standard already contains many specialisations that are somewhat redundant but that cover common use cases in geographic information, such as <code>GM_Triangle</code> and <code>GM_Tin</code>. Another possibility would be considering <code>GM_Curve</code>, <code>GM_Surface</code>, and <code>GM_Solid</code> as subclasses of <code>GM_Cell</code> or substituting the abstract <code>GM_Primitive</code> for a non-abstract <code>GM_Cell</code>, but this would involve a major change in the standard and seems to run counter to the preferred use of abstract top classes in the standard. 
@@ -414,8 +414,8 @@ locale_es: /en/thesis/resumen.html
 				 The definition of an <code>GM_OrientableGeometricPrimitive</code> as explained above also lends itself to the definition of sets of disjoint cells (akin to the <code>Multi&hellip;</code> classes in the standard) and cell complexes (akin to the <code>Composite&hellip;</code> classes in the standard), which could also be handled in the same manner as in the ISO 19107 standard. As shown in <a href="#fig:iso-composites" id="fig:iso-compositesref">Figure 10.20</a>, the standard already defines composite curves, surfaces and solids, which are equivalent to 1-, 2- and 3-dimensional cell complexes. A <code>GM_CompositeCurve</code> is &lsquo;<em>a list of orientable curves (<code>GM_OrientableCurve</code>) agreeing in orientation in a manner such that each curve (except the first) begins where the previous one ends.</em>&rsquo;, a <code>GM_CompositeSurface</code> is &lsquo;<em>a collection of oriented surfaces that join in pairs on common boundary curves</em>&rsquo;, and a <code>GM_CompositeSolid</code> is &lsquo;<em>a set of solids that join in pairs on common boundary surfaces</em>&rsquo;. 
 			</p>
 			<div class="row" id="fig:iso-composites">
-				<div class="col-sm-12"><img src="figs/iso-composites.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.20: The cell complexes of dimension 1, 2 and 3 are respectively defined in the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a, &sect;6.6.3</a>] as the classes <code>GM_CompositeCurve</code>, <code>GM_CompositeSurface</code> and <code>GM_CompositeSolid</code>.<a href="#fig:iso-compositesref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/iso-composites.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.20: The cell complexes of dimension 1, 2 and 3 are respectively defined in the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a, &sect;6.6.3</a>] as the classes <code>GM_CompositeCurve</code>, <code>GM_CompositeSurface</code> and <code>GM_CompositeSolid</code>.<a href="#fig:iso-compositesref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 A similarly defined <code>GM_CompositeGeometricPrimitive</code>, shown in <a href="#fig:iso-compositecell" id="fig:iso-compositecellref">Figure 10.21</a> which should contain the <code>dimension</code> as a parameter, would thus be equivalent to a representation of a space partition of any dimension that allows objects with holes. It could be defined as &lsquo;a set of \(n\)-dimensional orientable geometric primitives (<code>GM_OrientableGeometricPrimitive</code>) that join in pairs on common \((n-1)\)-dimensional boundary geometric primitives&rsquo;. Note that this implies that the primitives combinatorially form an \(n\)-quasi-manifold, although geometrically they might not do so due to the presence of holes. 
@@ -432,7 +432,7 @@ locale_es: /en/thesis/resumen.html
 				 Meanwhile, an \(n\)-dimensional space subdivision should consist of a set of \(n\)-dimensional geometric primitives that are mutually exclusive and exhaustively partition an extent, itself a well-defined subset of \(\mathbb{R}^n\). As with the definitions of a planar partition and 3D space subdivision, this implies that there should be no overlapping primitives, and no gaps between them unless these gaps are considered to be outside the extent. 
 			</p>
 		</div>
-		<div class="col-md-3">
+		<div class="col col-12 col-md-3">
 			<p id="fn130" class="small text-justify">
 				130. For instance, unlike other types of datasets, GIS objects often cannot be stored directly as a plain list of tuples, but are instead decomposed into primitives of a certain shape (<a href="modelling-background.html#se:spatial-modelling">&sect;3.1</a>, sometimes recursively, and these have to be defined in terms of its dimension and structure, topological relations, geometry and attributes, sometimes including rich semantics as well.<a href="#fnref130">&#8617;</a>
 			</p>
@@ -457,15 +457,15 @@ locale_es: /en/thesis/resumen.html
 			<p id="fn137" class="small text-justify">
 				137. There are many reasons for this. For instance, CAD software makes wider use of topological data structures, and also has topology-aware and smart interactive editing tools (e.g. snapping to guide lines and nearby objects), which help to avoid problems where objects seem to be valid but have small errors, such as sliver polygons and shells that are not properly closed.<a href="#fnref137">&#8617;</a>
 			</p>
-			<p id=fig:p><img src="figs/unitpolygons.jpg" class="img-responsive"></p>
+			<p id=fig:p><img src="figs/unitpolygons.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 10.2: Several invalid polygons, with their outer boundaries shown in black and their inner boundaries in grey. The orange areas represent one possible interpretation of the interior of the polygons. Polygon \(p_{12}\) has an exterior and an interior boundary with the same geometry.<a href="#fig:pref">&#8617;</a></p>
 			<p id="fn138" class="small text-justify">
 				138. <a href="bibliography.html#Foley95">Foley et al. [1995]</a> considers only polygons, but the rules as explained here also cover holes in polygons and multipolygons.<a href="#fnref138">&#8617;</a>
 			</p>
 			<div class="row" id="fig:polygoninterpretation">
-				<div class="col-sm-12"><img src="figs/oddeven.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/nonzerowinding.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.3: (a) According to the <em>odd-even rule</em>, a polygon&rsquo;s interior is the region(s) that can be accessed by passing through an odd number of edges from its exterior. (b) According to the <em>non-zero winding rule</em>, a polygon&rsquo;s interior is the region(s) around which the boundaries of a polygon do a non-zero number of revolutions.<a href="#fig:polygoninterpretationref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/oddeven.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/nonzerowinding.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.3: (a) According to the <em>odd-even rule</em>, a polygon&rsquo;s interior is the region(s) that can be accessed by passing through an odd number of edges from its exterior. (b) According to the <em>non-zero winding rule</em>, a polygon&rsquo;s interior is the region(s) around which the boundaries of a polygon do a non-zero number of revolutions.<a href="#fig:polygoninterpretationref">&#8617;</a></p></div>
 			</div>
 			<p id="fn139" class="small text-justify" style="word-break: break-word;">
 				139. <a href="http://postgis.org/documentation/manual-svn/ST_MakeValid.html">http://postgis.org/documentation/manual-svn/ST_MakeValid.html</a><a href="#fnref139">&#8617;</a>
@@ -474,9 +474,9 @@ locale_es: /en/thesis/resumen.html
 				140. <a href="http://www.1spatial.com/software/radius_topology/">http://www.1spatial.com/software/radius_topology/</a><a href="#fnref140">&#8617;</a>
 			</p>
 			<div class="row" id="fig:threshold">
-				<div class="col-sm-12"><img src="figs/threshold-gap.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/threshold-overlap.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.4: Defining a snapping threshold taking into account: (a) gaps and (b) overlaps.<a href="#fig:thresholdref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/threshold-gap.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/threshold-overlap.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.4: Defining a snapping threshold taking into account: (a) gaps and (b) overlaps.<a href="#fig:thresholdref">&#8617;</a></p></div>
 			</div>
 			<p id="fn141" class="small text-justify">
 				141. Based on one robust geometric predicate that tests whether three successive points are collinear, have a clockwise or a anticlockwise orientation (e.g. <a href="bibliography.html#Shewchuk96a">Shewchuk [1996b]</a>) and the computation of new vertices at the intersections of line segments. A constrained Delaunay triangulation only requires an additional predicate that determines whether a point lies inside, on or outside the circle defined by three other points.<a href="#fnref141">&#8617;</a>
@@ -496,7 +496,7 @@ locale_es: /en/thesis/resumen.html
 			<p id="fn146" class="small text-justify">
 				146. On tests where ArcGIS and GRASS were able to process the data, they were slower than FME.<a href="#fnref146">&#8617;</a>
 			</p>
-			<p id=fig:16tiles><img src="figs/16tiles.jpg" class="img-responsive"></p>
+			<p id=fig:16tiles><img src="figs/16tiles.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 10.9: A planar partition made from 16 tiles of the CORINE land cover dataset.<a href="#fig:16tilesref">&#8617;</a></p>
 			<p id="fn147" class="small text-justify">
 				147. Akin to how a set of polygons can be better processed into a planar partition compared to a rough line drawing with undershoots and overshoots (i.e. a typical spaghetti dataset).<a href="#fnref147">&#8617;</a>
@@ -526,19 +526,19 @@ locale_es: /en/thesis/resumen.html
 				155. Proposed by <a href="bibliography.html#Lancaster81">Lancaster and Salkauskas [1981]</a>, it is a widely used surface reconstruction method based on interpolating a set of points.<a href="#fnref155">&#8617;</a>
 			</p>
 			<div class="row" id="fig:snapping">
-				<div class="col-sm-12"><img src="figs/snapping-1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/snapping-2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 10.17: (a) The vertices of different polyhedra that lie within a threshold are snapped together, thus (b) removing a small gap. A small overlap works in the same manner.<a href="#fig:snappingref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/snapping-1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/snapping-2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 10.17: (a) The vertices of different polyhedra that lie within a threshold are snapped together, thus (b) removing a small gap. A small overlap works in the same manner.<a href="#fig:snappingref">&#8617;</a></p></div>
 			</div>
-			<p id="fig:ioh-steps"><img src="figs/ioh-steps.jpg" class="img-responsive"></p>
+			<p id="fig:ioh-steps"><img src="figs/ioh-steps.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 10.18: The steps of the IfcOpenHouse do not actually touch the house&rsquo;s foundation. Note that it also does not have common vertices with the foundation, so this gap cannot be closed by vertex-to-vertex snapping, but it can be closed by snapping its vertices on the left to the foundation&rsquo;s right plane.<a href="#fig:ioh-stepsref">&#8617;</a></p>
-			<p id=fig:iso-compositecell><img src="figs/iso-compositecell.svg" class="img-responsive"></p>
+			<p id=fig:iso-compositecell><img src="figs/iso-compositecell.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 10.21: A definition of an \(n\)-dimensional space subdivision in a harmonised manner with other classes in the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a</a>].<a href="#fig:iso-compositecellref">&#8617;</a></p>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="slicing.html"><i class="fa fa-angle-double-left"></i> 9 Extracting information from higher-dimensional models</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="conclusions.html">11 Conclusions and future work <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="slicing.html"><i class="fa fa-angle-double-left"></i> 9 Extracting information from higher-dimensional models</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="conclusions.html">11 Conclusions and future work <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>
