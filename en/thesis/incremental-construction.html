@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">7 Incremental construction</li>
-	</ol>
-	<div class="page-header">
-		<h1>7 Incremental construction</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">7 Incremental construction</li>
+		</ol>
+	</nav>
+	<h1>7 Incremental construction</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 One more method to the extrusion of <a href="extrusion.html">Chapter 6</a>, <em>incremental construction</em> exploits the property that an \(n\)-cell can be defined based on a set of \((n-1)\)-cells known to form its complete (closed) boundary. In practice, defining an \(n\)-cell in this manner is significantly more complex than doing so based on extrusion. However, unlike extrusion it permits the creation of cells of an <em>arbitrary shape</em>. It can also be applied cell by cell in increasing dimension, starting with the construction of isolated 0-cells (embedded in \(\mathbb{R}^n\)) first, and then constructing 2-cells, 3-cells and further based on their boundary, allowing for the <em>incremental construction</em> of objects of any dimension&mdash;hence the name given here. 
 			</p>
@@ -110,19 +110,19 @@ locale_es: /en/thesis/resumen.html
 				 <a href="#fig:reconstruction-2" id="fig:reconstruction-2ref">Figure 7.3</a> shows the incremental construction procedure for all the 2-cells of <a href="#fig:2tetra" id="fig:2tetraref">Figure 7.1</a>, which consists of 7 2-cells and is thus obtained by 7 calls to the \(\texttt{make_2_cell}\) method. 
 			</p>
 			<div class="row" id="fig:reconstruction-2">
-				<div class="col-sm-3 col-xs-3"><img src="figs/reconstruction-2.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-3 col-xs-3"><img src="figs/reconstruction-2-a.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-3 col-xs-3"><img src="figs/reconstruction-2-b.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-3 col-xs-3"><img src="figs/reconstruction-2-c.svg" class="img-responsive" /><p class="small text-center">(d)</p></div>
+				<div class="col col-3"><img src="figs/reconstruction-2.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-3"><img src="figs/reconstruction-2-a.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-3"><img src="figs/reconstruction-2-b.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-3"><img src="figs/reconstruction-2-c.svg" class="img-fluid" /><p class="small text-center">(d)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-3 col-xs-3"><img src="figs/reconstruction-2-d.svg" class="img-responsive" /><p class="small text-center">(e)</p></div>
-				<div class="col-sm-3 col-xs-3"><img src="figs/reconstruction-2-e.svg" class="img-responsive" /><p class="small text-center">(f)</p></div>
-				<div class="col-sm-3 col-xs-3"><img src="figs/reconstruction-2-f.svg" class="img-responsive" /><p class="small text-center">(g)</p></div>
-				<div class="col-sm-3 col-xs-3"><img src="figs/reconstruction-2-g.svg" class="img-responsive" /><p class="small text-center">(h)</p></div>
+				<div class="col col-3"><img src="figs/reconstruction-2-d.svg" class="img-fluid" /><p class="small text-center">(e)</p></div>
+				<div class="col col-3"><img src="figs/reconstruction-2-e.svg" class="img-fluid" /><p class="small text-center">(f)</p></div>
+				<div class="col col-3"><img src="figs/reconstruction-2-f.svg" class="img-fluid" /><p class="small text-center">(g)</p></div>
+				<div class="col col-3"><img src="figs/reconstruction-2-g.svg" class="img-fluid" /><p class="small text-center">(h)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 7.3: The construction of the 2-cells of <a href="#fig:2tetra" id="fig:2tetraref">Figure 7.1</a>. (a) Initial configuration: one dart per vertex. (b) After \(b=\texttt{make_2_cell(}1,2,3\texttt{)}\). (c) After \(c=\texttt{make_2_cell(}2,4,3\texttt{)}\). (d) After \(d=\texttt{make_2_cell(}1,4,3\texttt{)}\). (e) After \(e=\texttt{make_2_cell(}1,4,2\texttt{)}\). (f) After \(f=\texttt{make_2_cell(}1,3,5\texttt{)}\). (g) After \(g=\texttt{make_2_cell(}5,3,4\texttt{)}\). (h) Final result, after \(h=\texttt{make_2_cell(}4,5,1\texttt{)}\).<a href="#fig:reconstruction-2ref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 7.3: The construction of the 2-cells of <a href="#fig:2tetra" id="fig:2tetraref">Figure 7.1</a>. (a) Initial configuration: one dart per vertex. (b) After \(b=\texttt{make_2_cell(}1,2,3\texttt{)}\). (c) After \(c=\texttt{make_2_cell(}2,4,3\texttt{)}\). (d) After \(d=\texttt{make_2_cell(}1,4,3\texttt{)}\). (e) After \(e=\texttt{make_2_cell(}1,4,2\texttt{)}\). (f) After \(f=\texttt{make_2_cell(}1,3,5\texttt{)}\). (g) After \(g=\texttt{make_2_cell(}5,3,4\texttt{)}\). (h) Final result, after \(h=\texttt{make_2_cell(}4,5,1\texttt{)}\).<a href="#fig:reconstruction-2ref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h3 id="ss:incremental-volumes">7.2.4 Volumes (3-cells) and higher</h3> 
@@ -234,17 +234,17 @@ locale_es: /en/thesis/resumen.html
 				 A larger dataset, shown in <a href="#fig:atkis" id="fig:atkisref">Figure 7.7</a> and consisting of 698 polyhedra with a total of 457 185 faces, was used as a benchmark to test the performance of the algorithm. This dataset was processed without errors in roughly 30 minutes, including validation tests to ensure that every face created was a valid combinatorial map and that the faces of a volume formed a closed quasi-manifold.
 			</p>
 			<div class="row" id="fig:atkis">
-				<div class="col-sm-12"><img src="figs/atkis.jpg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 7.7: A large 2D+scale dataset from <a href="bibliography.html#Meijers11">Meijers [2011]</a>, which uses equally spaced generalisation operations that merge two adjacent polygons.<a href="#fig:atkisref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/atkis.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 7.7: A large 2D+scale dataset from <a href="bibliography.html#Meijers11">Meijers [2011]</a>, which uses equally spaced generalisation operations that merge two adjacent polygons.<a href="#fig:atkisref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 In this latter dataset, an additional test was made using its first 250 polyhedra, which lie on the top of <a href="#fig:atkis" id="fig:atkisref">Figure 7.7</a>, comparing the time used for the construction of vertices, faces and volumes with and without the use of indices. The results of both methods were equivalent using the approach shown in <a href="operations-background.html#se:ndqueries">&sect;5.5</a>. On average, using indices resulted in a faster vertex construction time by a factor of 2 200, faster face construction by a factor of 56 and faster volume construction by a factor of 38. However, as <a href="#fig:construction-times" id="fig:construction-timesref">Figure 7.8</a> shows, these speed gains are not uniform throughout the 250 polyhedra. The speed gained from using an index on the vertices increases roughly linearly on the number of constructed vertices, while that gained on from the faces index remains roughly constant between a factor of 50 and 60, and that gained from the volumes index tends to slowly increase as well. 
 			</p>
 			<div class="row" id="fig:construction-times">
-				<div class="col-sm-4 col-xs-4"><img src="figs/construction-vertices.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/construction-faces.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/construction-volumes.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 7.8: Construction time speed-up from the use of indices on the (a) vertices, (b) faces and (c) volumes.<a href="#fig:construction-timesref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/construction-vertices.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/construction-faces.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/construction-volumes.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 7.8: Construction time speed-up from the use of indices on the (a) vertices, (b) faces and (c) volumes.<a href="#fig:construction-timesref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h2 id="se:incremental-conclusions">7.5 Conclusions</h2> 
@@ -274,7 +274,7 @@ locale_es: /en/thesis/resumen.html
 				 Finally, the logical step forward at this point would be the use of the incremental construction algorithm for the creation of large higher-dimensional datasets. However, since to the best of my knowledge there are no large space-filling higher-dimensional datasets currently available&mdash;without even considering any validity criteria&mdash;, such tests could not be conducted within this thesis. The generation of such a higher-dimensional dataset is thus a necessary first step in this direction and is considered as a related piece of future work. 
 			</p>
 		</div>
-		<div class="col-md-3">
+		<div class="col col-12 col-md-3">
 			<p id="fn109" class="small text-justify">
 				109. A generalisation of the concept of a sphere in arbitrary dimensions. A 0-sphere is the pair of points, a 1-sphere is a circle, and a 2-sphere a sphere. As opposed to disks and balls, circles and spheres are hollow.<a href="#fnref109">&#8617;</a>
 			</p>
@@ -282,11 +282,11 @@ locale_es: /en/thesis/resumen.html
 				110. This is true in practice. However, there are fractal-like pathological objects where this is not the case because their interior or exterior components are not homeomorphic to disks [<a href="bibliography.html#Alexander24">Alexander, 1924</a>]. While they do exist, this type of objects are certainly out of scope here.<a href="#fnref110">&#8617;</a>
 			</p>
 			<div class="row" id="fig:2tetra">
-				<div class="col-sm-12"><img src="figs/2tetra.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/2tetra-map.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 7.1: (a) Two adjacent tetrahedra and (b) their representation as a combinatorial map.<a href="#fig:2tetraref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/2tetra.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/2tetra-map.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 7.1: (a) Two adjacent tetrahedra and (b) their representation as a combinatorial map.<a href="#fig:2tetraref">&#8617;</a></p></div>
 			</div>
-			<p id="fig:reconstruction-0"><img src="figs/reconstruction-0.svg" class="img-responsive" /></p>
+			<p id="fig:reconstruction-0"><img src="figs/reconstruction-0.svg" class="img-fluid" /></p>
 			<p class="small">
 				Figure 7.2: Constructing the 0-cells of <a href="#fig:2tetra" id="fig:2tetraref">Figure 7.1</a> consists of creating exactly one dart embedded at each point. These darts are isolated (i.e.  not linked by any \(\beta\) relations to the other darts). The direction of the arrows shown here is arbitrary.<a href="#reconstruction-0ref">&#8617;</a>
 			</p>
@@ -300,9 +300,9 @@ locale_es: /en/thesis/resumen.html
 				113. Here, depending on the kind of expected input data, it might be more convenient to index edges at their origin vertex rather than at their lexicographically smallest.<a href="#fnref113">&#8617;</a>
 			</p>
 			<div class="row" id="fig:reconstruction-3">
-				<div class="col-sm-12"><img src="figs/reconstruction-3-a.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/reconstruction-3-b.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 7.4: The construction of the 3-cells of <a href="#fig:2tetra" id="fig:2tetraref">Figure 7.1</a>. (a) After \(\texttt{make_3_cell(}b,c,d,e\texttt{)}\). (b) Final result, after \(\texttt{make_3_cell(}e,f,g,h\texttt{)}\).<a href="#fig:reconstruction-3ref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/reconstruction-3-a.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/reconstruction-3-b.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 7.4: The construction of the 3-cells of <a href="#fig:2tetra" id="fig:2tetraref">Figure 7.1</a>. (a) After \(\texttt{make_3_cell(}b,c,d,e\texttt{)}\). (b) Final result, after \(\texttt{make_3_cell(}e,f,g,h\texttt{)}\).<a href="#fig:reconstruction-3ref">&#8617;</a></p></div>
 			</div>
 			<p id="fn114" class="small text-justify">
 				114. The exact implementation depends on the library that is used, but normally they are red-black trees.<a href="#fnref114">&#8617;</a>
@@ -311,24 +311,24 @@ locale_es: /en/thesis/resumen.html
 				115. This is true for the type of combinatorial maps with linear geometries that are handled here, but not necessarily so in the general case.<a href="#fnref115">&#8617;</a>
 			</p>
 			<div class="row" id="fig:tesseract-darts">
-				<div class="col-sm-12"><img src="figs/tesseract2.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/tesseract3.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><img src="figs/tesseract.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 7.5: A tesseract as a combinatorial map: (a) the darts of its 7 inner cubes, (b) the darts of its 8 cubes, and (c) all of its darts shown together.<a href="#fig:tesseract-dartsref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-4 col-md-12"><img src="figs/tesseract2.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-4 col-md-12"><img src="figs/tesseract3.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12 col-sm-4 col-md-12"><img src="figs/tesseract.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 7.5: A tesseract as a combinatorial map: (a) the darts of its 7 inner cubes, (b) the darts of its 8 cubes, and (c) all of its darts shown together.<a href="#fig:tesseract-dartsref">&#8617;</a></p></div>
 			</div>
 			<p id="fn116" class="small text-justify" style="word-break: break-word;">
 				116. <a href="http://www.bkg.bund.de/nn_147094/SharedDocs/Download/Barrierefreie-Textversionen/EN-InfoMaterial/EN-Text-Vector-Data.html">http://www.bkg.bund.de/nn_147094/SharedDocs/Download/Barrierefreie-Textversionen/EN-InfoMaterial/EN-Text-Vector-Data.html</a><a href="#fnref116">&#8617;</a>
 			</p>
 			<div class="row" id="fig:utm">
-				<div class="col-sm-12"><img src="figs/utm.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/utm2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 7.6: Simple 2D+scale datasets from <a href="bibliography.html#Meijers11">Meijers [2011]</a>, which represent the generalisation of a planar partition by merging areas. The dataset shown in (a) has realistic scale intervals such that the generalisation operations are performed at scales that depend on the area of a polygon, while the dataset in (b) uses equally spaced generalisation operations.<a href="#fig:utmref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/utm.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/utm2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 7.6: Simple 2D+scale datasets from <a href="bibliography.html#Meijers11">Meijers [2011]</a>, which represent the generalisation of a planar partition by merging areas. The dataset shown in (a) has realistic scale intervals such that the generalisation operations are performed at scales that depend on the area of a polygon, while the dataset in (b) uses equally spaced generalisation operations.<a href="#fig:utmref">&#8617;</a></p></div>
 			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="extrusion.html"><i class="fa fa-angle-double-left"></i> 6 Extrusion</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="linking-lods.html">8 Linking corresponding 3D models <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="extrusion.html"><i class="fa fa-angle-double-left"></i> 6 Extrusion</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="linking-lods.html">8 Linking corresponding 3D models <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>
