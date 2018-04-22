@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">9 Extracting information from higher-dimensional models</li>
-	</ol>
-	<div class="page-header">
-		<h1>9 Extracting information from higher-dimensional models</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">9 Extracting information from higher-dimensional models</li>
+		</ol>
+	</nav>
+	<h1>9 Extracting information from higher-dimensional models</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 The previous chapters have discussed various aspects of higher-dimensional representations and operations. As powerful as they can be, these representations and operations are generally incompatible with current 2D/3D software and are also hard to imagine and visualise. In order for them to be used in practice, it is therefore important to have methods to extract meaningful 2D and 3D subsets from a higher-dimensional model. 
 			</p>
@@ -43,25 +43,25 @@ locale_es: /en/thesis/resumen.html
 				 However, more complex selection processes are useful in many instances, often requiring specialised data structures and geometric algorithms. In particular, a great number of visibility determination algorithms have been developed [<a href="bibliography.html#Hughes14">Hughes et al., 1998, Ch. 36</a>, which solve various approximations of the surfaces that are visible in a scene. Another example is a selection process is the computation of cross-sections of volumetric 3D objects, which requires the computation of a Boolean set intersection of a point set with a plane, such as the typical <em>conic sections</em> shown in <a href="#fig:conic" id="fig:conicref">Figure 9.1</a>. 
 			</p>
 			<div class="row" id="fig:conic">
-				<div class="col-sm-3 col-xs-6"><img src="figs/conic-circle.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/conic-ellipse.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/conic-parabola.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/conic-hyperbola.jpg" class="img-responsive" /><p class="small text-center">(d)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 9.1: Four types of conic sections: (a) circle, (b) ellipse, (c) parabola and (d) hyperbola. These are obtained by the Boolean set intersection of a pair of cones with a plane.<a href="#fig:conicref">&#8617;</a></p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/conic-circle.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/conic-ellipse.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/conic-parabola.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-6 col-lg-3"><img src="figs/conic-hyperbola.jpg" class="img-fluid" /><p class="small text-center">(d)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 9.1: Four types of conic sections: (a) circle, (b) ellipse, (c) parabola and (d) hyperbola. These are obtained by the Boolean set intersection of a pair of cones with a plane.<a href="#fig:conicref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <strong>Projecting</strong> the selected subset yields a given view of the scene and reduces the actual dimension of the objects being represented. Many types of projections for this purpose can be defined, usually in the form of a transformation that is applied to the objects. For example, orthographic and perspective projections (<a href="#fig:scheduling" id="fig:schedulingref">Figure 9.2</a>) can directly map an \(n\)D scene to an \(m\)D subspace. However, more complex schemes are also possible, such as projecting first inwards/outwards to an \(m\)-sphere (for a hypothetical \((m+1)\)D Nef polyhedra implementation), then to an \(m\)D subspace (e.g.  using an equiangular projection as shown in <a href="#fig:ioh-equiangle" id="fig:ioh-equiangleref">Figure 9.3</a>). 
 			</p>
 			<div class="row" id="fig:scheduling">
-				<div class="col-sm-6 col-xs-6"><img src="figs/scheduling-orthographic.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/scheduling-perspective.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6"><img src="figs/scheduling-orthographic.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/scheduling-perspective.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 9.2: The (a) orthographic projection projects objects orthogonally to the projection plane. The (b) perspective projection projects objects in manner such that those that are nearby appear comparatively larger than farther away.  Note how parallel lines (e.g.  wall edges) remain parallel in the former but not in the latter.<a href="#fig:schedulingref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 9.2: The (a) orthographic projection projects objects orthogonally to the projection plane. The (b) perspective projection projects objects in manner such that those that are nearby appear comparatively larger than farther away.  Note how parallel lines (e.g.  wall edges) remain parallel in the former but not in the latter.<a href="#fig:schedulingref">&#8617;</a></p></div>
 			</div>
 			<div class="row" id="fig:ioh-equiangle">
-				<div class="col-sm-12"><img src="figs/ioh-equiangle.jpg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 9.3: The Equirectangular projection directly maps angles to coordinates. A 360\(^\circ\) view is here mapped into a rectangular 180\(^\circ\times\)360\(^\circ\) image. Rendered from a viewpoint inside the IfcOpenHouse dataset<a href="#fn124" id="fnref124"><sup>124</sup></a>.<a href="#fig:ioh-equiangleref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/ioh-equiangle.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 9.3: The Equirectangular projection directly maps angles to coordinates. A 360\(^\circ\) view is here mapped into a rectangular 180\(^\circ\times\)360\(^\circ\) image. Rendered from a viewpoint inside the IfcOpenHouse dataset<a href="#fn124" id="fnref124"><sup>124</sup></a>.<a href="#fig:ioh-equiangleref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Many of these projections can be done with techniques that are closely related to computer graphics, which has been dealing with the case of converting a 3D scene into a 2D image for decades, and less frequently covering higher-dimensional cases as well. In this sense, it is useful to consider the same camera analogy that is often used in computer graphics, where a movable camera<a href="#fn125" id="fnref125"><sup>125</sup></a> captures a scene as seen from a particular viewpoint. In a higher-dimensional setting, this analogy would consist of an \(m\)D camera capturing an (\(m\)D) view of an \(n\)D scene. While this is somewhat more difficult to imagine, this analogy emphasises three important aspects that remain true in any dimension: 
@@ -96,11 +96,11 @@ locale_es: /en/thesis/resumen.html
 				 Assuming a setup as shown in <a href="#fig:frustum" id="fig:frustumref">Figure 9.5</a>, where a camera is placed at \(z = 0\) and pointing towards higher values on the \(z\) axis, with parameters defining the \(x\) coordinates for the left (\(l\)) and right (\(r\)), \(y\) coordinates for the bottom (\(b\)) and top (\(t\)), and \(z\) coordinates for the near (\(n\)) and far (\(f\)) planes, \citet[Ch.~5]{Shreiner13} define a transformation that applies a perspective projection \(P_p\) and an orthographic projection \(P_o\) as: 
 			</p>
 			<div class="row" id="fig:frustum">
-				<div class="col-sm-6 col-xs-6"><img src="figs/frustum.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/ortho.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6"><img src="figs/frustum.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/ortho.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 9.5: The left (\(l\)), right (\(r\)), bottom (\(b\)), top (\(t\)), near (\(n\)) and far (\(f\)) planes that form (a) a perspective projection&rsquo;s frustum and (b) an orthographic projection&rsquo;s box.<a href="#fig:frustumref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 9.5: The left (\(l\)), right (\(r\)), bottom (\(b\)), top (\(t\)), near (\(n\)) and far (\(f\)) planes that form (a) a perspective projection&rsquo;s frustum and (b) an orthographic projection&rsquo;s box.<a href="#fig:frustumref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 \begin{align*} P_p &= \begin{bmatrix}  \frac{2n}{r-l} & 0 & \frac{2(l+r)}{r-l} & 0 \\ 0 & \frac{2n}{t-b} & \frac{2(t+b)}{t-b} & 0 \\ 0 & 0 & \frac{f+n}{n-f} & \frac{-2fn}{f-n} \\ 0 & 0 & -1 & 0 \\ \end{bmatrix} & P_o &= \begin{bmatrix}  \frac{2}{r-l} & 0 & 0 & \frac{l+r}{l-r} \\ 0 & \frac{2}{t-b} & 0 & \frac{b+t}{b-t} \\ 0 & 0 & \frac{-2}{f-n} & \frac{n+f}{n-f} \\ 0 & 0 & 0 & 1 \\ \end{bmatrix} \end{align*} 
@@ -190,16 +190,16 @@ locale_es: /en/thesis/resumen.html
 				 \begin{equation*} x_i^\prime = \frac{x_i}{x_n-1}, \mathrm{\quad{}for } 0 \leq i < n \end{equation*} 
 			</p>
 			<div class="row" id="fig:jenn">
-				<div class="col-sm-6 col-xs-6"><img src="figs/jenn-cube.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/jenn-24-cell.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 9.9: A polyhedron and a polychoron in Jenn 3D: (a) a cube and (b) a 24-cell.<a href="#fig:jennref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/jenn-cube.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/jenn-24-cell.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 9.9: A polyhedron and a polychoron in Jenn 3D: (a) a cube and (b) a 24-cell.<a href="#fig:jennref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <a href="#fig:4dhouse" id="fig:4dhouseref">Figure 9.10</a> shows the application of this method to a 4D model of a house. For this, all the cells of the model were manually defined similar to how it was done in \refse{se:concrete-example} using their boundary cells and 0-embeddings set in \(\mathbb{R}^4\). The 1- and 2-cells were first refined into small line segments and triangles, the 0-, 1- and 2-cells were then projected inwards/outwards to the volume of a 3-sphere (\(S^3\)), and then stereographically projected to \(\mathbb{R}^3\). The refined 2-cells were exported as to an {}.obj file with materials that reflect which 3- and 4-cell they belong to. Icospheres with a set radius were generated around every 0-cell and approximations of cylinders were generated around every refined 1-cell. All of these geometries were then imported into Blender 3D and rendered using a perspective projection down to 2D. 
 			</p>
 			<div class="row" id="fig:4dhouse">
-				<div class="col-sm-12"><img src="figs/4dhouse.jpg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 9.10: A 4D model of a house is projected from \(\mathbb{R}^4\) inwards/outwards to the 3-sphere \(S^3\), then stereographically to \(\mathbb{R}^3\), finally using a perspective projection down to \(\mathbb{R}^2\). A \(\pi / 5\) rotation along the plane passing through the \(x_0\) and \(x_3\) (LOD) axes makes the bottom and back 2-cells larger than the rest.<a href="#fig:4dhouseref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/4dhouse.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 9.10: A 4D model of a house is projected from \(\mathbb{R}^4\) inwards/outwards to the 3-sphere \(S^3\), then stereographically to \(\mathbb{R}^3\), finally using a perspective projection down to \(\mathbb{R}^2\). A \(\pi / 5\) rotation along the plane passing through the \(x_0\) and \(x_3\) (LOD) axes makes the bottom and back 2-cells larger than the rest.<a href="#fig:4dhouseref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h2 id="se:slicing-conclusions">9.4 Conclusions and possibilities</h2> 
@@ -220,21 +220,21 @@ locale_es: /en/thesis/resumen.html
 				 It is good to note that while the techniques mentioned in this chapter are also applicable to different types of objects than those used in GIS and useful for generic applications. <a href="bibliography.html#Hanson01">Hanson and Weiskopf [2001]</a> uses similar techniques to those mentioned here in order to visualise relativity, <a href="bibliography.html#Bajaj98">Bajaj et al. [1998]</a> does so for \(n\)-dimensional scalar fields. 
 			</p>
 		</div>
-		<div class="col-md-3">
+		<div class="col col-12 col-md-3">
 			<p id="fn124" class="small" style="word-break: break-word;">
 				124. <a href="http://blog.ifcopenshell.org/2012/11/say-hi-to-ifcopenhouse.html">http://blog.ifcopenshell.org/2012/11/say-hi-to-ifcopenhouse.html</a><a href="#fnref124">&#8617;</a>
 			</p>
 			<p id="fn125" class="small text-justify">
 				125. Even if the movable camera is implemented by moving the dataset instead.<a href="#fnref125">&#8617;</a>
 			</p>
-			<p id=fig:wigwam><img src="figs/wigwam.jpg" class="img-responsive"></p>
+			<p id=fig:wigwam><img src="figs/wigwam.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 9.4: An excerpt of the map for the Grand Teton National Park. From <a href="bibliography.html#Patterson02">Patterson [2002]</a>.<a href="#fig:wigwamref">&#8617;</a></p>
 			<p id="fn126" class="small text-justify">
 				126. Strictly, it can be defined pointing toward any direction except along the \(z\) axis.<a href="#fnref126">&#8617;</a>
 			</p>
-			<p id=fig:trig-ortho><img src="figs/trig-ortho.svg" class="img-responsive"></p>
+			<p id=fig:trig-ortho><img src="figs/trig-ortho.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 9.6: The geometry of an orthographic projection for a point \(p\). The situation of the \(y\) axis is identical to that of the \(x\) axis.<a href="#fig:trig-orthoref">&#8617;</a></p>
-			<p id=fig:trig-pers><img src="figs/trig-pers.svg" class="img-responsive"></p>
+			<p id=fig:trig-pers><img src="figs/trig-pers.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 9.7: The geometry of a perspective projection for a point \(p\). The situation of the \(y\) axis is identical to that of the \(x\) axis.<a href="#fig:trig-persref">&#8617;</a></p>
 			<p id="fn127" class="small text-justify">
 				127. Visual cues can still be useful in higher dimensions. See <a href="http://eusebeia.dyndns.org/4d/vis/08-hsr">http://eusebeia.dyndns.org/4d/vis/08-hsr</a>.<a href="#fnref127">&#8617;</a>
@@ -245,13 +245,13 @@ locale_es: /en/thesis/resumen.html
 			<p id="fn129" class="small text-justify">
 				129. Intuitively, an unbounded volume that wraps around itself, much like a 2-sphere can be seen as an unbounded surface that wraps around itself.<a href="#fnref129">&#8617;</a>
 			</p>
-			<p id="fig:stereo-earth"><img src="figs/stereo-earth.jpg" class="img-responsive"></p>
+			<p id="fig:stereo-earth"><img src="figs/stereo-earth.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 9.8: A 2-sphere to \(\mathbb{R^2}\) stereographic projection can map the surface of the Earth to the plane. Here, every point \(p\) on the sphere is projected to the intersection of the plane with a line passing through the North pole and \(p\). From <a href="bibliography.html#Leys08">Leys et al. [2008]</a>.<a href="#fig:stereo-earthref">&#8617;</a></p>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="linking-lods.html"><i class="fa fa-angle-double-left"></i> 8 Linking corresponding 3D models</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="cleaning.html">10 Extracting information from higher-dimensional models <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="linking-lods.html"><i class="fa fa-angle-double-left"></i> 8 Linking corresponding 3D models</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="cleaning.html">10 Extracting information from higher-dimensional models <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>

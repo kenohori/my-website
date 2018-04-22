@@ -1,38 +1,36 @@
-<div class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="https://3d.bk.tudelft.nl"><img class="tud-logo" src="{{ site.baseurl }}/img/3dgeoinfo.png" /></a>
-			<a class="navbar-brand" href="{{ site.baseurl }}/{{ page.lang }}/">Ken Arroyo Ohori</a>
-		</div>
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
-			<ul class="nav navbar-nav">
-				{% for p in site.data.pages %}
-					<li{% if page.file == p.file %} class="active"{% endif %}><a href="{{ site.baseurl }}/{% if page.lang == 'en' or page.lang == 'es' %}{{ page.lang }}{% else %}en{% endif %}/{{ p.path }}">{% if page.lang == 'es' %}{{ p.es }}{% elsif page.lang == 'nl' %}{{ p.nl }}{% else %}{{ p.en }}{% endif %}</a></li>
+		<a class="navbar-brand" href="https://3d.bk.tudelft.nl"><img class="tud-logo" src="{{ site.baseurl }}/img/3dgeoinfo.png" /></a>
+		<a class="navbar-brand" href="{{ site.baseurl }}/{{ page.lang }}/">Ken Arroyo Ohori</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  	<ul class="navbar-nav mr-auto">
+	  		{% for p in site.data.pages %}
+					<li class="nav-item{% if page.file == p.file %} active{% endif %}">
+						<a class="nav-link" href="{{ site.baseurl }}/{% if page.lang == 'en' or page.lang == 'es' %}{{ page.lang }}{% else %}en{% endif %}/{{ p.path }}">{% if page.lang == 'es' %}{{ p.es }}{% elsif page.lang == 'nl' %}{{ p.nl }}{% else %}{{ p.en }}{% endif %}</a></li>
 				{% endfor %}
-			</ul>
-			<ul class="nav navbar-nav pull-right">
-				<li class="dropdown pull-right">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ page.lang }} <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						{% if page.locale_en %}
-							<li><a href="{{ site.baseurl }}{{ page.locale_en }}">en</a></li>
+	  	</ul>
+	  	<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+		    <li class="nav-item dropdown">
+		      <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" data-toggle="dropdown">
+		        {{ page.lang }}
+		      </a>
+		      <div class="dropdown-menu dropdown-menu-right">
+		      	{% if page.locale_en %}
+							<a class="dropdown-item active" href="{{ site.baseurl }}{{ page.locale_en }}">en</a>
 						{% else %}
-							<li><a href="{{ site.baseurl }}{{ page.url | replace_first:'/es/','/en/' }}">en</a></li>
+							<a class="dropdown-item" href="{{ site.baseurl }}{{ page.url | replace_first:'/es/','/en/' }}">en</a>
 						{% endif %}
 						{% if page.locale_es %}
-							<li><a href="{{ site.baseurl }}{{ page.locale_es }}">es</a></li>
+							<a class="dropdown-item active" href="{{ site.baseurl }}{{ page.locale_es }}">es</a>
 						{% else %}
-							<li><a href="{{ site.baseurl }}{{ page.url | replace_first:'/en/','/es/' }}">es</a></li>
+							<a class="dropdown-item" href="{{ site.baseurl }}{{ page.url | replace_first:'/en/','/es/' }}">es</a>
 						{% endif %}
-					</ul>
-				</li>
-			</ul>
-		</div>
+		      </div>
+		    </li>
+		  </ul>
+	  </div>
 	</div>
-</div>
+</nav>

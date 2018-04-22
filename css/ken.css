@@ -61,6 +61,7 @@ h6 {
     font-weight: normal;
     font-style: normal;
 }
+
 code,
 pre {
   font-family: "Inconsolata", Monaco, Menlo, Consolas, "Courier New", monospace;
@@ -68,96 +69,43 @@ pre {
 .bibtex {
 	font-size: 10px;
 }
-a.thumbnail:hover,
-a.thumbnail:focus {
+
+.img-thumbnail:hover,
+.img-thumbnail:focus {
   border-color: #007722;
 }
-.navbar .nav > li {
-  color: #000000;
-}
+
 .navbar-brand {
   font-size: 20px;
   color: #000000 !important;
   font-weight: bold;
 }
-small {
-  font-size: 70%;
-}
 
-.papers-sidebar {
-  padding-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-/* all links */
+/* links */
 .papers-sidebar .nav>li>a {
   color: #000;
-  padding: 4px 20px;
   font-size: 16px;
 }
-
-/* hover links */
-.papers-sidebar .nav>li>a:hover, 
-.papers-sidebar .nav>li>a:focus {
-	padding-left: 19px;
-  color: #000;
-  text-decoration: none;
-  background-color: transparent;
-  border-left: 1px solid #00aa44;
-}
-
-/* active links */
-.papers-sidebar .nav>.active:focus>a, 
-.papers-sidebar .nav>.active:hover>a, 
-.papers-sidebar .nav>.active>a {
-	padding-left: 18px;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  background-color: transparent;
-  border-left: 2px solid #00aa44;
-}
-
-/* nested submenu */
-.papers-sidebar .nav .nav {
-	display: none;
-  padding-bottom: 10px;
-}
-
 /* nested links */
 .papers-sidebar .nav .nav>li>a {
   color: #999;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 30px;
   font-size: 12px;
 }
-
-/* nested hover links */
-.papers-sidebar .nav .nav>li>a:focus,
-.papers-sidebar .nav .nav>li>a:hover {
-	color: #000;
-  padding-left: 29px;
+/* active links */
+.nav-pills .nav-link.active {
+  color: #fff;
+  background-color: #00aa44;
 }
-
-/* nested active links */
-.papers-sidebar .nav .nav>.active:focus>a,
-.papers-sidebar .nav .nav>.active:hover>a,
-.papers-sidebar .nav .nav>.active>a {
-	color: #000;
-  padding-left: 28px;
+/* active nested links */
+.nav-pills .nav-pills .nav-link.active {
+  color: #fff;
+  background-color: #00aa44;
 }
-
-
-/* hide inactive nested list */
-.papers-sidebar .nav ul.nav {
-  display: none;
-}
-
-/* show active nested list */
-.papers-sidebar .nav>.active>ul.nav {
-  display: block;
+/* hover links */
+.papers-sidebar .nav>li>a:hover,
+.papers-sidebar .nav>li>a:focus {
+  color: #fff;
+  background-color: #007722;
 }
 
 .tud-logo {
@@ -168,4 +116,7 @@ small {
 mark {
   background: #A0FF7C;
   padding: 0em;
+}
+::selection {
+  background: #A0FF7C;
 }

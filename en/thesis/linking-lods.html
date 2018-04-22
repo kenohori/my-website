@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">8 Linking corresponding 3D models</li>
-	</ol>
-	<div class="page-header">
-		<h1>8 Linking corresponding 3D models</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">8 Linking corresponding 3D models</li>
+		</ol>
+	</nav>
+	<h1>8 Linking corresponding 3D models</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 Chapter <a href="extrusion.html">6</a> and <a href="incremental-construction.html">7</a> presented in detail two low-level construction algorithms for \(n\)D objects, both of which operated on level of individual primitives. These are valuable in their own right, but in order to ease the use of higher-dimensional operations in practice, it is necessary to develop high-level operations based on them which can actually be used by practitioners. This chapter thus describes at a conceptual level how one such high-level operator can be defined, which creates a 4D representation from a series of existing 3D representations at different levels of detail. 
 			</p>
@@ -120,11 +120,11 @@ locale_es: /en/thesis/resumen.html
 				 Based on the matches that were found between cells, which mathematically define a map between the 3D cell complexes of the 3D models, they are then linked to construct a 4D cell complex. For this, it might be necessary to create or modify 0D&ndash;3D cells in the input cell complexes, as well as to create new 1D&ndash;4D cells that lie <em>between</em> the 0D&ndash;3D cell complexes. The resulting 4D cell complex is then embedded in 4D space by assigning new 4D coordinates for every point. These 4D points are simply the union of all those in the input 3D cell complexes with an appended coordinate that refers to the LOD of their originating model. Four different basic linking schemes are proposed here, which are shown in <a href="#fig:linkingschemes" id="fig:linkingschemesref">Figure 8.3</a>.
 			</p>
 			<div class="row" id="fig:linkingschemes">
-				<div class="col-sm-6 col-xs-6"><img src="figs/linkingscheme1.svg" class="img-responsive" /><p class="small text-center">(a) Simple linking</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/linkingscheme3.svg" class="img-responsive" /><p class="small text-center">(b) Unmatched are collapsed</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/linkingscheme2.svg" class="img-responsive" /><p class="small text-center">(c) Modification of topology</p></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/linkingscheme4.svg" class="img-responsive" /><p class="small text-center">(d) Matching all to existing</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 8.3: The four linking schemes for three LODs of a house, here depicted in 2D. The objects that would obtained by slicing between the LODs can be seen in dashed green contours; the red dashed lines reflect the cells that need to be added and split in order to ensure a valid 3D (2D+LOD) cell complex.<a href="#fig:linkingschemesref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/linkingscheme1.svg" class="img-fluid" /><p class="small text-center">(a) Simple linking</p></div>
+				<div class="col col-6"><img src="figs/linkingscheme3.svg" class="img-fluid" /><p class="small text-center">(b) Unmatched are collapsed</p></div>
+				<div class="col col-6"><img src="figs/linkingscheme2.svg" class="img-fluid" /><p class="small text-center">(c) Modification of topology</p></div>
+				<div class="col col-6"><img src="figs/linkingscheme4.svg" class="img-fluid" /><p class="small text-center">(d) Matching all to existing</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 8.3: The four linking schemes for three LODs of a house, here depicted in 2D. The objects that would obtained by slicing between the LODs can be seen in dashed green contours; the red dashed lines reflect the cells that need to be added and split in order to ensure a valid 3D (2D+LOD) cell complex.<a href="#fig:linkingschemesref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h4 id="sss:method1">Method 1: Simple linking of corresponding cells</h4>
@@ -178,8 +178,8 @@ locale_es: /en/thesis/resumen.html
 				 <a href="#fig:exsimple" id="fig:exsimpleref">Figure 8.4</a> shows an example where two LODs for a building are linked in such a way that only matched cells are involved. First observe that since the two objects are not isomorphic, some cells are not matched (the ones representing the roof of the higher-LOD model). Observe also that the roof of the lower-LOD model has no match in the higher-LOD model. Thus, to construct a 4D cell complex, the flat roof geometry has to be added to the higher-LOD model<a href="#fn121" id="fnref121"><sup>121</sup></a>. Then, the corresponding cells can be linked. Although it is possible to generate this 4D model by generating the \((i+1)\)-cells that connect a pair of corresponding \(i\)-cells and linking all of them together, it is probably easier to extrude one cell complex along the range between the two LODs using the method described in <a href="extrusion.html">Chapter 6</a>. This method already generates the proper combinatorial structure of the 4D model, and the final cell complex can be obtained by simply moving the vertices of the face representing the model at the other LOD so as to match the geometry of the other model at its LOD.  Moreover, when a linear cell complex is used and thus only the vertices are storing the geometry of the model, it is only necessary to move some of the vertices: those in the lowest LOD without a corresponding vertex at the same location in the highest LOD.  
 			</p>
 			<div class="row" id="fig:exsimple">
-				<div class="col-sm-12"><img src="figs/exsimple.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 8.4: Two LODs of a house simply linked and the intermediate LOD obtained.<a href="#fig:exsimpleref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/exsimple.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 8.4: Two LODs of a house simply linked and the intermediate LOD obtained.<a href="#fig:exsimpleref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h3>8.3.2 Using Method 2: Collapsing</h3>
@@ -188,8 +188,8 @@ locale_es: /en/thesis/resumen.html
 				 <a href="#fig:shape" id="fig:shaperef">Figure 8.5</a> shows an example with a 3D model at two LODs with differing geometry and topology. The 4D model has been obtained by first matching the 2-cells with known correspondences (the left, right, front and back large faces) and inferring that the other faces in the model at the highest LOD (right) should be collapsed based on their adjacency relationships with the matched faces. For example, since the front and right faces are adjacent in the lowest LOD but not in the highest LOD, the two faces between them<a href="#fn122" id="fnref122"><sup>122</sup></a> should be collapsed to their common boundary (i.e.  their intersection: the edge between them). This example also shows that the topological relationships between the cells are nevertheless preserved with the exception of those that involved collapsed cells. The new topological relationships do however connect cells around the former collapsed cells. Note that the 3D model resulting from slicing the 4D model created in this way at an intermediate LOD (middle) will be isomorphic to the model at the highest LOD.  
 			</p>
 			<div class="row" id="fig:shape">
-				<div class="col-sm-12"><img src="figs/shape.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 8.5: Two LODs of a house with differing geometry and topology are integrated into a 4D model by collapsing cells in the model at the highest LOD.<a href="#fig:shaperef">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/shape.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 8.5: Two LODs of a house with differing geometry and topology are integrated into a 4D model by collapsing cells in the model at the highest LOD.<a href="#fig:shaperef">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h3>8.3.3 Using Method 3: Modifying the topology</h3>
@@ -198,8 +198,8 @@ locale_es: /en/thesis/resumen.html
 				 <a href="#fig:agg" id="fig:aggref">Figure 8.6</a> shows an example of two 3D models being aggregated. In order to create a 4D model from this situation, the topology of the simpler of the two models is modified, splitting the single volume into equal two adjacent ones, effectively resulting in a cell complex that also has four more vertices, four more edges, and four of its faces split into two. Note that the two models are however not isomorphic since the common face of the two houses in the lowest LOD becomes two disconnected faces in the model at the highest LOD, but that if this topological relationship is disregarded, the two models can be correctly matched independently. 
 			</p>
 			<div class="row" id="fig:agg">
-				<div class="col-sm-12"><img src="figs/agg2.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 8.6: Two LODs of two houses being aggregated are integrated into a 4D model by modifying the topology of the model at the lowest LOD so as to match the topology of the model at the highest LOD.<a href="#fig:aggref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/agg2.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 8.6: Two LODs of two houses being aggregated are integrated into a 4D model by modifying the topology of the model at the lowest LOD so as to match the topology of the model at the highest LOD.<a href="#fig:aggref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h3>8.3.4 Combination of Methods 2 and 3</h3>
@@ -208,8 +208,8 @@ locale_es: /en/thesis/resumen.html
 				 <a href="#fig:link1" id="fig:link1ref">Figure 8.7</a> shows a more complex example with three LODs which are linked using a combination of schemes: collapsing and modifying the topology of one of the models. Most of the cells in the highest LOD can be directly matched to cells in the middle LOD, with the exception of those that are part of the chimney. As these comprise a small object, these are simply collapsed to a single point in the middle LOD.  Matching the roof cells in the lowest and middle LODs is however more complex since collapsing it to a point would ignore its adjacency with the body of the house and therefore not preserve its topology. The best solution is therefore to modify the topology of the lowest LOD in order to split the top face of the cubic house (which can be inferred to be a roof based on its attributes) into 4 faces, making the model isomorphic to the middle LOD.
 			</p>
 			<div class="row" id="fig:link1">
-				<div class="col-sm-12"><img src="figs/link1.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 8.7: Three LODs of a 3D model of a house are integrated into a 4D model by modifying the topology of the model at the lowest LOD and collapsing a part of the model in the highest LOD.<a href="#fig:link1ref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/link1.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 8.7: Three LODs of a 3D model of a house are integrated into a 4D model by modifying the topology of the model at the lowest LOD and collapsing a part of the model in the highest LOD.<a href="#fig:link1ref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h3>8.3.5 Using Method 4: matching to existing cells</h3>
@@ -218,8 +218,8 @@ locale_es: /en/thesis/resumen.html
 				 <a href="#fig:link2" id="fig:link2ref">Figure 8.8</a> shows two of the LODs of the previous example, but matches the cells of the roof of the house to existing cells rather than modifying their topology. After attempting to match corresponding cells, the top face in the lowest LOD and the top four faces in the highest LOD remain unmatched. If each top <em>face</em> in the highest LOD is collapsed to the closest top <em>edge</em> in the lowest LOD (i.e.  the edge that forms the bottom of the triangular face in the highest LOD) and the top <em>vertex</em> in the highest LOD (which lies between the faces) is linked to the top <em>face</em> in the lowest LOD, a four-sided pyramid is generated. Slices from it are shown as four trapezoidal faces in the sliced intermediate LOD.  Then, if the top face in the lowest LOD is collapsed to the top vertex of the highest LOD, another four-sided pyramid is generated. A slice from this one is shown as a square face at the top of the sliced intermediate LOD.
 			</p>
 			<div class="row" id="fig:link2">
-				<div class="col-sm-12"><img src="figs/link2.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 8.8: Two LODs of a 3D model of a house (left and right) are linked despite not being isomorphic, with an intermediate LOD that shows the result of slicing the construction at an intermediate LOD (centre).<a href="#fig:link2ref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/link2.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 8.8: Two LODs of a 3D model of a house (left and right) are linked despite not being isomorphic, with an intermediate LOD that shows the result of slicing the construction at an intermediate LOD (centre).<a href="#fig:link2ref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 This particular mapping is notable because it correctly preserves all topological relationships between the cells, does not create additional cells at either LOD, and shows that cells are not necessarily only collapsed from higher LODs to lower LODs. Intuitively, the result of this mapping is a set of cells that bound the model along the LOD dimension<a href="#fn123" id="fnref123"><sup>123</sup></a>, so that an \(i\)-cell and a \(j\)-cell that are matched result in a \(k\)-cell lying between them, where \(k = \max(i, j)+1\). Concretely, if for instance a 0-cell (the tip of the roof) is matched to the flat roof (a 2-cell), then the resulting links will create a tetrahedron (a 3-cell). Admittedly, the rules needed to generate such a mapping can be quite complex, but the cell complex generated is identical in size to the equivalent model according to the scheme in <a href="#fig:linkingschemes" id="fig:linkingschemesref">Figure 8.3b</a>. 
@@ -234,8 +234,8 @@ locale_es: /en/thesis/resumen.html
 				 First of all, the 17 vertices of the two 3D models are created as 4D points of the form \((x, y, z, l)\). Afterwards, these are first used to define the 35 faces of the model, the faces are used to define the 12 volumes, and the volumes to define the single 4-cell. Notice that these cells not only include faces and volumes within each of the two volumes of the input 3D models, but also include some faces and volumes that lie <em>between</em> the two, i.e.  having bounding vertices, edges and faces from both input 3D models. Excerpts of the code to generate the 4D cell complex are shown in <a href="#fig:code" id="fig:coderef">Figure 8.9</a>.
 			</p>
 			<div class="row" id="fig:code">
-				<div class="col-sm-12"><img src="figs/link1_filled.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12">{% highlight c++ %}
+				<div class="col col-12"><img src="figs/link1_filled.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12">{% highlight c++ %}
 // 2: Left of first house (yellow)
 faceLists.push_back(...);
 faceLists.back().push_back(vertices[0]);
@@ -284,7 +284,7 @@ for (int i = 0; i < 12; ++i)
 LCC::Dart_handle house4d = builder.get_cell<4>(
   volumes.begin(), volumes.end()).first;
 {% endhighlight %}<p class="small text-center">(b) Constructing other cells</p></div>
-				<div class="col-sm-12">{% highlight c++ %}
+				<div class="col col-12">{% highlight c++ %}
 float point_coordinates[][4] = {
     // Left house
     {0, 0, 0, 0}, // 0
@@ -317,7 +317,7 @@ for (int i = 0; i < 17; ++i) {
 }
 {% endhighlight %}
 <p class="small text-center">(c) Coordinates of the 17 vertices</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 8.9: Code excerpts that show how vertices are created based on 4D points, faces as cycles of vertices, volumes as sets of faces, and 4-cells as sets of 3-cells. The colours referred to in (b) correspond to the highlighted faces and volumes in (a).<a href="#fig:coderef">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 8.9: Code excerpts that show how vertices are created based on 4D points, faces as cycles of vertices, volumes as sets of faces, and 4-cells as sets of 3-cells. The colours referred to in (b) correspond to the highlighted faces and volumes in (a).<a href="#fig:coderef">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 The resulting 4D model was then validated by checking the properties of a valid combinatorial map (<a href="operations-background.html#ss:operations-maps">&sect;5.1.1</a>). In short, these tests involved checking whether the darts (combinatorial simplices) in the map formed correct involutions or partial permutations and whether any darts remained free after the operations. Individual parts of the model (the triangular or square faces and the parallelepiped- or pyramid-shaped volumes) were also validated by verifying that they were isomorphic to similar objects that were known to be valid [<a href="bibliography.html#Gosselin11">Gosselin et al., 2011</a>]. 
@@ -347,13 +347,13 @@ for (int i = 0; i < 17; ++i) {
 				 Finally, the clearest next step to be followed here is to realise the method sketched in this chapter by analysing the problem in more detail and implementing the required low-level algorithms. While the linking problem has been described here as a monolithic solution, it is more likely that the different methods presented will result in completely different implementations. 
 			</p>
 		</div>
-		<div class="col-md-3">
-			<p id="fig:bksep"><img src="figs/bksep.png" class="img-responsive"></p>
+		<div class="col col-12 col-md-3">
+			<p id="fig:bksep"><img src="figs/bksep.png" class="img-fluid"></p>
 			<p class="small text-justify">Figure 8.1: Two LODs of a building footprint. Note that there are no vertices, edges or faces with the same geometry in both LODs, and that many primitives in the higher LOD are equivalent to a single one in the lower LOD.<a href="#fig:bksepref">&#8617;</a></p>
 			<p id="fn117" class="small">
 				117. Separate polygons might become connected in many different situations, the simplest of which is being joined into a single polygon at one or more LODs.<a href="#fnref117">&#8617;</a>
 			</p>
-			<p id="fig:bk"><img src="figs/bk.jpg" class="img-responsive"></p>
+			<p id="fig:bk"><img src="figs/bk.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 8.2: Two LODs of a building footprint are stored as a single polyhedron. Note that the correspondences between vertices, edges and faces between the LODs are clearly indicated by the vertical edges and faces, and that holes can be similarly handled with additional edges and faces.<a href="#fig:bkref">&#8617;</a></p>
 			<p id="fn118" class="small">
 				118. Similar procedures can be defined for the cells of any dimension.<a href="#fnref118">&#8617;</a>
@@ -376,8 +376,8 @@ for (int i = 0; i < 17; ++i) {
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="incremental-construction.html"><i class="fa fa-angle-double-left"></i> 7 Incremental construction</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="slicing.html">9 Extracting information from higher-dimensional models <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="incremental-construction.html"><i class="fa fa-angle-double-left"></i> 7 Incremental construction</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="slicing.html">9 Extracting information from higher-dimensional models <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>

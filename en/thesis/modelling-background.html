@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">3 Modelling of 2D/3D space, time, scale and attributes</li>
-	</ol>
-	<div class="page-header">
-		<h1>3 Modelling of 2D/3D space, time, scale and attributes</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">3 Modelling of 2D/3D space, time, scale and attributes</li>
+		</ol>
+	</nav>
+	<h1>3 Modelling of 2D/3D space, time, scale and attributes</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 This chapter describes how space is usually modelled in 2D/3D GIS and related disciplines, as well as the non-spatial characteristics that are typically used together with it, such as time and scale. <a href="#se:spatial-modelling">&sect;3.1</a> explains what spatial modelling is and the abstraction process through which it is accomplished, discussing the main approaches that can be followed at three levels in this abstraction process, which take the form of data models, data structures and dual combinatorial/embedding structures. <a href="#se:modelling-space">&sect;3.2</a> describes how 2D and 3D space is currently modelled in a range of representative concrete cases, from the very minimal representations used in exchange file formats, in which simple structures and low storage requirements are preferred, up to those used internally in CAD-like software, in which the complex operations that are required necessitate the explicit storage of precise topological relationships. 
 			</p>
@@ -124,10 +124,10 @@ locale_es: /en/thesis/resumen.html
 				 There are various representations that store objects using an expression made of Boolean set operations on a set of (open or closed) half-spaces. Any convex object of any dimension can be represented as the intersection of a finite set of half-spaces, a common problem in both linear programming and computational geometry [<a href="bibliography.html#Shamos76">Shamos and Hoey, 1976</a>; <a href="bibliography.html#Preparata79">Preparata and Muller, 1979</a>]. As <a href="#fig:halfspace" id="fig:halfspaceref">Figure 3.2</a> shows, if a polyhedron is first decomposed into convex parts [<a href="bibliography.html#Chazelle79">Chazelle and Dobkin, 1979</a>; <a href="bibliography.html#Bajaj90">Bajaj and Dey, 1990</a>], it is then possible to represent an object as a union of these convex parts, which are then represented as intersections of half-spaces.
 			</p>
 			<div class="row" id="fig:halfspace">
-				<div class="col-sm-4 col-xs-4"><img src="figs/halfspace.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/halfspace-1.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/halfspace-2.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-center">Figure 3.2: (a) A polygon can be represented as the union of its decomposition into the convex polygons (b) and (c). Each of these can then be represented as the intersection of four half-planes.<a href="#fig:halfspaceref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/halfspace.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/halfspace-1.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/halfspace-2.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-center">Figure 3.2: (a) A polygon can be represented as the union of its decomposition into the convex polygons (b) and (c). Each of these can then be represented as the intersection of four half-planes.<a href="#fig:halfspaceref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Each of these half-spaces can then be stored easily, e.g. as a tuple containing the coefficients of a hyperplane<a href="#fn20" id="fnref20"><sup>20</sup></a> equation plus an up/down direction [<a href="bibliography.html#Naylor90">Naylor, 1990</a>; <a href="bibliography.html#Thompson07">Thompson, 2007</a>]. The half-spaces for an object can be stored either all together or separate per convex part. Together, for instance, as a collection of plane equations that represent all the faces of all the convex parts, and each convex part is represented as a set of tuples of Boolean values, where each value states whether the part is on the up or down side of a specific plane [<a href="bibliography.html#Tammik07">Tammik, 2007</a>]. 
@@ -199,17 +199,13 @@ locale_es: /en/thesis/resumen.html
 				 The most typical problematic examples are wireframe models in 3D, which represent volumes using only vertices and edges. While in many cases it is possible to correctly interpret a volume from a wireframe model [<a href="bibliography.html#Brewer86">Brewer III and Courter, 1986</a>; <a href="bibliography.html#Hanrahan82">Hanrahan, 1982</a>], as shown in <a href="#fig:wireframe" id="fig:wireframeref">Figure 3.4</a> there are cases wireframe representations are ambiguous. They are therefore considered an incomplete representation and are generally not used in current systems.
 			</p>
 			<div class="row" id="fig:wireframe">
-				<div class="col-sm-1"></div>
-				<div class="col-sm-5 col-xs-6"><img src="figs/wireframe.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-5 col-xs-6"><img src="figs/wireframe-1.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-1"></div>
+				<div class="col col-6"><img src="figs/wireframe.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/wireframe-1.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-1"></div>
-				<div class="col-sm-5 col-xs-6"><img src="figs/wireframe-2.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-5 col-xs-6"><img src="figs/wireframe-3.jpg" class="img-responsive" /><p class="small text-center">(d)</p></div>
-				<div class="col-sm-1"></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.4: The wireframe model (a) can be interpreted as the three different volumes (b), (c) and (d).<a href="#fig:wireframeref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/wireframe-2.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-6"><img src="figs/wireframe-3.jpg" class="img-fluid" /><p class="small text-center">(d)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.4: The wireframe model (a) can be interpreted as the three different volumes (b), (c) and (d).<a href="#fig:wireframeref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Despite their drawbacks, incomplete implicit models are however frequently used in 3D GIS and when modelling time, resulting in ill-defined volumes or unclear equivalences of objects across time. Many of these disadvantages are alluded later on in order to justify using more explicit representations in higher dimensions. 
@@ -254,12 +250,12 @@ locale_es: /en/thesis/resumen.html
 				 Because of this, 2D simplicial complexes are usually stored using triangle-based data structures and 3D simplicial complexes using tetrahedron-based data structures. These respectively use triangles/tetrahedra as primitives, which can store attributes for themselves (e.g.  whether it is part of a given object) and for (some of) their faces, and are linked to their adjacent triangles/tetrahedra. As shown in <a href="#fig:2-simplex" id="fig:2-simplexref">Figure 3.6</a>, a minimal representation of this type would only consist of triangles/tetrahedra linked to their vertices, either as tuples of coordinates or as pointers to a member of a list of separate point primitives.
 			</p>
 			<div class="row" id="fig:2-simplex">
-				<div class="col-sm-4 col-xs-4"><img src="figs/2-simplex-adjacency.svg" class="img-responsive" /><p class="small text-center">(a) Adjacent triangles</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/2-simplex-vertices.svg" class="img-responsive" /><p class="small text-center">(b) Vertices of a triangle</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/0-simplex.svg" class="img-responsive" /><p class="small text-center">(c) Coordinates of a vertex</p></div>
+				<div class="col col-4"><img src="figs/2-simplex-adjacency.svg" class="img-fluid" /><p class="small text-center">(a) Adjacent triangles</p></div>
+				<div class="col col-4"><img src="figs/2-simplex-vertices.svg" class="img-fluid" /><p class="small text-center">(b) Vertices of a triangle</p></div>
+				<div class="col col-4"><img src="figs/0-simplex.svg" class="img-fluid" /><p class="small text-center">(c) Coordinates of a vertex</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.6: A simple triangle-based data structure consists of a set of triangles, each of which points to its three adjacent triangles and its three incident vertices. This is accompanied by an indexed list of vertices and their coordinates.<a href="#fig:2-simplexref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.6: A simple triangle-based data structure consists of a set of triangles, each of which points to its three adjacent triangles and its three incident vertices. This is accompanied by an indexed list of vertices and their coordinates.<a href="#fig:2-simplexref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Another possibility, also enabled by the fixed form of the simplices in a simplicial complex, is to use compression schemes in order to store them more efficiently. For example, <a href="bibliography.html#Blandford05">Blandford et al. [2005]</a> show how several of these schemes can be used: storing only some of the vertices in each simplex, difference coding to minimise the size of the IDs that are stored, and using collections of adjacent simplices (e.g.  the star of a vertex) as primitives. It is also possible to use progressive representations that approximate the simplicial complex incrementally [<a href="bibliography.html#Popovic97">Popovi&#263; and Hoppe, 1997</a>], or to compress it as a sequence of operations from which the original structure can be incrementally deduced [<a href="bibliography.html#Rossignac99">Rossignac and Szymczak, 1999</a>]. 
@@ -283,19 +279,19 @@ locale_es: /en/thesis/resumen.html
 				 There are several data structures based on half-edges, oriented edges or vertex-edge pairs. All of these are functionality equivalent and are able to store a 2D cell complex or its dual. However, since cells in a cell complex are supposed to be manifold, special care is usually necessary to represent cells with a non-manifold domain. An example of this shown in <a href="#fig:nonmanifold-012" id="fig:nonmanifold-012ref">Figure 3.10</a>. 
 			</p>
 			<div class="row" id="fig:nonmanifold-012">
-				<div class="col-sm-4 col-xs-4"><img src="figs/nonmanifold-0.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/nonmanifold-1.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/nonmanifold-2.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.10: (a) A polygon is non-2-manifold as the space around the vertex (highlighted in a red circle) is not homeomorphic to the plane (i.e. \(\mathbb{R}^2\)). Its linear boundary is non-1-manifold as the space around the vertex is not homeomorphic to the line (i.e. \(\mathbb{R}\)). (b) &amp; (c) However, the polygon can still be represented using a loop of oriented half-edges by having a duplicate vertex at that location (shown as two half balls), but there are two ways in which this can be done. Note that these are not equally desirable as (c) results in a disconnected graph.<a href="#fig:nonmanifold-012ref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/nonmanifold-0.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/nonmanifold-1.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/nonmanifold-2.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.10: (a) A polygon is non-2-manifold as the space around the vertex (highlighted in a red circle) is not homeomorphic to the plane (i.e. \(\mathbb{R}^2\)). Its linear boundary is non-1-manifold as the space around the vertex is not homeomorphic to the line (i.e. \(\mathbb{R}\)). (b) &amp; (c) However, the polygon can still be represented using a loop of oriented half-edges by having a duplicate vertex at that location (shown as two half balls), but there are two ways in which this can be done. Note that these are not equally desirable as (c) results in a disconnected graph.<a href="#fig:nonmanifold-012ref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Among the half-edge based data structures, the winged-edge data structure [<a href="bibliography.html#Baumgart75">Baumgart, 1975</a>] considers edges as the main primitive, gives them an orientation, and maintains two records for the left and right polygons, as well as four records for the previous and next oriented edges along the boundaries of both of these polygons. As shown in <a href="#fig:halfedge" id="fig:halfedgeref">Figure 3.11</a>, the doubly-connected edge list (DCEL) [<a href="bibliography.html#Muller78">Muller and Preparata, 1978</a>] and 2D combinatorial maps [<a href="bibliography.html#Edmonds60">Edmonds, 1960</a>], achieve a similar result but have a more elegant and usually more efficient approach, dividing edges into half-edges<a href="#fn28" id="fnref28"><sup>28</sup></a>, which makes it easier to follow the cycles representing polygons.
 			</p>
 			<div class="row" id="fig:halfedge">
-				<div class="col-sm-4 col-xs-4"><img src="figs/halfedge-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/halfedge-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/halfedge-3.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.11: (a) A 2D cell complex of three polygons is represented using (b) the DCEL and (c) a 2D combinatorial map. In the DCEL, a half-edge \(e\) is meaningfully related to two vertices (the origin and the destination) and one face, and is linked to its next half-edge (on the same face) and its twin half-edge (on the adjacent face). In a 2D combinatorial map, a half-edge \(e\) is meaningfully related to one vertex and two faces (on either side), and is linked to the half-edge on the opposite side of the same edge \(\alpha(e)\) and the half-edge on the same vertex but on the next edge (as given by a rotation direction).<a href="#fig:halfedgeref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/halfedge-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/halfedge-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/halfedge-3.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.11: (a) A 2D cell complex of three polygons is represented using (b) the DCEL and (c) a 2D combinatorial map. In the DCEL, a half-edge \(e\) is meaningfully related to two vertices (the origin and the destination) and one face, and is linked to its next half-edge (on the same face) and its twin half-edge (on the adjacent face). In a 2D combinatorial map, a half-edge \(e\) is meaningfully related to one vertex and two faces (on either side), and is linked to the half-edge on the opposite side of the same edge \(\alpha(e)\) and the half-edge on the same vertex but on the next edge (as given by a rotation direction).<a href="#fig:halfedgeref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 The quad-edge data structure [<a href="bibliography.html#Guibas85">Guibas and Stolfi, 1985</a>] attempts to unify most of the half-edge-like structures by rigorously naming all the possible relationships between an oriented edge and other nearby oriented edges or vertices in its <em>quad-edge algebra</em>, which moreover includes the dual vertices and edges of the 2D cell complex. However, only a few of these relations need to be stored. For instance, <a href="bibliography.html#Guibas85">Guibas and Stolfi [1985]</a> proposes a structure of <em>quads</em>, which store for a given edge only the previous and next oriented edges for the polygons on both of its sides.       As shown in <a href="#fig:quad" id="fig:quadref">Figure 3.12</a>, these quads store all the necessary relationships to traverse the edges of a polygon in both clockwise and anticlockwise order, as well as to navigate between adjacent polygons that are incident to a given edge or vertex. 
@@ -310,19 +306,17 @@ locale_es: /en/thesis/resumen.html
 				 The facet-edge data structure [<a href="bibliography.html#Dobkin87">Dobkin and Laszlo, 1987</a>], shown in <a href="#fig:facet-edge" id="fig:facet-edgeref">Figure 3.13</a>, considers an incident face-edge pair as a single primitive, which is known as a <em>facet-edge</em>. Groups of eight of these primitives are then stored as a single group, consisting of the four different orientation combinations of a facet-edge and the ones of its dual (consisting of the dual face and dual edge of the facet-edge). 
 			</p>
 			<div class="row" id="fig:facet-edge">
-				<div class="col-sm-4 col-xs-4"><img src="figs/facet-edge.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-8 col-xs-8"><img src="figs/facet-edge-ops.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.13: (a) The facet-edge data structure considers an incident face \(f_0\) and edge \(e_0\) as a single facet-edge primitive \(a\), each with a predefined orientation. The orientation of the face of \(a\) defines the order along its incident edges \(e_0,e_1,e_2,e_3\). The orientation of the edge of \(a\) defines the order along its incident faces \(f_0,f_1,f_2\). (b) A set of operations on the facet-edge \(a\) is used to traverse the structure.<a href="#fig:facet-edgeref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/facet-edge.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-8"><img src="figs/facet-edge-ops.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.13: (a) The facet-edge data structure considers an incident face \(f_0\) and edge \(e_0\) as a single facet-edge primitive \(a\), each with a predefined orientation. The orientation of the face of \(a\) defines the order along its incident edges \(e_0,e_1,e_2,e_3\). The orientation of the edge of \(a\) defines the order along its incident faces \(f_0,f_1,f_2\). (b) A set of operations on the facet-edge \(a\) is used to traverse the structure.<a href="#fig:facet-edgeref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 The V-map data structure [<a href="bibliography.html#Lienhardt88">Lienhardt, 1988</a>], related to the notion of 2D combinatorial maps [<a href="bibliography.html#Edmonds60">Edmonds, 1960</a>; <a href="bibliography.html#Cori75">Cori, 1975</a>], splits edges into half-edges per edge, per face and per volume. These half-edges, called <em>threads</em>, result in faces that are modelled as cycles of half-edges, as is shown in <a href="#fig:vmap" id="fig:vmapref">Figure 3.14</a>.  
 			</p>
 			<div class="row" id="fig:vmap">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-4 col-xs-6"><img src="figs/vmap-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-6"><img src="figs/vmap-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-2"></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.14: A tetrahedral 3-cell is represented as a V-map. Since a V-map considers half-edges to be distinct per face and per volume, every edge is here represented by four threads. Within a face, it is possible to switch between the threads of an edge (in French <em>ar&ecirc;te</em>) with the operator \(\alpha\) and between the threads of a vertex (in French <em>sommet</em>) with the operator \(\sigma\). In addition, it is possible to navigate between the threads on different faces or volumes with the operator \(\gamma\).<a href="#fig:vmapref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/vmap-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/vmap-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.14: A tetrahedral 3-cell is represented as a V-map. Since a V-map considers half-edges to be distinct per face and per volume, every edge is here represented by four threads. Within a face, it is possible to switch between the threads of an edge (in French <em>ar&ecirc;te</em>) with the operator \(\alpha\) and between the threads of a vertex (in French <em>sommet</em>) with the operator \(\sigma\). In addition, it is possible to navigate between the threads on different faces or volumes with the operator \(\gamma\).<a href="#fig:vmapref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 The radial edge data structure [<a href="bibliography.html#Weiler88">Weiler, 1988</a>] follows a similar approach, dividing faces into <em>face uses</em> per volume and representing these faces uses as cycles of <em>edge uses</em> where every edge use is linked to a <em>vertex use</em>. Based on this structure, it is possible to keeps a hierarchy of 3D objects, recursively composed of volumes, shells, faces, loops, edges and vertices. 
@@ -331,8 +325,8 @@ locale_es: /en/thesis/resumen.html
 				 <em>Selective Nef complexes</em> [<a href="bibliography.html#Hachenberger06">Hachenberger, 2006</a>], shown in <a href="#fig:snc" id="fig:sncref">Figure 3.15</a>, implement 3D Nef polyhedra using a combination of two half-edge data structures, a common one that represents faces as cycles of <em>edge-uses</em>, and one that represents the local pyramids around every vertex as subdivisions on the surfaces of (infinitesimally small) spheres. This combination of data structures significantly reduces the complexity of computing certain operations on Nef polyhedra, including convex decompositions, Minkowski sums and Boolean set operations.
 			</p>
 			<div class="row" id="fig:snc">
-				<div class="col-sm-12"><img src="figs/snc.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.15: A selective Nef complex. The half-edge structure on \(\mathbb{R}^3\) uses standard (oriented) faces, edges and vertices. The half-edge structure on the surfaces of the spheres uses <em>sfaces</em> (not shown here), <em>sedges</em> and <em>svertices</em>. Note how sedges are the intersections of a face with the spheres of its incident vertices, and svertices are the intersections of an edge with the spheres of its incident (origin and destination) vertices. From <a href="bibliography.html#Hachenberger06">Hachenberger [2006]</a>.<a href="#fig:sncref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/snc.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.15: A selective Nef complex. The half-edge structure on \(\mathbb{R}^3\) uses standard (oriented) faces, edges and vertices. The half-edge structure on the surfaces of the spheres uses <em>sfaces</em> (not shown here), <em>sedges</em> and <em>svertices</em>. Note how sedges are the intersections of a face with the spheres of its incident vertices, and svertices are the intersections of an edge with the spheres of its incident (origin and destination) vertices. From <a href="bibliography.html#Hachenberger06">Hachenberger [2006]</a>.<a href="#fig:sncref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 <h3 id="ss:combinatorial-embedding">3.1.4 Combinatorial and embedding structures</h3> 
@@ -371,15 +365,15 @@ locale_es: /en/thesis/resumen.html
 				 The Simple Features Specification [<a href="bibliography.html#SimpleFeatures1">OGC, 2011</a>] is an international standard from both the Open Geospatial Consortium and the International Organization for Standardization (as ISO 19125 [<a href="bibliography.html#ISO19125-1:2006">ISO, 2006</a>]). It is widely used as the basic geometric model in simple GIS formats and defines a variety of geometry classes, each of which is linked to a reference system. These are shown in <a href="#fig:sfs" id="fig:sfsref">Figure 3.17</a>. A <code>LineString</code> (or <code>LinearRing</code>) is represented as a sequence of two or more <code>Points</code>. Apart from this relation and ignoring the generalisation relationships, the classes form a tree structure, with higher-dimensional classes being simple aggregations of lower-dimensional ones. A <code>Polygon</code> is made of at least one <code>LinearRing</code> (one outer and possibly multiple inner ones defining holes), and a <code>PolyhedralSurface</code> is made of a set of patches of <code>Polygons</code>. No relationships connect a class with itself or others of the same dimension. 
 			</p>
 			<div class="row" id="fig:sfs">
-				<div class="col-sm-12"><img src="figs/sfs.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.17: The geometry class hierarchy defined in the Simple Features Specification [<a href="bibliography.html#SimpleFeatures1">OGC, 2011</a>].<a href="#fig:sfsref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/sfs.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.17: The geometry class hierarchy defined in the Simple Features Specification [<a href="bibliography.html#SimpleFeatures1">OGC, 2011</a>].<a href="#fig:sfsref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 GML [<a href="bibliography.html#GML3.3">OGC, 2012</a>], is the most widely used international standard to represent 2D and 3D geographic information. It has been further formalised as ISO 19136 [<a href="bibliography.html#ISO19136:2007">ISO, 2007b</a>] and is the basis of other standards, such as CityGML [<a href="bibliography.html#CityGML2">Gr&ouml;ger et al., 2012</a>], which is used for the exchange of 3D city models. In terms of geometry, it implements a subset of the types in the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a</a>], which are shown in <a href="#fig:gml" id="fig:gmlref">Figure 3.18</a>. It similarly considers <code>LineStrings</code> represented as sequences of at least two points, <code>LinearRings</code> as sequences of at least four points<a href="#fn35" id="fnref35"><sup>35</sup></a>. <code>Polygons</code> consist of one exterior and zero or more interior <code>Rings</code>, and various surface types are composed of different kinds of <code>SurfacePatches</code>. 
 			</p>
 			<div class="row" id="fig:gml">
-				<div class="col-sm-12"><img src="figs/gml.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.18: The geometric classes from the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a</a>] that are implemented in the GML standard [<a href="bibliography.html#GML3.2.1">OGC, 2007</a>].<a href="#fig:gmlref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/gml.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.18: The geometric classes from the ISO 19107 standard [<a href="bibliography.html#ISO19107:2005">ISO, 2005a</a>] that are implemented in the GML standard [<a href="bibliography.html#GML3.2.1">OGC, 2007</a>].<a href="#fig:gmlref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 The Industry Foundation Classes (IFC)<a href="#fn36" id="fnref36"><sup>36</sup></a> standard is an open data model used in the Building-information modelling (BIM) domain for the exchange of construction models, often including 3D models of buildings. It has also been adapted as the ISO 16739 international standard [<a href="bibliography.html#ISO16739:2013">ISO, 2013</a>]. Its geometric aspects are however mostly defined or derived from a different standard&mdash;ISO 10303 [<a href="bibliography.html#ISO10303:2014">ISO, 2014</a>]. Unlike the data models originating in GIS (e.g.  Simple Features and CityGML), there is an important emphasis on the definition of a local coordinate system per object (as opposed to the national or regional coordinate systems used in GIS). This reflects the fact that in BIM every object is generally modelled independently before later being fitted together. Hierarchical descriptions of objects thus result in hierarchically applied coordinate system transformations. Boundary representation and tessellation geometries are supported as in other models, but IFC supports a much greater variety of geometry classes, which include implicit geometries based on half-space intersections, Constructive Solid Geometry (as a tree of Boolean set operations) and sweeps (based on a cross-section), such as the one shown in <a href="#fig:ifc" id="fig:ifcref">Figure 3.19</a>. 
@@ -439,8 +433,8 @@ locale_es: /en/thesis/resumen.html
 				 Other models put a greater emphasis on events, such as by keeping a list of changes per object [<a href="bibliography.html#Worboys92">Worboys, 1992a</a>; <a href="bibliography.html#Peuquet94">Peuquet, 1994</a>]. Event-based models [<a href="bibliography.html#Peuquet95">Peuquet and Duan, 1995</a>] take this a step further, maintaining a main structure consisting of a list of events and a base map (<a href="#fig:st_events">Figure 3.21</a>). Unlike other models, this makes it possible to identify and attach attributes to individual changes and events. In the <em>history graph</em> model [<a href="bibliography.html#Renolen96">Renolen, 1996</a>], different types of events are supported, which makes it possible to model continuously changing events as well. Similar models are used in computer animations, where a graph of keyframes can identify topological changes in a 2D vector drawing [<a href="bibliography.html#Dalstein15">Dalstein et al., 2015</a>]. 
 			</p>
 			<div class="row" id="fig:st_events">
-				<div class="col-sm-12"><img src="figs/st_events.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 2.10: An event-based model maintains a list of events and a base map, with each event being linked to all changes that occurred since the last event. Based on <a href="bibliography.html#Peuquet95">Peuquet and Duan [1995]</a>.<a href="#fig:st_eventsref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/st_events.svg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 2.10: An event-based model maintains a list of events and a base map, with each event being linked to all changes that occurred since the last event. Based on <a href="bibliography.html#Peuquet95">Peuquet and Duan [1995]</a>.<a href="#fig:st_eventsref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 A different option is to keep track of space and time independently, linking objects appropriately. So called <em>three-domain</em> models are based on this concept (the third domain being semantics). Examples include <a href="bibliography.html#Yuan94">Yuan [1994]</a> and <a href="bibliography.html#Claramunt95">Claramunt and Th&eacute;riault [1995]</a>. In another example, <a href="bibliography.html#vanOosterom97">van Oosterom [1997]</a> uses an identifier consisting of both a region identifier and a timestamp to index spatiotemporal objects. 
@@ -464,20 +458,20 @@ locale_es: /en/thesis/resumen.html
 				 In the digital realm, where models and maps both become data and the direct meaning of geographic scale as a ratio between a model/map and reality disappears, scale preserves only its indirect meaning as the level of detail that is present in a model or map, and accordingly the term &lsquo;level of detail&rsquo; is more appropriate [<a href="bibliography.html#Biljecki14">Biljecki et al., 2014b</a>]. An increase in the detail of a model enables more applications, but means that its representations occupy larger sizes and their processing involves higher computational costs<a href="#fn48" id="fnref48"><sup>48</sup></a>. When the term &lsquo;scale&rsquo; is used instead, the level of detail that is expected is often presented in relation to its physical predecessor, such as in the map fragments shown in <a href="#fig:generalisation" id="fig:generalisationref">Figure 3.22</a>. In digital models and maps, having an adequate level of detail also becomes important as a higher level of detail entails a correspondingly higher memory and computational requirements [<a href="bibliography.html#Luebke03">Luebke et al., 2003</a>].
 			</p>
 			<div class="row" id="fig:generalisation">
-				<div class="col-sm-6 col-xs-6"><img src="figs/generalisation2.jpg" class="img-responsive" /></div>
-				<div class="col-sm-6 col-xs-6"><img src="figs/generalisation3.jpg" class="img-responsive" /></div>
+				<div class="col col-6"><img src="figs/generalisation2.jpg" class="img-fluid" /></div>
+				<div class="col col-6"><img src="figs/generalisation3.jpg" class="img-fluid" /></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-6 col-xs-6"><p class="small text-center">(a) 1:50 000</p></div>
-				<div class="col-sm-6 col-xs-6"><p class="small text-center">(b) 1:250 000</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.22: Fragments of two Dutch topographic maps at different scales around Delft. Note that the region depicted in both maps is the same and maps are (here) presented at the same size, and thus the scale of both in a literal sense is the same. However, the level of detail in each map differs. &copy; Kadaster<a href="#fn49" id="fnref49"><sup>49</sup></a><a href="#fig:generalisationref">&#8617;</a></p></div>
+				<div class="col col-6"><p class="small text-center">(a) 1:50 000</p></div>
+				<div class="col col-6"><p class="small text-center">(b) 1:250 000</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.22: Fragments of two Dutch topographic maps at different scales around Delft. Note that the region depicted in both maps is the same and maps are (here) presented at the same size, and thus the scale of both in a literal sense is the same. However, the level of detail in each map differs. &copy; Kadaster<a href="#fn49" id="fnref49"><sup>49</sup></a><a href="#fig:generalisationref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Geographic information at different scales is generally managed as fully independent datasets at each scale [<a href="bibliography.html#Meijers11">Meijers, 2011</a>], such as in the topographic maps shown in <a href="#fig:generalisation" id="fig:generalisationref">Figure 3.21</a>. In 3D, the CityGML standard [<a href="bibliography.html#CityGML2">Gr&ouml;ger et al., 2012</a>] defines the five LODs shown in <a href="#fig:citygml-filip" id="fig:citygml-filipref">Figure 3.22</a>, which can be stored jointly but are effectively separate datasets except when their geometries are linked (c.f. <a href="bibliography.html#Biljecki15">Biljecki et al. [2015]</a>). This is similar to the snapshot model for spatiotemporal information [<a href="bibliography.html#Basoglu78">Basoglu and Morrison, 1978</a>; <a href="bibliography.html#Langran88">Langran and Chrisman, 1988</a>] as presented in <a href="#se:modelling-time">&sect;3.3</a>, since these datasets are labelled with the scale (or range of scales) that they are associated with. This representation is simple and matches nicely with paper map series&mdash;in which a region is depicted at multiple scales in different maps. However, many objects are represented several times (once at each scale in which they are present) [<a href="bibliography.html#Friis-Christensen03">Friis-Christensen and Jensen, 2003</a>], and it is difficult to maintain consistency between these representations [<a href="bibliography.html#Buttenfield89">Buttenfield and DeLotto, 1989</a>], as the different representations of an object are unlinked or linked only by common identifiers<a href="#fn50" id="fnref50"><sup>50</sup></a>. 
 			</p>
 			<div class="row" id="fig:citygml-filip">
-				<div class="col-sm-12"><img src="figs/citygml-filip.jpg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.23: The CityGML standard [<a href="bibliography.html#CityGML2">Gr&ouml;ger et al., 2012</a>] defines five LODs for 3D city models, which range from building footprints to detailed architectural models of their interior and exterior. From <a href="bibliography.html#Biljecki14a">Biljecki et al. [2014a]</a>.<a href="#fig:citygml-filipref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/citygml-filip.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.23: The CityGML standard [<a href="bibliography.html#CityGML2">Gr&ouml;ger et al., 2012</a>] defines five LODs for 3D city models, which range from building footprints to detailed architectural models of their interior and exterior. From <a href="bibliography.html#Biljecki14a">Biljecki et al. [2014a]</a>.<a href="#fig:citygml-filipref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 In order to achieve consistency and complete coverage of a region at a given scale, it becomes important to be able to create a map of that scale using a more detailed map of the same region as input, resulting in maps at different scales covering the same region. This is achieved by the process of cartographic (or map) generalisation. In it, the amount of information in a map is reduced [<a href="bibliography.html#Tofper66">T&ouml;fper and Pillerwizer, 1966</a>], abstracting objects for a given scale using a set of well-defined cartographic rules [<a href="bibliography.html#SGK75">SGK, 1975</a>]. Many of these rules can be automated in the form of algorithms (e.g. line simplification [<a href="bibliography.html#Douglas73">Douglas and Peucker, 1973</a>]), resulting in several automatic <em>map generalisation algorithms</em> [<a href="bibliography.html#Weibel97">Weibel, 1997</a>], and their (much more recent) resulting software implementations [<a href="bibliography.html#Jones05">Jones and Ware, 2005</a>; <a href="bibliography.html#Stoter09">Stoter et al., 2009</a>]. In fact, it is now possible to generalise maps fully automatically in certain cases and with good results [<a href="bibliography.html#Stoter14">Stoter et al., 2014</a>]. 
@@ -513,14 +507,14 @@ locale_es: /en/thesis/resumen.html
 				 Time and scale are considered to be inseparable in the representational process by theorists, since events have an intrinsic place in space and time, as well as specific spatial and temporal resolutions [<a href="bibliography.html#Raper00">Raper, 2000</a>]. However, spatiotemporal GIS keep multiple representations of 2D [<a href="bibliography.html#Armstrong88">Armstrong, 1988</a>] or 3D [<a href="bibliography.html#Hamre97">Hamre et al., 1997</a>] structures, or a list of changes per object [<a href="bibliography.html#Worboys92">Worboys, 1992a</a>; <a href="bibliography.html#Peuquet94">Peuquet, 1994</a>], limiting combined spatio-temporal analysis of such objects. Multi-scale datasets generally consist of independent datasets for each scale, which are either unconnected or connected only at the object level (e.g.  through the use of IDs). This means that complex relationships between objects, such as collapses, aggregations and others that are not one-to-one are difficult to store, which causes, among others, update and maintenance problems as well as inconsistencies. It also complicates the storage of semantic information about these relationships. 
 			</p>
 		</div>
-		<div class="col-md-3">
+		<div class="col col-12 col-md-3">
 			<p id="fn18" class="small text-justify">
 				18. Cartesian products of simplices<a href="#fnref18">&#8617;</a>
 			</p>
 			<p id="fn19" class="small text-justify">
 				19. There are certainly exceptions, such as 3D+scale models as 4D models where a volume collapses to a point. However, the large number of primitives that would need to be defined for a system of this kind would make it impractical.<a href="#fnref19">&#8617;</a>
 			</p>
-			<p id=fig:csg><img src="figs/csg.png" class="img-responsive"></p>
+			<p id=fig:csg><img src="figs/csg.png" class="img-fluid"></p>
 			<p class="small text-justify">Figure 3.1: An object represented as a tree of Boolean set operations on a sphere, a cube and three cylinders. From Wikimedia Commons.<a href="#fig:csgref">&#8617;</a></p>
 			<p id="fn20" class="small text-justify">
 				20. i.e.  a line in 2D and a plane in 3D.<a href="#fnref20">&#8617;</a>
@@ -529,13 +523,9 @@ locale_es: /en/thesis/resumen.html
 				21. This is equivalent to a triangle in 2D and a polyhedral pyramid in 3D.<a href="#fnref21">&#8617;</a>
 			</p>
 			<div class="row" id="fig:nef">
-				<div class="col-sm-12"><img src="figs/nef-1.svg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-center">(a)</p></div>
-				<div class="col-sm-2"></div>
-				<div class="col-sm-8"><img src="figs/nef-2.svg" class="img-responsive" /></div>
-				<div class="col-sm-2"></div>
-				<div class="col-sm-12"><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 3.3: (a) A Nef polygon is represented by (b) a set of local pyramids (circles). At every local pyramid, the polygon (red) becomes an angular interval. Incident edges become points at the endpoints of these intervals.<a href="#fig:nefref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/nef-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-8 offset-2 col-sm-4 offset-sm-1 col-md-8 offset-md-2"><img src="figs/nef-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 3.3: (a) A Nef polygon is represented by (b) a set of local pyramids (circles). At every local pyramid, the polygon (red) becomes an angular interval. Incident edges become points at the endpoints of these intervals.<a href="#fig:nefref">&#8617;</a></p></div>
 			</div>
 			<p id="fn22" class="small text-justify" style="word-break: break-word;">
 				22. <a href="http://www.ecmwf.int/en/about/media-centre/news/2016/new-forecast-model-cycle-brings-highest-ever-resolution">http://www.ecmwf.int/en/about/media-centre/news/2016/new-forecast-model-cycle-brings-highest-ever-resolution</a><a href="#fnref22">&#8617;</a>
@@ -546,20 +536,18 @@ locale_es: /en/thesis/resumen.html
 			<p id="fn24" class="small text-justify">
 				24. A clear exception are the ad hoc data structures often used in GIS, which usually define a set of fields that is different per dimension, resulting in awkward definitions at the data model level.<a href="#fnref24">&#8617;</a>
 			</p>
-			<p id=fig:pascal-triangle><img src="figs/pascal-triangle.svg" class="img-responsive"></p>
+			<p id=fig:pascal-triangle><img src="figs/pascal-triangle.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 3.5: The \((i-2)\)-th row of Pascal&rsquo;s triangle, which is obtained by adding the numbers in the row above, gives the number of faces of every dimension in an (\i\)-simplex. For instance, a tetrahedron (3-simplex) has 4 vertices, 6 edges, 4 faces and 1 volume.<a href="#fig:pascal-triangleref">&#8617;</a></p>
 			<p id="fn25" class="small text-justify">
 				25. even if it is embedded in a dimension higher than two, e.g.  the triangulated surfaces embedded in 3D (TINs) that are common in GIS<a href="#fnref25">&#8617;</a>
 			</p>
 			<div id="fig:polyline" class="row">
-				<div class="col-sm-3"></div>
-				<div class="col-sm-6"><img src="figs/polyline.svg" class="img-responsive"></div>
-				<div class="col-sm-3"></div>
+				<div class="col col-6 offset-3"><img src="figs/polyline.svg" class="img-fluid"></div>
 			</div>
 			<p class="small text-justify">Figure 3.7: A <em>polygonal curve</em>, also known as a <em>polyline</em>, is a curve made from contiguous line segments. It is commonly represented as a sequence of points connected by implicit line segments, in this case \((p_1,p_2,p_3,p_4)\).<a href="#fig:polylineref">&#8617;</a></p>
-			<p id=fig:polygon-model><img src="figs/polygon-model.svg" class="img-responsive"></p>
+			<p id=fig:polygon-model><img src="figs/polygon-model.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 3.8: In the polygon model, every polygon is represented separately as a list of vertices. Note that every vertex is thus represented once for each polygon where it is used.<a href="#fig:polygon-modelref">&#8617;</a></p>
-			<p id=fig:spaghetti><img src="figs/spaghetti.svg" class="img-responsive"></p>
+			<p id=fig:spaghetti><img src="figs/spaghetti.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 3.9: In the spaghetti model, common boundaries are identified and represented only once. However, the polygons are only implicitly described.<a href="#fig:spaghettiref">&#8617;</a></p>
 			<p id="fn26" class="small text-justify">
 				26. Note however that the spaghetti model sometimes refers to other types of related models. The only fact that all references to a spaghetti model have in common is the fact that chains are stored individually.<a href="#fnref26">&#8617;</a>
@@ -570,7 +558,7 @@ locale_es: /en/thesis/resumen.html
 			<p id="fn28" class="small text-justify">
 				28. In the case of the DCEL this is conceptually done lengthwise, graphically resulting in side-by-side edges with opposite orientations on either side of the edge. In the case of 2D combinatorial maps it is instead done at the half-way point, graphically resulting in end-to-end edges. However, these are functionally equivalent.<a href="#fnref28">&#8617;</a>
 			</p>
-			<p id=fig:quad><img src="figs/quad.svg" class="img-responsive"></p>
+			<p id=fig:quad><img src="figs/quad.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 3.12: In the quad-edge data structure, an edge stores a <em>quad</em>, four records pointing to other quads corresponding to the previous and next oriented edges for the polygons on both of its sides.<a href="#fig:quadref">&#8617;</a></p>
 			<p id="fn29" class="small text-justify">
 				29. See <a href="bibliography.html#Biljecki14">Biljecki et al. [2014b]</a> for a good description of these.<a href="#fnref29">&#8617;</a>
@@ -591,9 +579,7 @@ locale_es: /en/thesis/resumen.html
 				34. <a href="https://www.khronos.org/vulkan/">https://www.khronos.org/vulkan/</a><a href="#fnref34">&#8617;</a>
 			</p>
 			<div class="row" id="fig:trianglestrip">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-8"><img src="figs/trianglestrip.svg" class="img-responsive" /></div>
-				<div class="col-sm-2"></div>
+				<div class="col col-8 offset-2"><img src="figs/trianglestrip.svg" class="img-fluid" /></div>
 			</div>
 			<p class="small text-justify">Figure 3.16: A triangle strip is easily defined as a list of vertices \((a,b,c,d,e,f,g,h)\). Every triangle is formed by three consecutive vertices in the list.<a href="#fig:trianglestripref">&#8617;</a></p>
 			<p id="fn35" class="small text-justify">
@@ -603,9 +589,9 @@ locale_es: /en/thesis/resumen.html
 				36. <a href="http://www.buildingsmart-tech.org/specifications/ifc-releases">http://www.buildingsmart-tech.org/specifications/ifc-releases</a><a href="#fnref36">&#8617;</a>
 			</p>
 			<div class="row" id="fig:ifc">
-				<div class="col-sm-12"><img src="figs/ifc-1.jpg" class="img-responsive" /></div>
+				<div class="col col-12"><img src="figs/ifc-1.jpg" class="img-fluid" /></div>
 				<p class="small text-center">(a)</p>
-				<div class="col-sm-12"><img src="figs/ifc-2.jpg" class="img-responsive" /></div>
+				<div class="col col-12"><img src="figs/ifc-2.jpg" class="img-fluid" /></div>
 				<p class="small text-center">(b)</p>
 			</div>
 			<p class="small text-justify">Figure 3.19: The IFC standard supports objects defined through sweeps, which are defined by (a) an <code>IfcPCurve</code> (black spiral) and a <code>SweptArea</code> (blue disk), in this case resulting in (b) a screw shape.<a href="#fig:ifcref">&#8617;</a></p> 
@@ -639,7 +625,7 @@ locale_es: /en/thesis/resumen.html
 			<p id="fn46" class="small text-justify" style="word-break: break-word;">
 				46. <a href="http://www.openscad.org">http://www.openscad.org</a><a href="#fnref46">&#8617;</a>
 			</p>
-			<p id=fig:st_snapshot><img src="figs/st_snapshot.svg" class="img-responsive"></p>
+			<p id=fig:st_snapshot><img src="figs/st_snapshot.svg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 3.20: The snapshot model stores the state of a map at various moments in time. Based on <a href="bibliography.html#Langran88">Langran and Chrisman [1988]</a>.<a href="#fig:st_snapshotref">&#8617;</a></p>
 			<p id="fn47" class="small text-justify">
 				47. Non-linear measures (e.g.  area and volume) in a model/map and reality are related non-linearly to this ratio.<a href="#fnref47">&#8617;</a>
@@ -662,8 +648,8 @@ locale_es: /en/thesis/resumen.html
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="math.html"><i class="fa fa-angle-double-left"></i> 2 Mathematical foundations of spatial modelling</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="nd-modelling.html">4 The higher-dimensional spatial modelling approach <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="math.html"><i class="fa fa-angle-double-left"></i> 2 Mathematical foundations of spatial modelling</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="nd-modelling.html">4 The higher-dimensional spatial modelling approach <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>

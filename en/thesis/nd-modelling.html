@@ -9,15 +9,15 @@ locale_es: /en/thesis/resumen.html
 ---
 
 <div class="container">
-	<ol class="breadcrumb">
-	  <li><a href="index.html">Thesis</a></li>
-	  <li class="active">4 The higher-dimensional spatial modelling approach</li>
-	</ol>
-	<div class="page-header">
-		<h1>4 The higher-dimensional spatial modelling approach</h1>
-	</div>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+		  <li class="breadcrumb-item"><a href="index.html">Thesis</a></li>
+		  <li class="breadcrumb-item active">4 The higher-dimensional spatial modelling approach</li>
+		</ol>
+	</nav>
+	<h1>4 The higher-dimensional spatial modelling approach</h1>
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col col-12 col-md-9">
 			<p class="text-justify">
 				 As presented in <a href="modelling-background.html">Chapter 3</a>, the most common approaches to model 2D and 3D space are based on ad hoc adaptations of data structures that were originally meant for 2D data. These have many advantages, but are also necessarily limiting when 3D objects are concerned, constraining the class of objects that they are capable of representing efficiently and the operations that can be efficiently performed on them. Even data structures specifically defined for sets of 3D objects have significant limitations, such as not being able to store the incidence and adjacency relationships between objects. Moreover, when the data has to be integrated with non-spatial characteristics (e.g. time and scale), similar ad hoc adaptations to 2D structures are also used. Therefore, the problem of adequately representing 3D, spatio-temporal and multi-scale data is not fully solved even by the most advanced 3D structures as they are currently used in GIS.  
 			</p>
@@ -89,18 +89,18 @@ locale_es: /en/thesis/resumen.html
 				 To understand how data modelled using the higher-dimensional modelling paradigm looks, it is easier to first consider a case with a two-dimensional space plane \((x,y)\) where time is added as a third dimension. In this configuration, a set of 2D objects, each of which exists for one or more intervals of time, can be represented as a set of volumes. The simplest case is when these objects remain stationary, which is shown in <a href="#fig:aula" id="fig:aularef">Figure 4.2</a>. In this case, the shape of the resulting volume is an extrusion of the original 2D shape along the time axis. Such a volume has a prismatic shape and can be generated using the methods that will be described in <a href="extrusion.html">Chapter 6</a>. As shown in <a href="#fig:aula-transformations" id="fig:aula-transformationsref">Figure 4.3</a>, applying translation, rotation or scale transformations to the 2D object during a time interval yield other volumes that have an intuitive shape.
 			</p>
 			<div class="row" id="fig:aula-transformations">
-				<div class="col-sm-3 col-xs-6"><img src="figs/aula.jpg" class="img-responsive" /><p class="small text-center">(a) Original</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/aula-moved.jpg" class="img-responsive" /><p class="small text-center">(b) Translation</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/aula-rotated.jpg" class="img-responsive" /><p class="small text-center">(c) Rotation</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/aula-scaled.jpg" class="img-responsive" /><p class="small text-center">(d) Scaling</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.3: In a 2D+time setting, applying certain transformations to (a) a polygon during a time interval results in: (b) a parallelepiped in the case of a translation, (c) a screw shape with curved surfaces similar to a <em>twisted prism</em> in the case of a rotation, and (d) a <em>frustum</em> in the case of scaling.<a href="#fig:aula-transformationsref">&#8617;</a></p></div>
+				<div class="col col-6 col-md-3"><img src="figs/aula.jpg" class="img-fluid" /><p class="small text-center">(a) Original</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/aula-moved.jpg" class="img-fluid" /><p class="small text-center">(b) Translation</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/aula-rotated.jpg" class="img-fluid" /><p class="small text-center">(c) Rotation</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/aula-scaled.jpg" class="img-fluid" /><p class="small text-center">(d) Scaling</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.3: In a 2D+time setting, applying certain transformations to (a) a polygon during a time interval results in: (b) a parallelepiped in the case of a translation, (c) a screw shape with curved surfaces similar to a <em>twisted prism</em> in the case of a rotation, and (d) a <em>frustum</em> in the case of scaling.<a href="#fig:aula-transformationsref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 In the context of geographic information, where many kids of features are represented as planar partitions of polygons, the resulting 2D space+time polyhedra form a 3D space partition&mdash;if the polygons do not overlap, the resulting polyhedra do not overlap either. This property is later exploited by the extrusion algorithm in <a href="extrusion.html">Chapter 6</a>. Moreover, as shown in <a href="#fig:2d+time" id="fig:2d+timeref">Figure 4.4</a>, such a representation can represent the state of the partition at any point in time. At any one moment in time (i.e. a slice perpendicular to the 2D space plane), a polygon is still represented as a polygon but one that is embedded in 3D space, parallel to the 2D space plane \((x,y)\) and orthogonal to the time axis. Every object existing (and not moving or changing shape) during a time period would then be prism shaped, with identical base and top faces that are parallel to the 2D space plane and the other faces being orthogonal to it. 
 			</p>
 			<div class="row" id="fig:2d+time">
-				<div class="col-sm-12"><img src="figs/2d+time.jpg" class="img-responsive" /></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.4: A 2D space \((x,y)\) + time (the vertical axis \(t\)) view of the footprint of two buildings. These buildings were separate at \(t = t_{0}\), were then connected by a corridor (red) at \(t = t_{1}\), then became disconnected again when the corridor was removed at time \(t_{2}\). This configuration remains unchanged until time \(t = t_{3}\). The times \(t_0\), \(t_1\), \(t_2\) and \(t_3\) are shown as points along the thick line representing the front right corner of the building on the left.<a href="#fig:2d+timeref">&#8617;</a></p></div>
+				<div class="col col-12"><img src="figs/2d+time.jpg" class="img-fluid" /></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.4: A 2D space \((x,y)\) + time (the vertical axis \(t\)) view of the footprint of two buildings. These buildings were separate at \(t = t_{0}\), were then connected by a corridor (red) at \(t = t_{1}\), then became disconnected again when the corridor was removed at time \(t_{2}\). This configuration remains unchanged until time \(t = t_{3}\). The times \(t_0\), \(t_1\), \(t_2\) and \(t_3\) are shown as points along the thick line representing the front right corner of the building on the left.<a href="#fig:2d+timeref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Extending this to a 4D representation of 3D space and time, a set of polyhedra can be represented as a set of <em>polychora</em><a href="#fn59" id="fnref59"><sup>59</sup></a>. At any one moment in time, a polyhedron is still represented as a polyhedron but one that is embedded in 4D space. If it is not moving or changing shape, it would take the form of a prismatic polychoron. As in the previous cases, if the polyhedra form a 3D space subdivision, the polychora form also a 4D space subdivision. 
@@ -127,14 +127,14 @@ locale_es: /en/thesis/resumen.html
 				 However, such representations become exponentially more inefficient as the dimension increases: lower-dimensional primitives need to be encoded multiple times, recursively once for each time they appear in a higher-dimensional primitive. This means that they are difficult to navigate and that even simple geometric and topological queries involve searching many objects [<a href="bibliography.html#Hazelton98">Hazelton, 1998</a>]. As an example, it is possible to consider Simple Features-like [<a href="bibliography.html#SimpleFeatures1">OGC, 2011</a>] representations of simple objects of various dimensions, as shown in <a href="#fig:sfsnd" id="fig:sfsndref">Figure 4.7</a>. A Simple Features-like representation of a square does not repeat most<a href="#fn60" id="fnref60"><sup>60</sup></a> vertices, while one of a cube repeats every vertex at least three times, one of a tesseract (their four-dimensional analogue) repeats every vertex at least 12 times and one of a 5-cube at least 60 times.
 			</p>
 			<div class="row" id="fig:sfsnd">
-				<div class="col-sm-12"><pre>[[0, 0], [0, 1], [1, 1], [1, 0], [0, 0]]</pre><p class="small text-center">(a) square</p></div>
-				<div class="col-sm-12"><pre>[[[0, 0, 0], [0, 1, 0], [1, 1, 0], [1, 0, 0], [0, 0, 0]],
+				<div class="col col-12"><pre>[[0, 0], [0, 1], [1, 1], [1, 0], [0, 0]]</pre><p class="small text-center">(a) square</p></div>
+				<div class="col col-12"><pre>[[[0, 0, 0], [0, 1, 0], [1, 1, 0], [1, 0, 0], [0, 0, 0]],
  [[0, 0, 0], [0, 1, 0], [0, 1, 1], [0, 0, 1], [0, 0, 0]],
  [[0, 1, 0], [1, 1, 0], [1, 1, 1], [0, 1, 1], [0, 1, 0]],
  [[1, 1, 0], [1, 0, 0], [1, 0, 1], [1, 1, 1], [1, 1, 0]],
  [[1, 0, 0], [0, 0, 0], [0, 0, 1], [1, 0, 1], [1, 0, 0]],
  [[0, 0, 1], [0, 1, 1], [1, 1, 1], [1, 0, 1], [0, 0, 1]]]</pre><p class="small text-center">(b) cube</p></div>
-				<div class="col-sm-12"><pre>[[[[0, 0, 0, 0], [0, 1, 0, 0], [1, 1, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]],
+				<div class="col col-12"><pre>[[[[0, 0, 0, 0], [0, 1, 0, 0], [1, 1, 0, 0], [1, 0, 0, 0], [0, 0, 0, 0]],
   [[0, 0, 0, 0], [0, 1, 0, 0], [0, 1, 1, 0], [0, 0, 1, 0], [0, 0, 0, 0]],
   [[0, 1, 0, 0], [1, 1, 0, 0], [1, 1, 1, 0], [0, 1, 1, 0], [0, 1, 0, 0]],
   [[1, 1, 0, 0], [1, 0, 0, 0], [1, 0, 1, 0], [1, 1, 1, 0], [1, 1, 0, 0]],
@@ -182,7 +182,7 @@ locale_es: /en/thesis/resumen.html
   [[1, 1, 0, 1], [1, 0, 0, 1], [1, 0, 1, 1], [1, 1, 1, 1], [1, 1, 0, 1]],
   [[1, 0, 0, 1], [0, 0, 0, 1], [0, 0, 1, 1], [1, 0, 1, 1], [1, 0, 0, 1]],
   [[0, 0, 1, 1], [0, 1, 1, 1], [1, 1, 1, 1], [1, 0, 1, 1], [0, 0, 1, 1]]]]</pre><p class="small text-center">(c) tesseract</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.7: Simple Features-like representations of a unit square, cube, and tesseract. One face (per volume and per 4-cell) is shown in each line. Due to the repetition of structures in this type of representation, a 5-cube, which has only 80 faces, requires 480 lines to be represented, which is 10 times the number of lines and 12.16 times the number of characters used to represent the tesseract in (c).<a href="#fig:sfsndref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.7: Simple Features-like representations of a unit square, cube, and tesseract. One face (per volume and per 4-cell) is shown in each line. Due to the repetition of structures in this type of representation, a 5-cube, which has only 80 faces, requires 480 lines to be represented, which is 10 times the number of lines and 12.16 times the number of characters used to represent the tesseract in (c).<a href="#fig:sfsndref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Because of this, in a similar vein to the definition of the dimensionality of a GIS in <a href="bibliography.html#Hazelton90">Hazelton et al. [1990]</a>, it is possible to consider that the defining characteristic of a higher-dimensional spatial data structure is not the ability to be embedded into higher-dimensional space, but being able to explicitly store topological relationships in a dimension-independent manner. 
@@ -302,26 +302,23 @@ locale_es: /en/thesis/resumen.html
 				 Since the number of incident vertices, bounding \((n-1)\)-faces and adjacent simplices of an \(n\)-simplex in an \(n\)-dimensional simplicial complex is fixed and known, it is easily represented in a computer using simple arrays, rather than linked lists or other variable-length data structures. This can be done through an \(n\)-simplex-based data structure, shown in <a href="#fig:ds_simplex" id="fig:ds_simplexref">Figure 4.9</a> for 2D, where \(n\)-simplices are the main primitives. Related data structures are often said to to follow the adjacency or incidence model, depending on the dimensions of the simplices that are represented in the structure&mdash;only the highest-dimensional ones in the adjacency model, but possibly all in the incidence model. 
 			</p>
 			<div class="row" id="fig:ds_simplex">
-				<div class="col-sm-4 col-xs-4"><img src="figs/2-simplex-adjacency.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/2-simplex-boundary.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/2-simplex-vertices.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
+				<div class="col col-4"><img src="figs/2-simplex-adjacency.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/2-simplex-boundary.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/2-simplex-vertices.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-2 col-xs-2"></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/1-simplex-star.svg" class="img-responsive" /></div>
-				<div class="col-sm-2 col-xs-2"><img src="figs/1-simplex-boundary.svg" class="img-responsive" /></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/0-simplex.svg" class="img-responsive" /></div>
-				<div class="col-sm-2 col-xs-2"></div>
+				<div class="col col-2 offset-2"><img src="figs/1-simplex-star.svg" class="img-fluid" /></div>
+				<div class="col col-2"><img src="figs/1-simplex-boundary.svg" class="img-fluid" /></div>
+				<div class="col col-4"><img src="figs/0-simplex.svg" class="img-fluid" /></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-2 col-xs-2"></div>
-				<div class="col-sm-2 col-xs-2"><p class="small text-center">(d)</p></div>
-				<div class="col-sm-2 col-xs-2"><p class="small text-center">(e)</p></div>
-				<div class="col-sm-4 col-xs-4"><p class="small text-center">(f)</p></div>
-				<div class="col-sm-2 col-xs-2"></div>
+				<div class="col col-2 offset-2"><p class="small text-center">(d)</p></div>
+				<div class="col col-2"><p class="small text-center">(e)</p></div>
+				<div class="col col-4"><p class="small text-center">(f)</p></div>
+				<div class="col col-2"></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.9: Some of the possible relationships between primitives and the storage of a geometry using a 2-simplex (triangle) based data structure. (a) Adjacency relationships of a 2-simplex. (b) Boundary relationships of a 2-simplex. (c) Vertices of a 2-simplex. (d) Star (co-boundary) relationships of a 1-simplex. (e) Boundary relationships of a 1-simplex. (f) Embedding of a 0-simplex. In addition to these, it is also possible to store attributes for the 0-, 1-, and 2-simplices in embedding structures. The adjacency model uses at least (a), (c) and (f), while the incidence model uses at least (b), (e) and (f), plus usually (a) to navigate the structure. Many other combinations are possible.<a href="#fig:ds_simplexref">&#8617;</a></p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.9: Some of the possible relationships between primitives and the storage of a geometry using a 2-simplex (triangle) based data structure. (a) Adjacency relationships of a 2-simplex. (b) Boundary relationships of a 2-simplex. (c) Vertices of a 2-simplex. (d) Star (co-boundary) relationships of a 1-simplex. (e) Boundary relationships of a 1-simplex. (f) Embedding of a 0-simplex. In addition to these, it is also possible to store attributes for the 0-, 1-, and 2-simplices in embedding structures. The adjacency model uses at least (a), (c) and (f), while the incidence model uses at least (b), (e) and (f), plus usually (a) to navigate the structure. Many other combinations are possible.<a href="#fig:ds_simplexref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 An \(n\)-dimensional simplicial complex is thus represented as a collection of primitive \(n\)-simplices, each containing \(n+1\) links to its adjacent \(n\)-simplices. For the models described above, it also includes information containing:
@@ -355,15 +352,15 @@ locale_es: /en/thesis/resumen.html
 				 The most common data structures for arbitrary cell complexes are incidence graphs and other related structures [<a href="bibliography.html#Rossignac89">Rossignac and O'Connor, 1989</a>; <a href="bibliography.html#Masuda93">Masuda, 1993</a>; <a href="bibliography.html#Sohanpanah89">Sohanpanah, 1989</a>], which store all the cells (of every dimension) in a complex as individual embedding primitives containing  geometric information and attributes. Just as with simplicial complexes, if only linear geometries are required, the only geometric information needed is the coordinates of the points for the 0-cells. However, since a set of vertices is not enough to describe a cell, all the embedding structures of every dimension need to exist (albeit they can be as simple as a unique ID or memory address per cell). As shown in <a href="#fig:ds_incidence_graph" id="fig:ds_incidence_graphref">Figure 4.10</a>, these are connected through a combinatorial structure containing the incidence relationships between the cells, such as an \(i\)-cell having an \((i-1)\)-cell on its boundary, vice versa (known as the co-boundary or star), or both. Since the number of these incidences is generally not fixed or bounded, unlike in a simplicial complex, they are more difficult to integrate into the cell primitives. One solution involves using variable length data structures (e.g.  a linked list of the facets of a cell). Another would be to store instead combinatorial primitives consisting of pairs of an \(i\)-cell and an \((i-1)\)-cell&mdash;an approach well-suited to a database implementation. 
 			</p>
 			<div class="row" id="fig:ds_incidence_graph">
-				<div class="col-sm-3 col-xs-6"><img src="figs/cellcomplex-polygons.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/cellcomplex-cells.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/2-cell-boundary.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/1-cell-star.svg" class="img-responsive" /><p class="small text-center">(d)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/1-cell-boundary.svg" class="img-responsive" /><p class="small text-center">(e)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/cellcomplex-cells.svg" class="img-responsive" /><p class="small text-center">(f)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/0-cell-double-star.svg" class="img-responsive" /><p class="small text-center">(g)</p></div>
-				<div class="col-sm-3 col-xs-6"><img src="figs/0-cell-embedding.svg" class="img-responsive" /><p class="small text-center">(h)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.10: The cells in a cell complex, the most common relationships that are be stored in an incidence graph and similar data structures up to 2D, and the embedding of the 0-cells so as to support a geometry. (a) Three adjacent polygons. (b) The 0-, 1- and 2-cells in the cell complex. (c) Boundary relationships of a 2-cell. (d) Co-boundary relationships of a 1-cell. (e) Boundary relationships of a 1-cell. (f) Double co-boundary relationships of a 0-cell. (g) Co-boundary relationships of a 0-cell. (h) Embedding of a 0-cell. Note that (c), (e) and (h) correspond to the incidence graph, a minimal structure where every \(i\)-cell is linked to the \((i-1)\)-cells on its boundary.<a href="#fig:ds_incidence_graphref">&#8617;</a></p></div>
+				<div class="col col-6 col-md-3"><img src="figs/cellcomplex-polygons.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/cellcomplex-cells.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/2-cell-boundary.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/1-cell-star.svg" class="img-fluid" /><p class="small text-center">(d)</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/1-cell-boundary.svg" class="img-fluid" /><p class="small text-center">(e)</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/cellcomplex-cells.svg" class="img-fluid" /><p class="small text-center">(f)</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/0-cell-double-star.svg" class="img-fluid" /><p class="small text-center">(g)</p></div>
+				<div class="col col-6 col-md-3"><img src="figs/0-cell-embedding.svg" class="img-fluid" /><p class="small text-center">(h)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.10: The cells in a cell complex, the most common relationships that are be stored in an incidence graph and similar data structures up to 2D, and the embedding of the 0-cells so as to support a geometry. (a) Three adjacent polygons. (b) The 0-, 1- and 2-cells in the cell complex. (c) Boundary relationships of a 2-cell. (d) Co-boundary relationships of a 1-cell. (e) Boundary relationships of a 1-cell. (f) Double co-boundary relationships of a 0-cell. (g) Co-boundary relationships of a 0-cell. (h) Embedding of a 0-cell. Note that (c), (e) and (h) correspond to the incidence graph, a minimal structure where every \(i\)-cell is linked to the \((i-1)\)-cells on its boundary.<a href="#fig:ds_incidence_graphref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 While incidence graphs are efficient in terms of space, they are difficult to navigate and manipulate because of the limited topological information contained in them. This greatly complicates many relatively simple queries that are trivial in simplicial complexes, such as: obtaining the order of a sequence of 0- and 1-cells around a 2-cell; or checking if two \(n\)-cells have the same geometry (since their facets, each represented implicitly by its own facets, might be stored in any order). 
@@ -407,16 +404,16 @@ locale_es: /en/thesis/resumen.html
 				 The exact subdivision that is used depends on the data structure, but as shown in Figures <a href="#fig:simplices" id="fig:simplicesref">4.12</a> and <a href="#fig:cmap-cube" id="fig:cmap-cuberef">4.13</a>, it is similar to a barycentric triangulation of a convex polytope, consisting of abstract vertices representing cells of different dimensions (i.e. the vertices of such a simplicial complex are not equivalent to only 0-cells), and simplices that connect these vertices in a specific (ordered) manner. The vertices representing the cells of dimensions higher than zero do not have a well-defined location in space (although they are usually depicted lying somewhere in the cells they are supposed to represent), but the simplices nevertheless form a combinatorially correct subdivision of the space. 
 			</p>
 			<div class="row" id="fig:simplices">
-				<div class="col-sm-4 col-xs-4"><img src="figs/gmaps-simplices.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/cmaps-simplices.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/vertex-simplices.svg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.12: The simplicial decomposition applied in order to obtain the simplices for a 2D: (a) generalised map and (b) combinatorial map. (c) All cells are represented as sets of 2-simplices, such as the vertex shown here, which is formed of a set of 4 triangles. Note that the locations of the vertices for the 1- and 2-cells are arbitrary, those for the 1-cells has been defined as the midpoint of the edge, and those for the 2-cells have been set so that the resulting simplices lie entirely in the interior of their corresponding 2-cell.<a href="#fig:simplicesref">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/gmaps-simplices.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/cmaps-simplices.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/vertex-simplices.svg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.12: The simplicial decomposition applied in order to obtain the simplices for a 2D: (a) generalised map and (b) combinatorial map. (c) All cells are represented as sets of 2-simplices, such as the vertex shown here, which is formed of a set of 4 triangles. Note that the locations of the vertices for the 1- and 2-cells are arbitrary, those for the 1-cells has been defined as the midpoint of the edge, and those for the 2-cells have been set so that the resulting simplices lie entirely in the interior of their corresponding 2-cell.<a href="#fig:simplicesref">&#8617;</a></p></div>
 			</div>
 			<div class="row" id="fig:cmap-cube">
-				<div class="col-sm-4 col-xs-4"><img src="figs/cube.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/cmap-3d.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-4 col-xs-4"><img src="figs/cmap-3d-vertices.jpg" class="img-responsive" /><p class="small text-center">(c)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.13: (a) A cube is represented as (b) a set of simplices in a 3D combinatorial map. (c) Each simplex has two vertices at two of the original vertices of the cube, as well as two other symbolic vertices that respectively represent the face and volume that they belong to.<a href="#fig:cmap-cuberef">&#8617;</a></p></div>
+				<div class="col col-4"><img src="figs/cube.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-4"><img src="figs/cmap-3d.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-4"><img src="figs/cmap-3d-vertices.jpg" class="img-fluid" /><p class="small text-center">(c)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.13: (a) A cube is represented as (b) a set of simplices in a 3D combinatorial map. (c) Each simplex has two vertices at two of the original vertices of the cube, as well as two other symbolic vertices that respectively represent the face and volume that they belong to.<a href="#fig:cmap-cuberef">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 Adjacency and incidence do have a meaning, albeit not the same as in a geometric simplicial complex, even if their mathematical definition is just as in a geometric simplicial complex. Considering that a \(j\)-face of an \(i\)-simplex, \(j \leq i\), is a \(j\)-simplex made from a subset of the vertices of the \(i\)-simplex, two \(i\)-simplices are adjacent if they have a common face, and an \(i\)-simplex and a \(j\)-simplex, \(i \neq j\), are incident if either is a face of the other.
@@ -447,11 +444,9 @@ locale_es: /en/thesis/resumen.html
 				 Holes and disconnected components in an ordered topological model can be dealt with any of the techniques described for cell complexes in <a href="#ss:cell-complexes">&sect;4.3.5</a>, with bridge edges modelled as a pair of simplices with the same vertices but opposite orientations as shown in <a href="#fig:bridge" id="fig:bridgeref">Figure 4.15</a>. Attributes can be handled using an attributes tuple that links each cell of the vertices tuple to a corresponding structure to store an attribute for it, such that if the \(i\)-th element of the vertices tuple represents a cell, the \(i\)-th element of the attributes tuple can link to a structure storing the attributes of the cell. 
 			</p>
 			<div class="row" id="fig:bridge">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-4 col-xs-6"><img src="figs/bridge-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-4 col-xs-6"><img src="figs/bridge-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-2"></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.15: (a) A polygon with a hole is represented using a bridge edge to connect the hole with the exterior boundary. (b) The simplices in the combinatorial maps representation of the situation in (a). There are two simplices with the same vertices representing each side of the bridge edge. As in <a href="#fig:simplices" id="fig:simplicesref">Figure 4.12</a>, the location of the vertex for the 2-cell shown in (b) is arbitrary but chosen so as to lie in the interior of the polygon. The combinatorial triangles are shown with curved lines so as to form a planar embedding to show that they effectively form a partition of the space.<a href="#fig:bridgeref">&#8617;</a></p></div>
+				<div class="col col-6"><img src="figs/bridge-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-6"><img src="figs/bridge-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.15: (a) A polygon with a hole is represented using a bridge edge to connect the hole with the exterior boundary. (b) The simplices in the combinatorial maps representation of the situation in (a). There are two simplices with the same vertices representing each side of the bridge edge. As in <a href="#fig:simplices" id="fig:simplicesref">Figure 4.12</a>, the location of the vertex for the 2-cell shown in (b) is arbitrary but chosen so as to lie in the interior of the polygon. The combinatorial triangles are shown with curved lines so as to form a planar embedding to show that they effectively form a partition of the space.<a href="#fig:bridgeref">&#8617;</a></p></div>
 			</div>
 			<p class="text-justify">
 				 While ordered topological models are relatively difficult to implement, they have nevertheless been implemented in several open source libraries and software, including CGAL<a href="#fn69" id="fnref69"><sup>69</sup></a>, Moka<a href="#fn70" id="fnref70"><sup>70</sup></a>, and CGoGN<a href="#fn71" id="fnref71"><sup>71</sup></a> [<a href="bibliography.html#Kraemer14">Kraemer et al., 2014</a>]. Although not discussed further here, I showed in <a href="bibliography.html#ArroyoOhori13a">Arroyo Ohori et al. [2013]</a> in more detail how generalised maps can be implemented to support various characteristics of real-world data, such as such as markers, locks (for parallel algorithms), simple construction operations and indexing of darts and attributes for the objects of all dimensions. 
@@ -508,7 +503,7 @@ locale_es: /en/thesis/resumen.html
 				 Using a higher-dimensional representation of objects enables combined geometric and topological queries across all dimensions. For instance, applied to 4D BIM<a href="#fn74" id="fnref74"><sup>74</sup></a> models that include the construction process of a building, it is possible to efficiently do safety checks (e.g. dangerous work is not being performed concurrently and close to other activities, or ensuring that all building components are connected properly at all times) by performing well-defined 4D queries rather than by doing many 3D tests that might not encompass all possible undesirable cases. As more higher-dimensional computational geometry and topology algorithms and libraries become available, such as the recent additions in CGAL and Gudhi<a href="#fn75" id="fnref75"><sup>75</sup></a>, this approach also makes it possible to utilise them directly, taking advantage of new developments. 
 			</p>
 		</div>
-		<div class="col-md-3">
+		<div class="col col-12 col-md-3">
 			<p id="fn53" class="small text-justify">
 				53. That is, as long as such objects exist along intervals along these other dimensions. If they only exist at a point along these dimensions (e.g.  a moment in time), they are of the same dimension as the original object.<a href="#fnref53">&#8617;</a>
 			</p>
@@ -524,22 +519,22 @@ locale_es: /en/thesis/resumen.html
 			<p id="fn57" class="small text-justify">
 				57. A similar objection could be made to it being called a cube though.<a href="#fnref57">&#8617;</a>
 			</p>
-			<p id=fig:tesseract><img src="figs/tesseract.jpg" class="img-responsive"></p>
+			<p id=fig:tesseract><img src="figs/tesseract.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 4.1: A tesseract or 4-cube is the four-dimensional analogue of a square (in 2D) or cube (in 3D). It consists of 16 vertices, 32 edges, 24 faces, 8 volumes and one 4-cell.<a href="#fig:tesseractref">&#8617;</a></p>
 			<p id="fn58" class="small text-justify">
 				58. Measurements might not be the best term here considering that much data is modelled without any measurements taking place, but this is the original terminology in <a href="bibliography.html#Stevens46">Stevens [1946]</a>.<a href="#fnref58">&#8617;</a>
 			</p>
 			<div class="row" id="fig:aula">
-				<div class="col-sm-12"><img src="figs/aula.jpg" class="img-responsive" /><p class="small text-center">(a) Original</p></div>
-				<div class="col-sm-12"><img src="figs/aula-extruded.jpg" class="img-responsive" /><p class="small text-center">(b) Extrusion</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.2: In a 2D+time setting, (a) a 2D object remaining stationary becomes (b) a volume where the original object is extruded along the time dimension.<a href="#fig:aularef">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/aula.jpg" class="img-fluid" /><p class="small text-center">(a) Original</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/aula-extruded.jpg" class="img-fluid" /><p class="small text-center">(b) Extrusion</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.2: In a 2D+time setting, (a) a 2D object remaining stationary becomes (b) a volume where the original object is extruded along the time dimension.<a href="#fig:aularef">&#8617;</a></p></div>
 			</div>
 			<p id="fn59" class="small text-justify">
 				59. A polychoron is the 4D analogue of a 2D polygon or 3D polyhedron.<a href="#fnref59">&#8617;</a>
 			</p>
-			<p id=fig:2d+scale><img src="figs/2d+scale.jpg" class="img-responsive"></p>
+			<p id=fig:2d+scale><img src="figs/2d+scale.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 4.5: A 3D representation of 2D space (horizontal plane) and scale (vertical axis). The vertical edges connecting corresponding features are omitted for legibility. From <a href="bibliography.html#Meijers11">Meijers [2011]</a>.<a href="#fig:2d+scaleref">&#8617;</a></p>
-			<p id=fig:scale3d2><img src="figs/scale3d2.jpg" class="img-responsive"></p>
+			<p id=fig:scale3d2><img src="figs/scale3d2.jpg" class="img-fluid"></p>
 			<p class="small text-justify">Figure 4.6: A 2D+scale representation of four polygons being smoothly (\(C^0\)) generalised. From <a href="bibliography.html#vanOosterom11">van Oosterom and Meijers [2011]</a>.<a href="#fig:2d+scaleref">&#8617;</a></p>
 			<p id="fn60" class="small text-justify">
 				60. The number of times a vertex is repeated in Simple Features can be up to doubled since representing a closed polygon involves repeating its first vertex at the end.<a href="#fnref60">&#8617;</a>
@@ -554,9 +549,9 @@ locale_es: /en/thesis/resumen.html
 				63. That is, that none of them are in the affine space described by the others. In practical terms: two points with a different coordinate in 1D, three non-collinear points in 2D, four non-coplanar points in 3D, etc.<a href="#fnref63">&#8617;</a>
 			</p>
 			<div class="row" id="fig:schoenhardt">
-				<div class="col-sm-12"><img src="figs/schoenhardt1.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/schoenhardt2.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.8: Two views of the Sch&ouml;nhardt polyhedron [<a href="bibliography.html#Schonhardt28">Sch&ouml;nhardt, 1928</a>]&mdash;the archetype of a polyhedron that cannot be tetrahedralised without the addition of Steiner vertices. Starting from a triangular prism whose rectangular faces have been triangulated, it can be created by rotating the triangular faces with respect to each other. Note how any tetrahedron built from the 3 vertices of any of its faces plus any other vertex of the polyhedron necessarily passes through the outside of the Sch&ouml;nhardt polyhedron.<a href="#fig:schoenhardtref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/schoenhardt1.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/schoenhardt2.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.8: Two views of the Sch&ouml;nhardt polyhedron [<a href="bibliography.html#Schonhardt28">Sch&ouml;nhardt, 1928</a>]&mdash;the archetype of a polyhedron that cannot be tetrahedralised without the addition of Steiner vertices. Starting from a triangular prism whose rectangular faces have been triangulated, it can be created by rotating the triangular faces with respect to each other. Note how any tetrahedron built from the 3 vertices of any of its faces plus any other vertex of the polyhedron necessarily passes through the outside of the Sch&ouml;nhardt polyhedron.<a href="#fig:schoenhardtref">&#8617;</a></p></div>
 			</div>
 			<p id="fn64" class="small text-justify">
 				64. In the opinion of <a href="http://www.cs.berkeley.edu/~jrs/">Jonathan Shewchuk</a><a href="#fnref64">&#8617;</a>
@@ -571,19 +566,19 @@ locale_es: /en/thesis/resumen.html
 				67. This is the definition of a quasi-manifold, a combinatorial interpretation of the topological concept of a manifold. Quasi-manifolds are the same as manifolds in up to two dimensions, but this is not necessarily true in higher dimensions.<a href="#fnref67">&#8617;</a>
 			</p>
 			<div class="row" id="fig:hole">
-				<div class="col-sm-12"><img src="figs/hole.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/hole-split.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><img src="figs/hole-bridge.jpg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/hole-split-structure.jpg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.11: Two different techniques to handle holes in (a) a 3D cell complex representing a torus: (b) splitting the 3-cell into two parts and (c) using a bridge edge. (d) Note how these techniques allow for a hole to be representing while the combinatorial structure forms a single connected component (i.e. all cells form a single interlinked group).<a href="#fig:holeref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/hole.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/hole-split.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/hole-bridge.jpg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/hole-split-structure.jpg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.11: Two different techniques to handle holes in (a) a 3D cell complex representing a torus: (b) splitting the 3-cell into two parts and (c) using a bridge edge. (d) Note how these techniques allow for a hole to be representing while the combinatorial structure forms a single connected component (i.e. all cells form a single interlinked group).<a href="#fig:holeref">&#8617;</a></p></div>
 			</div>
 			<p id="fn68" class="small text-justify">
 				68. Geometrically, this set would consist of all the \(n\)-simplices incident to the vertex.<a href="#fnref68">&#8617;</a>
 			</p>
 			<div class="row" id="fig:cmaps-orientation">
-				<div class="col-sm-12"><img src="figs/cmaps-orientation-1.svg" class="img-responsive" /><p class="small text-center">(a)</p></div>
-				<div class="col-sm-12"><img src="figs/cmaps-orientation-2.svg" class="img-responsive" /><p class="small text-center">(b)</p></div>
-				<div class="col-sm-12"><p class="small text-justify">Figure 4.14: There are two possible consistent orientations that can be set for each connected component in a combinatorial map.<a href="#fig:cmaps-orientationref">&#8617;</a></p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/cmaps-orientation-1.svg" class="img-fluid" /><p class="small text-center">(a)</p></div>
+				<div class="col col-12 col-sm-6 col-md-12"><img src="figs/cmaps-orientation-2.svg" class="img-fluid" /><p class="small text-center">(b)</p></div>
+				<div class="col col-12"><p class="small text-justify">Figure 4.14: There are two possible consistent orientations that can be set for each connected component in a combinatorial map.<a href="#fig:cmaps-orientationref">&#8617;</a></p></div>
 			</div>
 			<p id="fn69" class="small text-justify">
 				69. <a href="http://www.cgal.org">http://www.cgal.org</a><a href="#fnref69">&#8617;</a>
@@ -609,8 +604,8 @@ locale_es: /en/thesis/resumen.html
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-3 col-xs-4"><p class="text-left"><a href="modelling-background.html"><i class="fa fa-angle-double-left"></i> 3 Modelling of 2D/3D space, time, scale and attributes</a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
-		<div class="col-sm-3 col-xs-4"><p class="text-right"><a href="operations-background.html">5 Basic dimension-independent operations <i class="fa fa-angle-double-right"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-left"><a href="modelling-background.html"><i class="fa fa-angle-double-left"></i> 3 Modelling of 2D/3D space, time, scale and attributes</a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-center"><a href="index.html"><i class="fa fa-angle-double-up"></i> Contents <i class="fa fa-angle-double-up"></i></a></p></div>
+		<div class="col col-4 col-md-3"><p class="text-right"><a href="operations-background.html">5 Basic dimension-independent operations <i class="fa fa-angle-double-right"></i></a></p></div>
 	</div>
 </div>

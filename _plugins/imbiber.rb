@@ -896,17 +896,17 @@ class Imbiber
 		
 		if @entries[key].has_key?(:img) && img == true then
 			if @entries[key].has_key?(:pdf) then
-				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:pdf] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><a href="' + @entries[key][:pdf] + '"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></a></div><div class="col col-12 col-md-9">' + out + '</div></div>'
 			elsif @entries[key].has_key?(:paper) then
-				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:paper] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><a href="' + @entries[key][:paper] + '"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></a></div><div class="col col-12 col-md-9">' + out + '</div></div>'
 			elsif @entries[key].has_key?(:poster) then
-				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:poster] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><a href="' + @entries[key][:poster] + '"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></a></div><div class="col col-12 col-md-9">' + out + '</div></div>'
 			elsif @entries[key].has_key?(:presentation) then
-				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:presentation] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><a href="' + @entries[key][:presentation] + '"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></a></div><div class="col col-12 col-md-9">' + out + '</div></div>'
 			elsif @entries[key].has_key?(:slides) then
-				out = '<div class="row"><div class="col-sm-3 hidden-xs"><a href="' + @entries[key][:slides] + '" class="thumbnail"><img src="' + @entries[key][:img] + '" class="img-responsive" /></a></div><div class="col-sm-9">' + out + '</div></div>'
+				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><a href="' + @entries[key][:slides] + '"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></a></div><div class="col col-12 col-md-9">' + out + '</div></div>'
 			else
-				out = '<div class="row"><div class="col-sm-3 hidden-xs"><img src="' + @entries[key][:img] + '" class="img-responsive" /></div><div class="col-sm-9">' + out + '</div></div>'
+				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></div><div class="col col-12 col-md-9">' + out + '</div></div>'
 			end
 		end
 
