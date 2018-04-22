@@ -22,16 +22,16 @@
 {% if page.papers == true %}
 <script>
   $(document).ready(function() {
-     $("#toTop").hide();
+   //  $("#toTop").hide();
 
-  	// fade in & out
-  	$(window).scroll(function () {
-      if ($(this).scrollTop() > 300) {
-        $('#toTop').fadeIn();
-      } else {
-        $('#toTop').fadeOut();
-      }
-  	});
+  	// // fade in & out
+  	// $(window).scroll(function () {
+   //    if ($(this).scrollTop() > 300) {
+   //      $('#toTop').fadeIn();
+   //    } else {
+   //      $('#toTop').fadeOut();
+   //    }
+  	// });
 
     $('a[href^=#pr],a[href^=#th],a[href^=#other],a[href^=#st]').each(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
@@ -48,6 +48,10 @@
         }
       }
     });
+
+    $('body').scrollspy({ target: '#sidebar', offset: 0 })
+    $('.papers-sidebar').children('.nav').children('.nav-item').children('.nav').hide();
+    $('.papers-sidebar').children('.nav').children('.nav-item').children('.active').parent().children('.nav').show();
 
     $("#small-filter").keyup(function(){
       // Retrieve the input field text and reset the count to zero
@@ -113,10 +117,11 @@
       });
     });
 
-    $('body').scrollspy({
-      target: '.papers-sidebar',
-      offset: 40
+    $(window).on('activate.bs.scrollspy', function() {
+      $('.papers-sidebar').children('.nav').children('.nav-item').children('.nav').hide();
+      $('.papers-sidebar').children('.nav').children('.nav-item').children('.active').parent().children('.nav').show();
     });
+
   });
 </script>
 {% endif %}
