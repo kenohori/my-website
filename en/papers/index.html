@@ -9,14 +9,15 @@ papers: true
 <div class="container">
 	<div class="row">
 		<div class="col col-12 col-sm-12 d-md-none">
+			<h1>Papers</h1>
 			<input type="text" class="text-input" id="small-filter" type="search" value="" placeholder="Search" /><br />
 			Papers: <a href="#pr2018">2018</a> <a href="#pr2017">2017</a> <a href="#pr2016">2016</a> <a href="#pr2015">2015</a> <a href="#pr2014">2014</a> <a href="#pr2013">2013</a> <a href="#pr2012">2012</a> <a href="#pr2011">2011</a><br />
 			Theses: <a href="#thphdthesis">PhD</a> <a href="#thmastersthesis">MSc</a> <a href="#st">Supervised</a><br />
 			Other: <a href="#other2018">2018</a> <a href="#other2017">2017</a> <a href="#other2016">2016</a> <a href="#other2015">2015</a> <a href="#other2014">2014</a> <a href="#other2013">2013</a> <a href="#other2012">2012</a> <a href="#other2011">2011</a><br />
 		</div>
-		<div class="col col-md-9">
+		<div class="col col-12 col-md-9">
 			<section id="pr">
-				<h1>Papers</h1>
+				<h1 class="d-none d-md-block">Papers</h1>
 				{% imbiber pubs/publications.bib idswithprefix:pr %}
 			</section>
 			<section id="th">
@@ -32,7 +33,7 @@ papers: true
 				{% imbiber pubs/supervised.bib idswithprefix:st %}
 			</section>
 		</div>
-		<div class="col col-md-3 d-none d-md-block">
+		<div class="col col-12 col-md-3 d-none d-md-block">
 			<div style="position: fixed;">
 				<h2>Search</h2>
 					<input type="text" class="text-input" id="filter" type="search" value="" autofocus />
