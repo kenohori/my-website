@@ -6,13 +6,13 @@
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	  	<ul class="navbar-nav mr-auto">
+	  	<ul class="navbar-nav">
 	  		{% for p in site.data.pages %}
 					<li class="nav-item{% if page.file == p.file %} active{% endif %}">
 						<a class="nav-link" href="{{ site.baseurl }}/{% if page.lang == 'en' or page.lang == 'es' %}{{ page.lang }}{% else %}en{% endif %}/{{ p.path }}">{% if page.lang == 'es' %}{{ p.es }}{% elsif page.lang == 'nl' %}{{ p.nl }}{% else %}{{ p.en }}{% endif %}</a></li>
 				{% endfor %}
 	  	</ul>
-	  	<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+	  	<ul class="navbar-nav ml-auto">
 		    <li class="nav-item dropdown">
 		      <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" data-toggle="dropdown">
 		        {{ page.lang }}
