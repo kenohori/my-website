@@ -6,7 +6,7 @@ categories: en
 lang: en
 ---
 
-<img src="{{ site.baseurl }}/img/blog/simplex.jpg" class="img-responsive center-block" alt="Simplices of various dimensions">
+<img src="{{ site.baseurl }}/img/blog/simplex.jpg" class="img-fluid center-block" alt="Simplices of various dimensions">
 
 It's one of those typical programming conundrums. 
 Popular (programmer) wisdom dictates that your code can be either efficient but inflexible, or flexible but resource intensive.

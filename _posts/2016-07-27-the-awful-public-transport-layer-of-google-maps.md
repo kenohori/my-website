@@ -8,7 +8,7 @@ lang: en
 
 Two days ago, Google released a new version of Google Maps. Most people seem to agree that it's a nice improvement on an already great service. When I saw it, I immediately loved the cleaner look and the improved readability.
 
-<img src="{{ site.baseurl }}/img/blog/new-google-maps.png" class="img-responsive center-block" alt="The new Google Maps">
+<img src="{{ site.baseurl }}/img/blog/new-google-maps.png" class="img-fluid center-block" alt="The new Google Maps">
 
 That is, until I activated the public transport layer and saw that it remains as ugly and badly designed as ever.
 
@@ -20,51 +20,51 @@ But don't take my word for it. Instead have a look at the screen caps below, whi
 
 ### Berlin
 
-<img src="{{ site.baseurl }}/img/blog/berlin-apple.png" class="img-responsive center-block" alt="Berlin in Apple Maps">
+<img src="{{ site.baseurl }}/img/blog/berlin-apple.png" class="img-fluid center-block" alt="Berlin in Apple Maps">
 <br />
-<img src="{{ site.baseurl }}/img/blog/berlin-google.png" class="img-responsive center-block" alt="Berlin in Google Maps">
+<img src="{{ site.baseurl }}/img/blog/berlin-google.png" class="img-fluid center-block" alt="Berlin in Google Maps">
 
 ### London
 
-<img src="{{ site.baseurl }}/img/blog/london-apple.png" class="img-responsive center-block" alt="London in Apple Maps">
+<img src="{{ site.baseurl }}/img/blog/london-apple.png" class="img-fluid center-block" alt="London in Apple Maps">
 <br />
-<img src="{{ site.baseurl }}/img/blog/london-google.png" class="img-responsive center-block" alt="London in Google Maps">
+<img src="{{ site.baseurl }}/img/blog/london-google.png" class="img-fluid center-block" alt="London in Google Maps">
 
 ### Mexico City
 
-<img src="{{ site.baseurl }}/img/blog/mexico-city-apple.png" class="img-responsive center-block" alt="Mexico City in Apple Maps">
+<img src="{{ site.baseurl }}/img/blog/mexico-city-apple.png" class="img-fluid center-block" alt="Mexico City in Apple Maps">
 <br />
-<img src="{{ site.baseurl }}/img/blog/mexico-city-google.png" class="img-responsive center-block" alt="Mexico City in Google Maps">
+<img src="{{ site.baseurl }}/img/blog/mexico-city-google.png" class="img-fluid center-block" alt="Mexico City in Google Maps">
 
 ### Montreal
 
-<img src="{{ site.baseurl }}/img/blog/montreal-apple.png" class="img-responsive center-block" alt="Montreal in Apple Maps">
+<img src="{{ site.baseurl }}/img/blog/montreal-apple.png" class="img-fluid center-block" alt="Montreal in Apple Maps">
 <br />
-<img src="{{ site.baseurl }}/img/blog/montreal-google.png" class="img-responsive center-block" alt="Montreal in Google Maps">
+<img src="{{ site.baseurl }}/img/blog/montreal-google.png" class="img-fluid center-block" alt="Montreal in Google Maps">
 
 ### New York City
 
-<img src="{{ site.baseurl }}/img/blog/new-york-apple.png" class="img-responsive center-block" alt="New York City in Apple Maps">
+<img src="{{ site.baseurl }}/img/blog/new-york-apple.png" class="img-fluid center-block" alt="New York City in Apple Maps">
 <br />
-<img src="{{ site.baseurl }}/img/blog/new-york-google.png" class="img-responsive center-block" alt="New York City in Google Maps">
+<img src="{{ site.baseurl }}/img/blog/new-york-google.png" class="img-fluid center-block" alt="New York City in Google Maps">
 
 ### Rio de Janeiro
 
-<img src="{{ site.baseurl }}/img/blog/rio-apple.png" class="img-responsive center-block" alt="Rio de Janeiro in Apple Maps">
+<img src="{{ site.baseurl }}/img/blog/rio-apple.png" class="img-fluid center-block" alt="Rio de Janeiro in Apple Maps">
 <br />
-<img src="{{ site.baseurl }}/img/blog/rio-google.png" class="img-responsive center-block" alt="Rio de Janeiro in Google Maps">
+<img src="{{ site.baseurl }}/img/blog/rio-google.png" class="img-fluid center-block" alt="Rio de Janeiro in Google Maps">
 
 ### San Francisco
 
-<img src="{{ site.baseurl }}/img/blog/san-francisco-apple.png" class="img-responsive center-block" alt="San Francisco in Apple Maps">
+<img src="{{ site.baseurl }}/img/blog/san-francisco-apple.png" class="img-fluid center-block" alt="San Francisco in Apple Maps">
 <br />
-<img src="{{ site.baseurl }}/img/blog/san-francisco-google.png" class="img-responsive center-block" alt="San Francisco in Google Maps">
+<img src="{{ site.baseurl }}/img/blog/san-francisco-google.png" class="img-fluid center-block" alt="San Francisco in Google Maps">
 
 ### Sydney
 
-<img src="{{ site.baseurl }}/img/blog/sydney-apple.png" class="img-responsive center-block" alt="Sydney in Apple Maps">
+<img src="{{ site.baseurl }}/img/blog/sydney-apple.png" class="img-fluid center-block" alt="Sydney in Apple Maps">
 <br />
-<img src="{{ site.baseurl }}/img/blog/sydney-google.png" class="img-responsive center-block" alt="Sydney in Google Maps">
+<img src="{{ site.baseurl }}/img/blog/sydney-google.png" class="img-fluid center-block" alt="Sydney in Google Maps">
 
 ----
 

@@ -12,7 +12,7 @@ But alas, that time has seemingly come to an end.
 
 However, I also care deeply about keeping control of my data and preserving my privacy.
 
-<a href="http://www.smbc-comics.com/?id=3370"><img src="{{ site.baseurl }}/img/blog/smbc-privacy.png" class="img-responsive center-block" alt="SMBC: Technology vs Privacy"></a>
+<a href="http://www.smbc-comics.com/?id=3370"><img src="{{ site.baseurl }}/img/blog/smbc-privacy.png" class="img-fluid center-block" alt="SMBC: Technology vs Privacy"></a>
 
 Unfortunately, the business model of an ever increasing part of the internet is now based on tracking you, mining your data and  selling it to advertisers. At the same time, governments across the world are 
 

@@ -7,8 +7,8 @@ lang: en
 ---
 
 <div class="row">
-	<div class="col-sm-9 col-xs-9"><img src="{{ site.baseurl }}/img/blog/cgal-logo.png" class="img-responsive center-block" alt="CGAL logo"></div>
-	<div class="col-sm-3 col-xs-3"><img src="{{ site.baseurl }}/img/blog/xcode-logo.jpg" class="img-responsive center-block" alt="Xcode logo"></div>
+	<div class="col-sm-9 col-xs-9"><img src="{{ site.baseurl }}/img/blog/cgal-logo.png" class="img-fluid center-block" alt="CGAL logo"></div>
+	<div class="col-sm-3 col-xs-3"><img src="{{ site.baseurl }}/img/blog/xcode-logo.jpg" class="img-fluid center-block" alt="Xcode logo"></div>
 </div>
 
 For my research, I regularly need to write code to make various geometric computations on GIS datasets. Most of the time, I first use a simple library to read GIS formats (e.g. [GDAL](http://gdal.org)), and then I put everything into structures from [CGAL](http://www.cgal.org), the Computational Geometry Algorithms Library. That allows me to do the more complex stuff.
@@ -59,23 +59,23 @@ CMake can also many other kinds of configuration files, including Xcode projects
 
 So, if you're anything like me, you'll quickly disregard CGAL's cmake scripts altogether and just start from a clean Xcode project. The instructions here are for Xcode 7, but they are pretty much the same in all recent versions.
 
-<img src="{{ site.baseurl }}/img/blog/xcode-1.png" class="img-responsive center-block" alt="Welcome window in Xcode">
+<img src="{{ site.baseurl }}/img/blog/xcode-1.png" class="img-fluid center-block" alt="Welcome window in Xcode">
 
 First, start by creating a new project (File > New > Project, or from the welcome window). Depending on what you plan to do, it can be any kind of project, but for simple things I prefer a **Command Line Tool**, which is found under OS X > Application. If you want something with a native Mac GUI, you probably should go for a **Cocoa Application**.
 
-<img src="{{ site.baseurl }}/img/blog/xcode-2.png" class="img-responsive center-block" alt="New project in Xcode">
+<img src="{{ site.baseurl }}/img/blog/xcode-2.png" class="img-fluid center-block" alt="New project in Xcode">
 
 Once you've given your project a name, make sure that the language is set to C++ and click Next. Then decide where to save it, select if you want to create a local [Git](https://git-scm.com)[^4] repository for it and you're done. You're then confronted with the main Xcode window.
 
 ### Getting the build settings right
 
-<img src="{{ site.baseurl }}/img/blog/xcode-3.png" class="img-responsive center-block" alt="Targets in Xcode">
+<img src="{{ site.baseurl }}/img/blog/xcode-3.png" class="img-fluid center-block" alt="Targets in Xcode">
 
 In short, Xcode works on the basis of *projects* and *targets*. I won't go into it in detail, but while the project contains all your stuff, a target has the aim to create a given executable (or library, plug-in, etc.) based on some of the files in the project. A project can have many targets. Some of the settings at the project level cascade down to its targets, but I would recommend you to modify things directly at the target level.
 
 So after you select the project, change the dropdown menu on the right to make sure you've selected the target (the only one in your project). It should have the same name as your project, but have a black Terminal-looking icon rather than the blue Application blueprint icon of your project. There, on the **Build Settings** tab, you will find a *lot* of options in several categories.
 
-<img src="{{ site.baseurl }}/img/blog/xcode-4.png" class="img-responsive center-block" alt="Setting the build settings in Xcode">
+<img src="{{ site.baseurl }}/img/blog/xcode-4.png" class="img-fluid center-block" alt="Setting the build settings in Xcode">
 
 Many of them don't matter too much, but a few can thoroughly mess with your target, so if you don't know what something means, I'd generally leave most of the options with their defaults. However, there are a few that deserve a further mention:
 
@@ -89,15 +89,15 @@ Many of them don't matter too much, but a few can thoroughly mess with your targ
 
 Next, go to the **Build Phases** tab of the same target. Here, you should add all the dynamic libraries that your code will need to link to. So, open the **Link Binary With Libraries** collapsible menu and click the **+** sign below.
 
-<img src="{{ site.baseurl }}/img/blog/xcode-5.png" class="img-responsive center-block" alt="Linking to dynamic libraries in Xcode">
+<img src="{{ site.baseurl }}/img/blog/xcode-5.png" class="img-fluid center-block" alt="Linking to dynamic libraries in Xcode">
 
 You'll get a cascading sheet containing all the standard Mac OS X Frameworks as contained in `/System/Library/Frameworks`. You'll also get all the dynamic libraries contained in `/usr/lib`. So, in the window you might find some useful ones as used in CGAL, such as OpenGL.framework. However, unless you've changed the installation default installation directories of CGAL and its dependencies, they will **not** be there.
 
-<img src="{{ site.baseurl }}/img/blog/xcode-6.png" class="img-responsive center-block" alt="Choosing frameworks and libraries to add in Xcode">
+<img src="{{ site.baseurl }}/img/blog/xcode-6.png" class="img-fluid center-block" alt="Choosing frameworks and libraries to add in Xcode">
 
 So, instead click on the **Add Other…** button and you'll get a standard Finder Open window. Since the libraries you installed are in `/usr/local/lib` by default and that directory is by default hidden, just type shift+command+g (⇧⌘G) to **Go** to a folder and type `/usr/local/lib`. There's autocomplete.
 
-<img src="{{ site.baseurl }}/img/blog/xcode-7.png" class="img-responsive center-block" alt="Choosing frameworks and libraries to add in Xcode">
+<img src="{{ site.baseurl }}/img/blog/xcode-7.png" class="img-fluid center-block" alt="Choosing frameworks and libraries to add in Xcode">
 
 In there, you should select all the libraries that your CGAL packages need. Select all the ones you need using the ⌘ key. For the basic stuff, these would be:
 
@@ -123,7 +123,7 @@ int main(int argc, const char * argv[]) {
 }
 {% endhighlight %}
 
-<img src="{{ site.baseurl }}/img/blog/xcode-8.png" class="img-responsive center-block" alt="Building in Xcode: 20 warnings">
+<img src="{{ site.baseurl }}/img/blog/xcode-8.png" class="img-fluid center-block" alt="Building in Xcode: 20 warnings">
 
 If you try to build (⌘B), it should succeed (yay!), but there will be plenty of warnings. 20 warnings in my case. This is not necessarily a problem. If you want to ignore them, you should be able to happily start developing your CGAL code. However, I get tired to looking at these warnings and forever wondering if they're a fault in my code or in CGAL.
 
@@ -131,7 +131,7 @@ If you try to build (⌘B), it should succeed (yay!), but there will be plenty o
 
 So, instead, let's get rid of them by making a few further small changes in the target build settings. Again, click on your project on the top left, select the right target, click on the **Build Settings** tab and scroll down to the section titled **Apple LLVM 7.0 - Warnings - All languages**.
 
-<img src="{{ site.baseurl }}/img/blog/xcode-9.png" class="img-responsive center-block" alt="Removing warnings in Xcode">
+<img src="{{ site.baseurl }}/img/blog/xcode-9.png" class="img-fluid center-block" alt="Removing warnings in Xcode">
 
 The exact settings you need to change might vary. But these are the two changes that I usually make:
 
@@ -140,7 +140,7 @@ The exact settings you need to change might vary. But these are the two changes 
 
 So, if you try to build again the small piece of code we tried before, it should build without warnings as well. Done!
 
-<img src="{{ site.baseurl }}/img/blog/xcode-10.png" class="img-responsive center-block" alt="Building in Xcode: no warnings">
+<img src="{{ site.baseurl }}/img/blog/xcode-10.png" class="img-fluid center-block" alt="Building in Xcode: no warnings">
 
 If you find any faults in these instructions or if you have any better ideas, please [let me know]({{ site.baseurl }}/en/contact/). I'll be happy to update the document and make corrections.
 

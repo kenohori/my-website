@@ -8,7 +8,7 @@ lang: en
 
 <div class="row">
 	<div class="col-sm-3 col-xs-3"></div>
-	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/thesis-cover.jpg" class="img-responsive" alt="My thesis cover" /></div>
+	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/thesis-cover.jpg" class="img-fluid" alt="My thesis cover" /></div>
 	<div class="col-sm-3 col-xs-3"></div>
 </div>
 
@@ -30,7 +30,7 @@ Also, it's worth noting that self-publishing companies don't offer the same kind
 
 <div class="row">
 	<div class="col-sm-3 col-xs-3"></div>
-	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/propositions.png" class="img-responsive img-thumbnail" alt="My propositions, with trim lines in A4" /></div>
+	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/propositions.png" class="img-fluid img-thumbnail" alt="My propositions, with trim lines in A4" /></div>
 	<div class="col-sm-3 col-xs-3"></div>
 </div>
 
@@ -104,7 +104,7 @@ In the case of my thesis, I got no errors but did get several warnings. Based on
 
 Once you have uploaded your PDF, you will also get a very important measure: **your spine width**. This is what you use to create a nice cover that wraps around your thesis. So now you can create a cover with width = 2*(paper width+trim margin)+spine width, and height = paper height+trim margin.
 
-<img src="{{ site.baseurl }}/img/blog/cover-wrap.jpg" class="img-responsive center-block" alt="My thesis cover: wrap around">
+<img src="{{ site.baseurl }}/img/blog/cover-wrap.jpg" class="img-fluid center-block" alt="My thesis cover: wrap around">
 
 #### 6. Flattening transparencies
 
