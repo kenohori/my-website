@@ -8,7 +8,7 @@ lang: en
 
 One of the most typical building blocks of efficient geometric computations is a *spatial index*. Using a spatial index, it is possible to perform many simple operations quickly, like obtaining a set of unique points. Such an operation can then be used for things like building a topological data structure or indexing more complex objects.
 
-<a href="https://commons.wikimedia.org/wiki/File:RTree-Visualization-3D.svg"><img src="{{ site.baseurl }}/img/blog/rtree.svg" class="img-responsive center-block" alt="An R-tree in 3D"></a>
+<a href="https://commons.wikimedia.org/wiki/File:RTree-Visualization-3D.svg"><img src="{{ site.baseurl }}/img/blog/rtree.svg" class="img-fluid center-block" alt="An R-tree in 3D"></a>
 
 However, properly implementing a spatial index is messy and, frankly, overkill for many practical applications. And yet, computations without one can be *mind-bogglingly slow*. So, I often resort to a quick hack---using a C++ standard library `set` or `map` with a custom comparison function. A `set` or `map` offers logarithmic time access to its elements, much like most spatial indices, and it works out of the box for plain old data types like `float` or `int`. Moreover, in order for you to use it with any class you're working with, it only needs a custom comparison functor[^1] that defines an ordering of its elements[^2].
 

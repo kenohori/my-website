@@ -6,7 +6,7 @@ categories: en
 lang: en
 ---
 
-<img src="{{ site.baseurl }}/img/me/34.jpg" class="img-responsive" alt="Ken Arroyo Ohori">
+<img src="{{ site.baseurl }}/img/me/34.jpg" class="img-fluid" alt="Ken Arroyo Ohori">
 
 Hello there!
 
@@ -19,7 +19,7 @@ When I search for the solution of a problem, most of the time I find it in a <de
 In fact, I'm insanely grateful to those who make an effort to help others and who document their own problems, but the collective internet has little to show for it.
 This blog is a small step towards changing that.
 
-<a href="http://xkcd.com/979/"><img src="http://imgs.xkcd.com/comics/wisdom_of_the_ancients.png" class="img-responsive center-block" alt="xkcd: Wisdom of the Ancients"></a>
+<a href="http://xkcd.com/979/"><img src="http://imgs.xkcd.com/comics/wisdom_of_the_ancients.png" class="img-fluid center-block" alt="xkcd: Wisdom of the Ancients"></a>
 
 Throughout my PhD, I dealt with plenty of technical issues myself, many of which are undocumented elsewhere and which I plan to (slowly) write about.
 I'll also propagandise and vent about the programming I do (C/C++, Ruby, Python), about the tools I love (Mac, LaTeX, Git) and those I love to hate (MS Office, Adobe CC), about the academic good life as a postdoc working remotely from Mexico City, and about all my favourite geekery unrelated from my work.

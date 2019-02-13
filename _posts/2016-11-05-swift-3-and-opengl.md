@@ -7,8 +7,8 @@ lang: en
 ---
 
 <div class="row">
-	<div class="col-sm-4 col-xs-4"><img src="{{ site.baseurl }}/img/blog/swift.svg" class="img-responsive center-block" alt="Setting the build settings in Xcode"></div>
-	<div class="col-sm-8 col-xs-8"><img src="{{ site.baseurl }}/img/blog/opengl.svg" class="img-responsive center-block" alt="Setting the build settings in Xcode"></div>
+	<div class="col-sm-4 col-xs-4"><img src="{{ site.baseurl }}/img/blog/swift.svg" class="img-fluid center-block" alt="Setting the build settings in Xcode"></div>
+	<div class="col-sm-8 col-xs-8"><img src="{{ site.baseurl }}/img/blog/opengl.svg" class="img-fluid center-block" alt="Setting the build settings in Xcode"></div>
 </div>
 
 Learning Swift has long been in my to-do list. So, when I recently undertook the project to write a CityGML viewer for Mac (to be released soon), I decided the time to learn Swift was now. Fortuitously, Apple had just released Swift 3, and since I like shiny new things, I decided to learn Swift 3 directly.

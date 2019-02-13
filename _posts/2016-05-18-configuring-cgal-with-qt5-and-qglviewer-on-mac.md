@@ -6,7 +6,7 @@ categories: en
 lang: en
 ---
 
-<img src="{{ site.baseurl }}/img/blog/lcc-demo.png" class="img-responsive center-block" alt="New project in Xcode">
+<img src="{{ site.baseurl }}/img/blog/lcc-demo.png" class="img-fluid center-block" alt="New project in Xcode">
 
 CGAL dropped support for Qt4 with version 4.7 in October. But alas, its [Homebrew](http://brew.sh) formula hasn't been updated to reflect this. In practical terms this means *you can't use Qt apps with CGAL*, including all the nice CGAL GUI demos out of the (homebrewed) box. This is bad if you want to build your own GUI applications, or use the demos as a tutorial or a base for your own code.
 
@@ -62,7 +62,7 @@ $ sudo make install
 
 In the CMake GUI you should be able to select the options that you need, including `WITH_CGAL_Qt5` and `WITH_demos`.
 
-<img src="{{ site.baseurl }}/img/blog/cmake.png" class="img-responsive center-block" alt="New project in Xcode">
+<img src="{{ site.baseurl }}/img/blog/cmake.png" class="img-fluid center-block" alt="New project in Xcode">
 
 **Update 27 Jul 2016**: Added instructions to symlink Qt5's `mkspecs` and `plugins`, and a note about `cmake-gui`.
 

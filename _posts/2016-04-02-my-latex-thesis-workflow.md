@@ -11,8 +11,8 @@ I do almost all my [paper writing]({{ site.baseurl }}/en/papers/) in [LaTeX](htt
 Doing a whole thesis in LaTeX however is a whole different beast. At best, you will be spending a lot of time just waiting for the document to build. As in several minutes, or enough to go get a coffee and come back to your computer only to continue waiting. At worst, you will be spending much more time than that fixing a long list of inscrutable errors. If you use many packages, things *will* break---sometimes subtly and sometimes horribly. And yet, it's incomparably better than the horrifying [alternative](https://en.wikipedia.org/wiki/Microsoft_Word). No contest there.
 
 <div class="row">
-	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/thesis-cover.jpg" class="img-responsive" alt="Thesis front cover" /></div>
-	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/thesis-cover-back.jpg" class="img-responsive" alt="Thesis back cover" /></div>
+	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/thesis-cover.jpg" class="img-fluid" alt="Thesis front cover" /></div>
+	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/thesis-cover-back.jpg" class="img-fluid" alt="Thesis back cover" /></div>
 </div>
 
 I recently finished my PhD thesis ([High-quality 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Low-quality 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML](https://3d.bk.tudelft.nl/ken/en/thesis/)). Except for the covers and the images inside it, it was made exclusively in LaTeX. Overall, I must say I'm very pleased with the result. However, things were not always easy. When choosing among various options, I had to make some hard choices and even retrace my steps a few times after things went wrong.
@@ -29,7 +29,7 @@ First things first. Everyone should have backups these days. Especially anyone l
 
 However, simply having a backup is sometimes not good enough. Many times I have found myself wanting to retrieve text I have already written and deleted. Sometimes after a long but unproductive workday you realise that yesterday's text was better than today's in some subtle (or obvious) way. While it's possible to retrieve old copies of your files from a backup, it's much smarter to keep a versioning system of some kind.
 
-<a href="http://xkcd.com/1597/"><img src="http://imgs.xkcd.com/comics/git.png" class="img-responsive center-block" alt="xkcd: Git"></a>
+<a href="http://xkcd.com/1597/"><img src="http://imgs.xkcd.com/comics/git.png" class="img-fluid center-block" alt="xkcd: Git"></a>
 
 My choice for a versioning system is clear. [Git](https://git-scm.com) is admittedly not that easy to use, but it's miles ahead of other versioning systems. I personally use [Tower](https://www.git-tower.com) as a GUI, which is a great piece of software and has a 50% student discount. It actually makes git easy to use and most likely faster too. For comparing and merging different versions of files, I use [Kaleidoscope](http://www.kaleidoscopeapp.com). It's also great and also comes with an academic discount.
 

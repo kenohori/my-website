@@ -56,7 +56,7 @@ struct CityGMLParserWrapper {
 
 Note that `CityGMLParser` is the C++ class, and that we need to create the two wrapper levels in `init` and delete them (C++ style) in the `dealloc`. This file can contain as much C++ as Objective-C++ allows.
 
-<img src="{{ site.baseurl }}/img/blog/bridging-header.png" class="img-responsive center-block" alt="Setting the bridging header in Xcode">
+<img src="{{ site.baseurl }}/img/blog/bridging-header.png" class="img-fluid center-block" alt="Setting the bridging header in Xcode">
 
 Finally, you likely need to add a *bridging header* that contains the import statement of your wrapper wrapper so that it can be used in Swift. If you use Xcode, this needs to be set in the Build Settings tab of the project settings. It simply needs to contain something like:
 

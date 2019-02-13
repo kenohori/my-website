@@ -6,7 +6,7 @@ categories: en
 lang: en
 ---
 
-<a href="https://commons.wikimedia.org/wiki/File:AerialViewMexicoCity.jpg"><img src="{{ site.baseurl }}/img/blog/mexico-city.jpg" class="img-responsive center-block" alt="Pollution in Mexico City"></a>
+<a href="https://commons.wikimedia.org/wiki/File:AerialViewMexicoCity.jpg"><img src="{{ site.baseurl }}/img/blog/mexico-city.jpg" class="img-fluid center-block" alt="Pollution in Mexico City"></a>
 
 Pollution in Mexico City has been a problem for decades.
 I remember my childhood in the early 1990s as a time of always-grey skies, cheap leaded petrol, and almost unbelievable tales of [birds falling dead from the sky](http://articles.chicagotribune.com/1986-02-04/news/8601090418_1_pollution-levels-mexico-city-dead-birds).
@@ -17,7 +17,7 @@ Nowadays the skies are mostly blue and the situation is much improved, which is 
 This improvement was no coincidence.
 Tough actions followed the worst years of the pollution crisis, including closing down an oil refinery, moving certain factories outside the city and forcing all cars to install catalytic converters and do stringent twice-yearly emission controls.
 
-<img src="{{ site.baseurl }}/img/blog/simat.png" class="img-responsive center-block" alt="SIMAT">
+<img src="{{ site.baseurl }}/img/blog/simat.png" class="img-fluid center-block" alt="SIMAT">
 
 However, the most forward-looking reaction was perhaps the creation of a city-wide pollution monitoring system in 1986, which is now known as [SIMAT](http://www.aire.cdmx.gob.mx).
 The system is acknowledged as a big success and is widely used.
@@ -56,8 +56,8 @@ And yet, they are directly interpolated by most services, including the otherwis
 This is a completely wrong way to provide pollution data at every location[^5].
 
 <div class="row">
-	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/simat-coyoacan-1.png" class="img-responsive center-block" alt="SIMAT Coyoacán 1"></div>
-	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/simat-coyoacan-2.png" class="img-responsive center-block" alt="SIMAT Coyoacán 2"></div>
+	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/simat-coyoacan-1.png" class="img-fluid center-block" alt="SIMAT Coyoacán 1"></div>
+	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/simat-coyoacan-2.png" class="img-fluid center-block" alt="SIMAT Coyoacán 2"></div>
 </div>
 
 As another bad example, consider the maps shown in SIMAT's website.
