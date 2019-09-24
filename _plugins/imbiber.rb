@@ -904,6 +904,8 @@ class Imbiber
 				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><a href="' + @entries[key][:pdf] + '"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></a></div><div class="col col-12 col-md-9">' + out + '</div></div>'
 			elsif @entries[key].has_key?(:paper) then
 				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><a href="' + @entries[key][:paper] + '"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></a></div><div class="col col-12 col-md-9">' + out + '</div></div>'
+			elsif @entries[key].has_key?(:doi) then
+				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><a href="' + @entries[key][:doi] + '"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></a></div><div class="col col-12 col-md-9">' + out + '</div></div>'
 			elsif @entries[key].has_key?(:poster) then
 				out = '<div class="row"><div class="col col-md-3 d-none d-md-block"><a href="' + @entries[key][:poster] + '"><img src="' + @entries[key][:img] + '" class="img-fluid img-thumbnail" /></a></div><div class="col col-12 col-md-9">' + out + '</div></div>'
 			elsif @entries[key].has_key?(:presentation) then
