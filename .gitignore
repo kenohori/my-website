@@ -1,6 +1,5 @@
 _site
 files
-img/me
 .DS_Store
 fonts/MetricWeb-Thin.eot
 fonts/MetricWeb-ThinItalic.woff
@@ -17,9 +16,7 @@ fonts/MetricWeb-LightItalic.eot
 fonts/MetricWeb-Light.woff2
 fonts/MetricWeb-Light.woff
 fonts/MetricWeb-Light.eot
-*.cachedbib
 fonts/MetricWeb-Regular.woff2
-fabfile.pyc
 fonts/FeijoaWeb-MediumItalic.woff2
 fonts/FeijoaWeb-MediumItalic.woff
 fonts/FeijoaWeb-MediumItalic.eot
@@ -32,4 +29,6 @@ fonts/FeijoaWeb-Display.eot
 fonts/FeijoaWeb-Bold.woff2
 fonts/FeijoaWeb-Bold.woff
 fonts/FeijoaWeb-Bold.eot
+*.cachedbib
+fabfile.pyc
 /__pycache__
