@@ -32,3 +32,6 @@ fonts/FeijoaWeb-Bold.eot
 *.cachedbib
 fabfile.pyc
 /__pycache__
+.jekyll-cache/*
+Gemfile
+Gemfile.lock
