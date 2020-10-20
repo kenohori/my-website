@@ -11,6 +11,8 @@ lang: en
 	<div class="col-sm-3 col-xs-3"><img src="{{ site.baseurl }}/img/blog/xcode-logo.jpg" class="img-fluid center-block" alt="Xcode logo"></div>
 </div>
 
+Note: the instructions below assume that you're linking the CGAL libraries, which used to be the only possible way to use CGAL. From CGAL 5, you can use the simpler header-only mode.
+
 For my research, I regularly need to write code to make various geometric computations on GIS datasets. Most of the time, I first use a simple library to read GIS formats (e.g. [GDAL](http://gdal.org)), and then I put everything into structures from [CGAL](http://www.cgal.org), the Computational Geometry Algorithms Library. That allows me to do the more complex stuff.
 
 Overall, CGAL is *great*. It has a rather steep learning curve and it's only available in C++[^1], but it's free for open source software[^2], fast and numerically robust. I consider it the single most important tool I use for my job. If I had no choice, I could find some kind (bad) substitute for everything else I use daily, but there's *nothing* quite like CGAL.
