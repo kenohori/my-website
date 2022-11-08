@@ -1,0 +1,28 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="d3.min.js"></script>
+  <script src="d3-dsv.min.js"></script>
+
+  <script src="globe.gl.min.js"></script>
+</head>
+
+<body>
+  <div id="globeViz"></div>
+
+  <script>
+    fetch('cities.geojson').then(res => res.json()).then(cities => {
+        Globe()
+          .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+          .labelsData(cities.features)
+          .labelLat(d => d.properties.lat)
+          .labelLng(d => d.properties.lng)
+          .labelText(d => d.properties.name)
+          .labelSize(d => Math.sqrt(d.properties.pop) * 4e-4)
+          .labelDotRadius(d => Math.sqrt(d.properties.pop) * 4e-4)
+          .labelColor(() => 'rgba(255, 165, 0, 0.75)')
+          .labelResolution(2)
+        (document.getElementById('globeViz'))
+      });
+  </script>
+</body>
