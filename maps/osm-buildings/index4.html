@@ -1,0 +1,35 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="d3.min.js"></script>
+  <script src="d3-dsv.min.js"></script>
+
+  <script src="globe.gl.min.js"></script>
+</head>
+
+<body>
+  <div id="globeViz"></div>
+
+  <script>
+    const weightColor = d3.scaleSequentialSqrt(d3.interpolateYlOrRd)
+      .domain([0, 1e6]);
+
+    const world = Globe()
+      (document.getElementById('globeViz'))
+      .hexBinPointWeight('buildings')
+      .hexAltitude(d => d.sumWeight * 1e-6)
+      .hexBinResolution(4)
+      .hexTopColor(d => weightColor(d.sumWeight))
+      .hexSideColor(d => weightColor(d.sumWeight))
+      .hexBinMerge(true)
+      .enablePointerInteraction(false); // performance improvement
+
+    fetch('buildings4.csv').then(res => res.text())
+      .then(csv => d3.csvParse(csv, ({ lat, lng, buildings }) => ({ lat: +lat, lng: +lng, buildings: +buildings })))
+      .then(data => world.hexBinPointsData(data));
+
+    // Add auto-rotation
+    world.controls().autoRotate = true;
+    world.controls().autoRotateSpeed = 0.6;
+  </script>
+</body>
