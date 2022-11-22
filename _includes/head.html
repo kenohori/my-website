@@ -14,9 +14,9 @@
     <link href="{{ site.baseurl }}/css/feijoa.css" rel="stylesheet">
   {% endif %}
   <link href="{{ site.baseurl }}/css/syntax.css" rel="stylesheet">
-  {% if page.mapbox == true %}
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+  {% if page.map == true %}
+    <script src="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.js"></script>
+    <link href="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.css" rel="stylesheet" />
     <style>
       .marker {
           display: block;
@@ -25,7 +25,7 @@
           cursor: pointer;
           padding: 0;
       }
-      </style>
+    </style>
   {% endif %}
   {% if page.mathjax == true %}
     <script type="text/javascript" src="{{ site.baseurl }}/MathJax/MathJax.js?config=TeX-AMS_CHTML"></script>

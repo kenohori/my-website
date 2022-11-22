@@ -163,7 +163,7 @@
 { "type": "Feature", "properties": { "lat": 30.7129, "lng": 76.7524, "pop": 1327210, "name": "Chandigarh" }, "geometry": { "type": "Point", "coordinates": [ 76.7524, 30.7129 ] } },
 { "type": "Feature", "properties": { "lat": 17.4235, "lng": 78.4785, "pop": 7538711, "name": "Hyderabad" }, "geometry": { "type": "Point", "coordinates": [ 78.4785, 17.4235 ] } },
 { "type": "Feature", "properties": { "lat": 41.8916, "lng": 12.5097, "pop": 1907211, "name": "Roma" }, "geometry": { "type": "Point", "coordinates": [ 12.5097, 41.8916 ] } },
-{ "type": "Feature", "properties": { "lat": 6.24414, "lng": -75.579, "pop": 3274828, "name": "Medellín" }, "geometry": { "type": "Point", "coordinates": [ -75.579, 6.24414 ] } },
+{ "type": "Feature", "properties": { "lat": 6.24414, "lng": -75.579, "pop": 3274828, "name": "Medellin" }, "geometry": { "type": "Point", "coordinates": [ -75.579, 6.24414 ] } },
 { "type": "Feature", "properties": { "lat": 31.2077, "lng": 29.951, "pop": 4604708, "name": "Alexandria" }, "geometry": { "type": "Point", "coordinates": [ 29.951, 31.2077 ] } },
 { "type": "Feature", "properties": { "lat": 16.8639, "lng": 96.1419, "pop": 5075160, "name": "Yangon" }, "geometry": { "type": "Point", "coordinates": [ 96.1419, 16.8639 ] } },
 { "type": "Feature", "properties": { "lat": 43.0705, "lng": 141.364, "pop": 1246041, "name": "Sapporo" }, "geometry": { "type": "Point", "coordinates": [ 141.364, 43.0705 ] } },
