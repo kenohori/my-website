@@ -3,7 +3,7 @@ layout: default
 title: Contact
 file: contact/index.html
 lang: en
-mapbox: true
+map: true
 ---
 
 <div class="container">
@@ -37,50 +37,48 @@ mapbox: true
 		</div>
 		<div id="map" class="col col-sm-6 col-lg-8 d-none d-sm-block" style="height: 600px;"></div>
 		<script>
-		  mapboxgl.accessToken = 'pk.eyJ1Ijoia2Vub2hvcmkiLCJhIjoiY2pnNnc1bDJkMjcxNzMzeGZjOGI4aW5ibyJ9.gonBY78tu7tCtqUAQr5YfA';
-		  var map = new mapboxgl.Map({
-		    container: 'map',
-		    style: 'mapbox://styles/kenohori/cim0i33ql00jmbjlw9l1pro1i',
-		    center: [4.37036640026392, 52.004713684518933],
-		    zoom: 13.5,
-		    pitch: 60
-		  });
-		  map.addControl(new mapboxgl.NavigationControl());
-		  var markers = {
-		    "type": "FeatureCollection",
-		    "features": [{
-		      "type": "Feature",
-		      "properties": {
-		        "description": "<h3>3D Geoinformation</h3><p>Room BG.West.010</p>",
-		        "iconSize": [50, 50]
-		      },
-		      "geometry": {
-		        "type": "Point",
-		        "coordinates": [4.37036640026392, 52.004713684518933]
-		      }
-		    }]
-		  }
-		  // add markers to map
-		  markers.features.forEach(function(marker) {
-		    // create a DOM element for the marker
-		    var el = document.createElement('div');
-		    el.className = 'marker';
-		    el.style.backgroundImage = 'url({{ site.url }}{{ site.baseurl }}/img/map/marker.svg)';
-		    el.style.width = marker.properties.iconSize[0] + 'px';
-		    el.style.height = marker.properties.iconSize[1] + 'px';
+			const map = new maplibregl.Map({
+				container: 'map', // container id
+				style: `https://api.maptiler.com/maps/47a11a62-e38e-4021-a133-9aecd60c679a/style.json?key=wyRKCoUfzSqmjQWaOFIp`, // style URL
+				center: [4.369782, 52.004991], // starting position [lng, lat]
+				zoom: 15, // starting zoom
+				});
+				map.addControl(new maplibregl.NavigationControl(), 'top-right');
+				var markers = {
+					"type": "FeatureCollection",
+					"features": [{
+						"type": "Feature",
+						"properties": {
+							"description": "<h3>3D Geoinformation</h3><p>Room BG.West.550</p>",
+							"iconSize": [50, 50]
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [4.369782, 52.004991]
+						}
+					}]
+				}
+				// add markers to map
+				markers.features.forEach(function(marker) {
+			    // create a DOM element for the marker
+			    var el = document.createElement('div');
+			    el.className = 'marker';
+			    el.style.backgroundImage = 'url({{ site.url }}{{ site.baseurl }}/img/map/marker.svg)';
+			    el.style.width = marker.properties.iconSize[0] + 'px';
+			    el.style.height = marker.properties.iconSize[1] + 'px';
 
-		    el.addEventListener('click', function() {
-		      var popup = new mapboxgl.Popup({closeOnClick: false})
-		        .setLngLat(markers.features[0].geometry.coordinates)
-		        .setHTML(markers.features[0].properties.description)
-		        .addTo(map);
-		    });
+			    el.addEventListener('click', function() {
+					var popup = new maplibregl.Popup({closeOnClick: false})
+						.setLngLat(markers.features[0].geometry.coordinates)
+						.setHTML(markers.features[0].properties.description)
+						.addTo(map);
+			    });
 
-		    // add marker to map
-		    new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
-		      .setLngLat(markers.features[0].geometry.coordinates)
-		      .addTo(map);
-		  });
+			    // add marker to map
+			    new maplibregl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
+					.setLngLat(markers.features[0].geometry.coordinates)
+					.addTo(map);
+			});
 		</script>
 	</div>
 </div>
