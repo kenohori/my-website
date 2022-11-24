@@ -35,5 +35,4 @@ fabfile.pyc
 .jekyll-cache/*
 Gemfile
 Gemfile.lock
-maps/mexico-city/data/*.geojson
-maps/mexico-city/data/isochrones/*.geojson
+maps/mexico-city/data
