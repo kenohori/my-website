@@ -6,14 +6,14 @@ lang: es
 ---
 
 <div class="container">
-	<h1>C&oacute;digo</h1>
+	<h1>C&oacute;digo pulido</h1>
 	<div class="row">
 		<div class="col col-12 col-sm-6 col-md-4 col-lg-3">
 			<a href="https://github.com/tudelft3d/azul"><img src="{{ site.baseurl }}/img/code/azul.png" class="img-fluid img-thumbnail" alt="azul"></a>
 		</div>
 		<div class="col col-12 col-sm-6 col-md-8 col-lg-9">
 			<h3><a href="https://github.com/tudelft3d/azul">azul</a></h3>
-			<p>azul es un visualizador 3D para macOS 10.14. Est&aacute; dise&ntilde;ado para ver modelos 3D de ciudades en CityGML 1.0 y 2.0, CityJSON 1.0, IndoorGML, OBJ, OFF y POLY. Tiene soporte para cargar m&uacute;ltiples archivos, para seleccionar objetos al darles clic en el visor o en la barra lateral, ver/ocultar objetos individuales y para ver sus atributos. Es software preliminar, pero es bastante estable y la mayor&iacute;a de los datos en CityGML funcionan con &eacute;l sin problemas. Est&aacute; disponible bajo la licencia GPLv3.</p>
+			<p>azul es un visualizador de modelos 3D de ciudades para macOS. Est&aacute; dise&ntilde;ado para ver modelos en CityGML 1.0 y 2.0, CityJSON 1.0 y 1.1, IndoorGML, OBJ, OFF y POLY. Tiene soporte para cargar m&uacute;ltiples archivos, para seleccionar objetos al darles clic en el visor o en la barra lateral, ver/ocultar objetos individuales y para ver sus atributos. Es software de investig&aacute;ci&oacute;, pero es bastante estable y la mayor&iacute;a de los datos en CityGML funcionan sin problemas. Est&aacute; disponible bajo la licencia GPLv3.</p>
 		</div>
 	</div>
 	<br />
@@ -40,44 +40,18 @@ lang: es
 			{% imbiber pubs/publications.bib one:14cg lang:es noimg %}
 		</div>
 	</div>
-	<div class="row">
-		<div class="col col-12 col-sm-6 col-md-4 col-lg-3">
-			<a href="https://github.com/kenohori/lcc-tools"><img src="{{ site.baseurl }}/img/code/lcc-tools.png" class="img-fluid img-thumbnail" alt="lcc-tools"></a>
-		</div>
-		<div class="col col-12 col-sm-6 col-md-8 col-lg-9">
-			<h3><a href="https://github.com/kenohori/lcc-tools">lcc-tools</a></h3>
-			<p>herramientas para construir y manipular complejos celulares en altas dimensiones, como construcci&oacute;n incremental y no incremental, as&iacute; como extrusi&oacute;n</p>
-			<p>Leer m&aacute;s:</p>
-			{% imbiber pubs/publications.bib one:15ijgis_extrusion lang:es noimg %}
-			{% imbiber pubs/publications.bib one:14icaa lang:es noimg %}
-		</div>
-	</div>
-	<h2>Snippets</h2>
-	<div class="row">
-		<div class="col col-12 col-sm-6 col-md-4 col-lg-3">
-			<a href="https://github.com/kenohori/TriVis"><img src="{{ site.baseurl }}/img/code/TriVis.png" class="img-fluid img-thumbnail" alt="TriVis"></a>
-		</div>
-		<div class="col col-12 col-sm-6 col-md-8 col-lg-9">
-			<h3><a href="https://github.com/kenohori/TriVis">TriVis</a></h3>
-			<p>peque&ntilde;o visualizador para Mac para depurar algoritmos basados en triangulaciones</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col col-12">
-			<h3><a href="https://github.com/kenohori/cgal-etc">cgal-etc</a></h3>
-			<p>(enhanced triangulation classes) agrega funcionalidad a las triangulaciones de <a href="http://www.cgal.org">CGAL</a>, como poder etiquetar aristas y quitar aristas restringidas</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col col-12">
-			<h3><a href="https://github.com/kenohori/imbiber">imbiber</a></h3>
-			<p>convierte BibTeX a HTML usando Ruby, incluye un plug-in para <a href="http://jekyllrb.com">Jekyll</a></p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col col-12">
-			<h3><a href="https://github.com/kenohori/bibhtmler">bibhtmler</a></h3>
-			<p>convierte BibTeX a HTML usando PHP</p>
-		</div>
-	</div>
+	<h2>Pedacer&iacute;a &uacute;til</h2>
+	<ul>
+		<li><a href="https://github.com/tudelft3d/isochrones-mexico">isochrones-mexico</a>: calcula is&oacute;cronas desde datos GTFS y visual&iacute;zalas en un mapa interactivo</li>
+		<li><a href="https://github.com/kenohori/konturpop">konturpop</a>: estima poblaciones urbanas desde el conjunto de datos de poblaci&oacute;n de Kontur</li>
+		<li><a href="https://github.com/kenohori/osmium-buildings">osmium-buildings</a>: cuenta los edificios en OSM usando la biblioteca Osmium</li>
+		<li><a href="https://github.com/kenohori/elevador">elevador</a>: crea modelos 3D de ciudades desde un mapa 2D y una nube de puntos</li>
+		<li><a href="https://github.com/kenohori/osclassifier">osclassifier</a>: clasifica los datos MasterMap del Ordnance Survey en clases de CityJSON</li>
+		<li><a href="https://github.com/kenohori/azul4d">azul4d</a>: visualizaci&oacute;n de objetos 4D usando Metal</li>
+		<li><a href="https://github.com/kenohori/lcc-tools">lcc-tools</a>: herramientas desarrolladas durante mi doctorado para construir y manipular complejos celulares en altas dimensiones, como construcci&oacute;n incremental y no incremental, as&iacute; como extrusi&oacute;n</li>
+		<li><a href="https://github.com/kenohori/TriVis">TriVis</a>: peque&ntilde;o visualizador para Mac para depurar algoritmos basados en triangulaciones</li>
+		<li><a href="https://github.com/kenohori/cgal-etc">cgal-etc</a>: agrega funcionalidad a las triangulaciones de <a href="http://www.cgal.org">CGAL</a>, como poder etiquetar aristas y quitar aristas restringidas</li>
+		<li><a href="https://github.com/kenohori/imbiber">imbiber</a>: convierte BibTeX a HTML usando Ruby, incluye un plug-in para <a href="http://jekyllrb.com">Jekyll</a></li>
+		<li><a href="https://github.com/kenohori/bibhtmler">bibhtmler</a>: convierte BibTeX a HTML usando PHP</li>
+	</ul>
 </div>	
