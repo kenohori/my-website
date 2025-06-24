@@ -3,9 +3,11 @@ files
 .DS_Store
 fonts/MetricWeb-Thin.eot
 fonts/MetricWeb-ThinItalic.woff
+fonts/MetricWeb-ThinItalic.woff2
 fonts/MetricWeb-ThinItalic.eot
 fonts/MetricWeb-Regular.woff
 fonts/MetricWeb-Thin.woff
+fonts/MetricWeb-Thin.woff2
 fonts/MetricWeb-Regular.eot
 fonts/MetricWeb-Medium.woff2
 fonts/MetricWeb-Medium.woff
