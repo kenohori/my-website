@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" viewBox="194.5 201.90696 416 464.16604" width="416" height="464.16604">
+  <defs/>
+  <g id="Lienzo_1" fill="none" fill-opacity="1" stroke="none" stroke-opacity="1" stroke-dasharray="none">
+    <title>Lienzo 1</title>
+    <g id="Lienzo_1_Capa_3">
+      <title>Capa 3</title>
+      <g id="Graphic_88">
+        <path d="M 610 435 L 530 435 L 530 465 L 500 465 L 500 665 L 610 665 Z" fill="#00b9ec"/>
+      </g>
+      <g id="Graphic_89">
+        <path d="M 500 465 L 530 465 L 530 435 L 487.5 435 L 487.5 550 L 425 550 L 425 665 L 500 665 Z" fill="#00cafb"/>
+      </g>
+      <g id="Graphic_90">
+        <path d="M 425 550 L 487.5 550 L 487.5 435 L 367.5 435 L 367.5 465 L 385 465 L 385 665 L 425 665 Z" fill="#4bd4f7"/>
+      </g>
+      <g id="Graphic_91">
+        <path d="M 385 465 L 367.5 465 L 367.5 435 L 272.5 435 L 272.5 550 L 220 550 L 220 665 L 385 665 Z" fill="#7adcfb"/>
+      </g>
+      <g id="Graphic_92">
+        <path d="M 220 550 L 272.5 550 L 272.5 435 L 195 435 L 195 665 L 220 665 Z" fill="#c1ebf8"/>
+      </g>
+    </g>
+    <g id="Lienzo_1_Capa_1">
+      <title>Capa 1</title>
+      <g id="Graphic_4">
+        <rect x="296.58464" y="202.40696" width="65" height="20.6" fill="white"/>
+        <rect x="296.58464" y="202.40696" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(301.58464 208.60697)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="14.36" y="5" xml:space="preserve">IFC model</tspan>
+        </text>
+      </g>
+      <g id="Graphic_5">
+        <rect x="296.58464" y="242.58516" width="65" height="20.6" fill="white"/>
+        <rect x="296.58464" y="242.58516" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(301.58464 244.68518)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="5.633" y="5" xml:space="preserve">Model placement </tspan>
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="14.795" y="13.199982" xml:space="preserve">correction</tspan>
+        </text>
+      </g>
+      <g id="Graphic_6">
+        <rect x="296.58464" y="281.89667" width="65" height="20.6" fill="white"/>
+        <rect x="296.58464" y="281.89667" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(301.58464 288.09668)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="10.583" y="5" xml:space="preserve">Type filtering</tspan>
+        </text>
+      </g>
+      <g id="Graphic_7">
+        <rect x="296.58464" y="321.20818" width="65" height="20.6" fill="white"/>
+        <rect x="296.58464" y="321.20818" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(301.58464 323.3082)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="8.303" y="5" xml:space="preserve">Complex shape </tspan>
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="10.829" y="13.199982" xml:space="preserve">simplification</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <rect x="296.58464" y="360.5197" width="65" height="20.6" fill="white"/>
+        <rect x="296.58464" y="360.5197" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(301.58464 362.6197)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="15.686" y="5" xml:space="preserve">Wall void </tspan>
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="10.829" y="13.199982" xml:space="preserve">simplification</tspan>
+        </text>
+      </g>
+      <g id="Graphic_9">
+        <rect x="296.58464" y="399.8312" width="65" height="20.6" fill="white"/>
+        <rect x="296.58464" y="399.8312" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(301.58464 401.9312)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="10.022" y="5" xml:space="preserve">Bounding box </tspan>
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="15.14" y="13.199982" xml:space="preserve">expansion</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <rect x="296.58464" y="439.8804" width="65" height="20.6" fill="white"/>
+        <rect x="296.58464" y="439.8804" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(301.58464 446.0804)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x=".041" y="5" xml:space="preserve">Column simplification</tspan>
+        </text>
+      </g>
+      <g id="Graphic_11">
+        <rect x="375.78484" y="439.8804" width="65" height="20.6" fill="white"/>
+        <rect x="375.78484" y="439.8804" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(380.78484 446.0804)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="4.466" y="5" xml:space="preserve">Horizontal section</tspan>
+        </text>
+      </g>
+      <g id="Graphic_12">
+        <rect x="454.98504" y="439.8804" width="65" height="20.6" fill="white"/>
+        <rect x="454.98504" y="439.8804" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(459.98504 446.0804)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="7.292" y="5" xml:space="preserve">Full voxelisation</tspan>
+        </text>
+      </g>
+      <g id="Graphic_13">
+        <rect x="539.5968" y="439.8804" width="65" height="20.6" fill="white"/>
+        <rect x="539.5968" y="439.8804" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(544.5968 446.0804)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="5.213" y="5" xml:space="preserve">IfcSpace isolation</tspan>
+        </text>
+      </g>
+      <g id="Graphic_14">
+        <rect x="539.5968" y="479.5823" width="65" height="20.6" fill="white"/>
+        <rect x="539.5968" y="479.5823" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(544.5968 481.68234)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="19.025" y="5" xml:space="preserve">Simple</tspan>
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="4.997" y="13.199982" xml:space="preserve">Z-axis ray casting</tspan>
+        </text>
+      </g>
+      <g id="Graphic_15">
+        <rect x="539.5968" y="558.2849" width="65" height="20.6" fill="white"/>
+        <rect x="539.5968" y="558.2849" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(544.5968 564.4849)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="15.518" y="5" xml:space="preserve">Extrusion</tspan>
+        </text>
+      </g>
+      <g id="Graphic_16">
+        <rect x="539.7218" y="519.28424" width="27.278185" height="20.6" fill="white"/>
+        <rect x="539.7218" y="519.28424" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(544.7218 523.58426)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD0.2 </tspan>
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x="2.3165924" y="9.999985" xml:space="preserve">Room</tspan>
+        </text>
+      </g>
+      <g id="Graphic_17">
+        <rect x="539.5968" y="597.2856" width="27.278185" height="20.6" fill="white"/>
+        <rect x="539.5968" y="597.2856" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(544.5968 601.5856)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD1.2 </tspan>
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x="2.3165924" y="9.999985" xml:space="preserve">Room</tspan>
+        </text>
+      </g>
+      <g id="Graphic_18">
+        <rect x="577.31864" y="597.2856" width="27.278185" height="20.6" fill="white"/>
+        <rect x="577.31864" y="597.2856" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(582.31864 601.5856)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD2.2 </tspan>
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x="2.3165924" y="9.999985" xml:space="preserve">Room</tspan>
+        </text>
+      </g>
+      <g id="Graphic_19">
+        <rect x="503.09526" y="558.2849" width="27.278185" height="20.6" fill="white"/>
+        <rect x="503.09526" y="558.2849" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(508.09526 562.5849)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD3.2 </tspan>
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x="2.3165924" y="9.999985" xml:space="preserve">Room</tspan>
+        </text>
+      </g>
+      <g id="Graphic_20">
+        <rect x="296.58464" y="479.5823" width="65" height="20.6" fill="white"/>
+        <rect x="296.58464" y="479.5823" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(301.58464 481.68234)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="1.649" y="5" xml:space="preserve">Z-axis ray casting &amp; </tspan>
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="13.946" y="13.199982" xml:space="preserve">refinement</tspan>
+        </text>
+      </g>
+      <g id="Graphic_21">
+        <rect x="430.3287" y="519.28424" width="27.278185" height="20.6" fill="white"/>
+        <rect x="430.3287" y="519.28424" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(435.3287 523.58426)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD0.3 </tspan>
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x="1.8165924" y="9.999985" xml:space="preserve">Storey</tspan>
+        </text>
+      </g>
+      <g id="Graphic_22">
+        <rect x="394.64575" y="519.28424" width="27.278185" height="20.6" fill="white"/>
+        <rect x="394.64575" y="519.28424" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(399.64575 523.58426)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD0.2 </tspan>
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x="1.8165924" y="9.999985" xml:space="preserve">Storey</tspan>
+        </text>
+      </g>
+      <g id="Graphic_23">
+        <rect x="353.054" y="519.28424" width="27.278185" height="20.6" fill="white"/>
+        <rect x="353.054" y="519.28424" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(358.054 523.58426)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD0.4 </tspan>
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x="3.5340924" y="9.999985" xml:space="preserve">Roof</tspan>
+        </text>
+      </g>
+      <g id="Graphic_24">
+        <rect x="315.44555" y="519.28424" width="27.278185" height="20.6" fill="white"/>
+        <rect x="315.44555" y="519.28424" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(320.44555 523.58426)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD0.3 </tspan>
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x="3.5340924" y="9.999985" xml:space="preserve">Roof</tspan>
+        </text>
+      </g>
+      <g id="Graphic_25">
+        <rect x="279.8655" y="519.28424" width="27.278185" height="20.6" fill="white"/>
+        <rect x="279.8655" y="519.28424" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(284.8655 523.58426)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD0.2 </tspan>
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x="3.5340924" y="9.999985" xml:space="preserve">Roof</tspan>
+        </text>
+      </g>
+      <g id="Graphic_26">
+        <rect x="203.93644" y="519.28424" width="27.278185" height="20.6" fill="white"/>
+        <rect x="203.93644" y="519.28424" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(208.93644 526.58425)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD0.0</tspan>
+        </text>
+      </g>
+      <g id="Graphic_27">
+        <rect x="240.11972" y="519.28424" width="27.278185" height="20.6" fill="white"/>
+        <rect x="240.11972" y="519.28424" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(245.11972 526.58425)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD1.0</tspan>
+        </text>
+      </g>
+      <g id="Graphic_28">
+        <rect x="430.3287" y="558.2849" width="65" height="20.6" fill="white"/>
+        <rect x="430.3287" y="558.2849" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(435.3287 560.3849)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="9.38" y="5" xml:space="preserve">Ray casting &amp; </tspan>
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="13.946" y="13.199982" xml:space="preserve">refinement</tspan>
+        </text>
+      </g>
+      <g id="Graphic_29">
+        <rect x="449.18963" y="598.6881" width="27.278185" height="20.6" fill="white"/>
+        <rect x="449.18963" y="598.6881" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(454.18963 605.9881)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD3.2</tspan>
+        </text>
+      </g>
+      <g id="Graphic_30">
+        <rect x="394.86384" y="558.2849" width="27.278185" height="20.6" fill="white"/>
+        <rect x="394.86384" y="558.2849" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(399.86384 562.7849)" fill="black">
+          <tspan font-family="CMU Bright" font-size="4" fill="black" x="4.9630924" y="4" xml:space="preserve">LoD </tspan>
+          <tspan font-family="CMU Bright" font-size="4" fill="black" x=".73709245" y="9.799988" xml:space="preserve">Footprint</tspan>
+        </text>
+      </g>
+      <g id="Graphic_31">
+        <rect x="315.44555" y="597.2856" width="65" height="20.6" fill="white"/>
+        <rect x="315.44555" y="597.2856" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(320.44555 599.3856)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="12.17" y="5" xml:space="preserve">Extrusion &amp; </tspan>
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="13.946" y="13.199982" xml:space="preserve">refinement</tspan>
+        </text>
+      </g>
+      <g id="Graphic_32">
+        <rect x="315.44555" y="637.9651" width="27.278185" height="20.6" fill="white"/>
+        <rect x="315.44555" y="637.9651" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(320.44555 645.2651)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD1.3</tspan>
+        </text>
+      </g>
+      <g id="Graphic_33">
+        <rect x="353.16737" y="637.9651" width="27.278185" height="20.6" fill="white"/>
+        <rect x="353.16737" y="637.9651" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(358.16737 645.2651)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD2.2</tspan>
+        </text>
+      </g>
+      <g id="Graphic_34">
+        <rect x="261.74894" y="637.9651" width="27.278185" height="20.6" fill="white"/>
+        <rect x="261.74894" y="637.9651" width="27.278185" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(266.74894 645.2651)" fill="black">
+          <tspan font-family="CMU Bright" font-size="5" fill="black" x=".68909245" y="4" xml:space="preserve">LoD1.2</tspan>
+        </text>
+      </g>
+      <g id="Graphic_35">
+        <rect x="242.88804" y="597.2856" width="65" height="20.6" fill="white"/>
+        <rect x="242.88804" y="597.2856" width="65" height="20.6" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(247.88804 603.4856)" fill="black">
+          <tspan font-family="CMU Bright" font-size="6" fill="black" x="15.518" y="5" xml:space="preserve">Extrusion</tspan>
+        </text>
+      </g>
+      <g id="Line_36">
+        <line x1="329.08465" y1="223.00696" x2="329.08465" y2="242.58516" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_46">
+        <line x1="408.28484" y1="460.4804" x2="408.28484" y2="519.28424" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_47">
+        <path d="M 572.0968 439.8804 L 572.0968 311.74173 L 335.63715 311.74173 L 335.63715 302.8213" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_37">
+        <line x1="329.08465" y1="263.18516" x2="329.08465" y2="281.89667" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_38">
+        <line x1="329.08465" y1="302.49667" x2="329.08465" y2="321.20818" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_39">
+        <line x1="329.08465" y1="341.80818" x2="329.08465" y2="360.5197" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_40">
+        <line x1="329.08465" y1="381.1197" x2="329.08465" y2="399.8312" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_41">
+        <line x1="329.08465" y1="420.4312" x2="329.08465" y2="439.8804" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_42">
+        <line x1="329.08465" y1="460.4804" x2="329.08465" y2="479.5823" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_43">
+        <line x1="329.08465" y1="500.1823" x2="329.08465" y2="519.28424" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_45">
+        <line x1="275.38804" y1="617.8856" x2="275.38804" y2="637.9651" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_48">
+        <path d="M 487.48504 439.8804 L 487.48504 430.58337 L 236.49718 430.58337 L 236.49718 511.2103" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_49">
+        <line x1="408.3298" y1="439.8804" x2="408.3704" y2="430.58337" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_50">
+        <line x1="217.46032" y1="511.4" x2="254.99597" y2="511.4" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_51">
+        <line x1="217.46032" y1="511.4" x2="217.51027" y2="519.28424" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_52">
+        <line x1="255.2" y1="511.6" x2="255.2" y2="519.28424" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_53">
+        <line x1="572.0968" y1="460.4804" x2="572.0968" y2="479.5823" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_54">
+        <path d="M 408.28484 487.2 L 440.78484 487.2 L 440.78484 518.98657" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_55">
+        <path d="M 487 460.8 L 487 553.7331 L 462.745 553.8552 L 462.7702 558.2849" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_56">
+        <path d="M 487 487.2 L 446.65117 487.2 L 446.65117 518.84615" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_57">
+        <path d="M 367.2 519 L 367.2 509.4466 L 293.68054 509.43836 L 293.59455 519.28424" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_58">
+        <line x1="329.08465" y1="539.88424" x2="329.08465" y2="596.9133" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_59">
+        <line x1="462.8287" y1="578.8849" x2="462.8287" y2="598.6881" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_61">
+        <path d="M 516.73435 558.2849 L 516.73435 469.9376 L 572.0968 470.0927" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_62">
+        <line x1="553.3609" y1="519.28424" x2="553.3609" y2="500.4006" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_63">
+        <line x1="553.3609" y1="539.88424" x2="553.3609" y2="558.0203" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_64">
+        <line x1="591" y1="558.0562" x2="591" y2="500.32754" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_65">
+        <line x1="553.2359" y1="597.2856" x2="553.2359" y2="579.1628" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_66">
+        <line x1="590.9577" y1="597.2856" x2="590.9577" y2="579.171" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_67">
+        <line x1="329.0817" y1="637.9651" x2="329.0761" y2="618.2065" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_68">
+        <line x1="366.80646" y1="637.9651" x2="366.80646" y2="618.2228" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_69">
+        <path d="M 426.2 487.2 L 426.228 542.4288 L 406.50704 542.4288 L 406.5493 557.8028" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_70">
+        <path d="M 464.6 487.2 L 464.6 547.9495 L 412.1985 547.9495 L 412.1985 557.96346" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_71">
+        <path d="M 366.6931 539.88424 L 366.6931 568.636 L 348.06846 568.636 L 348.06846 596.9347" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_72">
+        <path d="M 293.5046 539.88424 L 293.5046 568.46546 L 254.99597 568.46546 L 254.99597 596.9147" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8.0,5.0" stroke-width="1"/>
+      </g>
+      <g id="Line_74">
+        <path d="M 406.0177 579.2743 L 406.0177 585.8 L 293.81762 585.8 L 293.81762 597.2856" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8.0,5.0" stroke-width="1"/>
+      </g>
+      <g id="Line_75">
+        <path d="M 411.75697 579.3077 L 411.75697 592.0094 L 367.1355 592.0094 L 367.1355 596.9736" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8.0,5.0" stroke-width="1"/>
+      </g>
+      <g id="Graphic_76">
+        <text transform="translate(279.85785 421.78664) rotate(-90)" fill="black">
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="3375078e-19" y="6" xml:space="preserve">Preprocessing</tspan>
+        </text>
+      </g>
+      <g id="Graphic_77">
+        <text transform="translate(200 661.073) rotate(-90)" fill="black">
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="6" xml:space="preserve">Low geometric</tspan>
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="15.399979" xml:space="preserve">dependent abstraction</tspan>
+        </text>
+      </g>
+      <g id="Graphic_78">
+        <text transform="translate(222.5 661.073) rotate(-90)" fill="black">
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="6" xml:space="preserve">Mid geometric</tspan>
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="15.399979" xml:space="preserve">dependent abstraction</tspan>
+        </text>
+      </g>
+      <g id="Graphic_79">
+        <text transform="translate(390 661.073) rotate(-90)" fill="black">
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="6" xml:space="preserve">High geometric</tspan>
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="15.399979" xml:space="preserve">dependent abstraction</tspan>
+        </text>
+      </g>
+      <g id="Graphic_80">
+        <text transform="translate(430 661.073) rotate(-90)" fill="black">
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="6" xml:space="preserve">Very high geometric</tspan>
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="15.399979" xml:space="preserve">dependent abstraction</tspan>
+        </text>
+      </g>
+      <g id="Graphic_81">
+        <text transform="translate(502.5 661.073) rotate(-90)" fill="black">
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="6" xml:space="preserve">Interior geometric</tspan>
+          <tspan font-family="CMU Bright" font-size="7" fill="black" x="0" y="15.399979" xml:space="preserve">dependent abstraction</tspan>
+        </text>
+      </g>
+      <g id="Line_93">
+        <path d="M 195 435 L 610 435 L 610 665 L 195 665 L 195 435" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Line_94">
+        <path d="M 220 665 L 220 550 L 272.5 550 L 272.5 435" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Line_95">
+        <path d="M 367.5 435 L 367.5 467.5 L 385 467.5 L 385 665" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Line_96">
+        <path d="M 425 665 L 425 550 L 487.5 550" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.0,4.0" stroke-width="1"/>
+      </g>
+      <g id="Line_97">
+        <path d="M 500 665 L 500 465 L 530 465 L 530 435" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1.0,4.0" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

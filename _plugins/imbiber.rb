@@ -97,7 +97,7 @@ class NameParser < Parslet::Parser
 	rule(:bracketedletter) { str("{") >> letter >> str("}") }
 	rule(:badletter) { match['&;'] }
 	rule(:specialletter) { speciallyencodedletter | escapedletter | letterwithmodifier }
-	rule(:speciallyencodedletter) { str('---') | str('--') | str('``') | str('`') | str('\'\'') | str('\'') }
+	rule(:speciallyencodedletter) { str('---') | str('--') | str('``') | str('`') | str('\'\'') | str('\'') | str('\\i') }
 	rule(:escapedletter) { str('\\') >> str('&') }
 	rule(:letterwithmodifier) { str('\\') >> modifier >> (bracketedletter | letter) }
 	rule(:modifier) { str("\'") | str("\"") | str("\^") | str("\`") | str("c") | str("v") | str("~") | str("=") | str(".") }
