@@ -128,8 +128,10 @@ class SpecialLetters
 		processed_letter = letter.tr("\{\}", "")
 		if @@letters.has_key?(processed_letter) then
 			@@letters[processed_letter]
+			# puts processed_letter + " mapped to " + @@letters[processed_letter]
 		elsif processed_letter.length == 2 and processed_letter[0] == "\\" then
 			processed_letter[1]
+			# puts processed_letter + " simplified to " + processed_letter[1]
 		else
 			puts "Warning: not supported letter " + letter
 			letter
