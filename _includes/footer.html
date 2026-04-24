@@ -50,9 +50,11 @@
       }
     });
 
-    $('body').scrollspy({ target: '#sidebar', offset: 0 })
-    $('.papers-sidebar').children('.nav').children('.nav-item').children('.nav').hide();
-    $('.papers-sidebar').children('.nav').children('.nav-item').children('.active').parent().children('.nav').show();
+    var scrollSpy = new bootstrap.ScrollSpy(document.body, { target: '#sidebar', offset: 0 })
+    $('.papers-sidebar > .nav > .nav-item > .nav').hide();
+    $('.papers-sidebar > .nav > .nav-item > .nav-link.active').each(function() {
+      $(this).parent().children('.nav').show();
+    });
 
     $("#small-filter").keyup(function(){
       // Retrieve the input field text and reset the count to zero
@@ -118,9 +120,11 @@
       });
     });
 
-    $(window).on('activate.bs.scrollspy', function() {
-      $('.papers-sidebar').children('.nav').children('.nav-item').children('.nav').hide();
-      $('.papers-sidebar').children('.nav').children('.nav-item').children('.active').parent().children('.nav').show();
+    $('body').on('activate.bs.scrollspy', function() {
+      $('.papers-sidebar > .nav > .nav-item > .nav').hide();
+      $('.papers-sidebar > .nav > .nav-item > .nav-link.active').each(function() {
+        $(this).parent().children('.nav').show();
+      });
     });
 
   });
