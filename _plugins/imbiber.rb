@@ -896,8 +896,8 @@ class Imbiber
 		if @entries[key].has_key?(:buy) then
 			out << ' <a href="' + @entries[key][:buy] + '"><i class="fas fa-book"></i></a>'
 		end
-		out << ' <a href="#bib' + key.to_s + '" data-toggle="collapse"><i class="far fa-caret-square-down"></i></a>'
-		out << '<div id="bib' + key.to_s + '" class="collapse" tabindex="-1"><pre class="bibtex">' + bibtex_of(@entries[key]) + '</pre></div>'
+		out << ' <a href="#bib' + key.to_s + '" data-bs-toggle="collapse"><i class="far fa-caret-square-down"></i></a>'
+		out << '<div id="bib' + key.to_s + '" class="collapse"><pre class="bibtex">' + bibtex_of(@entries[key]) + '</pre></div>'
 		
 		if @entries[key].has_key?(:img) && img == true then
 			if @entries[key].has_key?(:pdf) then
