@@ -2,23 +2,23 @@
 	<div class="container">
 		<a class="navbar-brand" href="https://3d.bk.tudelft.nl"><img class="tud-logo" src="{{ site.baseurl }}/img/3dgeoinfo.png" /></a>
 		<a class="navbar-brand" href="{{ site.baseurl }}/{{ page.lang }}/">Ken Arroyo Ohori</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	  	<ul class="navbar-nav">
-	  		{% for p in site.data.pages %}
+	  	  	{% for p in site.data.pages %}
 					<li class="nav-item{% if page.file == p.file %} active{% endif %}">
 						<a class="nav-link" href="{{ site.baseurl }}/{% if page.lang == 'en' or page.lang == 'es' %}{{ page.lang }}{% else %}en{% endif %}/{{ p.path }}">{% if page.lang == 'es' %}{{ p.es }}{% elsif page.lang == 'nl' %}{{ p.nl }}{% else %}{{ p.en }}{% endif %}</a></li>
 				{% endfor %}
 	  	</ul>
-	  	<ul class="navbar-nav ml-auto">
-		    <li class="nav-item dropdown">
-		      <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" data-toggle="dropdown">
-		        {{ page.lang }}
-		      </a>
-		      <div class="dropdown-menu dropdown-menu-right">
-		      	{% if page.locale_en %}
+	  	<ul class="navbar-nav ms-auto">
+	  	    <li class="nav-item dropdown">
+	  	      <a class="nav-item nav-link dropdown-toggle me-md-2" href="#" data-bs-toggle="dropdown">
+	  	        {{ page.lang }}
+	  	      </a>
+	  	      <div class="dropdown-menu dropdown-menu-end">
+	  	      	{% if page.locale_en %}
 							<a class="dropdown-item active" href="{{ site.baseurl }}{{ page.locale_en }}">en</a>
 						{% else %}
 							<a class="dropdown-item" href="{{ site.baseurl }}{{ page.url | replace_first:'/es/','/en/' }}">en</a>
@@ -28,9 +28,9 @@
 						{% else %}
 							<a class="dropdown-item" href="{{ site.baseurl }}{{ page.url | replace_first:'/en/','/es/' }}">es</a>
 						{% endif %}
-		      </div>
-		    </li>
-		  </ul>
+	  	      </div>
+	  	    </li>
+	  	  </ul>
 	  </div>
 	</div>
 </nav>
