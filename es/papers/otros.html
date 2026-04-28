@@ -13,8 +13,8 @@ locale_en: /en/papers/other.html
 			<h1>Otros</h1>
 			<input type="text" class="text-input" id="small-filter" type="search" value="" placeholder="Buscar" /><br />
 			<a href="#other2025">2025</a> <a href="#other2024">2024</a> <a href="#other2021">2021</a> <a href="#other2020">2020</a> <a href="#other2018">2018</a> <a href="#other2017">2017</a> <a href="#other2016">2016</a> <a href="#other2015">2015</a> <a href="#other2014">2014</a> <a href="#other2013">2013</a> <a href="#other2012">2012</a> <a href="#other2011">2011</a><br />
+			<a href="#thphdthesis">Doctorado</a> <a href="#thmastersthesis">Maestr&iacute;a</a><br />
 			<a href="index.html">Art&iacute;culos</a><br />
-			<a href="tesis.html">Tesis</a><br />
 			<a href="supervisadas.html">Tesis supervisadas</a>
 		</div>
 		<div class="col col-12 col-md-9">
@@ -28,6 +28,10 @@ locale_en: /en/papers/other.html
 				<h1>Otros</h1>
 				{% imbiber pubs/others.bib idswithprefix:other lang:es %}
 			</section>
+			<section id="th">
+				<h1>Tesis</h1>
+				{% imbiber pubs/theses.bib groupby:class idswithprefix:th lang:es %}
+			</section>
 		</div>
 		<div class="col col-12 col-md-3 d-none d-md-block">
 			<div style="position: fixed;">
@@ -37,10 +41,7 @@ locale_en: /en/papers/other.html
 				<nav id="sidebar" class="papers-sidebar">
 				  <ul class="nav nav-pills flex-column">
 				    <li class="nav-item">
-				    	<a class="nav-link" href="index.html">Art&iacute;culos</a>
-				    </li>
-				    <li class="nav-item">
-				    	<a class="nav-link" href="tesis.html">Tesis</a>
+				    	<a class="nav-link" href="index.html#pr">Art&iacute;culos</a>
 				    </li>
 				    <li class="nav-item">
 				    	<a class="nav-link" href="#other">Otros</a>
@@ -60,7 +61,14 @@ locale_en: /en/papers/other.html
 					    </ul>
 				    </li>
 				    <li class="nav-item">
-				    	<a class="nav-link" href="supervisadas.html">Tesis supervisadas</a>
+				    	<a class="nav-link" href="#th">Tesis</a>
+					    <ul class="nav nav-pills flex-column">
+					    	<li class="nav-item"><a class="nav-link ms-3 py-0" href="#thphdthesis">PhD</a></li>
+					      <li class="nav-item"><a class="nav-link ms-3 py-0" href="#thmastersthesis">MSc</a></li>
+					    </ul>
+				    </li>
+				    <li class="nav-item">
+				    	<a class="nav-link" href="supervisadas.html#st">Tesis supervisadas</a>
 				    </li>
 				  </ul>
 				</nav>
