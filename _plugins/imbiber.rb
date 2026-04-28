@@ -873,30 +873,30 @@ class Imbiber
 			out << ' <a href="' + @entries[key][:doi] + '"><i class="ai ai-doi-square"></i></a>'
 		end
 		if @entries[key].has_key?(:url) then
-			out << ' <a href="' + @entries[key][:url] + '"><i class="fas fa-external-link-square-alt"></i></a>'
+			out << ' <a href="' + @entries[key][:url] + '"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>'
 		end
 		if @entries[key].has_key?(:pdf) then
-			out << ' <a href="' + @entries[key][:pdf] + '"><i class="fas fa-file-alt"></i></a>'
+			out << ' <a href="' + @entries[key][:pdf] + '"><i class="fa-solid fa-file"></i></a>'
 		end
 		if @entries[key].has_key?(:paper) then
-			out << ' <a href="' + @entries[key][:paper] + '"><i class="fas fa-file-alt"></i></a>'
+			out << ' <a href="' + @entries[key][:paper] + '"><i class="fa-solid fa-file"></i></a>'
 		end
 		if @entries[key].has_key?(:poster) then
-			out << ' <a href="' + @entries[key][:poster] + '"><i class="fas fa-file-image"></i></a>'
+			out << ' <a href="' + @entries[key][:poster] + '"><i class="fa-solid fa-file-circle"></i></a>'
 		end
 		if @entries[key].has_key?(:presentation) then
-			out << ' <a href="' + @entries[key][:presentation] + '"><i class="fas fa-image"></i></a>'
+			out << ' <a href="' + @entries[key][:presentation] + '"><i class="fa-solid fa-image"></i></a>'
 		end
 		if @entries[key].has_key?(:slides) then
-			out << ' <a href="' + @entries[key][:slides] + '"><i class="fas fa-image"></i></a>'
+			out << ' <a href="' + @entries[key][:slides] + '"><i class="fa-solid fa-image"></i></a>'
 		end
 		if @entries[key].has_key?(:propositions) then
-			out << ' <a href="' + @entries[key][:propositions] + '"><i class="fas fa-file-powerpoint"></i></a>'
+			out << ' <a href="' + @entries[key][:propositions] + '"><i class="fa-solid fa-file-powerpoint"></i></a>'
 		end
 		if @entries[key].has_key?(:buy) then
-			out << ' <a href="' + @entries[key][:buy] + '"><i class="fas fa-book"></i></a>'
+			out << ' <a href="' + @entries[key][:buy] + '"><i class="fa-solid fa-book-open"></i></a>'
 		end
-		out << ' <a href="#bib' + key.to_s + '" data-bs-toggle="collapse"><i class="far fa-caret-square-down"></i></a>'
+		out << ' <a href="#bib' + key.to_s + '" data-bs-toggle="collapse"><i class="fa-regular fa-square-caret-down"></i></a>'
 		out << '<div id="bib' + key.to_s + '" class="collapse"><pre class="bibtex">' + bibtex_of(@entries[key]) + '</pre></div>'
 		
 		if @entries[key].has_key?(:img) && img == true then
