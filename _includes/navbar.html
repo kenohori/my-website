@@ -8,9 +8,37 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	  	<ul class="navbar-nav">
 	  	  	{% for p in site.data.pages %}
-				<li class="nav-item">
-					<a class="nav-link{% if page.file == p.file %} active{% endif %}" href="{{ site.baseurl }}/{% if page.lang == 'en' or page.lang == 'es' %}{{ page.lang }}{% else %}en{% endif %}/{{ p.path }}">{% if page.lang == 'es' %}{{ p.es }}{% elsif page.lang == 'nl' %}{{ p.nl }}{% else %}{{ p.en }}{% endif %}</a>
-				</li>
+	  	  		{% if p.file == 'papers/index.html' %}
+					{% if page.lang == 'es' %}
+						{% assign pub_label = 'Publicaciones' %}
+						{% assign papers_label = 'Artículos' %}
+						{% assign theses_label = 'Tesis' %}
+						{% assign other_label = 'Otras publicaciones' %}
+						{% assign supervised_label = 'Tesis supervisadas' %}
+					{% else %}
+						{% assign pub_label = 'Publications' %}
+						{% assign papers_label = 'Papers' %}
+						{% assign theses_label = 'Theses' %}
+						{% assign other_label = 'Other publications' %}
+						{% assign supervised_label = 'Supervised theses' %}
+					{% endif %}
+					{% capture lang_prefix %}{{ site.baseurl }}/{{ page.lang }}{% endcapture %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle{% if page.file == p.file %} active{% endif %}" href="#" data-bs-toggle="dropdown" role="button">
+							{{ pub_label }}
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item{% if page.path == 'en/papers/index.html' or page.path == 'es/papers/index.html' %} active{% endif %}" href="{{ lang_prefix }}/papers/">{{ papers_label }}</a>
+							<a class="dropdown-item{% if page.path == 'en/papers/other.html' or page.path == 'es/papers/otros.html' %} active{% endif %}" href="{{ lang_prefix }}/papers/{% if page.lang == 'es' %}otros{% else %}other{% endif %}.html#th">{{ theses_label }}</a>
+							<a class="dropdown-item{% if page.path == 'en/papers/other.html' or page.path == 'es/papers/otros.html' %} active{% endif %}" href="{{ lang_prefix }}/papers/{% if page.lang == 'es' %}otros{% else %}other{% endif %}.html#other">{{ other_label }}</a>
+							<a class="dropdown-item{% if page.path == 'en/papers/supervised.html' or page.path == 'es/papers/supervisadas.html' %} active{% endif %}" href="{{ lang_prefix }}/papers/{% if page.lang == 'es' %}supervisadas{% else %}supervised{% endif %}.html#st">{{ supervised_label }}</a>
+						</div>
+					</li>
+				{% else %}
+					<li class="nav-item">
+						<a class="nav-link{% if page.file == p.file %} active{% endif %}" href="{{ site.baseurl }}/{% if page.lang == 'en' or page.lang == 'es' %}{{ page.lang }}{% else %}en{% endif %}/{{ p.path }}">{% if page.lang == 'es' %}{{ p.es }}{% elsif page.lang == 'nl' %}{{ p.nl }}{% else %}{{ p.en }}{% endif %}</a>
+					</li>
+				{% endif %}
 			{% endfor %}
 	  	</ul>
 	  	<ul class="navbar-nav ms-auto">
