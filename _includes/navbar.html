@@ -48,14 +48,14 @@
 	  	      </a>
 	  	      <div class="dropdown-menu dropdown-menu-end">
 	  	      	{% if page.locale_en %}
-							<a class="dropdown-item active" href="{{ site.baseurl }}{{ page.locale_en }}">en</a>
+							<a class="dropdown-item{% if page.lang == 'en' %} active{% endif %}" href="{{ site.baseurl }}{{ page.locale_en }}">en</a>
 						{% else %}
-							<a class="dropdown-item" href="{{ site.baseurl }}{{ page.url | replace_first:'/es/','/en/' }}">en</a>
+							<a class="dropdown-item{% if page.lang == 'en' %} active{% endif %}" href="{{ site.baseurl }}{{ page.url | replace_first:'/es/','/en/' }}">en</a>
 						{% endif %}
 						{% if page.locale_es %}
-							<a class="dropdown-item active" href="{{ site.baseurl }}{{ page.locale_es }}">es</a>
+							<a class="dropdown-item{% if page.lang == 'es' %} active{% endif %}" href="{{ site.baseurl }}{{ page.locale_es }}">es</a>
 						{% else %}
-							<a class="dropdown-item" href="{{ site.baseurl }}{{ page.url | replace_first:'/en/','/es/' }}">es</a>
+							<a class="dropdown-item{% if page.lang == 'es' %} active{% endif %}" href="{{ site.baseurl }}{{ page.url | replace_first:'/en/','/es/' }}">es</a>
 						{% endif %}
 	  	      </div>
 	  	    </li>
