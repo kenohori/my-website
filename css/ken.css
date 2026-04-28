@@ -108,6 +108,17 @@ pre {
   background-color: #007722;
 }
 
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #fff;
+  background-color: #007722;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  background-color: #00aa44;
+}
+
 .tud-logo {
   max-height: 35px;
   margin-top: -5px;
