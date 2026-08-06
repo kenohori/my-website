@@ -6,7 +6,7 @@ categories: en
 lang: en
 ---
 
-<img src="{{ site.baseurl }}/img/me/34.jpg" class="img-fluid" alt="Ken Arroyo Ohori">
+<img src="{{ site.baseurl }}/img/me/42.jpg" class="img-fluid" alt="Ken Arroyo Ohori">
 
 Hello there!
 
