@@ -24,9 +24,9 @@ No tests, no linter, no formatter, no CI.
 
 ## Quirks
 
-- **`.gitignore` ignores `Gemfile` and `Gemfile.lock`** but both are tracked. The `files` dir is listed in `.gitignore` but is tracked normally.
-- `_site/` is NOT in `.gitignore` — build output is committed.
-- No JS bundler: vanilla jQuery (CDN), Bootstrap 5 (CDN). Maps load MapLibre GL JS conditionally. MathJax vendored locally in `MathJax/`.
+- **`.gitignore` ignores `Gemfile` and `Gemfile.lock`** but both are tracked.
+- `_site/` and `files/` (1.7GB of PDFs) are gitignored and untracked; Jekyll copies both into `_site/` at build.
+- No JS bundler: jQuery/Bootstrap/Bigfoot are vendored locally in `js/` and `css/`. MapLibre GL JS loads from CDN when `page.map == true`. MathJax v3 loads from jsDelivr CDN when `page.mathjax == true` (local `MathJax/` dir was removed). GSAP 3 + ScrollTrigger are vendored as a single `js/gsap.min.js` and loaded via `js/animations.js` when `page.gsap == true` or `page.papers == true` or the page is a post.
 - CSS: green accent `#00aa44`, custom Metric font family, 20px base.
 - BibTeX has custom fields: `img`, `oa`, `doi`, `pdf`, `presentation` — used for icon rendering.
 - Blog posts are English-only. Blog index filters by `post.lang`.
