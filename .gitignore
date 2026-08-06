@@ -36,6 +36,4 @@ MathJax/
 fabfile.pyc
 /__pycache__
 .jekyll-cache/*
-Gemfile
-Gemfile.lock
 maps/mexico-city/data
