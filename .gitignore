@@ -32,6 +32,7 @@ fonts/FeijoaWeb-Bold.woff2
 fonts/FeijoaWeb-Bold.woff
 fonts/FeijoaWeb-Bold.eot
 *.cachedbib
+MathJax/
 fabfile.pyc
 /__pycache__
 .jekyll-cache/*
