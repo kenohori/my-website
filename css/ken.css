@@ -15,6 +15,9 @@
   --transition-fast: 0.15s ease-in-out;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 html, body {
   height: 100%;
 }
