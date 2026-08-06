@@ -8,15 +8,15 @@ gsap: true
 
 <div class="container">
 	<h1 data-hero>Blog posts</h1>
-	<table>
+	<ul class="blog-list">
 	{% for post in site.posts %}
 		{% if post.lang == page.lang %}
-		<tr data-animate>
-		  <td style="padding: 2px;">{{ post.date | date_to_string }}</td>
-		  <td style="padding: 2px;"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></td>
-	  </tr>
+		<li data-animate>
+		  <span class="blog-date">{{ post.date | date_to_string }}</span>
+		  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+	  </li>
 	  {% endif %}
 	{% endfor %}
-	</table>
-	<span class="grey"><a href="{{ site.baseurl }}/{{ page.lang }}/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a>
+	</ul>
+	<span class="grey"><a href="{{ site.baseurl }}/{{ page.lang }}/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span>
 </div>
