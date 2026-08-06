@@ -1,3 +1,20 @@
+:root {
+  --font-sans: "Metric", Helvetica, Arial, sans-serif;
+  --font-mono: "Inconsolata", Monaco, Menlo, Consolas, "Courier New", monospace;
+
+  --ink: #000000;
+  --muted: #999999;
+  --surface: #ffffff;
+
+  --accent: #00aa44;
+  --accent-dark: #007722;
+  --accent-soft: #a0ff7c;
+  --on-accent: #ffffff;
+
+  --focus-ring: 2px solid var(--accent);
+  --transition-fast: 0.15s ease-in-out;
+}
+
 html, body {
   height: 100%;
 }
@@ -30,16 +47,17 @@ html, body {
     font-weight: bold;
 }
 body {
-  font-family: "Metric", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 20px;
-  color: #000000;
+  color: var(--ink);
 }
 a {
-  color: #00aa44;
+  color: var(--accent);
+  transition: color var(--transition-fast);
 }
 a:hover,
 a:focus {
-  color: #007722;
+  color: var(--accent-dark);
   text-decoration: none;
 }
 h1,
@@ -48,7 +66,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Metric", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   font-weight: bold;
 }
 @font-face {
@@ -64,70 +82,96 @@ h6 {
 
 code,
 pre {
-  font-family: "Inconsolata", Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: var(--font-mono);
 }
 .bibtex {
 	font-size: 10px;
 }
 
+.img-thumbnail {
+  transition: border-color var(--transition-fast);
+}
 .img-thumbnail:hover,
 .img-thumbnail:focus {
-  border-color: #007722;
+  border-color: var(--accent-dark);
 }
 
 .navbar-brand {
   font-size: 20px;
-  color: #000000 !important;
+  color: var(--ink) !important;
   font-weight: bold;
 }
 
 /* links */
 .papers-sidebar .nav>li>a {
-  color: #000;
+  color: var(--ink);
   font-size: 16px;
 }
 /* nested links */
 .papers-sidebar .nav .nav>li>a {
-  color: #999;
+  color: var(--muted);
   font-size: 12px;
 }
 /* active links */
 .nav-pills .nav-link.active {
-  color: #fff;
-  background-color: #00aa44;
+  color: var(--on-accent);
+  background-color: var(--accent);
 }
 /* active nested links */
 .nav-pills .nav-pills .nav-link.active {
-  color: #fff;
-  background-color: #00aa44;
+  color: var(--on-accent);
+  background-color: var(--accent);
 }
 /* hover links */
 .papers-sidebar .nav>li>a:hover,
 .papers-sidebar .nav>li>a:focus {
-  color: #fff;
-  background-color: #007722;
+  color: var(--on-accent);
+  background-color: var(--accent-dark);
 }
 
+.nav-link {
+  transition: color var(--transition-fast);
+}
+
+.dropdown-item {
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
 .dropdown-item:hover,
 .dropdown-item:focus {
-  color: #fff;
-  background-color: #007722;
+  color: var(--on-accent);
+  background-color: var(--accent-dark);
 }
 .dropdown-item.active,
 .dropdown-item:active {
-  color: #fff;
-  background-color: #00aa44;
+  color: var(--on-accent);
+  background-color: var(--accent);
 }
 
 .tud-logo {
   max-height: 35px;
   margin-top: -5px;
+  transition: opacity var(--transition-fast);
+}
+.tud-logo:hover {
+  opacity: 0.85;
+}
+
+.grey {
+  color: var(--muted);
 }
 
 mark {
-  background: #A0FF7C;
+  background: var(--accent-soft);
   padding: 0em;
 }
 ::selection {
-  background: #A0FF7C;
+  background: var(--accent-soft);
+}
+
+a:focus-visible,
+button:focus-visible,
+.dropdown-item:focus-visible,
+.nav-link:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
 }
