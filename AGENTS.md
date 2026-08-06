@@ -16,7 +16,7 @@ No tests, no linter, no formatter, no CI.
 
 - **Content**: `en/` and `es/` dirs with `index.html` pages + `_posts/` (Markdown, `YYYY-MM-DD-title.md`)
 - **Layouts/includes**: `_layouts/default.html`, `_includes/head.html`, `_includes/navbar.html`, `_includes/footer.html`
-- **Custom plugins**: `_plugins/imbiber.rb` (~1k LOC) — parses `pubs/*.bib` via `parslet` gem, renders publication lists. Use `{% imbiber idswithprefix:pr %}` in Liquid. Caches parsed output as `*.cachedbib` (binary, gitignored). Delete `.cachedbib` to force re-parse.
+- **Custom plugins**: `_plugins/` is a **git submodule** → https://github.com/kenohori/imbiber (parses `pubs/*.bib` via `parslet`, renders publication lists; ~1k LOC). Use `{% imbiber idswithprefix:pr %}` in Liquid. Do **not** edit `_plugins/` directly — make changes in the imbiber repo, then bump the submodule commit and `git add _plugins`. Caches parsed output as `*.cachedbib` (binary, gitignored). Delete `.cachedbib` to force re-parse. Needs `git submodule update --init` after clone.
 - **Navigation**: `_data/pages.yml` — trilingual labels (en/es/nl). Nav items (including dropdown "papers/") rendered in `navbar.html` keyed on `page.lang`.
 - **Every page** needs `layout:`, `title:`, `file:`, `lang:` in front matter. Posts add `date:`, `categories:`.
 - **All internal paths** must use `{{ site.baseurl }}/...` prefix (site lives at subpath `/ken`).
