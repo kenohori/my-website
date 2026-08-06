@@ -99,11 +99,69 @@ pre {
 }
 
 .img-thumbnail {
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 .img-thumbnail:hover,
 .img-thumbnail:focus {
   border-color: var(--accent-dark);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+[data-bs-theme="dark"] .img-thumbnail:hover,
+[data-bs-theme="dark"] .img-thumbnail:focus {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-img {
+  overflow: hidden;
+}
+.hero-img img {
+  display: block;
+}
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  z-index: 1040;
+  pointer-events: none;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition: opacity var(--transition-fast), visibility var(--transition-fast),
+              transform var(--transition-fast), background-color var(--transition-fast);
+  z-index: 1035;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover,
+.back-to-top:focus {
+  background-color: var(--accent-dark);
+  color: var(--on-accent);
 }
 
 .navbar-brand {
@@ -113,10 +171,21 @@ pre {
 }
 
 .navbar {
-  background-color: var(--navbar-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: rgba(248, 249, 250, 0.82);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  box-shadow: 0 1px 0 var(--border);
+  transition: box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+.navbar.navbar-scrolled {
+  box-shadow: 0 1px 0 var(--border), 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 .navbar .navbar-nav .nav-link {
   color: var(--ink);
+  position: relative;
 }
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link:focus {
@@ -124,6 +193,23 @@ pre {
 }
 .navbar .navbar-nav .nav-link.active {
   color: var(--accent);
+}
+.navbar .navbar-nav .nav-link:not(.dropdown-toggle):not(button)::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.25rem;
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+.navbar .navbar-nav .nav-link:not(.dropdown-toggle):not(button):hover::after,
+.navbar .navbar-nav .nav-link:not(.dropdown-toggle):not(button).active::after {
+  transform: scaleX(1);
 }
 
 /* links */
@@ -232,6 +318,46 @@ mark {
   background: var(--accent-soft);
 }
 
+/* draw-on-hover underline for in-content links */
+#main a:not(.nav-link):not(.dropdown-item):not(.navbar-brand):not(:has(img, i)),
+.footer a:not(.nav-link):not(.dropdown-item):not(.navbar-brand):not(:has(img, i)) {
+  position: relative;
+  text-decoration: none;
+}
+#main a:not(.nav-link):not(.dropdown-item):not(.navbar-brand):not(:has(img, i))::after,
+.footer a:not(.nav-link):not(.dropdown-item):not(.navbar-brand):not(:has(img, i))::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.08em;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s ease;
+}
+#main a:not(.nav-link):not(.dropdown-item):not(.navbar-brand):not(:has(img, i)):hover::after,
+#main a:not(.nav-link):not(.dropdown-item):not(.navbar-brand):not(:has(img, i)):focus-visible::after,
+.footer a:not(.nav-link):not(.dropdown-item):not(.navbar-brand):not(:has(img, i)):hover::after,
+.footer a:not(.nav-link):not(.dropdown-item):not(.navbar-brand):not(:has(img, i)):focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* theme-toggle spin */
+@keyframes theme-toggle-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+#theme-toggle.spin {
+  animation: theme-toggle-spin 0.4s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  #theme-toggle.spin {
+    animation: none;
+  }
+}
+
 a:focus-visible,
 button:focus-visible,
 .dropdown-item:focus-visible,
@@ -249,6 +375,13 @@ button:focus-visible,
   --accent: #37c76c;
   --accent-dark: #2ba355;
   --accent-soft: #1f5130;
+}
+
+[data-bs-theme="dark"] .navbar {
+  background-color: rgba(26, 29, 32, 0.82);
+}
+[data-bs-theme="dark"] .navbar.navbar-scrolled {
+  box-shadow: 0 1px 0 var(--border), 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 [data-bs-theme="dark"] .theme-dark-only {

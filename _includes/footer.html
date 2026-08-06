@@ -12,6 +12,9 @@
 		</small></p>
 	</div>
 </footer>
+<button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">
+	<i class="fa-solid fa-chevron-up"></i>
+</button>
 <script src="{{ site.baseurl }}/js/bootstrap.bundle.min.js"></script>
 <script>
   var themeToggle = document.getElementById('theme-toggle');
@@ -26,13 +29,48 @@
         root.setAttribute('data-bs-theme', 'dark');
         localStorage.setItem('theme', 'dark');
       }
+      themeToggle.classList.remove('spin');
+      void themeToggle.offsetWidth;
+      themeToggle.classList.add('spin');
     });
   }
+
+  var navbarEl = document.querySelector('.navbar');
+  if (navbarEl) {
+    var onScroll = function () {
+      navbarEl.classList.toggle('navbar-scrolled', window.scrollY > 8);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  var backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    var onScrollTop = function () {
+      backToTop.classList.toggle('show', window.scrollY > 400);
+    };
+    window.addEventListener('scroll', onScrollTop, { passive: true });
+    onScrollTop();
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  var progressBar = document.querySelector('.reading-progress');
+  if (progressBar) {
+    var onScrollProgress = function () {
+      var doc = document.documentElement;
+      var scrollable = doc.scrollHeight - window.innerHeight;
+      var progress = scrollable > 0 ? window.scrollY / scrollable : 1;
+      progressBar.style.transform = 'scaleX(' + progress + ')';
+    };
+    window.addEventListener('scroll', onScrollProgress, { passive: true });
+    window.addEventListener('resize', onScrollProgress, { passive: true });
+    onScrollProgress();
+  }
 </script>
-{% if page.gsap == true or page.papers == true or page.layout == 'post' %}
 <script src="{{ site.baseurl }}/js/gsap.min.js"></script>
 <script src="{{ site.baseurl }}/js/animations.js"></script>
-{% endif %}
 {% if page.papers == true %}
 <script src="{{ site.baseurl }}/js/papers.js"></script>
 {% endif %}

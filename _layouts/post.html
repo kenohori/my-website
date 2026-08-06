@@ -2,6 +2,7 @@
 layout: default
 ---
 
+<div class="reading-progress" aria-hidden="true"></div>
 <div class="container">
 	<div class="row">
 		<div class="col col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
@@ -9,7 +10,7 @@ layout: default
 		    <h1>{{ page.title }}</h1>
 		    <h3>{{ page.date | date: "%b %-d, %Y" }}</h3>
 		  </div>
-		  <div data-animate>
+		  <div class="post-content">
 		  {{ content }}
 		  </div>
 		  <div class="row">

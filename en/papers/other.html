@@ -10,7 +10,7 @@ locale_es: /es/papers/otros.html
 <div class="container">
 	<div class="row">
 		<div class="col col-12 col-sm-12 d-md-none">
-			<h1>Other</h1>
+			<h1 data-hero>Other</h1>
 			<input type="text" class="text-input" id="small-filter" type="search" value="" placeholder="Search" /><br />
 			{% imbiber_years pubs/others.bib idswithprefix:other %}<br />
 			<a href="#thphdthesis">PhD</a> <a href="#thmastersthesis">MSc</a><br />
@@ -25,11 +25,11 @@ locale_es: /es/papers/otros.html
 				</ol>
 			</nav>
 			<section id="other">
-				<h1>Other</h1>
+				<h1 data-hero>Other</h1>
 				{% imbiber pubs/others.bib idswithprefix:other %}
 			</section>
 			<section id="th">
-				<h1>Theses</h1>
+				<h1 data-hero>Theses</h1>
 				{% imbiber pubs/theses.bib groupby:class idswithprefix:th %}
 			</section>
 		</div>
