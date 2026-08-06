@@ -17,6 +17,10 @@
 <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
 <script src="{{ site.baseurl }}/js/bigfoot.min.js"></script>
 <script src="{{ site.baseurl }}/js/jquery.mark.min.js"></script>
+{% if page.gsap == true or page.papers == true or page.layout == 'post' %}
+<script src="{{ site.baseurl }}/js/gsap.min.js"></script>
+<script src="{{ site.baseurl }}/js/animations.js"></script>
+{% endif %}
 <script type="text/javascript">
   $.bigfoot();
 </script>

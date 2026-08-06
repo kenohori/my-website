@@ -3,14 +3,15 @@ layout: default
 title: Blog
 file: blog/index.html
 lang: en
+gsap: true
 ---
 
 <div class="container">
-	<h1>Blog posts</h1>
+	<h1 data-hero>Blog posts</h1>
 	<table>
 	{% for post in site.posts %}
 		{% if post.lang == page.lang %}
-		<tr>
+		<tr data-animate>
 		  <td style="padding: 2px;">{{ post.date | date_to_string }}</td>
 		  <td style="padding: 2px;"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></td>
 	  </tr>
