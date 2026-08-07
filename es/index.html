@@ -30,4 +30,20 @@ gsap: true
 			</p>
 		</div>
 	</div>
+	<hr class="my-4" data-line />
+	<div class="row" data-animate>
+		<div class="col col-12 col-md-3 col-lg-2">
+			<h2>Última entrada del blog</h2> <a href="{{ site.baseurl }}/{{ page.lang }}/feed.xml"><i class="fa-solid fa-rss"></i></a>
+		</div>
+		<div class="col col-12 col-md-9 col-lg-8">
+	    {% for post in site.posts %}
+	      {% if post.lang == page.lang %}
+	      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+	      <h4>{{ post.date | date: "%b %-d, %Y" }}</h4>
+		    {{ post.content }}
+	      {% break %}
+	      {% endif %}
+	    {% endfor %}
+	  </div>
+	 </div>
 </div>
