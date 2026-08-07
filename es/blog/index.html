@@ -7,6 +7,16 @@ gsap: true
 ---
 
 <div class="container">
-	<h1 data-hero>Blog posts</h1>
-	<p data-animate>Por el momento no he hecho ningún post en español, pero puedes <a href="{{ site.baseurl }}/en/blog/">ver los posts en ingl&eacute;s</a>.</p>
+	<h1 data-hero>Entradas del blog</h1>
+	<ul class="blog-list">
+	{% for post in site.posts %}
+		{% if post.lang == page.lang %}
+		<li data-animate>
+		  <span class="blog-date">{{ post.date | date_to_string }}</span>
+		  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+	  </li>
+	  {% endif %}
+	{% endfor %}
+	</ul>
+	<span class="grey"><a href="{{ site.baseurl }}/{{ page.lang }}/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span>
 </div>

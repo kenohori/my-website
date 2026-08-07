@@ -4,6 +4,7 @@ title: "The awful public transport layer of Google Maps"
 date: 2016-07-27 00:16 -05:00
 categories: en
 lang: en
+locale_es: "/es/2016/07/27/the-awful-public-transport-layer-of-google-maps.html"
 ---
 
 Two days ago, Google released a new version of Google Maps. Most people seem to agree that it's a nice improvement on an already great service. When I saw it, I immediately loved the cleaner look and the improved readability.

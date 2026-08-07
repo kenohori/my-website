@@ -4,6 +4,7 @@ title: "Dimension-independent programming using C++ templates"
 date: 2016-07-10 14:39 -05:00
 categories: en
 lang: en
+locale_es: "/es/2016/07/10/dimension-independent-programming-using-c++-templates.html"
 ---
 
 <img src="{{ site.baseurl }}/img/blog/simplex.jpg" class="img-fluid center-block" alt="Simplices of various dimensions">

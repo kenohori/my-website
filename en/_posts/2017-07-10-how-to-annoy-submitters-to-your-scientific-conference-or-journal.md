@@ -4,6 +4,7 @@ title: "How to annoy submitters to your scientific conference or journal"
 date: 2017-07-10 18:23 -05:00
 categories: en
 lang: en
+locale_es: "/es/2017/07/10/how-to-annoy-submitters-to-your-scientific-conference-or-journal.html"
 ---
 
 It can sometimes seem like conference organisers and publishers are working hard to impose on authors as many pointless rules as possible. So, I decided to compile a list of my favourite ones.

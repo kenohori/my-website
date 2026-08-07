@@ -4,6 +4,7 @@ title: "Configuring CGAL with Qt5 and QGLViewer on Mac"
 date: 2016-05-18 19:30 -05:00
 categories: en
 lang: en
+locale_es: "/es/2016/05/18/configuring-cgal-with-qt5-and-qglviewer-on-mac.html"
 ---
 
 <img src="{{ site.baseurl }}/img/blog/lcc-demo.png" class="img-fluid center-block" alt="New project in Xcode">

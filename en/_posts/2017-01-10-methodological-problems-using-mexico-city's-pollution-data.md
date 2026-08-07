@@ -4,6 +4,7 @@ title: "Methodological problems using Mexico City's pollution data"
 date: 2017-01-10 22:08 -05:00
 categories: en
 lang: en
+locale_es: "/es/2017/01/10/methodological-problems-using-mexico-city's-pollution-data.html"
 ---
 
 <a href="https://commons.wikimedia.org/wiki/File:AerialViewMexicoCity.jpg"><img src="{{ site.baseurl }}/img/blog/mexico-city.jpg" class="img-fluid center-block" alt="Pollution in Mexico City"></a>

@@ -4,6 +4,7 @@ title: "Using a C++ map or set with geometric data"
 date: 2016-06-19 18:25 -05:00
 categories: en
 lang: en
+locale_es: "/es/2016/06/19/using-a-c++-set-or-map-with-geometric-data.html"
 ---
 
 One of the most typical building blocks of efficient geometric computations is a *spatial index*. Using a spatial index, it is possible to perform many simple operations quickly, like obtaining a set of unique points. Such an operation can then be used for things like building a topological data structure or indexing more complex objects.

@@ -4,6 +4,7 @@ title: "Calling C++ from Swift"
 date: 2016-12-05 18:44 -05:00
 categories: en
 lang: en
+locale_es: "/es/2016/12/05/calling-c++-from-swift.html"
 ---
 
 When I was recently working on [azul](https://github.com/tudelft3d/azul), a CityGML viewer for Mac, my first thought was to make a pure Swift 3 project. But alas, I soon found out that Apple's [XmlParser](https://developer.apple.com/reference/foundation/xmlparser) is awfully slow. Compared to [val3dity](https://github.com/tudelft3d/val3dity), the first working version of the viewer was at least 10x slower in parsing XML. 

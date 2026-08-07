@@ -4,6 +4,7 @@ title: "My LaTeX thesis workflow"
 date: 2016-04-02 22:45 +02:00
 categories: en
 lang: en
+locale_es: "/es/2016/04/02/my-latex-thesis-workflow.html"
 ---
 
 I do almost all my [paper writing]({{ site.baseurl }}/en/papers/) in [LaTeX](http://latex-project.org). I know it has its flaws, but for papers it's still fantastic. Once you get the hang of it[^1], everything just works. No matter your need, you're pretty much guaranteed to find a package that solves it. In fact, I love LaTeX just enough that I have been known to avoid otherwise fine conferences and journals simply because they do not accept manuscripts made in LaTeX.

@@ -4,6 +4,7 @@ title: "#30DayMapChallenge"
 date: 2022-11-22 12:47 -05:00
 categories: en
 lang: en
+locale_es: "/es/2022/11/22/30-day-map-challenge.html"
 ---
 
 I contributed 3 maps for my research group's joint effort in the [#30DayMapChallenge](https://30daymapchallenge.com/). They're posted in the group's [Twitter](https://twitter.com/tudelft3d), but I'm linking the results from here as well.

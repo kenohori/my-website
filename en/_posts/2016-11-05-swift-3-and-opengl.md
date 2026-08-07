@@ -4,6 +4,7 @@ title: "Swift 3 and OpenGL"
 date: 2016-11-05 16:17 -05:00
 categories: en
 lang: en
+locale_es: "/es/2016/11/05/swift-3-and-opengl.html"
 ---
 
 <div class="row">

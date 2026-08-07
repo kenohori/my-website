@@ -4,6 +4,7 @@ title: "Swift 3 and Metal"
 date: 2016-11-17 17:04 -05:00
 categories: en
 lang: en
+locale_es: "/es/2016/11/17/swift-3-and-metal.html"
 ---
 
 <div class="row">

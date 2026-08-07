@@ -13,19 +13,33 @@ layout: default
 		  <div class="post-content">
 		  {{ content }}
 		  </div>
+		  {% assign same_lang_posts = site.posts | where: "lang", page.lang %}
+		  {% assign newer_post = nil %}
+		  {% assign older_post = nil %}
+		  {% assign found_current = false %}
+		  {% for post in same_lang_posts %}
+		  	{% if found_current %}
+		  		{% assign older_post = post %}
+		  		{% break %}
+		  	{% elsif post.url == page.url %}
+		  		{% assign found_current = true %}
+		  	{% else %}
+		  		{% assign newer_post = post %}
+		  	{% endif %}
+		  {% endfor %}
 		  <div class="row">
 		  	<div class="col-sm-6 col-6">
-				  {% if page.previous.url %}
-				    <p class="text-start"><a href="{{ site.baseurl }}{{page.previous.url}}"><i class="fa-solid fa-angles-left"></i> {{page.previous.title}}</a></p>
+				  {% if newer_post.url %}
+				    <p class="text-start"><a href="{{ site.baseurl }}{{newer_post.url}}"><i class="fa-solid fa-angles-left"></i> {{newer_post.title}}</a></p>
 				  {% else %}
-				  	<p class="text-start"><i class="fa-solid fa-angles-left"></i> First post</p>
+				  	<p class="text-start"><i class="fa-solid fa-angles-left"></i> {% if page.lang == 'es' %}Primera entrada{% else %}First post{% endif %}</p>
 				  {% endif %}
 			  </div>
 			  <div class="col-sm-6 col-6">
-				  {% if page.next.url %}
-				    <p class="text-end"><a href="{{ site.baseurl }}{{page.next.url}}">{{page.next.title}} <i class="fa-solid fa-angles-right"></i></a></p>
+				  {% if older_post.url %}
+				    <p class="text-end"><a href="{{ site.baseurl }}{{older_post.url}}">{{older_post.title}} <i class="fa-solid fa-angles-right"></i></a></p>
 				  {% else %}
-				  	<p class="text-end">Last post <i class="fa-solid fa-angles-right"></i></p>
+				  	<p class="text-end">{% if page.lang == 'es' %}Última entrada{% else %}Last post{% endif %} <i class="fa-solid fa-angles-right"></i></p>
 				  {% endif %}
 			  </div>
 		  </div>

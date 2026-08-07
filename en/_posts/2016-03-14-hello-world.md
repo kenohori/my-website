@@ -4,6 +4,7 @@ title: "Hello world"
 date: 2016-03-14 23:45 +01:00
 categories: en
 lang: en
+locale_es: "/es/2016/03/14/hello-world.html"
 ---
 
 <img src="{{ site.baseurl }}/img/me/42.jpg" class="img-fluid" alt="Ken Arroyo Ohori">

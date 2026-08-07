@@ -4,6 +4,7 @@ title: "Using CGAL and Xcode"
 date: 2016-03-16 17:42 +01:00
 categories: en
 lang: en
+locale_es: "/es/2016/03/16/using-cgal-and-xcode.html"
 ---
 
 <div class="row">

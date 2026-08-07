@@ -4,6 +4,7 @@ title: "Self-publishing your (LaTeX) thesis"
 date: 2016-03-20 23:41 +01:00
 categories: en
 lang: en
+locale_es: "/es/2016/03/20/self-publishing-your-latex-thesis.html"
 ---
 
 <div class="row">
