@@ -8,7 +8,7 @@ Personal academic website (Ken Arroyo Ohori, TU Delft). Jekyll 4.4.1 static site
 |------|---------|
 | Dev server | `bundle exec jekyll serve` (→ http://localhost:4000/ken/ — baseurl is `/ken`) |
 | Build | `bundle exec jekyll build` |
-| Deploy | `./deploy.sh` — builds then rsyncs `_site/` to server |
+| Deploy | `./deploy.sh` — builds twice and rsyncs `_site/` to both servers (university + ken.mx) |
 
 No tests, no linter, no formatter, no CI.
 
@@ -19,7 +19,8 @@ No tests, no linter, no formatter, no CI.
 - **Custom plugins**: `_plugins/` is a **git submodule** → https://github.com/kenohori/imbiber (parses `pubs/*.bib` via `parslet`, renders publication lists; ~1k LOC). Use `{% imbiber idswithprefix:pr %}` in Liquid. Do **not** edit `_plugins/` directly — make changes in the imbiber repo, then bump the submodule commit and `git add _plugins`. Caches parsed output as `*.cachedbib` (binary, gitignored). Delete `.cachedbib` to force re-parse. Needs `git submodule update --init` after clone.
 - **Navigation**: `_data/pages.yml` — trilingual labels (en/es/nl). Nav items (including dropdown "papers/") rendered in `navbar.html` keyed on `page.lang`.
 - **Every page** needs `layout:`, `title:`, `file:`, `lang:` in front matter. Posts add `date:`, `categories:`.
-- **All internal paths** must use `{{ site.baseurl }}/...` prefix (site lives at subpath `/ken`).
+- **All internal paths** must use `{{ site.baseurl }}/...` prefix (site lives at subpath `/ken` on the university server).
+- **Dual deployment**: the site is served both at https://3d.bk.tudelft.nl/ken/ (baseurl `/ken`, `_config.yml`) and at https://ken.mx/ (baseurl empty, url `https://ken.mx` via `_config.kenmx.yml`, layered with `--config _config.yml,_config.kenmx.yml`). `deploy.sh` builds once per target and rsyncs; the ken.mx copy lives in `/var/www/ken.mx` on the ken.mx droplet (nginx vhost `sites-enabled/ken.mx`). Never hardcode either domain for internal links — use `{{ site.baseurl }}`; external links to the university (group site, thesis HTML, old posts) are fine.
 - **Root `/index.html`** is standalone (no layout), language-detection JS redirect to `/en/` or `/es/`.
 
 ## Quirks
