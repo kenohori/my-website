@@ -13,7 +13,7 @@ locale_es: "/es/2016/03/14/hello-world.html"
 ¡Hola!
 
 Soy Ken Arroyo Ohori, un candidato a doctorado[^1] a punto de terminar en el grupo [3D geoinformation](https://3d.bk.tudelft.nl/) de la Universidad de Tecnología de Delft en los Países Bajos.
-El 6 de abril de 2016 defenderé mi tesis sobre el modelado de información geográfica en dimensiones superiores ([Alta calidad 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Baja calidad 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML](https://3d.bk.tudelft.nl/ken/en/thesis/)), que por fin terminé ayer. ¡Genial!
+El 6 de abril de 2016 defenderé mi tesis sobre el modelado de información geográfica en dimensiones superiores ([Alta calidad 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Baja calidad 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML]({{ site.baseurl }}/en/thesis/)), que por fin terminé ayer. ¡Genial!
 
 Leo blogs prácticamente todos los días.
 Bueno, no tanto que los *leo* como que *me los encuentro* de casualidad.

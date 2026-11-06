@@ -12,7 +12,7 @@ locale_es: "/es/2016/11/17/swift-3-and-metal.html"
 	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/metal.png" class="img-fluid center-block" alt="Setting the build settings in Xcode"></div>
 </div>
 
-As a follow-up to the [previous post](https://3d.bk.tudelft.nl/ken/en/2016/11/05/swift-3-and-opengl.html), perhaps it's also helpful to explain the easiest way to draw to a Cocoa view using Metal rather than OpenGL[^1]. And as a bonus, I also explain how to select OpenGL or Metal rendering on the fly.
+As a follow-up to the [previous post]({{ site.baseurl }}/en/2016/11/05/swift-3-and-opengl.html), perhaps it's also helpful to explain the easiest way to draw to a Cocoa view using Metal rather than OpenGL[^1]. And as a bonus, I also explain how to select OpenGL or Metal rendering on the fly.
 
 ## Some background
 

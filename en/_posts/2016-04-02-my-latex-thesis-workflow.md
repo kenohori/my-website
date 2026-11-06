@@ -16,7 +16,7 @@ Doing a whole thesis in LaTeX however is a whole different beast. At best, you w
 	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/thesis-cover-back.jpg" class="img-fluid" alt="Thesis back cover" /></div>
 </div>
 
-I recently finished my PhD thesis ([High-quality 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Low-quality 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML](https://3d.bk.tudelft.nl/ken/en/thesis/)). Except for the covers and the images inside it, it was made exclusively in LaTeX. Overall, I must say I'm very pleased with the result. However, things were not always easy. When choosing among various options, I had to make some hard choices and even retrace my steps a few times after things went wrong.
+I recently finished my PhD thesis ([High-quality 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Low-quality 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML]({{ site.baseurl }}/en/thesis/)). Except for the covers and the images inside it, it was made exclusively in LaTeX. Overall, I must say I'm very pleased with the result. However, things were not always easy. When choosing among various options, I had to make some hard choices and even retrace my steps a few times after things went wrong.
 
 Nevertheless, caveats and all, I do think that I have a pretty good setup. So, while things are still fresh on my mind, I will try to document the process a bit and give some general hints to those who are debating whether/how to make their thesis in LaTeX, or perhaps anyone who is looking for ideas for a more robust workflow.
 

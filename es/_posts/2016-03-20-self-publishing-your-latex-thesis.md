@@ -14,7 +14,7 @@ locale_es: "/es/2016/03/20/self-publishing-your-latex-thesis.html"
 	<div class="col-sm-3 col-xs-3"></div>
 </div>
 
-Hace poco terminé mi tesis de doctorado sobre el modelado de información geográfica en dimensiones superiores ([Alta calidad 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Baja calidad 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML](https://3d.bk.tudelft.nl/ken/en/thesis/)). Perdón por la promoción descarada, pero créeme, esto de verdad es relevante para lo que quiero decir.
+Hace poco terminé mi tesis de doctorado sobre el modelado de información geográfica en dimensiones superiores ([Alta calidad 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Baja calidad 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML]({{ site.baseurl }}/en/thesis/)). Perdón por la promoción descarada, pero créeme, esto de verdad es relevante para lo que quiero decir.
 
 ### ¿Por qué?
 

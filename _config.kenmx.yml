@@ -1,4 +1,0 @@
-# Overrides for the ken.mx deployment, layered on top of _config.yml with:
-#   bundle exec jekyll build --config _config.yml,_config.kenmx.yml
-url: https://ken.mx
-baseurl: ""

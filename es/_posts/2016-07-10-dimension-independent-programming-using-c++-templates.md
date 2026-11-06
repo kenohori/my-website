@@ -19,7 +19,7 @@ Es decir, hasta que aprendes cómo funciona a nivel técnico.
 Por ejemplo, hace varios años me dejó perplejo cómo [DTrace](http://dtrace.org/)---un buen framework de rastreo---logra alcanzar [cero sobrecarga](http://dtrace.org/blogs/brendan/2011/02/18/dtrace-pid-provider-overhead/) cuando no está habilitado.
 
 Un tiempo después, tuve un sentimiento similar sobre cómo los [mapas combinatorios](http://doc.cgal.org/latest/Combinatorial_map/index.html) de CGAL logran ser a la vez rápidos y completamente independientes de la dimensión.
-La respuesta está en una ingeniosa *meta-programación con plantillas* usando plantillas recursivas de C++11, una solución que después incorporé extensamente en mi [trabajo de doctorado](https://3d.bk.tudelft.nl/ken/en/thesis/).
+La respuesta está en una ingeniosa *meta-programación con plantillas* usando plantillas recursivas de C++11, una solución que después incorporé extensamente en mi [trabajo de doctorado]({{ site.baseurl }}/en/thesis/).
 
 La meta-programación con plantillas es una técnica que usa plantillas para generar ciertas estructuras de datos o realizar ciertas computaciones durante la compilación de un programa en lugar de durante su ejecución.
 Esta técnica se usa normalmente como una forma de apoyar la programación genérica definiendo funciones que pueden manejar indistintamente diferentes tipos de datos.

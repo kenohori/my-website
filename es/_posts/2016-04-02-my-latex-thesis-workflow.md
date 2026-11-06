@@ -17,7 +17,7 @@ Sin embargo, hacer una tesis completa en LaTeX es otra bestia completamente dife
 	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/thesis-cover-back.jpg" class="img-fluid" alt="Contraportada de la tesis" /></div>
 </div>
 
-Hace poco terminé mi tesis de doctorado ([Alta calidad 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Baja calidad 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML](https://3d.bk.tudelft.nl/ken/en/thesis/)). Excepto por las portadas y las imágenes del interior, se hizo exclusivamente en LaTeX. En general, debo decir que estoy muy satisfecho con el resultado. Sin embargo, las cosas no siempre fueron fáciles. Al elegir entre varias opciones, tuve que tomar decisiones difíciles e incluso desandar mis pasos algunas veces después de que las cosas salieran mal.
+Hace poco terminé mi tesis de doctorado ([Alta calidad 200 MB]({{ site.baseurl }}/files/16_thesis.pdf) / [Baja calidad 15 MB]({{ site.baseurl }}/files/16_thesis_lowres.pdf) / [HTML]({{ site.baseurl }}/en/thesis/)). Excepto por las portadas y las imágenes del interior, se hizo exclusivamente en LaTeX. En general, debo decir que estoy muy satisfecho con el resultado. Sin embargo, las cosas no siempre fueron fáciles. Al elegir entre varias opciones, tuve que tomar decisiones difíciles e incluso desandar mis pasos algunas veces después de que las cosas salieran mal.
 
 No obstante, advertencias y todo, sí creo que tengo una configuración bastante buena. Así que, mientras las cosas siguen frescas en mi mente, intentaré documentar un poco el proceso y dar algunos consejos generales a quienes debaten si/como hacer su tesis en LaTeX, o quizás a cualquiera que busque ideas para un flujo de trabajo más robusto.
 

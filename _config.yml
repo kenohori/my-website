@@ -1,9 +1,5 @@
 title: Ken Arroyo Ohori
 
-# Local
-# url: http://localhost
-# baseurl: "/~ken/work"
-
-# Server
-url: https://3d.bk.tudelft.nl
-baseurl: "/ken"
+# Production site. The old university URL (3d.bk.tudelft.nl/ken) 301s here.
+url: https://ken.mx
+baseurl: ""

@@ -18,7 +18,7 @@ That is, until you learn how it works on a technical level.
 For instance, several years ago I was dumbfounded at how [DTrace](http://dtrace.org/)---a nice tracing framework---manages to achieve [zero overhead](http://dtrace.org/blogs/brendan/2011/02/18/dtrace-pid-provider-overhead/) when it is not enabled.
 
 Some time later, I had a similar feeling about how CGAL [Combinatorial maps](http://doc.cgal.org/latest/Combinatorial_map/index.html) manage to be both fast and completely dimension independent.
-The answer lies in clever *template meta-programming* using recursive C++11 templates, a solution that I then incorporated extensively into my [PhD work](https://3d.bk.tudelft.nl/ken/en/thesis/).
+The answer lies in clever *template meta-programming* using recursive C++11 templates, a solution that I then incorporated extensively into my [PhD work]({{ site.baseurl }}/en/thesis/).
 
 Template meta-programming is a technique that uses templates to generate certain data structures or perform certain computations during the compilation of a program rather than during its execution.
 This technique is normally used as a way to support generic programming by defining functions that can deal with different data types indistinctly.

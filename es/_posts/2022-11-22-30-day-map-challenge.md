@@ -10,7 +10,7 @@ locale_es: "/es/2022/11/22/30-day-map-challenge.html"
 
 Contribuí con 3 mapas al esfuerzo conjunto de mi grupo de investigación en el [#30DayMapChallenge](https://30daymapchallenge.com/). Están publicados en el [Twitter](https://twitter.com/tudelft3d) del grupo, pero también enlazo los resultados desde aquí.
 
-## [Día 10: OpenStreetMap](https://3d.bk.tudelft.nl/ken/maps/osm-buildings/)
+## [Día 10: OpenStreetMap]({{ site.baseurl }}/maps/osm-buildings/)
 
 <img src="{{ site.baseurl }}/img/blog/map-osm.jpg" class="img-fluid center-block" alt="Mapa de edificios de OSM">
 
@@ -18,7 +18,7 @@ Este mapa muestra el número de huellas de edificios disponibles en OpenStreetMa
 
 El script para generar los datos está disponible [aquí](https://github.com/kenohori/osmium-buildings).
 
-## [Día 21: Conjunto de datos de población de Kontur](https://3d.bk.tudelft.nl/ken/maps/kontur-cities/)
+## [Día 21: Conjunto de datos de población de Kontur]({{ site.baseurl }}/maps/kontur-cities/)
 
 <img src="{{ site.baseurl }}/img/blog/map-kontur.jpg" class="img-fluid center-block" alt="Mapa de las ciudades más grandes de Kontur">
 
@@ -29,7 +29,7 @@ Debido a la metodología, es posible generar las ciudades más grandes del mundo
 El script para generar los datos está disponible [aquí](https://github.com/kenohori/konturpop).
 
 
-## [Día 23: Movimiento](https://3d.bk.tudelft.nl/ken/maps/mexico-city/)
+## [Día 23: Movimiento]({{ site.baseurl }}/maps/mexico-city/)
 
 <img src="{{ site.baseurl }}/img/blog/map-movement.jpg" class="img-fluid center-block" alt="Mapa de isócronas de la Ciudad de México">
 

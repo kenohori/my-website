@@ -9,7 +9,7 @@ locale_es: "/es/2022/11/22/30-day-map-challenge.html"
 
 I contributed 3 maps for my research group's joint effort in the [#30DayMapChallenge](https://30daymapchallenge.com/). They're posted in the group's [Twitter](https://twitter.com/tudelft3d), but I'm linking the results from here as well.
 
-## [Day 10: OpenStreetMap](https://3d.bk.tudelft.nl/ken/maps/osm-buildings/)
+## [Day 10: OpenStreetMap]({{ site.baseurl }}/maps/osm-buildings/)
 
 <img src="{{ site.baseurl }}/img/blog/map-osm.jpg" class="img-fluid center-block" alt="OSM buildings map">
 
@@ -17,7 +17,7 @@ This map shows the number of buildings footprints available in OpenStreetMap per
 
 The script to generate the data is available [here](https://github.com/kenohori/osmium-buildings).
 
-## [Day 21: Kontur population dataset](https://3d.bk.tudelft.nl/ken/maps/kontur-cities/)
+## [Day 21: Kontur population dataset]({{ site.baseurl }}/maps/kontur-cities/)
 
 <img src="{{ site.baseurl }}/img/blog/map-kontur.jpg" class="img-fluid center-block" alt="Kontur largest cities map">
 
@@ -28,7 +28,7 @@ Because of the methodology, it is possible to generate the world's biggest citie
 The script to generate the data is available [here](https://github.com/kenohori/konturpop).
 
 
-## [Day 23: Movement](https://3d.bk.tudelft.nl/ken/maps/mexico-city/)
+## [Day 23: Movement]({{ site.baseurl }}/maps/mexico-city/)
 
 <img src="{{ site.baseurl }}/img/blog/map-movement.jpg" class="img-fluid center-block" alt="Mexico city isochrones cities map">
 

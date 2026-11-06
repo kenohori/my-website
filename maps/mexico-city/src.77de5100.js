@@ -177,7 +177,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var maplibre_gl_1 = __importDefault(require("maplibre-gl"));
-var base_url = "https://3d.bk.tudelft.nl/ken/maps/mexico-city/";
+var base_url = "https://ken.mx/maps/mexico-city";
 var map = new maplibre_gl_1.default.Map({
   container: 'map',
   style: 'https://api.maptiler.com/maps/47a11a62-e38e-4021-a133-9aecd60c679a/style.json?key=wyRKCoUfzSqmjQWaOFIp',

@@ -13,7 +13,7 @@ locale_es: "/es/2016/11/17/swift-3-and-metal.html"
 	<div class="col-sm-6 col-xs-6"><img src="{{ site.baseurl }}/img/blog/metal.png" class="img-fluid center-block" alt="Configurando las opciones de compilación en Xcode"></div>
 </div>
 
-Como continuación del [post anterior](https://3d.bk.tudelft.nl/ken/en/2016/11/05/swift-3-and-opengl.html), quizá también sea útil explicar la forma más fácil de dibujar en una vista de Cocoa usando Metal en lugar de OpenGL[^1]. Y como extra, también explico cómo elegir entre el renderizado con OpenGL o con Metal sobre la marcha.
+Como continuación del [post anterior]({{ site.baseurl }}/en/2016/11/05/swift-3-and-opengl.html), quizá también sea útil explicar la forma más fácil de dibujar en una vista de Cocoa usando Metal en lugar de OpenGL[^1]. Y como extra, también explico cómo elegir entre el renderizado con OpenGL o con Metal sobre la marcha.
 
 ## Algo de contexto
 
